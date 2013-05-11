@@ -1,0 +1,12 @@
+.clearfix:after {visibility: hidden;display: block;font-size: 0;content: " ";clear: both;height: 0;}
+.clearfix {display:inline-block;}
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+
+/* Custom text-selection colors ------>#??????*/
+::-moz-selection{color:#fff;background:#fbb427;text-shadow:none;}
+::selection {	color:#fff;background:#fbb427;text-shadow:none;}
+ins {	 color:#000; background-color:#fbb427;}
+mark {	color:#000; background-color:#fbb427;font-style:italic;font-weight:bold;}
+a:link {   -webkit-tap-highlight-color:#fbb427;}
+

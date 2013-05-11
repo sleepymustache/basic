@@ -1,0 +1,140 @@
+/*
+	ColorBox Core Style:
+	The following CSS is consistent between example themes and should not be altered.
+*/
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cboxOverlay{position:fixed; width:100%; height:100%;}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative;}
+#cboxLoadedContent{overflow:auto;}
+#cboxTitle{margin:0;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%; height:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+.cboxPhoto{float:left; margin:auto; border:0; display:block; max-width:none;}
+.cboxIframe{width:100%; height:100%; display:block; border:0;}
+#colorbox, #cboxContent, #cboxLoadedContent{box-sizing:content-box; -moz-box-sizing:content-box; -webkit-box-sizing:content-box;}
+
+/*
+	User Style:
+	Change the following styles to modify the appearance of ColorBox.  They are
+	ordered & tabbed in a way that represents the nesting of the generated HTML.
+*/
+#cboxOverlay{background: #262626;}
+#colorbox{}
+#cboxTopLeft{}
+#cboxTopRight{}
+#cboxBottomLeft{}
+#cboxBottomRight{}
+#cboxMiddleLeft{}
+#cboxMiddleRight{}
+#cboxTopCenter{}
+#cboxBottomCenter{}
+#cboxContent{
+	background: #dad1d6;
+	border: 6px solid #bb619b;
+	border-radius: 9px;
+	margin-top: 20px;
+	margin-right: 14px;
+	text-align: center;
+	behavior: url(/css/PIE.htc);
+}
+.cboxIframe{background:#fff;}
+#cboxError{padding:50px; border:1px solid #ccc;}
+#cboxLoadedContent{
+	font-family: "ff-meta-web-pro-n7", "ff-meta-web-pro";
+	font-weight: 700;
+	font-size: 30px;
+	color: #61676d;
+	padding: 76px 25px 25px 25px;
+	line-height: 35px;
+}
+#cboxLoadedContent h3 {
+	font-size: 25px;
+	color: #61676d;
+	margin-bottom: 15px;
+}
+#cboxLoadedContent p {
+	font-family: "ff-meta-web-pro-n4", "ff-meta-web-pro";
+	font-weight: 400;
+	font-size: 21px;
+	line-height: 32px;
+	margin: 0;
+}
+#cboxLoadedContent strong {
+	color: #56004e;
+}
+#cboxLoadedContent ul {
+	list-style: none;
+	margin: auto;
+	display: block;
+	width: 100%;
+	text-align: center;
+	margin: 20px 0 0 0;
+	padding: 0;
+}
+#cboxLoadedContent li {
+	display: inline-block;
+}
+#cboxLoadedContent .continue {
+	background: url(../images/continue.png) 0 0 no-repeat;
+	display:  block;
+	width:  167px;
+	height: 47px;
+	text-indent: -999px;
+	line-height: 57px;
+}
+#cboxLoadedContent .continue:hover {
+	background: url(../images/continue.png) 0 -47px no-repeat;
+}
+#cboxLoadedContent .cancel {
+	font-family: "ff-meta-web-pro-n7", "ff-meta-web-pro";
+	font-weight: 700;
+	font-size: 30px;
+	margin-right: 31px;
+	margin-bottom: -4px;
+	display: block;
+	text-decoration: underline;
+	cursor: pointer;
+}
+#cboxTitle{
+	display: block;
+	height: 56px;
+	position: absolute;
+	background: #f9b726;
+	background: -moz-linear-gradient(top,  #f9b726 0%, #f58d20 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9b726), color-stop(100%,#f58d20));
+	background: linear-gradient(to bottom,  #f9b726 0%,#f58d20 100%);
+	top: 31px;
+	border-radius: 4px 4px 0 0 / 4px 4px 0 0;
+	box-shadow: 0px 8px 5px #cfc7cc;
+	behavior: url(/css/PIE.htc);
+	top: 0;
+	left: 0;
+	margin: 3px 5px;
+}
+#cboxCurrent{position:absolute; bottom:4px; left:58px; color:#949494;}
+#cboxSlideshow{position:absolute; bottom:4px; right:30px; color:#0092ef;}
+#cboxPrevious{position:absolute; bottom:0; left:0; width:25px; height:25px; text-indent:-9999px;}
+#cboxPrevious:hover{background-position:-75px -25px;}
+#cboxNext{position:absolute; bottom:0; left:27px; width:25px; height:25px; text-indent:-9999px;}
+#cboxNext:hover{background-position:-50px -25px;}
+#cboxLoadingOverlay{}
+#cboxLoadingGraphic{}
+#cboxClose{display: none;position:absolute; top: -14px; right: -14px; text-indent:-9999px;background: url(../images/close.png);width: 40px;height: 40px;z-index: 108px;}
+
+
+/*
+  The following fixes a problem where IE7 and IE8 replace a PNG's alpha transparency with a black fill
+  when an alpha filter (opacity change) is set on the element or ancestor element.  This style is not applied to or needed in IE9.
+  See: http://jacklmoore.com/notes/ie-transparency-problems/
+*/
+.cboxIE #cboxTopLeft,
+.cboxIE #cboxTopCenter,
+.cboxIE #cboxTopRight,
+.cboxIE #cboxBottomLeft,
+.cboxIE #cboxBottomCenter,
+.cboxIE #cboxBottomRight,
+.cboxIE #cboxMiddleLeft,
+.cboxIE #cboxMiddleRight {
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);
+}
