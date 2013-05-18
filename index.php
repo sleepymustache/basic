@@ -1,6 +1,6 @@
 <?php
 	$pageSettings = '{
-		"title": "",
+		"title": "Sleepy Mustache&trade; Framework",
 		"description": "",
 		"keywords": ""
 	}';

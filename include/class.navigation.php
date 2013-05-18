@@ -9,7 +9,7 @@
 
 		private function hasActive($page) {
 			// are there subpages? check those too...
-			if (count($page->pages)) {
+			if (isset($page->pages)) {
 				foreach ($page->pages as $subPage) {
 					if ($this->hasActive($subPage)) {
 						return true;
@@ -38,8 +38,12 @@
 					$buffer[] = $page->class . " ";
 				}
 				$buffer[] = "'>";
-				$buffer[] = "<a href='{$page->link}' target='{$page->target}'>{$page->title}</a>";
-				if (count($page->pages)) {
+				if (isset($page->target)) {
+					$buffer[] = "<a href='{$page->link}' target='{$page->target}'>{$page->title}</a>";
+				} else {
+					$buffer[] = "<a href='{$page->link}'>{$page->title}</a>";
+				}
+				if (isset($page->pages)) {
 					$buffer[] = $this->renderNav($page->pages);
 				}
 				$buffer[] = "</li>";

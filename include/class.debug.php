@@ -153,7 +153,6 @@ class Debug {
 	public function exceptionHandler($e) {
 		if (headers_sent()) {
 			echo "Error: " , $e->getMessage(), "\n";
-			include_once($_SERVER['DOCUMENT_ROOT'] . "/include/footer.php");
 		} else {
 			$_SESSION['exception'] = $e->getMessage() . "<br />" . str_replace("\n", "<br />", $e->getTraceAsString()) . "";
 			header('Location: /error/');

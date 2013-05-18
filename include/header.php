@@ -72,6 +72,7 @@
 	 * Page Settings
 	 **************************************************************************/
 	$pageSettings = json_decode($pageSettings);
+
 	$pageSettings->title = Hook::addFilter('header_title', $pageSettings->title);
 	$pageSettings->keywords = Hook::addFilter('header_keywords', $pageSettings->keywords);
 	$pageSettings->desciption = Hook::addFilter('header_description', $pageSettings->description);

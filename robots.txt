@@ -19,3 +19,4 @@ Disallow: /meta/
 Disallow: /css/
 Disallow: /js/
 Disallow: /include/
+Disallow: /modules/

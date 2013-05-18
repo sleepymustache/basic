@@ -12,6 +12,8 @@
 
 	if (strpos($strCurrentDir, '\\htdocs\\') > 0) {
 		$strBack = '.';
+	} else {
+		$strBack = '';
 	}
 
 	if (strpos($strCurrentDir, '\\htdocs\\') > 0) {
@@ -29,11 +31,12 @@
 	define("ROOT", $strBack);
 
 	// Debugging
-	Debug::$enable_show = true;
-	Debug::setHandler();
+	Debug::$enable_show = true;			// Show debug info on screen
+	Debug::$enable_send = false;		// Send debug info via email
+	Debug::$enable_log = false;			// Log debug info to a db
 
 	// Globals
-	define('LIVE_URL', 'xofigo.com');
+	define('LIVE_URL', '****CHANGE_LIVE_SITE_URL****');
 
 	// Server dependant variables (Stage vs Live) */
 	if (strpos($_SERVER['SERVER_NAME'], LIVE_URL) !== false) {

@@ -131,9 +131,12 @@ class Hook {
 	 * @return void
 	 */
 	private static function load() {
+		$all = "";
+
 		// get all subdirectories
 		foreach (self::$directories as $directory) {
 			$add = glob($directory . '/*' , GLOB_ONLYDIR);
+
 			if (is_array($all)) {
 				$all = array_merge($all, $add);
 			} else {
