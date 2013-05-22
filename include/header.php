@@ -52,11 +52,11 @@
 				"title": "Nav 1",
 				"link": "/nav1/"
 			}, {
-				"title": "nav2",
+				"title": "Nav 2",
 				"link": "/nav2/",
 				"pages": [
 					{
-						"title": "Full Prescribing Information",
+						"title": "Subnav 1",
 						"link": "/downloads/fpo.pdf",
 						"target": "_blank"
 					}
