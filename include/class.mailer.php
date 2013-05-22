@@ -20,9 +20,9 @@
  * * Can now set $from using $this->addFrom()
  * * Can now send text emails with $this->msgText($msg)
  *
- * @date	August 7, 2012
+ * @date	May 22, 2012
  * @author	Jaime Rodriguez, hi.i.am.jaime@gmail.com
- * @version	1.4
+ * @version	1.5
  * @copyright  GPL 3 http://cuttingedgecode.com
  */
 class Mailer {
@@ -73,7 +73,7 @@ class Mailer {
 
 		// Mail it
 		if (!mail(implode(",", $this->to), $this->subject, $this->body, $headers)) {
-			throw Exception("Mail was not sent.");
+			throw new Exception("Mail was not sent.");
 		}
 	}
 
@@ -83,11 +83,14 @@ class Mailer {
 	 * @param string $email A valid email address.
 	 */
 	public function addTo($email) {
-		if ($this->rfcCheck($email)) {
-			$this->to[] = $email;
-			return true;
-		} else {
-			throw new Exception("The $to parameter has no RFC 2822 compliant addresses.");
+		$emails = explode(',', $email);
+
+		foreach ($emails as $e) {
+			if ($this->rfcCheck(trim($e))) {
+				$this->to[] = trim($e);
+			} else {
+				throw new Exception("The to parameter has a non RFC 2822 compliant addresses: {$e}");
+			}
 		}
 	}
 
@@ -96,11 +99,14 @@ class Mailer {
 	 * @param string $email A valid email address.
 	 */
 	public function addCc($email) {
-		if ($this->rfcCheck($email)) {
-			$this->cc[] = $email;
-			return true;
-		} else {
-			throw new Exception("The $to parameter has no RFC 2822 compliant addresses.");
+		$emails = explode(',', $email);
+
+		foreach ($emails as $e) {
+			if ($this->rfcCheck(trim($e))) {
+				$this->cc[] = trim($e);
+			} else {
+				throw new Exception("The cc parameter has a non RFC 2822 compliant addresses: {$e}");
+			}
 		}
 	}
 
