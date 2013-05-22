@@ -8,21 +8,20 @@
  *
  * @section usage Usage
  * @code
- *   $apple = new stdClass();
- *   $apple->name = "Apple";
- *   $apple->color = "Red";
- *   $apple->texture = "Crispy";
- *   $apple->price = 0.50;
+ *   $fruit = new stdClass();
+ *   $fruit->name = "Apple";
+ *   $fruit->color = "Red";
+ *   $fruit->texture = "Crispy";
+ *   $fruit->price = 0.50;
  *
  *   $db = new FSDB();
- *   $db->insert('fruit', $apple);
+ *   $db->insert('fruit', $fruit);
  *   $data = $db->select('fruit', 'name', 'Banana');
  * @endcode
  *
  * @todo select with =, >, <, !=, >=, <=
- * @todo update merges with with row, instead of overwrite
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version 0.6
+ * @version 0.7
  * @copyright  GPL 3 http://cuttingedgecode.com
  */
 
@@ -242,7 +241,11 @@ class FSTable {
 
 		foreach($this->data as $key => $value) {
 			if ($this->data[$key]->$column == $search) {
-				$this->data[$key] = $data;
+				if (is_object($data)) {
+					$this->data[$key] = (object) array_merge((array) $this->data[$key], (array) $data);
+				} else {
+					$this->data[$key]->$column = $data;
+				}
 				$updated++;
 			}
 		}
@@ -363,4 +366,3 @@ class FSDB {
 		}
 	}
 }
-?>
