@@ -9,6 +9,7 @@ possible.
 
 Included Functionality
 ================================================================================
+* Templating Engine
 * Singleton PDO DB class (class.db.php)
 * Hook and Filter system (class.hooks.php)
 * Basic Emailing (class.mailer.php)
@@ -37,6 +38,36 @@ There are a few globals you will want to set in the include/globals.php file.
 
 Sample Code
 ================================================================================
+
+Templating
+--------------------------------------------------------------------------------
+Templates reside inside the '/templates/' folder and should end in a .tpl
+extension. The templating system works by using placeholders that later get
+filled in later. The placeholders must have the following syntax:
+
+	{{ placeholder }}
+
+To use a template you instantiate the template class passing in the template
+name. You then bind data to the placeholders and call the Template::show()
+method.
+
+	require_once('include/class.template.php');
+
+	$page = new Template('templates/default.tpl');
+	$page->bind('title', 'Sleepy Mustache');
+	$page->bind('header', 'Hello world!');
+	$page->show();
+
+Here is the sample template file (templates/default.tpl)
+
+	<html>
+		<head>
+			<title>{{ title }}</title>
+		</head>
+		<body>
+			<h1>{{ header }}</h1>
+		</body>
+	</html>
 
 Singleton PDO DB class (class.db.php)
 --------------------------------------------------------------------------------
