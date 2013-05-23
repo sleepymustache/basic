@@ -14,3 +14,38 @@ a:link {			 -webkit-tap-highlight-color:#fbb427;}
 	width: 960px;
 	margin: 0 auto;
 }
+
+/* Form Styling */
+form fieldset li {
+	margin-left: 0;
+	clear: both;
+	list-style: none;
+}
+form fieldset li label {
+	font-weight: bold;
+	float: left;
+	display: block;
+	width: 150px;
+}
+form fieldset li select {
+	width: 150px;
+}
+form fieldset li ul {
+	position: relative;
+	padding-left: 0;
+	top: -15px;
+	clear: both;
+}
+form fieldset li ul label {
+	float: left;
+}
+form fieldset li ul input {
+	margin-left: 150px;
+	margin-right: 10px;
+	float: left;
+	clear: right;
+}
+form fieldset.submit {
+	margin-left: 150px;
+	border: 0;
+}

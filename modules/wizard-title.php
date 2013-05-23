@@ -8,4 +8,4 @@ function wizard_header_title($title) {
 	return '<|:{) - ' . $title;
 }
 
-Hook::applyFilter('header_title', 'wizard_header_title');
+Hook::applyFilter('render_placeholder_title', 'wizard_header_title');

@@ -1,16 +1,7 @@
 <?php
-	$pageSettings = '{
-		"title": "Sleepy Mustache&trade; Framework",
-		"description": "",
-		"keywords": ""
-	}';
+	require_once('include/class.template.php');
 
-	include('include/header.php');
-?>
-<section>
-	<h1>Add stuff here</h1>
-</section>
-
-<?php
-	include('include/footer.php');
-?>
+	$page = new Template('templates/default.tpl');
+	$page->bind('title', 'Sleepy Mustache');
+	$page->bind('header', 'Hello world!');
+	$page->show();
