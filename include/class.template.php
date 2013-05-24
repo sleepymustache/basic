@@ -1,5 +1,43 @@
 <?php
 require_once('class.hooks.php');
+/**
+ * @page template1 Template Class
+ *
+ * Basic templating functionality
+ *
+ * @section usage Usage
+ *
+ * index.php
+ * @code
+ *	require_once('include/sleepy.php');
+ *
+ *	$page = new Template('templates/default.tpl');
+ *	$page->bind('title', 'Sleepy Mustache');
+ *	$page->bind('header', 'Hello world!');
+ *	$page->show();
+ * @endcode
+ *
+ * default.tpl
+ * @code
+ * 	<html>
+ *		<head>
+ *			<title>{{ title }}</title>
+ *		</head>
+ *		<body>
+ *			<h1>{{ header }}</h1>
+ *			<p>This page has been viewed {{ hits }} times.</p>
+ *		</body>
+ *	</html>
+ * @endcode
+ *
+ * @section changelog Changelog
+ * * Matches all placeholders, not just the was that were bound
+ *
+ * @date		May 24, 2012
+ * @author		Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
+ * @version		1.1
+ * @copyright	GPL 3 http://cuttingedgecode.com
+ */
 
 class Template {
 	protected $_file;
@@ -16,7 +54,6 @@ class Template {
 		foreach (array_unique($matches[0]) as $key => $placeholder) {
 			$key = trim(str_replace('{{', '', str_replace('}}', '', $placeholder)));
 			$template = str_replace($placeholder, Hook::addFilter('render_placeholder_' . $key, $this->_data[$key]), $template);
-
 		}
 
 		return $template;
