@@ -16,12 +16,12 @@
  * @endcode
  *
  * @section changelog Changelog
- * * added show() to the class, this method outputs the csv file to the
- *   browser directly, good for when you don't have write permissions.
+ * * Can add multiple rows at once
  *
- * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version 1.2
- * @copyright  GPL 3 http://cuttingedgecode.com
+ * @date		May 22, 2012
+ * @author		Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
+ * @version		1.3
+ * @copyright	GPL 3 http://cuttingedgecode.com
  */
 class CSV {
 	/**
@@ -31,7 +31,7 @@ class CSV {
 
 
 	/**
-	 * string Define what character to use as a delimeter
+	 * string Define what character to use as a delimiter
 	 */
 	public $delimiter = ',';
 
@@ -55,7 +55,7 @@ class CSV {
 			$this->filename = $filename;
 		} else {
 			if ($this->filename == '') {
-				throw new Exception('Cannot save without a filename.');
+				throw new Exception('CSV::load - Cannot save without a filename.');
 			}
 		}
 		if (($handle = fopen($this->filename, "r")) !== FALSE) {
@@ -68,7 +68,7 @@ class CSV {
 			fclose($handle);
 			$numberOfFields = count($data);
 		} else {
-			throw new Exception('Cannot open file for writing');
+			throw new Exception('CSV::load - Cannot open file for writing');
 		}
 
 		return true;
@@ -88,7 +88,7 @@ class CSV {
 			$this->filename = $filename;
 		} else {
 			if ($this->filename == '') {
-				throw new Exception('Cannot save without a filename.');
+				throw new Exception('CSV::save - Cannot save without a filename.');
 			}
 		}
 		if ($handle = fopen($this->filename, 'r+')) {
@@ -99,7 +99,7 @@ class CSV {
 			fclose($handle);
 			flock($handle, LOCK_UN);
 		} else {
-			throw new Exception('Cannot open file for writing');
+			throw new Exception('CSV::save - Cannot open file for writing');
 		}
 
 		return true;
@@ -114,7 +114,18 @@ class CSV {
 	 *   Returns true if successful.
 	 */
 	public function add($array) {
-		$this->data[] = $array;
+		if (!is_array($array)) {
+			throw new Exception('CSV::add - Parameter must be an array.')
+		}
+
+		if (count($array) == count($array, COUNT_RECURSIVE)) {
+			$this->data[] = $array;
+		} else {
+			foreach ($array as $record) {
+				$this->data[] = $record;
+			}
+		}
+
 		return true;
 	}
 
@@ -131,7 +142,7 @@ class CSV {
 			unset($this->data[$id]);
 			return true;
 		} else {
-			throw new Exception('Row does not exist. Data not removed.');
+			throw new Exception('CSV::remove - Row does not exist. Data not removed.');
 		}
 	}
 
