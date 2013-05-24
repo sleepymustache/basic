@@ -1,5 +1,5 @@
 <?php
-	require_once('include/class.template.php');
+	require_once('include/sleepy.php');
 
 	$page = new Template('templates/default.tpl');
 	$page->bind('title', 'Sleepy Mustache');

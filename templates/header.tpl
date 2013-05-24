@@ -1,17 +1,3 @@
-<?php
-	session_start();
-	ob_start();
-
-	include_once('/include/class.debug.php');
-	include_once('/include/class.hooks.php');
-	include_once('/include/global.php');
-	include_once('/include/class.db.php');
-	include_once('/include/class.tables.php');
-	include_once('/include/class.dbgrid.php');
-	include_once('/include/class.mailer.php');
-	include_once('/include/class.navigation.php');
-?>
-
 <!DOCTYPE html>
 <!--[if lt IE 9 ]>	  <html class="ie ie8 {{ urlClass }}" lang="en"> <![endif]-->
 <!--[if IE 9 ]>		  <html class="ie ie9 {{ urlClass }}" lang="en"> <![endif]-->
