@@ -12,6 +12,7 @@ require_once('class.hooks.php');
  * changing the value of the columns like this:
  *
  * @section examples Examples
+ *
  * @code
  * 	// load a record with id= 5 from a table called 'user'
  * 	class user extends record {
@@ -19,27 +20,28 @@ require_once('class.hooks.php');
  * 	}
  * 	$u = new user();
  * 	$u->load(5);
- * 	$u->columns->first_name = "Joe";
+ * 	$u->columns->first_name = 'Joe';
  * @endcode
  *
  * You can then save the new information by calling the save method:
+ *
  * @code
  * 	$u->save();
  * @endcode
  *
  * You can also show a nice form to edit or add new records like this
  * @code
- * 	$u->form(array(
- * 		'first_name',
- * 		'last_name'
- * 	));
+ *  $u->form(array(
+ *  	'first_name' => 'First Name: ',
+ *  	'last_name' => 'Last Name: ',
+ *  	'phone' => '(800) 555-5555'
+ *  ));
  * @endcode
  *
  * @section dependencies Dependencies
  * * class.hooks.php
  * * class.db.php
  *
- * @todo  make hooks optional
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version  1.0
  * @copyright  GPL 3 http://cuttingedgecode.com
@@ -265,6 +267,7 @@ class Record {
 
 							switch ($meta['native_type']) {
 							case 'LONG':
+							case 'FLOAT':
 								$class .= "digits ";
 								$inputId = "txt_" . $meta['name'];
 
