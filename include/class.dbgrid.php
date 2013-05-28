@@ -10,10 +10,21 @@ require_once('class.hooks.php');
  * @section usage Usage
  * @code
  * $dbg = new DbGrid('users', 'SELECT * FROM users');
+ *
  * $dbg->exclude(array(
  * 	'user_id',
  * 	'password'
  * ));
+ *
+ * $dbg->mapFields(array(
+ * 	'name' => 'user_id'
+ * ));
+ *
+ * $dbg->sortable(array(
+ * 	'name',
+ * 	'date'
+ * ));
+ *
  * $dbg->show();
  * @endcode
  *
