@@ -1,0 +1,52 @@
+Searching 109 files for "addFilter" (regex)
+
+C:\Users\Jaime.Ushuaia\Documents\GitHub\sleepy-mustache\include\class.dbgrid.php:
+  232  			 * @ingroup hooks
+  233  			 */
+  234: 			$metaName = Hook::addFilter($this->name . "_tableHeader", $meta['name']);
+  235  			/**
+  236  			 * @ingroup hooks
+  237  			 */
+  238: 			$metaName = Hook::addFilter("dbgrid_tableHeader", $metaName);
+  239  			if (!$this->isExcluded($meta['name'])) {
+  240  				if ($this->sortBy == $meta['name']) {
+  ...
+  294  				 * @ingroup hooks
+  295  				 */
+  296: 				$value = Hook::addFilter($this->name . "_tableColumn", array(
+  297  					$value,
+  298  					$key,
+  ...
+  303  				 * @ingroup hooks
+  304  				 */
+  305: 				$value = Hook::addFilter("dbgrid_tableColumn", array(
+  306  					$value,
+  307  					$key,
+
+C:\Users\Jaime.Ushuaia\Documents\GitHub\sleepy-mustache\include\class.record.php:
+  242  					}
+  243
+  244: 					$label = Hook::addFilter('dbForm_label', $label);
+  245
+  246  					?>
+  ...
+  330  								$this->table . "_dbForm_list"
+  331  							) as $filterName) {
+  332: 								$buffer = Hook::addFilter($filterName, Array(
+  333  									$buffer,
+  334  									$meta['native_type'],
+
+C:\Users\Jaime.Ushuaia\Documents\GitHub\sleepy-mustache\include\class.template.php:
+   54  		foreach (array_unique($matches[0]) as $key => $placeholder) {
+   55  			$key = trim(str_replace('{{', '', str_replace('}}', '', $placeholder)));
+   56: 			$template = str_replace($placeholder, Hook::addFilter('render_placeholder_' . $key, $this->_data[$key]), $template);
+   57  		}
+   58
+   ..
+   82  		ob_end_clean();
+   83
+   84: 		echo Hook::addFilter('render_tempate', $this->render($template));
+   85  	}
+   86  }
+
+8 matches across 3 files
