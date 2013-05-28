@@ -16,36 +16,53 @@ a:link {			 -webkit-tap-highlight-color:#fbb427;}
 }
 
 /* Form Styling */
-form fieldset li {
+fieldset {
+	border: 0;
+	padding: 0;
+}
+fieldset legend {
+	padding: 0;
+	margin-bottom: 16px;
+	text-transform: capitalize;
+	font-weight: bold;
+	font-size: 24px;
+}
+fieldset ul {
+	padding-left: 0px;
+}
+fieldset li {
 	margin-left: 0;
 	clear: both;
 	list-style: none;
 }
-form fieldset li label {
+fieldset li label {
 	font-weight: bold;
 	float: left;
 	display: block;
 	width: 150px;
 }
-form fieldset li select {
+fieldset li input {
+	margin: 0 0 12px 0;
+}
+fieldset li select {
 	width: 150px;
 }
-form fieldset li ul {
+fieldset li ul {
 	position: relative;
 	padding-left: 0;
 	top: -15px;
 	clear: both;
 }
-form fieldset li ul label {
+fieldset li ul label {
 	float: left;
 }
-form fieldset li ul input {
-	margin-left: 150px;
-	margin-right: 10px;
+fieldset li ul input {
+	margin: 0 12px 12px 150px;
 	float: left;
 	clear: right;
 }
-form fieldset.submit {
+fieldset.submit {
+	margin-top: -30px;
 	margin-left: 150px;
 	border: 0;
 }
