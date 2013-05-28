@@ -1,6 +1,4 @@
 <?php
-	require_once('include/class.navigation.php');
-
 	function hook_render_placeholder_topNav() {
 		$topNavData = '{
 			"pages": [
