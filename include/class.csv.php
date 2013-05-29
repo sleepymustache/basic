@@ -115,7 +115,7 @@ class CSV {
 	 */
 	public function add($array) {
 		if (!is_array($array)) {
-			throw new Exception('CSV::add - Parameter must be an array.')
+			throw new Exception('CSV::add - Parameter must be an array.');
 		}
 
 		if (count($array) == count($array, COUNT_RECURSIVE)) {
