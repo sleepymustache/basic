@@ -10,9 +10,16 @@
 					"link": "/nav2/",
 					"pages": [
 						{
-							"title": "Subnav 1",
+							"title": "Subnav",
 							"link": "/downloads/fpo.pdf",
-							"target": "_blank"
+							"target": "_blank",
+							"pages": [
+								{
+									"title": "Sub-subnav",
+									"link": "/downloads/fpo.pdf",
+									"target": "_blank"
+								}
+							]
 						}
 					]
 				}
