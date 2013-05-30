@@ -35,7 +35,7 @@
 
 /**
  * This class stores the filters. it has properties to store the name of the
- * filter as well the functions that should run whent he filters are stored.
+ * filter as well the functions that should run when the filters are stored.
  * the filters property is an array. The key is the name of the
  * function and value is the arguments. Currently we do not make any use of the
  * arguments.
