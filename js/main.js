@@ -11,5 +11,6 @@ requirejs.config({
 	}
 });
 
-define(['jquery'], function ($) {
+define(['jquery', 'sleepy'], function ($, SM) {
+
 });
