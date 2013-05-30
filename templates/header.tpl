@@ -18,11 +18,11 @@
 	<script data-main="/js/main" src="/js/require.js" ></script>
 
 	<!-- FAVICON -->
-	<link rel="apple-touch-icon" href="path/to/touchicon.png">
-	<link rel="icon" href="path/to/favicon.png">
-	<!--[if IE]><link rel="shortcut icon" href="path/to/favicon.ico"><![endif]-->
-	<meta name="msapplication-TileColor" content="#D83434">
-	<meta name="msapplication-TileImage" content="path/to/tileicon.png">
+	<link rel="apple-touch-icon" href="/favicon.png">
+	<link rel="icon" href="/favicon.png">
+	<!--[if IE]><link rel="shortcut icon" href="/favicon.ico"><![endif]-->
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/favicon.png">
 
 	<!-- SHIV -->
 	<!--[if lt IE 9]>
