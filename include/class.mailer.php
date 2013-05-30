@@ -17,12 +17,11 @@
  * @endcode
  *
  * @section changelog Changelog
- * * Can now set $from using $this->addFrom()
- * * Can now send text emails with $this->msgText($msg)
+ * * Fixed bug with BCC and CC
  *
- * @date	May 22, 2012
+ * @date	May 30, 2013
  * @author	Jaime Rodriguez, hi.i.am.jaime@gmail.com
- * @version	1.5
+ * @version	1.6
  * @copyright  GPL 3 http://cuttingedgecode.com
  */
 class Mailer {
@@ -68,7 +67,17 @@ class Mailer {
 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 		}
 
-		// Additional headers
+		// Add CC's if there are any
+		if (isset($this->cc)) {
+			$headers[] = 'Cc: ' . implode(',', $this->cc);
+		}
+
+		// Add BCC's if there are any
+		if (isset($this->bcc)) {
+			$headers[] = 'Bcc: ' . implode(',', $this->bcc);
+		}
+
+		// Add From
 		$headers .= 'From: ' . $this->from . "\r\n";;
 
 		// Mail it
