@@ -1,3 +1,3 @@
 <?php include('header.tpl'); ?>
-	<h1>{{ header }}</h1>
+	<h2>{{ subhead }}</h2>
 <?php include('footer.tpl');  ?>

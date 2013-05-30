@@ -8,12 +8,13 @@
 	<meta name="keywords" content="{{ keywords }}">
 	<meta name="description" content="{{ description }}">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{ title }}</title>
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="/css/normalize.css">
 	<link rel="stylesheet" href="/css/style.css">
 
-	<!-- LOAD JAVASCRIPT -->
+	<!-- JAVASCRIPT -->
 	<script data-main="/js/main" src="/js/require.js" ></script>
 
 	<!-- FAVICON -->
@@ -27,15 +28,11 @@
 	<!--[if lt IE 9]>
 		<script src="/js/html5shiv.js"></script>
 	<![endif]-->
-
-	<!-- TITLE -->
-	<title>{{ title }}</title>
-
 </head>
 <body>
 	<div class="wrapper">
 		<header>
-			<h1>Header</h1>
+			<h1>{{ header }}</h1>
 
 			<!-- A sample menu -->
 			<nav class="top">
