@@ -165,9 +165,10 @@ class Mailer {
 	/**
 	 * Sets the body of the email to text.
 	 * @param string $msg a string for the body
+	 * @param boolean $switch an optional parameter for overloading $this->html
 	 */
-	public function msgText($msg) {
-		$this->html = false;
+	public function msgText($msg, $switch = false) {
+		$this->html = $switch;
 		$this->body = $msg;
 	}
 
