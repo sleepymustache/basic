@@ -37,8 +37,7 @@ class Mailer {
 		$this->to = array();
 		$this->cc = array();
 		$this->bcc = array();
-		$this->from = array();
-
+		
 		$this->addSubject();
 		$this->html = false;
 	}
@@ -67,22 +66,24 @@ class Mailer {
 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 		}
 
+		// Add From
+		$headers .= 'From: ' . $this->from . "\r\n";;
+
 		// Add CC's if there are any
 		if (isset($this->cc)) {
-			$headers[] = 'Cc: ' . implode(',', $this->cc);
+			$headers .= 'Cc: ' . implode(',', $this->cc) . "\r\n";
 		}
 
 		// Add BCC's if there are any
 		if (isset($this->bcc)) {
-			$headers[] = 'Bcc: ' . implode(',', $this->bcc);
+			$headers .= 'Bcc: ' . implode(',', $this->bcc) . "\r\n";
 		}
-
-		// Add From
-		$headers .= 'From: ' . $this->from . "\r\n";;
 
 		// Mail it
 		if (!mail(implode(",", $this->to), $this->subject, $this->body, $headers)) {
 			throw new Exception("Mail was not sent.");
+		} else {
+			return true;
 		}
 	}
 
