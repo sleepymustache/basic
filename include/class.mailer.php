@@ -82,6 +82,8 @@ class Mailer {
 		// Mail it
 		if (!mail(implode(",", $this->to), $this->subject, $this->body, $headers)) {
 			throw new Exception("Mail was not sent.");
+		} else {
+			return true;
 		}
 	}
 
