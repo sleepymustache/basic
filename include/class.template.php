@@ -31,9 +31,8 @@ require_once('class.hooks.php');
  * @endcode
  *
  * @section changelog Changelog
- * * added #include
+ * * fixed #each
  *
- * @todo  Fix janky #each loop
  * @todo  add #if
  *
  * @date		May 30, 2013
@@ -86,8 +85,6 @@ class Template {
 	 * @return string           The rendered template
 	 */
 	private function render($template, $data) {
-		$data = (array) $data;
-
 		// Process #includes
 		preg_match_all('/{{\s*#include\s.*}}/', $template, $includes);
 		foreach (array_unique($includes[0]) as $index => $file) {
@@ -106,7 +103,17 @@ class Template {
 			$new_template = preg_replace('/{{\s*#each\s.*\s*}}/', '', $value);
 			$new_template = preg_replace('/{{\s*\/each\s*}}/', '', $new_template);
 
+			// Iterate through each
 			foreach ($data[$forin['in']] as $new_data) {
+				$new_data = (array) $new_data;
+
+				// add the 'for' to the variable key
+				foreach ($new_data as $k => $v) {
+					$newKey = $forin['for'] . "." . $k;
+					$new_data[$newKey] = $new_data[$k];
+					unset($new_data[$k]);
+				}
+
 				$rendered = $rendered . $this->render($new_template, $new_data);
 			}
 
