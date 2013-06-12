@@ -11,6 +11,7 @@
  * 		'George',
  * 		'Washington'
  * 	);
+ * 	$c->load('presidents.csv')
  * 	$c->add($data);
  * 	$c->save('presidents.csv');
  * @endcode
