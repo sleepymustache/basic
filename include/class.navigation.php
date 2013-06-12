@@ -43,13 +43,31 @@
  */
 
 class Navigation {
+	/**
+	 * string Use this string to determine currently active page
+	 * @private
+	 */
 	private $current;
+
+	/**
+	 * mixed Navigation data
+	 */
 	private $data;
 
+	/**
+	 * Constructor
+	 * @param string $json json data containing the Navigation data
+	 */
 	public function __construct($json='') {
 		$this->data = json_decode($json);
 	}
 
+	/**
+	 * Is this page or its children an active page?
+	 * @param  object  $page An object containing page data
+	 * @return boolean       true if this page, or its children are active
+	 * @private
+	 */
 	private function hasActive($page) {
 		// are there subpages? check those too...
 		if (isset($page->pages)) {
@@ -69,6 +87,11 @@ class Navigation {
 		return false;
 	}
 
+	/**
+	 * Renders the $pages as an unordered list
+	 * @param  object $pages the page data
+	 * @return string        The string containing the unordered list
+	 */
 	private function renderNav($pages) {
 		$buffer = array();
 		$buffer[] = "<ul>";
@@ -96,10 +119,18 @@ class Navigation {
 		return implode("", $buffer);
 	}
 
+	/**
+	 * Renders the Navigation
+	 * @return string The rendered navigation
+	 */
 	public function show() {
 		return $this->renderNav($this->data->pages);
 	}
 
+	/**
+	 * Sets the current page search string
+	 * @param string $string A string used to determine if a page is current
+	 */
 	public function setCurrent($string) {
 		$this->current = str_replace("/iw-mount/default/main/MarketingSites/BSP/Xofigo/USA/Scientific/WORKAREA/htdocs", "", str_replace("index.php", "", $string));
 	}

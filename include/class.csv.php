@@ -6,22 +6,21 @@
  *
  * @section usage Usage
  * @code
- * 	$c = new CSV();
- * 	$data = array(
+ * 	// loads a existing CSV file
+ * 	$c = new CSV('presidents.csv');
+ * 	$c->add(array(
  * 		'George',
  * 		'Washington'
- * 	);
- * 	$c->load('presidents.csv')
- * 	$c->add($data);
- * 	$c->save('presidents.csv');
+ * 	));
+ * 	$c->save();
  * @endcode
  *
  * @section changelog Changelog
- * * Can add multiple rows at once
+ * * Can load from the object instantiation
  *
- * @date		May 22, 2012
+ * @date		June 12, 2013
  * @author		Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version		1.3
+ * @version		1.4
  * @copyright	GPL 3 http://cuttingedgecode.com
  */
 class CSV {
@@ -43,6 +42,18 @@ class CSV {
 	public $data;
 
 	/**
+	 * Constructor
+	 *
+	 * @param string $filename
+	 *   (optional) if set, loads the file
+	 */
+	public function __construct($filename='') {
+		if ($filename != '') {
+			$this->load($filename);
+		}
+	}
+
+	/**
 	 * Loads an existing CSV file into $this->data
 	 *
 	 * @param string $filename
@@ -59,7 +70,7 @@ class CSV {
 				throw new Exception('CSV::load - Cannot save without a filename.');
 			}
 		}
-		if (($handle = fopen($this->filename, "r")) !== FALSE) {
+		if (($handle = @fopen($this->filename, "r")) !== FALSE) {
 			flock($handle, LOCK_EX);
 			while (($data = fgetcsv($handle, 0, $this->delimiter)) !== FALSE) {
 				$this->data[] = $data;
@@ -92,13 +103,13 @@ class CSV {
 				throw new Exception('CSV::save - Cannot save without a filename.');
 			}
 		}
-		if ($handle = fopen($this->filename, 'r+')) {
+		if ($handle = @fopen($this->filename, 'r+')) {
 			flock($handle, LOCK_EX);
 			foreach ($this->data as $row) {
 				fputcsv($handle, $row);
 			}
-			fclose($handle);
 			flock($handle, LOCK_UN);
+			fclose($handle);
 		} else {
 			throw new Exception('CSV::save - Cannot open file for writing');
 		}
@@ -151,10 +162,13 @@ class CSV {
 	 * Instead of saving the file, it outputs to default output with headers.
 	 */
 	public function show() {
+		ob_start();
+
 		// Name the file
 		$filename = date('YmdHis') . ".csv";
 
 		// Write the CSV headers
+		header_remove();
 		header("Pragma: public");
 		header("Expires: 0");
 		header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
@@ -167,5 +181,6 @@ class CSV {
 		$this->filename = "php://output";
 
 		$this->save();
+		ob_end_clean();
 	}
 }
