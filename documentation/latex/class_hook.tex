@@ -1,0 +1,123 @@
+\hypertarget{class_hook}{\section{Hook Class Reference}
+\label{class_hook}\index{Hook@{Hook}}
+}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_hook_aae875eca0ec73f226ce615840f06d161}{apply\-Filter} (\$name, \$function, \$args='1')
+\item 
+static \hyperlink{class_hook_a6489ed6b12329279b9e7cae26afc4dd6}{add\-Filter} (\$name, \$value='')
+\item 
+static \hyperlink{class_hook_a8e1a4422f91d415e6bfa88c5c849b554}{do\-Action} (\$name, \$function)
+\item 
+static \hyperlink{class_hook_afff7a7869d2dd304043b69a3fff24655}{add\-Action} (\$name)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_hook_aca1cfea95d9874525c94ddc586b87633}{\$directories}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is the main hook class. Call it using class\-::method. 
+\begin{DoxyCode}
+\hyperlink{class_hook_a6489ed6b12329279b9e7cae26afc4dd6}{Hook::addFilter}(\textcolor{stringliteral}{'fitername'}, $variable);
+\end{DoxyCode}
+ \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_hook_afff7a7869d2dd304043b69a3fff24655}{\index{Hook@{Hook}!add\-Action@{add\-Action}}
+\index{add\-Action@{add\-Action}!Hook@{Hook}}
+\subsubsection[{add\-Action}]{\setlength{\rightskip}{0pt plus 5cm}static add\-Action (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_hook_afff7a7869d2dd304043b69a3fff24655}
+Adds a new action-\/type hook point
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \mbox{[}description\mbox{]}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{class_hook_a6489ed6b12329279b9e7cae26afc4dd6}{\index{Hook@{Hook}!add\-Filter@{add\-Filter}}
+\index{add\-Filter@{add\-Filter}!Hook@{Hook}}
+\subsubsection[{add\-Filter}]{\setlength{\rightskip}{0pt plus 5cm}static add\-Filter (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$value = {\ttfamily ''}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_hook_a6489ed6b12329279b9e7cae26afc4dd6}
+Adds a new filter-\/type hook point
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$name} & \mbox{[}description\mbox{]} \\
+\hline
+string & {\em \$value} & \mbox{[}description\mbox{]}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{class_hook_aae875eca0ec73f226ce615840f06d161}{\index{Hook@{Hook}!apply\-Filter@{apply\-Filter}}
+\index{apply\-Filter@{apply\-Filter}!Hook@{Hook}}
+\subsubsection[{apply\-Filter}]{\setlength{\rightskip}{0pt plus 5cm}static apply\-Filter (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$function, }
+\item[{}]{\$args = {\ttfamily '1'}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_hook_aae875eca0ec73f226ce615840f06d161}
+Add a new filter to a filter-\/type hook point
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \mbox{[}description\mbox{]} \\
+\hline
+string & {\em \$function} & \mbox{[}description\mbox{]} \\
+\hline
+int & {\em \$args} & \mbox{[}description\mbox{]}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{class_hook_a8e1a4422f91d415e6bfa88c5c849b554}{\index{Hook@{Hook}!do\-Action@{do\-Action}}
+\index{do\-Action@{do\-Action}!Hook@{Hook}}
+\subsubsection[{do\-Action}]{\setlength{\rightskip}{0pt plus 5cm}static do\-Action (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$function}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_hook_a8e1a4422f91d415e6bfa88c5c849b554}
+Adds a new function to a action-\/type hook point
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & Name of filter \\
+\hline
+string & {\em \$function} & Function to call\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+\subsection{Field Documentation}
+\hypertarget{class_hook_aca1cfea95d9874525c94ddc586b87633}{\index{Hook@{Hook}!\$directories@{\$directories}}
+\index{\$directories@{\$directories}!Hook@{Hook}}
+\subsubsection[{\$directories}]{\setlength{\rightskip}{0pt plus 5cm}\$directories\hspace{0.3cm}{\ttfamily [static]}}}\label{class_hook_aca1cfea95d9874525c94ddc586b87633}
+array string The directories where the modules are stored 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Jaime.\-Ushuaia/\-Documents/\-Git\-Hub/sleepy-\/mustache/include/class.\-hooks.\-php\end{DoxyCompactItemize}

@@ -1,5 +1,9 @@
+[] (\mainpage <|:{)
+
 sleepy-mustache
 ================================================================================
+
+Doxygen [Documentation] (documentation/html/index.html) is available.
 
 Sleepy mustache is a PHP framework that comes with solutions for everyday php
 challenges.  All the functionality is optional and tries to be as minimalist as

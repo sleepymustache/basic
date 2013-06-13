@@ -1,0 +1,103 @@
+\hypertarget{class_template}{\section{Template Class Reference}
+\label{class_template}\index{Template@{Template}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_template_af2deef993b5bb3c209fae5f994f3ebae}{\-\_\-\-\_\-construct} (\$template)
+\item 
+\hyperlink{class_template_a820993178e7ede5e791288b36b9cef57}{bind} (\$placeholder, \$value)
+\item 
+\hyperlink{class_template_a24a9bf83a1002d46ece83a93d14bd921}{get} (\$key)
+\item 
+\hyperlink{class_template_a2b8e3779f5bd8c38f70307574859bd36}{show} ()
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_template_aed02cd2cd0ee08bd99a2ac1ef4f955ce}{\$extension} = \char`\"{}.tpl\char`\"{}
+\item 
+\hyperlink{class_template_a1b07c630eb02f770a082a013373a16d6}{\$directory}
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_template_abddaf0b77086e2b7d920f5d1a9616889}{\$\-\_\-file}
+\item 
+\hyperlink{class_template_a5a3006290f2de94fff2dd63ca739d15a}{\$\-\_\-data} = array()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_template_af2deef993b5bb3c209fae5f994f3ebae}{\index{Template@{Template}!\-\_\-\-\_\-construct@{\-\_\-\-\_\-construct}}
+\index{\-\_\-\-\_\-construct@{\-\_\-\-\_\-construct}!Template@{Template}}
+\subsubsection[{\-\_\-\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$template}
+\end{DoxyParamCaption}
+)}}\label{class_template_af2deef993b5bb3c209fae5f994f3ebae}
+The constructor 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$template} & The name of the template \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_template_a820993178e7ede5e791288b36b9cef57}{\index{Template@{Template}!bind@{bind}}
+\index{bind@{bind}!Template@{Template}}
+\subsubsection[{bind}]{\setlength{\rightskip}{0pt plus 5cm}bind (
+\begin{DoxyParamCaption}
+\item[{}]{\$placeholder, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}}\label{class_template_a820993178e7ede5e791288b36b9cef57}
+Binds data to the template placeholders 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$placeholder} & The template placeholder \\
+\hline
+mixed & {\em \$value} & The value that replaced the placeholder \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_template_a24a9bf83a1002d46ece83a93d14bd921}{\index{Template@{Template}!get@{get}}
+\index{get@{get}!Template@{Template}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}get (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)}}\label{class_template_a24a9bf83a1002d46ece83a93d14bd921}
+Gets the data for a placeholder 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$placeholder} & The placeholder \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed The data stored in the placeholder 
+\end{DoxyReturn}
+\hypertarget{class_template_a2b8e3779f5bd8c38f70307574859bd36}{\index{Template@{Template}!show@{show}}
+\index{show@{show}!Template@{Template}}
+\subsubsection[{show}]{\setlength{\rightskip}{0pt plus 5cm}show (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_template_a2b8e3779f5bd8c38f70307574859bd36}
+Shows the rendered template 
+
+\subsection{Field Documentation}
+\hypertarget{class_template_a5a3006290f2de94fff2dd63ca739d15a}{\index{Template@{Template}!\$\-\_\-data@{\$\-\_\-data}}
+\index{\$\-\_\-data@{\$\-\_\-data}!Template@{Template}}
+\subsubsection[{\$\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}\$\-\_\-data = array()\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_template_a5a3006290f2de94fff2dd63ca739d15a}
+array The data bound to the template \hypertarget{class_template_abddaf0b77086e2b7d920f5d1a9616889}{\index{Template@{Template}!\$\-\_\-file@{\$\-\_\-file}}
+\index{\$\-\_\-file@{\$\-\_\-file}!Template@{Template}}
+\subsubsection[{\$\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}\$\-\_\-file\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_template_abddaf0b77086e2b7d920f5d1a9616889}
+string The template file \hypertarget{class_template_a1b07c630eb02f770a082a013373a16d6}{\index{Template@{Template}!\$directory@{\$directory}}
+\index{\$directory@{\$directory}!Template@{Template}}
+\subsubsection[{\$directory}]{\setlength{\rightskip}{0pt plus 5cm}\$directory}}\label{class_template_a1b07c630eb02f770a082a013373a16d6}
+string The template directory \hypertarget{class_template_aed02cd2cd0ee08bd99a2ac1ef4f955ce}{\index{Template@{Template}!\$extension@{\$extension}}
+\index{\$extension@{\$extension}!Template@{Template}}
+\subsubsection[{\$extension}]{\setlength{\rightskip}{0pt plus 5cm}\$extension = \char`\"{}.tpl\char`\"{}}}\label{class_template_aed02cd2cd0ee08bd99a2ac1ef4f955ce}
+string The extension for template files 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Jaime.\-Ushuaia/\-Documents/\-Git\-Hub/sleepy-\/mustache/include/class.\-template.\-php\end{DoxyCompactItemize}

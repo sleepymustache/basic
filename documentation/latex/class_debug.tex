@@ -1,0 +1,161 @@
+\hypertarget{class_debug}{\section{Debug Class Reference}
+\label{class_debug}\index{Debug@{Debug}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_debug_a475b1cea5652fafc04c94e97ef82fe83}{set\-Handler} ()
+\item 
+\hyperlink{class_debug_af17dfe92627c634e9450cf38eaef881b}{exception\-Handler} (\$e)
+\item 
+\hyperlink{class_debug_ab018ff0e2ab4f2d17353586f25d955a8}{out} (\$var)
+\item 
+\hyperlink{class_debug_a545341e59cc9a0dafc4e265d60d4b5d6}{disable} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_debug_a5789d2d16b0d24dc6aa96b63b4f6f605}{\$enable\-\_\-show} = false
+\item 
+static \hyperlink{class_debug_abf6da1366fe6b13a73e55c0962433b5f}{\$enable\-\_\-log} = false
+\item 
+static \hyperlink{class_debug_aeb64a58109ab72544114d51e42a3ca4f}{\$enable\-\_\-send} = false
+\item 
+static \hyperlink{class_debug_a2dca3002fa879522effbe7bd729d681d}{\$email\-To}
+\item 
+static \hyperlink{class_debug_aef55490ba633a1821bc784c7c5e5a5e5}{\$email\-C\-C}
+\item 
+static \hyperlink{class_debug_ace2c8fd77a23d56cfdc35a142df1b1ab}{\$email\-B\-C\-C}
+\item 
+static \hyperlink{class_debug_a8812e953c70aa15f8f01e0a83230e645}{\$email\-From}
+\item 
+static \hyperlink{class_debug_afc4243e1cc62688011c169b622433f64}{\$email\-Subject}
+\item 
+static \hyperlink{class_debug_a6da5505f5274a47a70fb0cbac5eef25e}{\$email\-Buffer}
+\item 
+static \hyperlink{class_debug_ad0ddb2725e69c88a729e0cc242a1b2a6}{\$db\-Host}
+\item 
+static \hyperlink{class_debug_a68f39949e76b64662a06cb56579d91c3}{\$db\-Name}
+\item 
+static \hyperlink{class_debug_a4a92606de85aafdc0dcae4976b7ca669}{\$db\-User}
+\item 
+static \hyperlink{class_debug_a30d808caf55f524798c6a5aaafd633ad}{\$db\-Pass}
+\item 
+static \hyperlink{class_debug_adfd23e5286c56c7632ecb55887dd2555}{\$db\-Table}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for custom debugging functions.
+
+This class can send emails, log to a database, or display on screen debug information. You can set the enabled flags to enable the debug functions or set them to false to quiet them down. This way you can leave them as a part of your code with little overhead. For email and database logging, don't forget to setup the public properties.\hypertarget{template1_changelog}{}\subsection{Changelog}\label{template1_changelog}
+
+\begin{DoxyItemize}
+\item Changed to a static class pattern
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Author}
+Jaime A. Rodriguez \href{mailto:hi.i.am.jaime@gmail.com}{\tt hi.\-i.\-am.\-jaime@gmail.\-com} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-5 
+\end{DoxyVersion}
+\begin{DoxyCopyright}{Copyright}
+G\-P\-L 3 \href{http://cuttingedgecode.com}{\tt http\-://cuttingedgecode.\-com} 
+\end{DoxyCopyright}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_debug_a545341e59cc9a0dafc4e265d60d4b5d6}{\index{Debug@{Debug}!disable@{disable}}
+\index{disable@{disable}!Debug@{Debug}}
+\subsubsection[{disable}]{\setlength{\rightskip}{0pt plus 5cm}disable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_debug_a545341e59cc9a0dafc4e265d60d4b5d6}
+Sets all the enabled flags to false
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{class_debug_af17dfe92627c634e9450cf38eaef881b}{\index{Debug@{Debug}!exception\-Handler@{exception\-Handler}}
+\index{exception\-Handler@{exception\-Handler}!Debug@{Debug}}
+\subsubsection[{exception\-Handler}]{\setlength{\rightskip}{0pt plus 5cm}exception\-Handler (
+\begin{DoxyParamCaption}
+\item[{}]{\$e}
+\end{DoxyParamCaption}
+)}}\label{class_debug_af17dfe92627c634e9450cf38eaef881b}
+Exception Handler \hypertarget{class_debug_ab018ff0e2ab4f2d17353586f25d955a8}{\index{Debug@{Debug}!out@{out}}
+\index{out@{out}!Debug@{Debug}}
+\subsubsection[{out}]{\setlength{\rightskip}{0pt plus 5cm}out (
+\begin{DoxyParamCaption}
+\item[{}]{\$var}
+\end{DoxyParamCaption}
+)}}\label{class_debug_ab018ff0e2ab4f2d17353586f25d955a8}
+Determines what output methods are enabled and passes \$var to it.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$var} & Anything you want to log \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{class_debug_a475b1cea5652fafc04c94e97ef82fe83}{\index{Debug@{Debug}!set\-Handler@{set\-Handler}}
+\index{set\-Handler@{set\-Handler}!Debug@{Debug}}
+\subsubsection[{set\-Handler}]{\setlength{\rightskip}{0pt plus 5cm}set\-Handler (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_debug_a475b1cea5652fafc04c94e97ef82fe83}
+sets the Exception Handler 
+
+\subsection{Field Documentation}
+\hypertarget{class_debug_ad0ddb2725e69c88a729e0cc242a1b2a6}{\index{Debug@{Debug}!\$db\-Host@{\$db\-Host}}
+\index{\$db\-Host@{\$db\-Host}!Debug@{Debug}}
+\subsubsection[{\$db\-Host}]{\setlength{\rightskip}{0pt plus 5cm}\$db\-Host\hspace{0.3cm}{\ttfamily [static]}}}\label{class_debug_ad0ddb2725e69c88a729e0cc242a1b2a6}
+string Database Host \hypertarget{class_debug_a68f39949e76b64662a06cb56579d91c3}{\index{Debug@{Debug}!\$db\-Name@{\$db\-Name}}
+\index{\$db\-Name@{\$db\-Name}!Debug@{Debug}}
+\subsubsection[{\$db\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\$db\-Name\hspace{0.3cm}{\ttfamily [static]}}}\label{class_debug_a68f39949e76b64662a06cb56579d91c3}
+string Database Name \hypertarget{class_debug_a30d808caf55f524798c6a5aaafd633ad}{\index{Debug@{Debug}!\$db\-Pass@{\$db\-Pass}}
+\index{\$db\-Pass@{\$db\-Pass}!Debug@{Debug}}
+\subsubsection[{\$db\-Pass}]{\setlength{\rightskip}{0pt plus 5cm}\$db\-Pass\hspace{0.3cm}{\ttfamily [static]}}}\label{class_debug_a30d808caf55f524798c6a5aaafd633ad}
+string Database Password \hypertarget{class_debug_adfd23e5286c56c7632ecb55887dd2555}{\index{Debug@{Debug}!\$db\-Table@{\$db\-Table}}
+\index{\$db\-Table@{\$db\-Table}!Debug@{Debug}}
+\subsubsection[{\$db\-Table}]{\setlength{\rightskip}{0pt plus 5cm}\$db\-Table\hspace{0.3cm}{\ttfamily [static]}}}\label{class_debug_adfd23e5286c56c7632ecb55887dd2555}
+string Database Table to use for logging \hypertarget{class_debug_a4a92606de85aafdc0dcae4976b7ca669}{\index{Debug@{Debug}!\$db\-User@{\$db\-User}}
+\index{\$db\-User@{\$db\-User}!Debug@{Debug}}
+\subsubsection[{\$db\-User}]{\setlength{\rightskip}{0pt plus 5cm}\$db\-User\hspace{0.3cm}{\ttfamily [static]}}}\label{class_debug_a4a92606de85aafdc0dcae4976b7ca669}
+string Database User Name \hypertarget{class_debug_ace2c8fd77a23d56cfdc35a142df1b1ab}{\index{Debug@{Debug}!\$email\-B\-C\-C@{\$email\-B\-C\-C}}
+\index{\$email\-B\-C\-C@{\$email\-B\-C\-C}!Debug@{Debug}}
+\subsubsection[{\$email\-B\-C\-C}]{\setlength{\rightskip}{0pt plus 5cm}\$email\-B\-C\-C\hspace{0.3cm}{\ttfamily [static]}}}\label{class_debug_ace2c8fd77a23d56cfdc35a142df1b1ab}
+string Email address bcc send email to. \hypertarget{class_debug_a6da5505f5274a47a70fb0cbac5eef25e}{\index{Debug@{Debug}!\$email\-Buffer@{\$email\-Buffer}}
+\index{\$email\-Buffer@{\$email\-Buffer}!Debug@{Debug}}
+\subsubsection[{\$email\-Buffer}]{\setlength{\rightskip}{0pt plus 5cm}\$email\-Buffer\hspace{0.3cm}{\ttfamily [static]}}}\label{class_debug_a6da5505f5274a47a70fb0cbac5eef25e}
+string\mbox{[}\mbox{]} The body of the email. \hypertarget{class_debug_aef55490ba633a1821bc784c7c5e5a5e5}{\index{Debug@{Debug}!\$email\-C\-C@{\$email\-C\-C}}
+\index{\$email\-C\-C@{\$email\-C\-C}!Debug@{Debug}}
+\subsubsection[{\$email\-C\-C}]{\setlength{\rightskip}{0pt plus 5cm}\$email\-C\-C\hspace{0.3cm}{\ttfamily [static]}}}\label{class_debug_aef55490ba633a1821bc784c7c5e5a5e5}
+string Email address cc send email to. \hypertarget{class_debug_a8812e953c70aa15f8f01e0a83230e645}{\index{Debug@{Debug}!\$email\-From@{\$email\-From}}
+\index{\$email\-From@{\$email\-From}!Debug@{Debug}}
+\subsubsection[{\$email\-From}]{\setlength{\rightskip}{0pt plus 5cm}\$email\-From\hspace{0.3cm}{\ttfamily [static]}}}\label{class_debug_a8812e953c70aa15f8f01e0a83230e645}
+string Email address to send email from. \hypertarget{class_debug_afc4243e1cc62688011c169b622433f64}{\index{Debug@{Debug}!\$email\-Subject@{\$email\-Subject}}
+\index{\$email\-Subject@{\$email\-Subject}!Debug@{Debug}}
+\subsubsection[{\$email\-Subject}]{\setlength{\rightskip}{0pt plus 5cm}\$email\-Subject\hspace{0.3cm}{\ttfamily [static]}}}\label{class_debug_afc4243e1cc62688011c169b622433f64}
+string The subject of the email. \hypertarget{class_debug_a2dca3002fa879522effbe7bd729d681d}{\index{Debug@{Debug}!\$email\-To@{\$email\-To}}
+\index{\$email\-To@{\$email\-To}!Debug@{Debug}}
+\subsubsection[{\$email\-To}]{\setlength{\rightskip}{0pt plus 5cm}\$email\-To\hspace{0.3cm}{\ttfamily [static]}}}\label{class_debug_a2dca3002fa879522effbe7bd729d681d}
+string Email address to send email to. \hypertarget{class_debug_abf6da1366fe6b13a73e55c0962433b5f}{\index{Debug@{Debug}!\$enable\-\_\-log@{\$enable\-\_\-log}}
+\index{\$enable\-\_\-log@{\$enable\-\_\-log}!Debug@{Debug}}
+\subsubsection[{\$enable\-\_\-log}]{\setlength{\rightskip}{0pt plus 5cm}\$enable\-\_\-log = false\hspace{0.3cm}{\ttfamily [static]}}}\label{class_debug_abf6da1366fe6b13a73e55c0962433b5f}
+bool Enabled logging to a database \hypertarget{class_debug_aeb64a58109ab72544114d51e42a3ca4f}{\index{Debug@{Debug}!\$enable\-\_\-send@{\$enable\-\_\-send}}
+\index{\$enable\-\_\-send@{\$enable\-\_\-send}!Debug@{Debug}}
+\subsubsection[{\$enable\-\_\-send}]{\setlength{\rightskip}{0pt plus 5cm}\$enable\-\_\-send = false\hspace{0.3cm}{\ttfamily [static]}}}\label{class_debug_aeb64a58109ab72544114d51e42a3ca4f}
+bool Enabled logging via email \hypertarget{class_debug_a5789d2d16b0d24dc6aa96b63b4f6f605}{\index{Debug@{Debug}!\$enable\-\_\-show@{\$enable\-\_\-show}}
+\index{\$enable\-\_\-show@{\$enable\-\_\-show}!Debug@{Debug}}
+\subsubsection[{\$enable\-\_\-show}]{\setlength{\rightskip}{0pt plus 5cm}\$enable\-\_\-show = false\hspace{0.3cm}{\ttfamily [static]}}}\label{class_debug_a5789d2d16b0d24dc6aa96b63b4f6f605}
+bool Enable output to screen 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Jaime.\-Ushuaia/\-Documents/\-Git\-Hub/sleepy-\/mustache/include/class.\-debug.\-php\end{DoxyCompactItemize}

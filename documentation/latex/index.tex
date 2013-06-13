@@ -1,0 +1,255 @@
+\section*{sleepy-\/mustache}
+
+Sleepy mustache is a P\-H\-P framework that comes with solutions for everyday php challenges. All the functionality is optional and tries to be as minimalist as possible.
+
+\subsection*{Included Functionality}
+
+
+\begin{DoxyItemize}
+\item Hooks
+\item Templating Engine
+\item Singleton P\-D\-O \hyperlink{class_d_b}{D\-B} class
+\item Emailing
+\item \hyperlink{class_c_s_v}{C\-S\-V} creation
+\item Debugging via Output, Email, and \hyperlink{class_d_b}{D\-B}
+\item File System Database
+\item I\-P 2 Country detection
+\item Mobile device detection
+\item \hyperlink{class_navigation}{Navigation}
+\end{DoxyItemize}
+
+\subsubsection*{Misc}
+
+
+\begin{DoxyItemize}
+\item Robo Caller S\-O\-A\-P A\-P\-I (class.\-robotalker.\-php)
+\item S\-Q\-L Select to \hyperlink{class_d_b}{D\-B} Grid (class.\-dbgrid.\-php)
+\end{DoxyItemize}
+
+\subsection*{Getting Started}
+
+There are a few globals you will want to set in the include/globals.\-php file.
+
+
+\begin{DoxyItemize}
+\item Setup debugging
+\item Set Live site U\-R\-L
+\item Set \hyperlink{class_d_b}{D\-B} credentials for live/stage
+\item Set Emailing info for live/stage
+\item Setup G\-A Account for live/state
+\end{DoxyItemize}
+
+\subsection*{Sample Code}
+
+\subsubsection*{Hooks}
+
+The {\itshape Hooks} system is made up of {\itshape hook filters} and {\itshape hook actions}. {\itshape \hyperlink{class_hook}{Hook} actions} are points in the code where you can assign functions to run. For example, we can put a {\itshape hook action} after a record is saved to the database, then assign a function to the {\itshape hook action} that will send an email after the \hyperlink{class_d_b}{D\-B} update. \begin{DoxyVerb}// Save to the database
+$db->save();
+
+// add a hook action
+$content = Hook::addAction('record_saved');
+
+// Add a function to the hook action
+function send_email() {
+    // send an email saying a record was updated
+}
+
+Hook::doAction(
+    'record_saved',
+    'send_email'
+);
+\end{DoxyVerb}
+
+
+{\itshape \hyperlink{class_hook}{Hook} filters} are similar to {\itshape hook actions} but pass data as parameters to the functions that get assigned to the hook. After manipulating this data you should return the edited data back to the program. \begin{DoxyVerb}// add a hook filter
+$content = Hook::addFilter('update_content', $_POST['content']);
+
+// Add a function to the hook filter
+function clean_html ($html) {
+    $c = htmlentities(trim($html), ENT_NOQUOTES, "UTF-8", false);
+    return $c;
+}
+
+Hook::applyFilter(
+    'update_content',
+    'clean_html'
+);
+\end{DoxyVerb}
+
+
+The {\itshape modules} directory provides a convenient location to put code that utilized the hooks system. Code inside of the {\itshape modules} directory are automatically added to the program at runtime.
+
+\subsubsection*{Templating}
+
+Templates reside inside the $\ast$'/templates/'$\ast$ folder and should end in a .tpl extension. The templating system works by using placeholders that later get filled in later. The placeholders must have the following syntax\-: \begin{DoxyVerb}{{ placeholder }}
+\end{DoxyVerb}
+
+
+To use a template you instantiate the template class passing in the template name. You then bind data to the placeholders and call the {\itshape \hyperlink{class_template_a2b8e3779f5bd8c38f70307574859bd36}{Template\-::show()}} method. \begin{DoxyVerb}require_once('include/sleepy.php');
+
+$page = new Template('templates/default.tpl');
+$page->bind('title', 'Sleepy Mustache');
+$page->bind('header', 'Hello world!');
+$page->show();
+\end{DoxyVerb}
+
+
+Here is the sample template file (templates/default.\-tpl) \begin{DoxyVerb}<html>
+    <head>
+        <title>{{ title }}</title>
+    </head>
+    <body>
+        <h1>{{ header }}</h1>
+        <p>This page has been viewed {{ hits }} times.</p>
+    </body>
+</html>
+\end{DoxyVerb}
+
+
+We added a $\ast$\{\{ hits \}\}$\ast$ placeholder in the template above. We can add that functionality using Hooks. \begin{DoxyVerb}// filename: /modules/hits.php
+function hook_render_placeholder_topNav() {
+    $hits = new FakeClass();
+
+    return $hits->getTotal();
+}
+
+Hook::applyFilter(
+    'render_placeholder_hits',
+    'hook_render_placeholder_hits'
+);
+\end{DoxyVerb}
+
+
+The first parameter of {\itshape \hyperlink{class_hook}{Hook}\-:apply\-Filter}, the hook filter, ends in 'hits' which correlates to the name of the placeholder. This hook filter is defined in '{\itshape class.\-template.\-php}'. The second parameter is the name of the function to run when we render the placeholder.
+
+\subsubsection*{Databases}
+
+The database connection settings are defined in the $\ast$/include/global.php$\ast$ file. After the {\itshape L\-I\-V\-E\-\_\-\-U\-R\-L} is set in {\itshape global.\-php} the framework will detect which \hyperlink{class_d_b}{D\-B} to use based on the current U\-R\-L.
+
+To get a database instance, use\-: \begin{DoxyVerb}$db = DB::getInstance();
+\end{DoxyVerb}
+
+
+The \hyperlink{class_d_b}{D\-B} class is static and will automatically handle suppressing multiple instances.
+
+\subsubsection*{Sending emails}
+
+The \hyperlink{class_mailer}{Mailer} class simplifies sending emails by generating headers for you and using an easy to use object to clearly define your email. The \hyperlink{class_mailer}{Mailer} can send emails using an H\-T\-M\-L template or text. \begin{DoxyVerb}$m = new Mailer();
+$m->addTo("test@test.com");
+$m->addFrom("from.me@test.com");
+$m->addSubject("This is a test, don't panic.");
+$m->fetchHTML("http://test.com/template.php");
+// OR
+$m->msgText("This is my message.")
+$m->send();
+\end{DoxyVerb}
+
+
+\subsubsection*{\hyperlink{class_c_s_v}{C\-S\-V}}
+
+The \hyperlink{class_c_s_v}{C\-S\-V} class ensures that all records are properly escaped and allows you to easily manipulate data inside of a \hyperlink{class_c_s_v}{C\-S\-V} file. \begin{DoxyVerb}$c = new CSV();
+$data = array(
+    'George',
+    'Washington'
+);
+$c->add($data);
+
+// Saves to the filesystem
+$c->save('presidents.csv');
+
+// OR
+
+// Sends the file to the browser, does not save to the filesystem
+$c->show();
+\end{DoxyVerb}
+
+
+\subsubsection*{Debugging}
+
+The {\itshape \hyperlink{class_debug}{Debug}} static class allows you to debug on-\/screen, via email, or by logging to a database. \begin{DoxyVerb}$db = DB::getInstance();
+Debug::out($db);
+\end{DoxyVerb}
+
+
+\subsubsection*{File System Database (class.\-fsdb.\-php)}
+
+Sometimes using a database is overkill. A simple solution is to use the {\itshape \hyperlink{class_f_s_d_b}{F\-S\-D\-B}}. It is very simple and does not allow complex queries, however it is fast, easy to use and requires no setup, except checking that proper permissions are set. \begin{DoxyVerb}$fruit = new stdClass();
+
+$fruit->name = "Apple";
+$fruit->color = "Red";
+$fruit->texture = "Crispy";
+$fruit->price = 0.50;
+
+$db = new FSDB();
+
+$db->insert('fruit', $fruit);
+$data = $db->select('fruit', 'name', 'Banana');
+\end{DoxyVerb}
+
+
+\subsubsection*{Country detection}
+
+{\itshape Country detection} uses the {\itshape \hyperlink{class_f_s_d_b}{F\-S\-D\-B}} to do a quick lookup of the current country. \begin{DoxyVerb}$i = new IP2CO();
+
+$countryCode = $i->getCountryCode($_SERVER['REMOTE_ADDR']);
+
+if ($countryCode != false) {
+    echo $countryCode;
+} else {
+    echo $_SERVER['REMOTE_ADDR'] . "(" . ip2long($_SERVER['REMOTE_ADDR']) . ") Not found in " . $i->getTable($_SERVER['REMOTE_ADDR']) . ".";
+}
+\end{DoxyVerb}
+
+
+\subsubsection*{Mobile detection}
+
+Mobile detection is done by comparing the U\-A (user-\/agent) to a list of currently available mobile and tablet U\-A. \begin{DoxyVerb}$md = new MobiDetect();
+
+if ($md->isMobile()) {
+    // goto mobile site
+}
+\end{DoxyVerb}
+
+
+\subsubsection*{\hyperlink{class_navigation}{Navigation}}
+
+The navigation is generated by from J\-S\-O\-N. It renders the J\-S\-O\-N into a unordered list with some classes added for the current active page. \begin{DoxyVerb}// Add a placeholder in your template
+{{ TopNav }}
+
+// Create a php file in */modules/*
+require_once('include/class.navigation.php');
+
+// create a function to add to the *hook filter*
+function hook_render_placeholder_TopNav() {
+
+    // Page data is passed via JSON
+    $topNavData = '{
+        "pages": [
+            {
+                "title": "Nav 1",
+                "link": "/nav1/"
+            }, {
+                "title": "Nav 2",
+                "link": "/nav2/",
+                "pages": [
+                    {
+                        "title": "Subnav 1",
+                        "link": "/downloads/fpo.pdf",
+                        "target": "_blank"
+                    }
+                ]
+            }
+        ]
+    }';
+
+    $topNav = new Navigation($topNavData);
+    $topNav->setCurrent($_SERVER['SCRIPT_NAME']);
+
+    return $topNav->show();
+}
+
+Hook::applyFilter(
+    'render_placeholder_TopNav',
+    'hook_render_placeholder_TopNav'
+);\end{DoxyVerb}
+ 
