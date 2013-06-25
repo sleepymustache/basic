@@ -31,13 +31,13 @@ require_once('class.hooks.php');
  * @endcode
  *
  * @section changelog Changelog
- * * fixed #each
+ * * added nesting to the #each loop
  *
- * @todo  add #if
+ * @todo add #if
  *
- * @date		May 30, 2013
+ * @date		June 24, 2013
  * @author		Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version		1.2
+ * @version		1.3
  * @copyright	GPL 3 http://cuttingedgecode.com
  */
 
@@ -79,52 +79,88 @@ class Template {
 	}
 
 	/**
+	 * Given a path, the function returns a piece of $arr. For example
+	 * 'name.first' will return $arr['name']['first']
+	 * @param  array  $arr  An array to search using the $path
+	 * @param  string $path A path representing the dimensions of the array
+	 * @return mixed  a sub-array or string
+	 */
+	private function assignArrayByPath(&$arr, $path) {
+		$keys = explode('.', $path);
+
+		while ($key = array_shift($keys)) {
+			$arr = &$arr[$key];
+		}
+
+		return $arr;
+	}
+
+	/**
 	 * Renders the template
 	 * @param  string $template The template to render
 	 * @param  array $data      The data bound to the template
 	 * @return string           The rendered template
 	 */
 	private function render($template, $data) {
-		// Process #includes
-		preg_match_all('/{{\s*#include\s.*}}/', $template, $includes);
-		foreach (array_unique($includes[0]) as $index => $file) {
-			$index = trim(str_replace('{{', '', str_replace('}}', '', $file)));
 
+		// Process the includes
+		if (preg_match('/{{\s*#include\s.*}}/', $template, $include)) {
+			$index = trim(str_replace('{{', '', str_replace('}}', '', $include[0])));
 			ob_start();
 			include($this->directory . str_replace('#include ', '', $index) . $this->extension);
-			$template = str_replace($file, $this->render(ob_get_contents(), $data), $template);
+			$template = str_replace($include[0], $this->render(ob_get_contents(), $data), $template);
 			ob_end_clean();
+
+			return $this->render($template, $data);
 		}
 
-		// Process #each
-		preg_match_all('/{{\s*#each\s.*\s}}.*\/each\s*}}/s', $template, $loops);
-		foreach (array_unique($loops[0]) as $key => $value) {
-			preg_match('/(?<for>\w+) in (?<in>\w+)/', $value, $forin);
-			$new_template = preg_replace('/{{\s*#each\s.*\s*}}/', '', $value);
-			$new_template = preg_replace('/{{\s*\/each\s*}}/', '', $new_template);
+		// Process the #each blocks
+		if (preg_match_all('/({{\s?(#each)(.+?)}})(?:[^{}]+|(?R))*({{\s?\/each\s?}})/ism', $template, $loops)) {
+			// For every #each
+			foreach ($loops[0] as $value) {
+				// Reset rendered data
+				$rendered = "";
 
-			// Iterate through each
-			foreach ($data[$forin['in']] as $new_data) {
-				$new_data = (array) $new_data;
+				// Stores the values of <for> and <in> into $forin
+				preg_match('/{{\s?#each\s(?<for>\w+) in (?<in>.*?)\s?}}/', $value, $forin);
 
-				// add the 'for' to the variable key
-				foreach ($new_data as $k => $v) {
-					$newKey = $forin['for'] . "." . $k;
-					$new_data[$newKey] = $new_data[$k];
-					unset($new_data[$k]);
+				// Removes the each loop
+				$new_template = preg_replace('/{{\s?#each.*?}}/s', '', $value, 1);
+				$new_template = preg_replace('/{{\s?\/each\s?}}$/s', '', $new_template, 1);
+
+				// get the array based on the <in>
+
+				$in = $this->assignArrayByPath($data, $forin['in']);
+
+				// for each changelog
+				foreach ($in as $new_data) {
+
+					// Make sure it's an array
+					$new_data = (array) $new_data;
+					// Make the $new_data match the <for>
+					$new_data[$forin['for']] =  $new_data;
+
+					// render the new template
+					$rendered = $rendered . $this->render($new_template, array_merge($new_data, $data));
 				}
 
-				$rendered = $rendered . $this->render($new_template, $new_data);
+				$template = str_replace($value, $rendered, $template);
 			}
-
-			$template = str_replace($value, $rendered, $template);
 		}
 
-		// Do the rest
-		preg_match_all('/{{.*}}/', $template, $matches);
+		// Find all the single placeholders
+		preg_match_all('/{{\s?(.+?)\s?}}/', $template, $matches);
+
+		// For each replace with a value
 		foreach (array_unique($matches[0]) as $key => $placeholder) {
 			$key = trim(str_replace('{{', '', str_replace('}}', '', $placeholder)));
-			$template = str_replace($placeholder, Hook::addFilter('render_placeholder_' . $key, $data[$key]), $template);
+
+			// make sure it isn't an array. We use #each for those.
+			if (is_array($data[$key])) {
+				throw new Exception("Arrays can only be bound in #each loops. Placeholder: {$key}");
+			}
+
+			$template = str_replace($placeholder, Hook::addFilter('render_placeholder_' . $key, $this->assignArrayByPath($data, $key)), $template);
 		}
 
 		return $template;
@@ -161,16 +197,22 @@ class Template {
 	 * Shows the rendered template
 	 */
 	public function show() {
-		// Check if template is ok
-		$this->checkTemplate($this->_file);
+		try {
+				// Check if template is ok
+			$this->checkTemplate($this->_file);
 
-		// Render template file
-		ob_start();
-		include($this->directory . $this->_file . $this->extension);
-		$template = $this->render(ob_get_contents(), $this->_data) ;
-		ob_end_clean();
-
-		$template = Hook::addFilter('render_template_' . $this->_file, $template);
-		echo Hook::addFilter('render_template', $template);
+			// Render template file
+			ob_start();
+			include($this->directory . $this->_file . $this->extension);
+			$template = $this->render(ob_get_contents(), $this->_data) ;
+			ob_end_clean();
+			$template = Hook::addFilter('render_template_' . $this->_file, $template);
+			//die();
+			echo Hook::addFilter('render_template', $template);
+		} catch (Exception $e) {
+			ob_end_clean();
+			ob_end_clean();
+			echo "Error: " . $e->getMessage();
+		}
 	}
 }
