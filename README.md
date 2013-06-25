@@ -139,6 +139,24 @@ correlates to the name of the placeholder. This hook filter is defined in
 '*class.template.php*'. The second parameter is the name of the function to run
 when we render the placeholder.
 
+You can iterate through data using #each placeholders
+
+	// Bind the data like this
+	$page->bind('fruits', array(
+		array(
+			"name" => "apple",
+			"color" => "red"
+		), array(
+			"name" => "banana",
+			"color" => "yellow"
+		)
+	));
+
+	// in the template
+	{{ #each fruit in fruits }}
+		<p>I like {{ fruit.color }}, because my {{ fruit.name }} is {{ fruit.color }}.</p>
+	{{ /each }}
+
 ### Databases
 
 The database connection settings are defined in the */include/global.php* file.
