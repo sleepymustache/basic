@@ -100,15 +100,15 @@ class Debug {
 	private function __clone() {}
 
 	private function __construct() {
-		$this->emailBuffer = array();
+		Debug::$emailBuffer = array();
 		//$this->emailBuffer[] = "Date: " . date(DATE_ATOM, mktime(date("G"), date("i"), 0, date("m"), date("d"), date("Y")));
-		$this->emailBuffer[] = "Filename: " . $_SERVER["SCRIPT_FILENAME"];
-		$this->emailBuffer[] = "";
-		$this->emailTo = "hi.i.am.jaime@gmail.com";
-		$this->emailFrom = "hi.i.am.jaime@gmail.com";
+		Debug::$emailBuffer[] = "Filename: " . $_SERVER["SCRIPT_FILENAME"];
+		Debug::$emailBuffer[] = "";
+		Debug::$emailTo = "hi.i.am.jaime@gmail.com";
+		Debug::$emailFrom = "hi.i.am.jaime@gmail.com";
 		//$this->emailSubject = date(DATE_ATOM, mktime(date("G"), date("i"), 0, date("m"), date("d"), date("Y")));
-		$this->emailCC = "";
-		$this->emailBCC = "";
+		Debug::$emailCC = "";
+		Debug::$emailBCC = "";
 	}
 
 	public function __destruct() {
@@ -132,7 +132,7 @@ class Debug {
 	*
 	* @return object
 	*/
-	private function initialize() {
+	private static function initialize() {
 		if (!self::$instance) {
 			self::$instance = new Debug();
 		}
@@ -202,7 +202,7 @@ class Debug {
 	 *   Anything you want to log
 	 * @return bool
 	 */
-	private function show($var) {
+	private static function show($var) {
 		if (!self::$enable_show) {
 			return false;
 		}
@@ -244,7 +244,7 @@ class Debug {
 	 * @param  mixed $var Anything you want to log
 	 * @return void
 	 */
-	public function out($var) {
+	public static function out($var) {
 		self::initialize();
 
 		if (self::$enable_send) {
