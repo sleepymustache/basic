@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Sleepy-mustache : A simple PHP Framework" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Sleepy-mustache</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/jaimerod/sleepy-mustache">View on GitHub</a>
+
+          <h1 id="project_title">Sleepy-mustache</h1>
+          <h2 id="project_tagline">A simple PHP Framework</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/jaimerod/sleepy-mustache/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/jaimerod/sleepy-mustache/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p><a></a></p>
+
+<p>Doxygen <a href="documentation/html/index.html">Documentation</a> is available.</p>
+
+<p>Sleepy mustache is a PHP framework that comes with solutions for everyday php
+challenges.  All the functionality is optional and tries to be as minimalist as
+possible.</p>
+
+<h2>
+<a name="included-functionality" class="anchor" href="#included-functionality"><span class="octicon octicon-link"></span></a>Included Functionality</h2>
+
+<ul>
+<li>Hooks</li>
+<li>Templating Engine</li>
+<li>Singleton PDO DB class</li>
+<li>Emailing</li>
+<li>CSV creation</li>
+<li>Debugging via Output, Email, and DB</li>
+<li>File System Database</li>
+<li>IP 2 Country detection</li>
+<li>Mobile device detection</li>
+<li>Navigation</li>
+</ul><h3>
+<a name="misc" class="anchor" href="#misc"><span class="octicon octicon-link"></span></a>Misc</h3>
+
+<ul>
+<li>Robo Caller SOAP API (class.robotalker.php)</li>
+<li>SQL Select to DB Grid (class.dbgrid.php)</li>
+</ul><h2>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<p>There are a few globals you will want to set in the include/globals.php file.</p>
+
+<ul>
+<li>Setup debugging</li>
+<li>Set Live site URL</li>
+<li>Set DB credentials for live/stage</li>
+<li>Set Emailing info for live/stage</li>
+<li>Setup GA Account for live/state</li>
+</ul><h2>
+<a name="sample-code" class="anchor" href="#sample-code"><span class="octicon octicon-link"></span></a>Sample Code</h2>
+
+<h3>
+<a name="hooks" class="anchor" href="#hooks"><span class="octicon octicon-link"></span></a>Hooks</h3>
+
+<p>The <em>Hooks</em> system is made up of <em>hook filters</em> and <em>hook actions</em>. <em>Hook
+actions</em> are points in the code where you can assign functions to run. For
+example, we can put a <em>hook action</em> after a record is saved to the database,
+then assign a function to the <em>hook action</em> that will send an email after
+the DB update.</p>
+
+<pre><code>// Save to the database
+$db-&gt;save();
+
+// add a hook action
+$content = Hook::addAction('record_saved');
+
+// Add a function to the hook action
+function send_email() {
+    // send an email saying a record was updated
+}
+
+Hook::doAction(
+    'record_saved',
+    'send_email'
+);
+</code></pre>
+
+<p><em>Hook filters</em> are similar to <em>hook actions</em> but pass data as
+parameters to the functions that get assigned to the hook. After manipulating
+this data you should return the edited data back to the program.</p>
+
+<pre><code>// add a hook filter
+$content = Hook::addFilter('update_content', $_POST['content']);
+
+// Add a function to the hook filter
+function clean_html ($html) {
+    $c = htmlentities(trim($html), ENT_NOQUOTES, "UTF-8", false);
+    return $c;
+}
+
+Hook::applyFilter(
+    'update_content',
+    'clean_html'
+);
+</code></pre>
+
+<p>The <em>modules</em> directory provides a convenient location to put code that utilized
+the hooks system. Code inside of the <em>modules</em> directory are automatically added
+to the program at runtime.</p>
+
+<h3>
+<a name="templating" class="anchor" href="#templating"><span class="octicon octicon-link"></span></a>Templating</h3>
+
+<p>Templates reside inside the <em>'/templates/'</em> folder and should end in a .tpl
+extension. The templating system works by using placeholders that later get
+filled in later. The placeholders must have the following syntax:</p>
+
+<pre><code>{{ placeholder }}
+</code></pre>
+
+<p>To use a template you instantiate the template class passing in the template
+name. You then bind data to the placeholders and call the <em>Template::show()</em>
+method.</p>
+
+<pre><code>require_once('include/sleepy.php');
+
+$page = new Template('templates/default.tpl');
+$page-&gt;bind('title', 'Sleepy Mustache');
+$page-&gt;bind('header', 'Hello world!');
+$page-&gt;show();
+</code></pre>
+
+<p>Here is the sample template file (templates/default.tpl)</p>
+
+<pre><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;{{ title }}&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;{{ header }}&lt;/h1&gt;
+        &lt;p&gt;This page has been viewed {{ hits }} times.&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>We added a <em>{{ hits }}</em> placeholder in the template above. We can add that
+functionality using Hooks.</p>
+
+<pre><code>// filename: /modules/hits.php
+function hook_render_placeholder_topNav() {
+    $hits = new FakeClass();
+
+    return $hits-&gt;getTotal();
+}
+
+Hook::applyFilter(
+    'render_placeholder_hits',
+    'hook_render_placeholder_hits'
+);
+</code></pre>
+
+<p>The first parameter of <em>Hook:applyFilter</em>, the hook filter, ends in 'hits' which
+correlates to the name of the placeholder. This hook filter is defined in
+'*class.template.php*'. The second parameter is the name of the function to run
+when we render the placeholder.</p>
+
+<p>You can iterate through data using #each placeholders</p>
+
+<pre><code>// Bind the data like this
+$page-&gt;bind('fruits', array(
+    array(
+        "name" =&gt; "apple",
+        "color" =&gt; "red"
+    ), array(
+        "name" =&gt; "banana",
+        "color" =&gt; "yellow"
+    )
+));
+
+// in the template
+{{ #each fruit in fruits }}
+    &lt;p&gt;I like {{ fruit.color }}, because my {{ fruit.name }} is {{ fruit.color }}.&lt;/p&gt;
+{{ /each }}
+</code></pre>
+
+<h3>
+<a name="databases" class="anchor" href="#databases"><span class="octicon octicon-link"></span></a>Databases</h3>
+
+<p>The database connection settings are defined in the <em>/include/global.php</em> file.
+After the <em>LIVE_URL</em> is set in <em>global.php</em> the framework will detect which DB
+to use based on the current URL.</p>
+
+<p>To get a database instance, use:</p>
+
+<pre><code>$db = DB::getInstance();
+</code></pre>
+
+<p>The DB class is static and will automatically handle suppressing multiple
+instances.</p>
+
+<h3>
+<a name="sending-emails" class="anchor" href="#sending-emails"><span class="octicon octicon-link"></span></a>Sending emails</h3>
+
+<p>The Mailer class simplifies sending emails by generating headers for you
+and using an easy to use object to clearly define your email. The Mailer can
+send emails using an HTML template or text.</p>
+
+<pre><code>$m = new Mailer();
+$m-&gt;addTo("test@test.com");
+$m-&gt;addFrom("from.me@test.com");
+$m-&gt;addSubject("This is a test, don't panic.");
+$m-&gt;fetchHTML("http://test.com/template.php");
+// OR
+$m-&gt;msgText("This is my message.")
+$m-&gt;send();
+</code></pre>
+
+<h3>
+<a name="csv" class="anchor" href="#csv"><span class="octicon octicon-link"></span></a>CSV</h3>
+
+<p>The CSV class ensures that all records are properly escaped and allows you to
+easily manipulate data inside of a CSV file.</p>
+
+<pre><code>$c = new CSV();
+$data = array(
+    'George',
+    'Washington'
+);
+$c-&gt;add($data);
+
+// Saves to the filesystem
+$c-&gt;save('presidents.csv');
+
+// OR
+
+// Sends the file to the browser, does not save to the filesystem
+$c-&gt;show();
+</code></pre>
+
+<h3>
+<a name="debugging" class="anchor" href="#debugging"><span class="octicon octicon-link"></span></a>Debugging</h3>
+
+<p>The <em>Debug</em> static class allows you to debug on-screen, via email, or by logging
+to a database.</p>
+
+<pre><code>$db = DB::getInstance();
+Debug::out($db);
+</code></pre>
+
+<h3>
+<a name="file-system-database-classfsdbphp" class="anchor" href="#file-system-database-classfsdbphp"><span class="octicon octicon-link"></span></a>File System Database (class.fsdb.php)</h3>
+
+<p>Sometimes using a database is overkill.  A simple solution is to use the <em>FSDB</em>.
+It is very simple and does not allow complex queries, however it is fast, easy
+to use and requires no setup, except checking that proper permissions are set.</p>
+
+<pre><code>$fruit = new stdClass();
+
+$fruit-&gt;name = "Apple";
+$fruit-&gt;color = "Red";
+$fruit-&gt;texture = "Crispy";
+$fruit-&gt;price = 0.50;
+
+$db = new FSDB();
+
+$db-&gt;insert('fruit', $fruit);
+$data = $db-&gt;select('fruit', 'name', 'Banana');
+</code></pre>
+
+<h3>
+<a name="country-detection" class="anchor" href="#country-detection"><span class="octicon octicon-link"></span></a>Country detection</h3>
+
+<p><em>Country detection</em> uses the <em>FSDB</em> to do a quick lookup of the current country.</p>
+
+<pre><code>$i = new IP2CO();
+
+$countryCode = $i-&gt;getCountryCode($_SERVER['REMOTE_ADDR']);
+
+if ($countryCode != false) {
+    echo $countryCode;
+} else {
+    echo $_SERVER['REMOTE_ADDR'] . "(" . ip2long($_SERVER['REMOTE_ADDR']) . ") Not found in " . $i-&gt;getTable($_SERVER['REMOTE_ADDR']) . ".";
+}
+</code></pre>
+
+<h3>
+<a name="mobile-detection" class="anchor" href="#mobile-detection"><span class="octicon octicon-link"></span></a>Mobile detection</h3>
+
+<p>Mobile detection is done by comparing the UA (user-agent) to a list of currently
+available mobile and tablet UA.</p>
+
+<pre><code>$md = new MobiDetect();
+
+if ($md-&gt;isMobile()) {
+    // goto mobile site
+}
+</code></pre>
+
+<h3>
+<a name="navigation" class="anchor" href="#navigation"><span class="octicon octicon-link"></span></a>Navigation</h3>
+
+<p>The navigation is generated by from JSON. It renders the JSON into a unordered
+list with some classes added for the current active page.</p>
+
+<pre><code>// Add a placeholder in your template
+{{ TopNav }}
+
+// Create a php file in */modules/*
+require_once('include/class.navigation.php');
+
+// create a function to add to the *hook filter*
+function hook_render_placeholder_TopNav() {
+
+    // Page data is passed via JSON
+    $topNavData = '{
+        "pages": [
+            {
+                "title": "Nav 1",
+                "link": "/nav1/"
+            }, {
+                "title": "Nav 2",
+                "link": "/nav2/",
+                "pages": [
+                    {
+                        "title": "Subnav 1",
+                        "link": "/downloads/fpo.pdf",
+                        "target": "_blank"
+                    }
+                ]
+            }
+        ]
+    }';
+
+    $topNav = new Navigation($topNavData);
+    $topNav-&gt;setCurrent($_SERVER['SCRIPT_NAME']);
+
+    return $topNav-&gt;show();
+}
+
+Hook::applyFilter(
+    'render_placeholder_TopNav',
+    'hook_render_placeholder_TopNav'
+);
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Sleepy-mustache maintained by <a href="https://github.com/jaimerod">jaimerod</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
