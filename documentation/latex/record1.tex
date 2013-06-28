@@ -1,0 +1,47 @@
+Base class that represents a record in a table.
+
+Extend this class and add a property \$table that is equal to the table name in your database. The columns will be loaded automatically and basic load(), save(), and delete() methods are immediately available. Update the data by changing the value of the columns like this\-:\hypertarget{record1_examples}{}\section{Examples}\label{record1_examples}
+
+\begin{DoxyCode}
+\textcolor{comment}{// load a record with id= 5 from a table called 'user'}
+\textcolor{keyword}{class }user \textcolor{keyword}{extends} record \{
+    \textcolor{keyword}{public} $table = \textcolor{stringliteral}{'user'};
+\}
+$u = \textcolor{keyword}{new} user();
+$u->load(5);
+$u->columns->first\_name = \textcolor{stringliteral}{'Joe'};
+\end{DoxyCode}
+
+
+You can then save the new information by calling the save method\-:
+
+
+\begin{DoxyCode}
+$u->save();
+\end{DoxyCode}
+
+
+You can also show a nice form to edit or add new records like this 
+\begin{DoxyCode}
+$u->form(array(
+   \textcolor{stringliteral}{'first\_name'} => \textcolor{stringliteral}{'First Name: '},
+   \textcolor{stringliteral}{'last\_name'} => \textcolor{stringliteral}{'Last Name: '},
+   \textcolor{stringliteral}{'phone'} => \textcolor{stringliteral}{'(800) 555-5555'}
+));
+\end{DoxyCode}
+\hypertarget{record1_dependencies}{}\section{Dependencies}\label{record1_dependencies}
+
+\begin{DoxyItemize}
+\item class.\-hooks.\-php
+\item class.\-db.\-php
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Author}
+Jaime A. Rodriguez \href{mailto:hi.i.am.jaime@gmail.com}{\tt hi.\-i.\-am.\-jaime@gmail.\-com} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyCopyright}{Copyright}
+G\-P\-L 3 \href{http://cuttingedgecode.com}{\tt http\-://cuttingedgecode.\-com} 
+\end{DoxyCopyright}

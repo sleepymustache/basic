@@ -1,0 +1,35 @@
+Adds Hooks and Filters
+
+Adds Hooks and filters into your project. You attach modules to those hooks and filters by adding php files into the \char`\"{}/modules/\char`\"{} director.\hypertarget{template1_usage}{}\section{Usage}\label{template1_usage}
+
+\begin{DoxyCode}
+\textcolor{comment}{// add a hook point}
+$content = \hyperlink{class_hook_a6489ed6b12329279b9e7cae26afc4dd6}{Hook::addFilter}(\textcolor{stringliteral}{'update\_content'}, $\_POST[\textcolor{stringliteral}{'content'}]);
+
+\textcolor{comment}{// Add a module to the hook point--in /modules/<moduleName.php>}
+\textcolor{keyword}{function} clean\_html ($html) \{
+    $c = htmlentities(trim($html), ENT\_NOQUOTES, \textcolor{stringliteral}{"UTF-8"}, \textcolor{keyword}{false});
+    \textcolor{keywordflow}{return} $c;
+\}
+
+\hyperlink{class_hook_aae875eca0ec73f226ce615840f06d161}{Hook::applyFilter}(\textcolor{stringliteral}{"update\_content"}, \textcolor{stringliteral}{"clean\_html"});
+\end{DoxyCode}
+\hypertarget{template1_changelog}{}\section{Changelog}\label{template1_changelog}
+Version 1.\-0
+
+
+\begin{DoxyItemize}
+\item static class pattern fixes
+\item multiple module directories
+\item crawls subdirectories of module directories
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Author}
+Jaime A. Rodriguez \href{mailto:hi.i.am.jaime@gmail.com}{\tt hi.\-i.\-am.\-jaime@gmail.\-com} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyCopyright}{Copyright}
+G\-P\-L 3 \href{http://cuttingedgecode.com}{\tt http\-://cuttingedgecode.\-com} 
+\end{DoxyCopyright}

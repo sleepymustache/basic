@@ -1,0 +1,30 @@
+A test I made for the \hyperlink{class_f_s_d_b}{F\-S\-D\-B} class.
+
+This class will lookup what country an I\-P is from using a flat-\/file-\/database.\hypertarget{template1_usage}{}\section{Usage}\label{template1_usage}
+
+\begin{DoxyCode}
+$i = \textcolor{keyword}{new} \hyperlink{class_i_p2_c_o}{IP2CO}();
+    $countryCode = $i->getCountryCode($\_SERVER[\textcolor{stringliteral}{'REMOTE\_ADDR'}]);
+
+    \textcolor{keywordflow}{if} ($countryCode != \textcolor{keyword}{false}) \{
+        echo $countryCode;
+    \} \textcolor{keywordflow}{else} \{
+        echo $\_SERVER[\textcolor{stringliteral}{'REMOTE\_ADDR'}] . \textcolor{stringliteral}{"("} . ip2long($\_SERVER[\textcolor{stringliteral}{'REMOTE\_ADDR'}]) .
+       \textcolor{stringliteral}{") Not found in "} . $i->getTable($\_SERVER[\textcolor{stringliteral}{'REMOTE\_ADDR'}]) . \textcolor{stringliteral}{"."};
+    \}
+\end{DoxyCode}
+\hypertarget{record1_dependencies}{}\section{Dependencies}\label{record1_dependencies}
+
+\begin{DoxyItemize}
+\item class.\-fsdb.\-php
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Author}
+Jaime A. Rodriguez \href{mailto:hi.i.am.jaime@gmail.com}{\tt hi.\-i.\-am.\-jaime@gmail.\-com} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyCopyright}{Copyright}
+G\-P\-L 3 \href{http://cuttingedgecode.com}{\tt http\-://cuttingedgecode.\-com} 
+\end{DoxyCopyright}

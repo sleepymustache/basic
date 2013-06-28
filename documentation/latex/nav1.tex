@@ -1,0 +1,43 @@
+A \hyperlink{class_navigation}{Navigation} class that simplifies creating multi-\/lever navigations.
+
+This class uses J\-S\-O\-N to structure navigation pages and attributes. It can detect what page is active and assign classes to them for special treatment.\hypertarget{template1_usage}{}\section{Usage}\label{template1_usage}
+
+\begin{DoxyCode}
+$topNavData = \textcolor{stringliteral}{'\{}
+\textcolor{stringliteral}{    "pages": [}
+\textcolor{stringliteral}{        \{}
+\textcolor{stringliteral}{            "title": "Nav 1",}
+\textcolor{stringliteral}{            "link": "/nav1/"}
+\textcolor{stringliteral}{        \}, \{}
+\textcolor{stringliteral}{            "title": "Nav 2",}
+\textcolor{stringliteral}{            "link": "/nav2/",}
+\textcolor{stringliteral}{            "pages": [}
+\textcolor{stringliteral}{                \{}
+\textcolor{stringliteral}{                    "title": "Subnav 1",}
+\textcolor{stringliteral}{                    "link": "/downloads/fpo.pdf",}
+\textcolor{stringliteral}{                    "target": "\_blank"}
+\textcolor{stringliteral}{                \}}
+\textcolor{stringliteral}{            ]}
+\textcolor{stringliteral}{        \}}
+\textcolor{stringliteral}{    ]}
+\textcolor{stringliteral}{ \}'};
+
+ $topNav = \textcolor{keyword}{new} \hyperlink{class_navigation}{Navigation}($topNavData);
+ $topNav->setCurrent($\_SERVER[\textcolor{stringliteral}{'SCRIPT\_NAME'}]);
+
+\textcolor{comment}{// In body somewhere...}
+<nav \textcolor{keyword}{class}=\textcolor{stringliteral}{"top"}>
+    <?php echo $topNav->show(); ?>
+ </nav>
+\end{DoxyCode}
+
+
+\begin{DoxyAuthor}{Author}
+Jaime A. Rodriguez \href{mailto:hi.i.am.jaime@gmail.com}{\tt hi.\-i.\-am.\-jaime@gmail.\-com} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyCopyright}{Copyright}
+G\-P\-L 3 \href{http://cuttingedgecode.com}{\tt http\-://cuttingedgecode.\-com} 
+\end{DoxyCopyright}

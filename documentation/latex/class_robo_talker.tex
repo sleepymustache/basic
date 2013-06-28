@@ -1,0 +1,123 @@
+\hypertarget{class_robo_talker}{\section{Robo\-Talker Class Reference}
+\label{class_robo_talker}\index{Robo\-Talker@{Robo\-Talker}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_robo_talker_a095c5d389db211932136b53f25f39685}{\-\_\-\-\_\-construct} ()
+\item 
+\hyperlink{class_robo_talker_acb6ab21469df29a582bee44e78f97edc}{Get\-Scheduled\-Calls} ()
+\item 
+\hyperlink{class_robo_talker_a7e73ba6712fb06fbcb1bbbc998ba5a0c}{Get\-Campaign\-Stats} (\$id)
+\item 
+\hyperlink{class_robo_talker_ac0650c287190d98e1d85ff9ef10a7404}{add} (\$phone\-Number)
+\item 
+\hyperlink{class_robo_talker_a6c473c02f29af893f4ad6983ead3ddb8}{delete} (\$phone\-Number)
+\item 
+\hyperlink{class_robo_talker_a96bef29f5a68282aac40e6b197e39d2b}{send\-Voicemail} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_robo_talker}{Robo\-Talker} class controls the communication to the Web\-Service 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_robo_talker_a095c5d389db211932136b53f25f39685}{\index{Robo\-Talker@{Robo\-Talker}!\-\_\-\-\_\-construct@{\-\_\-\-\_\-construct}}
+\index{\-\_\-\-\_\-construct@{\-\_\-\-\_\-construct}!RoboTalker@{Robo\-Talker}}
+\subsubsection[{\-\_\-\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-construct (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_robo_talker_a095c5d389db211932136b53f25f39685}
+Connects to webservice, login, store Session\-Id.
+
+\begin{DoxyReturn}{Returns}
+instance 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_robo_talker_ac0650c287190d98e1d85ff9ef10a7404}{\index{Robo\-Talker@{Robo\-Talker}!add@{add}}
+\index{add@{add}!RoboTalker@{Robo\-Talker}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}add (
+\begin{DoxyParamCaption}
+\item[{}]{\$phone\-Number}
+\end{DoxyParamCaption}
+)}}\label{class_robo_talker_ac0650c287190d98e1d85ff9ef10a7404}
+Add a new Call. 
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$phone\-Number} & \mbox{[}description\mbox{]} \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+int Campaign\-Id 
+\end{DoxyReturn}
+\hypertarget{class_robo_talker_a6c473c02f29af893f4ad6983ead3ddb8}{\index{Robo\-Talker@{Robo\-Talker}!delete@{delete}}
+\index{delete@{delete}!RoboTalker@{Robo\-Talker}}
+\subsubsection[{delete}]{\setlength{\rightskip}{0pt plus 5cm}delete (
+\begin{DoxyParamCaption}
+\item[{}]{\$phone\-Number}
+\end{DoxyParamCaption}
+)}}\label{class_robo_talker_a6c473c02f29af893f4ad6983ead3ddb8}
+Deletes a Call. 
+\begin{DoxyParams}[1]{Parameters}
+String & {\em \$phone\-Number} & A phone number to delete \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & If Delete fails \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+array An Array of phone numbers deleted. 
+\end{DoxyReturn}
+\hypertarget{class_robo_talker_a7e73ba6712fb06fbcb1bbbc998ba5a0c}{\index{Robo\-Talker@{Robo\-Talker}!Get\-Campaign\-Stats@{Get\-Campaign\-Stats}}
+\index{Get\-Campaign\-Stats@{Get\-Campaign\-Stats}!RoboTalker@{Robo\-Talker}}
+\subsubsection[{Get\-Campaign\-Stats}]{\setlength{\rightskip}{0pt plus 5cm}Get\-Campaign\-Stats (
+\begin{DoxyParamCaption}
+\item[{}]{\$id}
+\end{DoxyParamCaption}
+)}}\label{class_robo_talker_a7e73ba6712fb06fbcb1bbbc998ba5a0c}
+Gets all Campaign Stats
+
+
+\begin{DoxyParams}{Parameters}
+{\em \$id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array Calls objects 
+\end{DoxyReturn}
+\hypertarget{class_robo_talker_acb6ab21469df29a582bee44e78f97edc}{\index{Robo\-Talker@{Robo\-Talker}!Get\-Scheduled\-Calls@{Get\-Scheduled\-Calls}}
+\index{Get\-Scheduled\-Calls@{Get\-Scheduled\-Calls}!RoboTalker@{Robo\-Talker}}
+\subsubsection[{Get\-Scheduled\-Calls}]{\setlength{\rightskip}{0pt plus 5cm}Get\-Scheduled\-Calls (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_robo_talker_acb6ab21469df29a582bee44e78f97edc}
+Gets all scheduled calls
+
+\begin{DoxyReturn}{Returns}
+array Calls objects 
+\end{DoxyReturn}
+\hypertarget{class_robo_talker_a96bef29f5a68282aac40e6b197e39d2b}{\index{Robo\-Talker@{Robo\-Talker}!send\-Voicemail@{send\-Voicemail}}
+\index{send\-Voicemail@{send\-Voicemail}!RoboTalker@{Robo\-Talker}}
+\subsubsection[{send\-Voicemail}]{\setlength{\rightskip}{0pt plus 5cm}send\-Voicemail (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_robo_talker_a96bef29f5a68282aac40e6b197e39d2b}
+Toggle a voicemail. \begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Jaime.\-Ushuaia/\-Documents/\-Git\-Hub/sleepy-\/mustache/include/class.\-robotalker.\-php\end{DoxyCompactItemize}
