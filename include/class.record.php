@@ -20,7 +20,7 @@ require_once('class.hooks.php');
  * 	}
  * 	$u = new user();
  * 	$u->load(5);
- * 	$u->columns->first_name = 'Joe';
+ * 	$u->columns['first_name'] = 'Joe';
  * @endcode
  *
  * You can then save the new information by calling the save method:
@@ -64,7 +64,7 @@ class Record {
 	protected $primaryKey = 'id';
 
 	/**
-	 * stdObject The data of the record get loaded here
+	 * array The data of the record get loaded here
 	 */
 	public $columns;
 
@@ -81,9 +81,7 @@ class Record {
 	public function __construct($id=0) {
 		$this->db = DB::getInstance();
 
-		$this->columns = new stdClass();
-
-		$select = $this->db->query('SELECT * FROM ' . $this->table . ' LIMIT 1');
+		$select = $this->db->query("SELECT * FROM `{$this->table}` LIMIT 1");
 
 		for ($i = 0; $i <= $select->columnCount(); $i ++) {
 			$meta = $select->getColumnMeta($i);
@@ -108,11 +106,11 @@ class Record {
 			throw new Exception('$this->table is not set.');
 		}
 
-		$query = $this->db->prepare("SELECT * FROM " . $this->table . " WHERE {$this->primaryKey}=:{$this->primaryKey}");
+		$query = $this->db->prepare("SELECT * FROM `{$this->table}` WHERE {$this->primaryKey}=:{$this->primaryKey}");
 		$query->execute(array(":{$this->primaryKey}" => $id));
-		$query->setFetchMode(PDO::FETCH_INTO, $this->columns);
+		$query->setFetchMode(PDO::FETCH_ASSOC);
 
-		if ($query->fetch()) {
+		if ($this->columns = $query->fetch()) {
 			return true;
 		} else {
 			throw new Exception("{$this->table}: Record does not exist.");
@@ -129,7 +127,7 @@ class Record {
 		$col = array();
 
 		// If id is set, then update. Else, insert
-		if ($new = !isset($this->columns->{$this->primaryKey})) {
+		if ($new = !isset($this->columns[$this->primaryKey])) {
 			$sql = "INSERT INTO {$this->table} SET";
 		} else {
 			$sql = "UPDATE {$this->table} SET";
@@ -161,13 +159,13 @@ class Record {
 
 		if ($new) {
 			if ($result->rowCount()) {
-				$this->columns->{$this->primaryKey} = $this->db->lastInsertId();
-				return $this->columns->{$this->primaryKey};
+				$this->columns[$this->primaryKey] = $this->db->lastInsertId();
+				return $this->columns[$this->primaryKey];
 			} else {
 				throw new Exception("{$this->table}: Record was not saved.");
 			}
 		} else {
-			return $this->columns->{$this->primaryKey};
+			return $this->columns[$this->primaryKey];
 		}
 	}
 
@@ -263,7 +261,7 @@ class Record {
 								$class = "email ";
 							}
 
-							$value = htmlspecialchars($this->columns->$field);
+							$value = htmlspecialchars($this->columns[$field]);
 
 							switch ($meta['native_type']) {
 							case 'LONG':
