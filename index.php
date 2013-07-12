@@ -6,6 +6,20 @@
 	$page->bind('header', 'Sleepy Mustache!');
 	$page->bind('changelog', array(
 		array(
+			"title" => "Module Management",
+			"date" => "07/12/2013",
+			"changes" => array(
+				"Module can be disabled by moving them from the enabled folder into the disabled folder"
+			)
+		),
+		array(
+			"title" => "User Management",
+			"date" => "07/12/2013",
+			"changes" => array(
+				"Added user authentications, roles, and permissions class"
+			)
+		),
+		array(
 			"title" => "Template #each nesting",
 			"date" => "06/24/2013",
 			"changes" => array(

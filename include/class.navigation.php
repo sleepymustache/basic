@@ -59,7 +59,8 @@ class Navigation {
 	 * @param string $json json data containing the Navigation data
 	 */
 	public function __construct($json='') {
-		$this->data = json_decode($json);
+		$json = Hook::addFilter('navigation_raw_json', $json);
+		$this->data = Hook::addFilter('navigation_rendered_json', json_decode($json));
 	}
 
 	/**
@@ -80,6 +81,7 @@ class Navigation {
 
 		// can we find a match?
 		if (substr($page->link, strlen($page->link) * -1) === $this->current) {
+			Hook::addAction('navigation_has_active');
 			return true;
 		}
 

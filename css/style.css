@@ -11,6 +11,7 @@ mark {				color:#000; background-color:#fbb427;font-style:italic;font-weight:bol
 a:link {			 -webkit-tap-highlight-color:#fbb427;}
 
 .wrapper {
+	position: relative;
 	width: 960px;
 	margin: 0 auto;
 }
@@ -73,6 +74,7 @@ nav ul {
 	list-style: none;
 }
 nav ul ul {
+	background-color: #fff;
 	border: 1px solid #000;
 	display: none;
 	position: absolute;
@@ -83,13 +85,55 @@ nav ul ul ul {
 }
 nav ul li {
 	display: inline-block;
+	padding: 3px 12px;
 }
 nav ul ul li {
 	min-width: 150px;
+	float: left;
+	clear: both;
+}
+nav ul ul ul li {
+
 }
 nav > ul li + li {
 	padding-left: 12px;
 }
+nav > ul ul li + li {
+	/*padding: 0;*/
+}
 nav > ul li:hover > ul {
 	display: block;
+}
+
+/* Delete these styles */
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 900;
+}
+p, li {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 300;
+}
+
+section h1 {font-size: 28px;}
+section h2 {font-size: 20px;}
+
+.top > ul {
+	background: darkred;
+	padding: 10px;
+}
+
+.top > ul ul {
+	margin-top: 4px;
+	margin-left: -22px;
+}
+
+.top a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.top ul ul {
+	background-color: darkred;
 }

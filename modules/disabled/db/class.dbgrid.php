@@ -1,6 +1,6 @@
 <?php
 require_once('class.db.php');
-require_once('class.hooks.php');
+require_once('include/class.hooks.php');
 
 /**
  * @page dbgrid1 DbGrid Class

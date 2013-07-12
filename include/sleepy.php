@@ -1,6 +1,10 @@
 <?php
 	session_start();
 
+	// performance
+	require_once('class.performance.php');
+	Performance::start('template');
+
 	// sent the encoding ahead of time to speed up rendering
 	header('Content-Type: text/html; charset=utf-8');
 
@@ -43,8 +47,5 @@
 		return $text;
 	}
 
-	include_once('class.db.php');
-	include_once('class.dbgrid.php');
-	include_once('class.mailer.php');
 	include_once('class.navigation.php');
 	include_once('class.template.php');

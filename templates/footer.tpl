@@ -1,6 +1,6 @@
 		</section>
 		<footer>
-			<p>&copy; 2013 John Doe.</p>
+			<p>&copy; 2013 John Doe. Execution time {{ timer }}</p>
 		</footer>
 	</div>
 </body>
