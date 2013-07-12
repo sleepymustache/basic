@@ -1,6 +1,6 @@
 \section*{sleepy-\/mustache}
 
-Doxygen \href{documentation/html/index.html}{\tt Documentation} is available.
+-\/\-Doxygen \href{http://www.sleepymustache.com/documentation/html/index.html}{\tt Documentation} is available.
 
 Sleepy mustache is a P\-H\-P framework that comes with solutions for everyday php challenges. All the functionality is optional and tries to be as minimalist as possible.
 
@@ -123,6 +123,24 @@ Hook::applyFilter(
 
 
 The first parameter of {\itshape \hyperlink{class_hook}{Hook}\-:apply\-Filter}, the hook filter, ends in 'hits' which correlates to the name of the placeholder. This hook filter is defined in '{\itshape class.\-template.\-php}'. The second parameter is the name of the function to run when we render the placeholder.
+
+You can iterate through data using \#each placeholders \begin{DoxyVerb}// Bind the data like this
+$page->bind('fruits', array(
+    array(
+        "name" => "apple",
+        "color" => "red"
+    ), array(
+        "name" => "banana",
+        "color" => "yellow"
+    )
+));
+
+// in the template
+{{ #each fruit in fruits }}
+    <p>I like {{ fruit.color }}, because my {{ fruit.name }} is {{ fruit.color }}.</p>
+{{ /each }}
+\end{DoxyVerb}
+
 
 \subsubsection*{Databases}
 

@@ -9,7 +9,7 @@ Extend this class and add a property \$table that is equal to the table name in 
 \}
 $u = \textcolor{keyword}{new} user();
 $u->load(5);
-$u->columns->first\_name = \textcolor{stringliteral}{'Joe'};
+$u->columns[\textcolor{stringliteral}{'first\_name'}] = \textcolor{stringliteral}{'Joe'};
 \end{DoxyCode}
 
 
@@ -29,7 +29,7 @@ $u->form(array(
    \textcolor{stringliteral}{'phone'} => \textcolor{stringliteral}{'(800) 555-5555'}
 ));
 \end{DoxyCode}
-\hypertarget{record1_dependencies}{}\section{Dependencies}\label{record1_dependencies}
+\hypertarget{ip2country_dependencies}{}\section{Dependencies}\label{ip2country_dependencies}
 
 \begin{DoxyItemize}
 \item class.\-hooks.\-php

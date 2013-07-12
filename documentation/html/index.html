@@ -97,7 +97,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1>sleepy-mustache</h1>
-<p>Doxygen <a href="documentation/html/index.html">Documentation</a> is available.</p>
+<p>-Doxygen <a href="http://www.sleepymustache.com/documentation/html/index.html">Documentation</a> is available.</p>
 <p>Sleepy mustache is a PHP framework that comes with solutions for everyday php challenges. All the functionality is optional and tries to be as minimalist as possible.</p>
 <h2>Included Functionality</h2>
 <ul>
@@ -192,7 +192,23 @@ Hook::applyFilter(
     'hook_render_placeholder_hits'
 );
 </pre><p>The first parameter of <em><a class="el" href="class_hook.html">Hook</a>:applyFilter</em>, the hook filter, ends in 'hits' which correlates to the name of the placeholder. This hook filter is defined in '<em>class.template.php</em>'. The second parameter is the name of the function to run when we render the placeholder.</p>
-<h3>Databases</h3>
+<p>You can iterate through data using #each placeholders </p>
+<pre class="fragment">// Bind the data like this
+$page-&gt;bind('fruits', array(
+    array(
+        "name" =&gt; "apple",
+        "color" =&gt; "red"
+    ), array(
+        "name" =&gt; "banana",
+        "color" =&gt; "yellow"
+    )
+));
+
+// in the template
+{{ #each fruit in fruits }}
+    &lt;p&gt;I like {{ fruit.color }}, because my {{ fruit.name }} is {{ fruit.color }}.&lt;/p&gt;
+{{ /each }}
+</pre><h3>Databases</h3>
 <p>The database connection settings are defined in the */include/global.php* file. After the <em>LIVE_URL</em> is set in <em>global.php</em> the framework will detect which <a class="el" href="class_d_b.html">DB</a> to use based on the current URL.</p>
 <p>To get a database instance, use: </p>
 <pre class="fragment">$db = DB::getInstance();
@@ -303,7 +319,7 @@ Hook::applyFilter(
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Jun 24 2013 18:59:37 for Sleepy Mustache by
+    <li class="footer">Generated on Fri Jul 12 2013 12:36:14 for Sleepy Mustache by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

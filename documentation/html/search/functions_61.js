@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['add',['add',['../class_c_s_v.html#aa4de84fb89ac3c97fbaf4ad312bb47eb',1,'CSV\add()'],['../class_filter.html#a90cbfdb2d91157a1f2e94fcab3d220b3',1,'Filter\add()'],['../class_robo_talker.html#ac0650c287190d98e1d85ff9ef10a7404',1,'RoboTalker\add()']]],
+  ['add',['add',['../class_filter.html#a90cbfdb2d91157a1f2e94fcab3d220b3',1,'Filter\add()'],['../class_c_s_v.html#aa4de84fb89ac3c97fbaf4ad312bb47eb',1,'CSV\add()'],['../class_robo_talker.html#ac0650c287190d98e1d85ff9ef10a7404',1,'RoboTalker\add()']]],
   ['addaction',['addAction',['../class_hook.html#afff7a7869d2dd304043b69a3fff24655',1,'Hook']]],
   ['addbcc',['addBcc',['../class_mailer.html#ac320ba7834972b0109bec4627f18122a',1,'Mailer']]],
   ['addcc',['addCc',['../class_mailer.html#a36316da1ac12624e7817cbc65ba51726',1,'Mailer']]],

@@ -14,7 +14,13 @@ var hierarchy =
     [ "MessageRecipientOfInt32", "class_message_recipient_of_int32.html", null ],
     [ "MobiDetect", "class_mobi_detect.html", null ],
     [ "Navigation", "class_navigation.html", null ],
-    [ "Record", "class_record.html", null ],
+    [ "Performance", "class_performance.html", null ],
+    [ "Record", "class_record.html", [
+      [ "Permission", "class_permission.html", null ],
+      [ "Role", "class_role.html", null ],
+      [ "User", "class_user.html", null ],
+      [ "UserMeta", "class_user_meta.html", null ]
+    ] ],
     [ "Request", "class_request.html", [
       [ "DeleteCallsRequest", "class_delete_calls_request.html", null ],
       [ "GetCallsRequest", "class_get_calls_request.html", null ],

@@ -1,0 +1,20 @@
+A \hyperlink{class_performance}{Performance} class that aids in timing scripts for optimization.\hypertarget{robo1_usage}{}\section{Usage\-:}\label{robo1_usage}
+
+\begin{DoxyCode}
+Performance::start(\textcolor{stringliteral}{'forloop'});
+\textcolor{keywordflow}{for} ($i = 0; $i < 100; $i++) \{
+    echo $i * $i;
+\}
+echo \textcolor{stringliteral}{"Execution time: "} . Performance::stop(\textcolor{stringliteral}{'forloop'});
+\end{DoxyCode}
+
+
+\begin{DoxyAuthor}{Author}
+Jaime A. Rodriguez \href{mailto:hi.i.am.jaime@gmail.com}{\tt hi.\-i.\-am.\-jaime@gmail.\-com} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyCopyright}{Copyright}
+G\-P\-L 3 \href{http://cuttingedgecode.com}{\tt http\-://cuttingedgecode.\-com} 
+\end{DoxyCopyright}

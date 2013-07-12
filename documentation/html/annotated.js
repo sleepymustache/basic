@@ -18,9 +18,14 @@ var annotated =
     [ "MessageRecipientOfInt32", "class_message_recipient_of_int32.html", "class_message_recipient_of_int32" ],
     [ "MobiDetect", "class_mobi_detect.html", "class_mobi_detect" ],
     [ "Navigation", "class_navigation.html", "class_navigation" ],
+    [ "Performance", "class_performance.html", "class_performance" ],
+    [ "Permission", "class_permission.html", "class_permission" ],
     [ "Record", "class_record.html", "class_record" ],
     [ "Request", "class_request.html", "class_request" ],
     [ "RoboTalker", "class_robo_talker.html", "class_robo_talker" ],
+    [ "Role", "class_role.html", "class_role" ],
     [ "ScheduleCallsRequestOfInt32", "class_schedule_calls_request_of_int32.html", "class_schedule_calls_request_of_int32" ],
-    [ "Template", "class_template.html", "class_template" ]
+    [ "Template", "class_template.html", "class_template" ],
+    [ "User", "class_user.html", "class_user" ],
+    [ "UserMeta", "class_user_meta.html", "class_user_meta" ]
 ];

@@ -2,45 +2,48 @@ var NAVTREE =
 [
   [ "Sleepy Mustache", "index.html", [
     [ "<|:{)", "index.html", null ],
+    [ "Hook Class", "hooks1.html", [
+      [ "Usage:", "hooks1.html#usage", null ],
+      [ "Changelog", "hooks1.html#changelog", null ]
+    ] ],
+    [ "Navigation Class", "nav1.html", [
+      [ "Usage:", "nav1.html#usage", null ]
+    ] ],
+    [ "Performance Class", "perf1.html", [
+      [ "Usage:", "perf1.html#usage", null ]
+    ] ],
+    [ "Template Class", "template1.html", [
+      [ "Usage:", "template1.html#usage", null ],
+      [ "Changelog", "template1.html#changelog", null ]
+    ] ],
     [ "CSV Class", "csv1.html", [
-      [ "Usage", "csv1.html#usage", null ],
+      [ "Usage:", "csv1.html#usage", null ],
       [ "Changelog", "csv1.html#changelog", null ]
     ] ],
     [ "DB Class", "db1.html", [
-      [ "Usage", "db1.html#usage", null ]
+      [ "Usage:", "db1.html#usage", null ]
     ] ],
     [ "DbGrid Class", "dbgrid1.html", [
-      [ "Usage", "dbgrid1.html#usage", null ],
+      [ "Usage:", "dbgrid1.html#usage", null ],
       [ "Dependencies", "dbgrid1.html#dependencies", null ]
-    ] ],
-    [ "File System Database Class", "fsdb.html", [
-      [ "Usage", "fsdb.html#usage", null ]
-    ] ],
-    [ "Hook Class", "hooks1.html", [
-      [ "Usage", "hooks1.html#usage", null ],
-      [ "Changelog", "hooks1.html#changelog", null ]
-    ] ],
-    [ "IP2CO Class", "ip2country.html", [
-      [ "Usage", "ip2country.html#usage", null ],
-      [ "Dependencies", "ip2country.html#dependencies", null ]
-    ] ],
-    [ "Mailer Class", "mailer1.html", [
-      [ "Usage", "mailer1.html#usage", null ],
-      [ "Changelog", "mailer1.html#changelog", null ]
-    ] ],
-    [ "Navigation Class", "nav1.html", [
-      [ "Usage", "nav1.html#usage", null ]
     ] ],
     [ "Record Class", "record1.html", [
       [ "Examples", "record1.html#examples", null ],
       [ "Dependencies", "record1.html#dependencies", null ]
     ] ],
-    [ "RoboTalker", "robo1.html", [
-      [ "Usage", "robo1.html#usage", null ]
+    [ "File System Database Class", "fsdb.html", [
+      [ "Usage:", "fsdb.html#usage", null ]
     ] ],
-    [ "Template Class", "template1.html", [
-      [ "Usage", "template1.html#usage", null ],
-      [ "Changelog", "template1.html#changelog", null ]
+    [ "IP2CO Class", "ip2country.html", [
+      [ "Usage:", "ip2country.html#usage", null ],
+      [ "Dependencies", "ip2country.html#dependencies", null ]
+    ] ],
+    [ "Mailer Class", "mailer1.html", [
+      [ "Usage:", "mailer1.html#usage", null ],
+      [ "Changelog", "mailer1.html#changelog", null ]
+    ] ],
+    [ "RoboTalker", "robo1.html", [
+      [ "Usage:", "robo1.html#usage", null ]
     ] ],
     [ "README", "md__r_e_a_d_m_e.html", null ],
     [ "Todo List", "todo.html", null ],
