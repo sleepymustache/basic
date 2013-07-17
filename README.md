@@ -3,7 +3,7 @@
 sleepy-mustache
 ================================================================================
 
--Doxygen [Documentation] (http://www.sleepymustache.com/documentation/html/index.html) is available.
+Doxygen [Documentation] (http://www.sleepymustache.com/documentation/html/index.html) is available.
 
 Sleepy mustache is a PHP framework that comes with solutions for everyday php
 challenges.  All the functionality is optional and tries to be as minimalist as
@@ -102,7 +102,7 @@ method.
 
 	require_once('include/sleepy.php');
 
-	$page = new Template('templates/default.tpl');
+	$page = new Template('default');
 	$page->bind('title', 'Sleepy Mustache');
 	$page->bind('header', 'Hello world!');
 	$page->show();
