@@ -1,10 +1,19 @@
 <?php
 	require_once('include/sleepy.php');
-
 	$page = new Template('default');
 	$page->bind('title', "Sleepy Mustache");
+	$page->bind('seo_description', "This is a description");
 	$page->bind('header', 'Sleepy Mustache!');
 	$page->bind('changelog', array(
+		array(
+			"title" => "Memcache Module",
+			"date" => "07/16/2013",
+			"changes" => array(
+				"Added a memcache module that will cache rendered pages.
+				Currently it is cached for 10 seconds but can be modified
+				very easily."
+			)
+		),
 		array(
 			"title" => "Module Management",
 			"date" => "07/12/2013",

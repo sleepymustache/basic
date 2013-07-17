@@ -1,21 +1,24 @@
 <?php
-	session_start();
-
-	// performance
+	// Performance benchmarking
 	require_once('class.performance.php');
 	Performance::start('template');
 
-	// sent the encoding ahead of time to speed up rendering
+	// Enable sessions
+	session_start();
+
+	// Send the encoding ahead of time to speed up rendering
 	header('Content-Type: text/html; charset=utf-8');
 
 	// enable gzip if it is available
-	if (extension_loaded('zlib')){
+	if (extension_loaded('zlib')) {
 		ob_start('ob_gzhandler');
 	}
 
 	include_once('class.debug.php');
 	include_once('class.hooks.php');
 	include_once('global.php');
+
+	Hook::AddAction('sleepy_preprocess');
 
 	// Compress HTML, with graceful fallback
 	ob_start('process_data_jmr1');
@@ -47,5 +50,4 @@
 		return $text;
 	}
 
-	include_once('class.navigation.php');
 	include_once('class.template.php');

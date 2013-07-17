@@ -114,6 +114,7 @@ class Template {
 			return $this->render($template, $data);
 		}
 
+
 		// Process the #each blocks
 		if (preg_match_all('/({{\s?(#each)(.+?)}})(?:[^{}]+|(?R))*({{\s?\/each\s?}})/ism', $template, $loops)) {
 			// For every #each
@@ -147,6 +148,8 @@ class Template {
 				$template = str_replace($value, $rendered, $template);
 			}
 		}
+
+		$template = Hook::addFilter('prerender_template', $template);
 
 		// Find all the single placeholders
 		preg_match_all('/{{\s?(.+?)\s?}}/', $template, $matches);
@@ -207,7 +210,6 @@ class Template {
 			$template = $this->render(ob_get_contents(), $this->_data) ;
 			ob_end_clean();
 			$template = Hook::addFilter('render_template_' . $this->_file, $template);
-			//die();
 			echo Hook::addFilter('render_template', $template);
 		} catch (Exception $e) {
 			ob_end_clean();
