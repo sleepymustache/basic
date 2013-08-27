@@ -1,32 +1,93 @@
 [] (\mainpage <|:{)
 
-sleepy-mustache
+Sleepy Mustache
 ================================================================================
 
 Doxygen [Documentation] (http://www.sleepymustache.com/documentation/html/index.html) is available.
 
 Sleepy mustache is a PHP framework that comes with solutions for everyday php
-challenges.  All the functionality is optional and tries to be as minimalist as
-possible.
+challenges.  Most of the functionality is optional and tries to be as minimalist
+as possible.
 
-Included Functionality
+Functionality
 --------------------------------------------------------------------------------
 
-* Hooks
-* Templating Engine
-* Singleton PDO DB class
-* Emailing
-* CSV creation
-* Debugging via Output, Email, and DB
-* File System Database
-* IP 2 Country detection
-* Mobile device detection
-* Navigation
+### Core Functionality
 
-### Misc
+The core is the basic functions that modules build off of
 
-* Robo Caller SOAP API (class.robotalker.php)
-* SQL Select to DB Grid (class.dbgrid.php)
+* **Debugging** -
+    Easily send debug information via the browser, email, or database
+
+* **Hooks** -
+    Assign functions to run at specific hook points throughout the loading
+    process. This module is responsible for handling almost all functionality.
+
+* **Benchmarking**
+    Lets you time the speed of functions
+
+* **Templating** -
+    Basic templating functionality lets you separate business logic for the
+    view. It replaces placeholders like "{{ title }}" with data
+
+### Default Modules
+
+Some modules are enabled by default. To disable the modules move them from the
+"enabled" folder and put them into the "disabled" folder
+
+* **Navigation** -
+    Creates a UL that can be used for a navigation
+
+* **URL Class** -
+    Adds a class based on the current page. /user/jaime will have a class added
+    to the body that says "user-jaime-index". Additionally /user would be
+    "user-index"
+
+### Available Modules
+
+Most modules are disabled by default. To enable the modules move them from the
+into the "disabled" folder into "enabled" folder
+
+* **CRUD** -
+    Create, Read, Update, Delete functionality using PDO
+
+* **File System Database** -
+    A basic database that uses flat files and JSON documents
+
+* **IP 2 Country detection** -
+    Uses the IP address to detect the country of origin.
+
+* **Mobile device detection** -
+    Can detect mobile and tablet devices
+
+* **CSV creation** -
+    CRUD class for CSV files
+
+* **Emailing** -
+    Basic email functionality with RFC email validation
+
+* **Robo Caller SOAP API (class.robotalker.php)** -
+    Class for interacting with the robotalker API
+
+* **SQL Select to DB Grid (class.dbgrid.php)** -
+    Turns a SQL Select statement into a table with hook points
+
+* **Memcache** -
+    Improve performance by implementing memcaching of pages (10 second default)
+
+* **Users** -
+    Basic user and roles functionality includes auth, roles, and permissions
+
+### Sample Modules
+
+These module have little-to-no practical use, but help demonstrate how to build
+simple modules with hook points.
+
+* **Timer** -
+    A module that replaces the {{ timer }} with the time it took the framework
+    to generate the page.
+* **Wizard Title** -
+    This module prepends an ASCII wizard to the title of the page.
 
 
 Getting Started
@@ -53,7 +114,7 @@ the DB update.
 	$db->save();
 
 	// add a hook action
-	$content = Hook::addAction('record_saved');
+	Hook::addAction('record_saved');
 
 	// Add a function to the hook action
 	function send_email() {
@@ -83,16 +144,16 @@ this data you should return the edited data back to the program.
 		'clean_html'
 	);
 
-The *modules* directory provides a convenient location to put code that utilized
-the hooks system. Code inside of the *modules* directory are automatically added
-to the program at runtime.
+The *modules/enabled* directory provides a convenient location to put code that
+utilized the hooks system. Code inside of the *modules/enabled* directory are
+automatically added to the program at runtime.
 
 
 ### Templating
 
 Templates reside inside the *'/templates/'* folder and should end in a .tpl
 extension. The templating system works by using placeholders that later get
-filled in later. The placeholders must have the following syntax:
+replaced with text. The placeholders must have the following syntax:
 
 	{{ placeholder }}
 
@@ -119,11 +180,12 @@ Here is the sample template file (templates/default.tpl)
 		</body>
 	</html>
 
-We added a *{{ hits }}* placeholder in the template above. We can add that
-functionality using Hooks.
+We added a *{{ hits }}* placeholder in the template above. For this example, we
+want to replace the placeholder with the number of times this page was viewed.
+We can add that functionality using Hooks.
 
-	// filename: /modules/hits.php
-	function hook_render_placeholder_topNav() {
+	// filename: /modules/enabled/hit-counter/hits.php
+	function hook_render_placeholder_hits() {
 		$hits = new FakeClass();
 
 		return $hits->getTotal();
@@ -139,7 +201,7 @@ correlates to the name of the placeholder. This hook filter is defined in
 '*class.template.php*'. The second parameter is the name of the function to run
 when we render the placeholder.
 
-You can iterate through data using #each placeholders
+You can iterate through multidimensional array data using #each placeholders
 
 	// Bind the data like this
 	$page->bind('fruits', array(
@@ -153,8 +215,8 @@ You can iterate through data using #each placeholders
 	));
 
 	// in the template
-	{{ #each fruit in fruits }}
-		<p>I like {{ fruit.color }}, because my {{ fruit.name }} is {{ fruit.color }}.</p>
+	{{ #each f in fruits }}
+		<p>I like {{ f.color }}, because my {{ f.name }} is {{ f.color }}.</p>
 	{{ /each }}
 
 ### Databases
@@ -259,7 +321,7 @@ available mobile and tablet UA.
 
 ### Navigation
 
-The navigation is generated by from JSON. It renders the JSON into a unordered
+The navigation is generated from JSON. It renders the JSON into a unordered
 list with some classes added for the current active page.
 
 	// Add a placeholder in your template
