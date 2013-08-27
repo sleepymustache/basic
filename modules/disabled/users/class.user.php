@@ -1,5 +1,8 @@
 <?php
-	require_once('modules/enabled/db/class.record.php');
+	error_reporting(E_ALL);
+	ini_set("display_errors", 1);
+
+	require_once(dirname(__file__) . '/../db/class.record.php');
 
 	class User extends Record {
 		public $table = 'users';
@@ -11,14 +14,17 @@
 		public function authenticate($email, $pass) {
 			$pass = crypt($pass, $this->salt);
 
-			$query = $this->db->prepare("SELECT * FROM users WHERE email=:email");
-			$query->execute(array(':email' => $email));
+			$query = $this->db->prepare("SELECT * FROM users WHERE email=:email AND password=:pass");
+			$query->execute(array(
+				':email' => $email,
+				':pass' => $pass
+			));
 			$query->setFetchMode(PDO::FETCH_ASSOC);
 
 			if ($row = $query->fetch()) {
 				$this->load($row['id']);
 			} else {
-				throw new Exception("{$this->table}: Record does not exist.");
+				throw new Exception("{$this->table}: Authentication failed.");
 			}
 		}
 
@@ -67,6 +73,22 @@
 					$temp->columns['value'] = $value;
 					$temp->save();
 				}
+			}
+		}
+
+		public function saltPassword($pass) {
+			return crypt($pass, $this->salt);
+		}
+
+		public function save() {
+			$query = $this->db->prepare("SELECT * from users where email=:email");
+			$query->setFetchMode(PDO::FETCH_ASSOC);
+			$query->execute(array(':email' => $this->columns['email']));
+
+			if ($query->fetch()) {
+				throw new Exception('The user already exists.');
+			} else {
+				parent::save();
 			}
 		}
 	}
@@ -119,11 +141,28 @@
 		public $table = 'permissions';
 	}
 
-	$u = new User();
-	$u->authenticate('hi.i.am.jaime@gmail.com', 'test');
-	Debug::out($u);
-	if ($u->getPermission('add-user')) {
-		echo "You may add users.";
-	} else {
-		echo "You may not add users.";
+/*	// Create a new user if it doesn't exist
+	try {
+		$u = new User();
+
+		$u->columns['email'] = 'hi.i.am.jaime@gmail.com';
+		$u->columns['password'] = $u->saltPassword('test');
+		$u->columns['role_id'] = 1;
+		$u->save();
+	} catch (Exception $e) {
+		echo $e->getMessage() . "<br />\n";
 	}
+
+	$u = new User();
+
+	try {
+		$u->authenticate('hi.i.am.jaime@gmail.com', 'test');
+
+		if ($u->getPermission('add-user')) {
+			echo "You may add users.";
+		} else {
+			echo "You may not add users.";
+		}
+	} catch (Exception $e) {
+		echo $e->getMessage() . "<br />\n";
+	}*/
