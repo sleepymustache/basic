@@ -12,7 +12,8 @@ a:link {			 -webkit-tap-highlight-color:#fbb427;}
 
 .wrapper {
 	position: relative;
-	width: 960px;
+	max-width: 960px;
+	min-width:320px;
 	margin: 0 auto;
 }
 
