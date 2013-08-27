@@ -89,10 +89,10 @@ class Template {
 		$keys = explode('.', $path);
 
 		while ($key = array_shift($keys)) {
-			$arr = &$arr[$key];
+			$a = &$arr[$key];
 		}
 
-		return $arr;
+		return $a;
 	}
 
 	/**
@@ -114,9 +114,8 @@ class Template {
 			return $this->render($template, $data);
 		}
 
-
 		// Process the #each blocks
-		if (preg_match_all('/({{\s?(#each)(.+?)}})(?:[^{}]+|(?R))*({{\s?\/each\s?}})/ism', $template, $loops)) {
+		if (preg_match_all('/{{\s?#each.+?}}(?:(?>[^{}]+)|(?R))*{{\s?\/each\s?}}/ism', $template, $loops)) {
 			// For every #each
 			foreach ($loops[0] as $value) {
 				// Reset rendered data
@@ -130,16 +129,26 @@ class Template {
 				$new_template = preg_replace('/{{\s?\/each\s?}}$/s', '', $new_template, 1);
 
 				// get the array based on the <in>
-
 				$in = $this->assignArrayByPath($data, $forin['in']);
+				//var_dump($in);
 
 				// for each changelog
-				foreach ($in as $new_data) {
+				if (is_array($in[0])) {
+					foreach ($in as $new_data) {
+						// Make the $new_data match the <for>
+						$new_data[$forin['for']] =  $new_data;
 
-					// Make sure it's an array
-					$new_data = (array) $new_data;
-					// Make the $new_data match the <for>
-					$new_data[$forin['for']] =  $new_data;
+						// render the new template
+						$rendered = $rendered . $this->render($new_template, $new_data);
+					}
+				} else {
+					echo "<h1>!!" . $in[0] . " is not array</h1><pre>";var_dump($in);echo "</pre>";
+
+					foreach ($in as $string) {
+						$new_data[$forin['for']] = $string;
+						//echo "<pre>";var_dump($new_data);echo "</pre>";
+						$rendered = $rendered . $this->render($new_template, $new_data);
+					}
 
 					// render the new template
 					$rendered = $rendered . $this->render($new_template, array_merge($new_data, $data));
@@ -159,7 +168,7 @@ class Template {
 			$key = trim(str_replace('{{', '', str_replace('}}', '', $placeholder)));
 
 			// make sure it isn't an array. We use #each for those.
-			if (is_array($data[$key])) {
+			if (@is_array($data[$key])) {
 				throw new Exception("Arrays can only be bound in #each loops. Placeholder: {$key}");
 			}
 
@@ -210,6 +219,7 @@ class Template {
 			$template = $this->render(ob_get_contents(), $this->_data) ;
 			ob_end_clean();
 			$template = Hook::addFilter('render_template_' . $this->_file, $template);
+
 			echo Hook::addFilter('render_template', $template);
 		} catch (Exception $e) {
 			ob_end_clean();
