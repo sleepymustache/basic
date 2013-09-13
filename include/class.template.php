@@ -1,5 +1,6 @@
 <?php
 require_once('class.hooks.php');
+
 /**
  * @page template1 Template Class
  *
@@ -83,7 +84,7 @@ class Template {
 	 * 'name.first' will return $arr['name']['first']
 	 * @param  array  $arr  An array to search using the $path
 	 * @param  string $path A path representing the dimensions of the array
-	 * @return mixed  a sub-array or string
+	 * @return mixed        A sub-array or string
 	 */
 	private function assignArrayByPath(&$arr, $path) {
 		$keys = explode('.', $path);
@@ -193,7 +194,7 @@ class Template {
 	 * @param  mixed  $value         The value that replaced the placeholder
 	 */
 	public function bind($placeholder, $value) {
-		$this->_data[$placeholder] = $value;
+		$this->_data[$placeholder] = $value; 
 	}
 
 	/**
@@ -202,7 +203,7 @@ class Template {
 	 * @return mixed               The data stored in the placeholder
 	 */
 	public function get($key) {
-		return $this->_data[$key];
+		return Hook::addFilter('template_get_' . $key, $this->_data[$key]);
 	}
 
 	/**
@@ -218,8 +219,8 @@ class Template {
 			include($this->directory . $this->_file . $this->extension);
 			$template = $this->render(ob_get_contents(), $this->_data) ;
 			ob_end_clean();
-			$template = Hook::addFilter('render_template_' . $this->_file, $template);
 
+			$template = Hook::addFilter('render_template_' . $this->_file, $template);
 			echo Hook::addFilter('render_template', $template);
 		} catch (Exception $e) {
 			ob_end_clean();
