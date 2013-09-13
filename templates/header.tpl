@@ -39,5 +39,4 @@
 				{{ topNav }}
 			</nav>
 		</header>
-
 		<section class="content clearfix">

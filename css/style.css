@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+
 /* Micro clearfix */
 .cf:before,.cf:after {content: " ";display: table;}
 .cf:after {clear: both;}
@@ -15,6 +17,7 @@ a:link {			 -webkit-tap-highlight-color:#fbb427;}
 	max-width: 960px;
 	min-width:320px;
 	margin: 0 auto;
+	background: #efefef;
 }
 
 /* Form Styling */
@@ -106,35 +109,59 @@ nav > ul li:hover > ul {
 	display: block;
 }
 
-/* Delete these styles */
-
-h1, h2, h3, h4, h5, h6 {
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+/*******************************************************************************
+ * Delete these styles                                                         *
+ ******************************************************************************/
+/* Typography */
+h1 {
+	color: white;
+	font-family: 'Lobster', cursive;
+	font-size: 48px;
+	position: relative;
+	top: -15px;
+	left: 27px;
+	width: 350px;
+}
+h2, h3, h4, h5, h6 {
+	font-family: 'Arial', sans-serif;
 	font-weight: 900;
 }
+h2 a {
+	color: darkred;
+}
 p, li {
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	font-weight: 300;
+	font-family: 'Times New Roman', serif;
+	font-weight: normal;
+	font-size: 18px;
+	color: #444;
+	letter-spacing: 1px;
+	line-height: 175%;
 }
 
-section h1 {font-size: 28px;}
-section h2 {font-size: 20px;}
+/* Body */
+.wrapper {box-shadow: 0px 0px 75px #ccc;}
+section {padding: 0px 24px; width: 500px;}
+section h1 {position: static;color: black;font-family: 'Arial', sans-serif;font-size: 30px;}
+section h2 {font-size: 0px 24px 24px 24px;}
+footer { padding: 0 24px 1px;}
+footer p {color: #ccc;}
 
+/* Header */
+.top {
+	margin-top: -124px;
+}
 .top > ul {
 	background: darkred;
-	padding: 10px;
+	padding: 33px 33px 33px 593px;
 }
-
 .top > ul ul {
 	margin-top: 4px;
 	margin-left: -22px;
 }
-
 .top a {
 	color: #fff;
 	text-decoration: none;
 }
-
 .top ul ul {
 	background-color: darkred;
 }

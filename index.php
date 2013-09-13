@@ -1,12 +1,32 @@
 <?php
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/include/sleepy.php');
 
+	/**
+	 * Example of using the User module
+	 */
+	if (class_exists('User')) {
+		$u = new User();
+
+		// check if a user is logged in
+		if (!$u->isLoggedIn()) {
+			header('location: /user/login/');
+		}
+
+		// check if a user is an admin
+		if (!$u->isAdmin()) {
+			echo "You must be an Administrator to see this page.";
+			die();
+		}
+	}
+
 	$page = new Template('homepage');
 
 	// SEO
-	$page->bind('title', "Sleepy Mustache");
+	$page->bind('title', 'Sleepy Mustache');
 	$page->bind('description', 'This is the description');
 	$page->bind('keywords', 'blog, sleepy mustache, framework');
+
+	// Content
 	$page->bind('header', 'Sleepy Mustache!');
 	$page->bind('teasers', array(
 		array(
@@ -24,17 +44,7 @@
 				bathe yet chew iPad power cord. Chew foot. Shake treat bag
 				hopped up on goofballs, claw drapes for chase mice burrow under
 				covers. Play time intrigued by the shower chew iPad power cord
-				sun bathe. Play time stand in front of the computer screen
-				throwup on your pillow. Leave hair everywhere hunt anything
-				that moves. Under the bed. Attack feet. Use lap as chair shake
-				treat bag sun bathe yet hopped up on goofballs behind the couch
-				rub face on everything. Chase imaginary bugs why must they do
-				that intently stare at the same spot sweet beast or under the
-				bed but under the bed. Missing until dinner time find something
-				else more interesting destroy couch but rub face on everything
-				use lap as chair destroy couch. Shake treat bag hate dog chew
-				iPad power cord. Chase mice shake treat bag play time but cat
-				snacks and intrigued by the shower. ",
+				sun bathe.",
 			"tags" => array(
 				array(
 					'name' => "modules",
