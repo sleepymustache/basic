@@ -23,8 +23,9 @@
 
 			if ($row = $query->fetch()) {
 				$this->load($row['id']);
+				return $row['id'];
 			} else {
-				throw new Exception("{$this->table}: Authentication failed.");
+				throw new Exception("Invalid user or password.");
 			}
 		}
 
@@ -90,6 +91,40 @@
 			} else {
 				parent::save();
 			}
+		}
+
+		public function isLoaded() {
+			if (isset($this->columns['id'])) {
+				return true;
+			}
+		}
+
+		public function isLoggedIn() {
+			if (isset($_SESSION['uid'])) {
+				return $_SESSION['uid'];
+			} else {
+				return false;
+			}
+		}
+
+		public function isAdmin() {
+			if (!$uid = $this->isLoggedIn()) {
+				return false;
+			}
+
+			if (!$this->isLoaded()) {
+				$this->load($uid);
+			}
+
+			if ($this->columns['role_id'] == 1) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		public function getRole() {
+			return $this->role->columns['name'];
 		}
 	}
 
