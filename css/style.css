@@ -1,23 +1,23 @@
 @import url(http://fonts.googleapis.com/css?family=Lobster);
 
 /* Micro clearfix */
-.cf:before,.cf:after {content: " ";display: table;}
-.cf:after {clear: both;}
+.cf:before,.cf:after{content:" ";display:table;}
+.cf:after{clear:both;}
 .cf {*zoom: 1;}
 
 /* Custom text-selection colors ----------------->#??????*/
-::-moz-selection{	color:#fff;       background:#fbb427;text-shadow:none;}
-::selection {		color:#fff;       background:#fbb427;text-shadow:none;}
-ins {				color:#000; background-color:#fbb427;}
-mark {				color:#000; background-color:#fbb427;font-style:italic;font-weight:bold;}
-a:link {			 -webkit-tap-highlight-color:#fbb427;}
+::-moz-selection{	color:#fff;       background:darkred;text-shadow:none;}
+::selection {		color:#fff;       background:darkred;text-shadow:none;}
+ins {				color:#fff; background-color:darkred;}
+mark {				color:#fff; background-color:darkred;font-style:italic;font-weight:bold;}
+a:link {			 -webkit-tap-highlight-color:darkred;}
 
 .wrapper {
 	position: relative;
-	max-width: 960px;
-	min-width:320px;
+	max-width: 936px;
+	min-width: 296px;
 	margin: 0 auto;
-	background: #efefef;
+	padding: 12px;
 }
 
 /* Form Styling */
@@ -79,7 +79,6 @@ nav ul {
 }
 nav ul ul {
 	background-color: #fff;
-	border: 1px solid #000;
 	display: none;
 	position: absolute;
 }
@@ -89,21 +88,18 @@ nav ul ul ul {
 }
 nav ul li {
 	display: inline-block;
-	padding: 3px 12px;
+	padding: 0 24px;
 }
 nav ul ul li {
 	min-width: 150px;
 	float: left;
 	clear: both;
 }
-nav ul ul ul li {
-
-}
 nav > ul li + li {
 	padding-left: 12px;
 }
-nav > ul ul li + li {
-	/*padding: 0;*/
+nav > ul ul li {
+	padding: 0 12px;
 }
 nav > ul li:hover > ul {
 	display: block;
@@ -112,56 +108,17 @@ nav > ul li:hover > ul {
 /*******************************************************************************
  * Delete these styles                                                         *
  ******************************************************************************/
-/* Typography */
-h1 {
-	color: white;
-	font-family: 'Lobster', cursive;
-	font-size: 48px;
-	position: relative;
-	top: -15px;
-	left: 27px;
-	width: 350px;
-}
-h2, h3, h4, h5, h6 {
-	font-family: 'Arial', sans-serif;
-	font-weight: 900;
-}
-h2 a {
-	color: darkred;
-}
-p, li {
-	font-family: 'Times New Roman', serif;
-	font-weight: normal;
-	font-size: 18px;
-	color: #444;
-	letter-spacing: 1px;
-	line-height: 175%;
-}
-
-/* Body */
-.wrapper {box-shadow: 0px 0px 75px #ccc;}
-section {padding: 0px 24px; width: 500px;}
-section h1 {position: static;color: black;font-family: 'Arial', sans-serif;font-size: 30px;}
-section h2 {font-size: 0px 24px 24px 24px;}
-footer { padding: 0 24px 1px;}
-footer p {color: #ccc;}
-
-/* Header */
-.top {
-	margin-top: -124px;
-}
-.top > ul {
-	background: darkred;
-	padding: 33px 33px 33px 593px;
-}
-.top > ul ul {
-	margin-top: 4px;
-	margin-left: -22px;
-}
-.top a {
-	color: #fff;
-	text-decoration: none;
-}
-.top ul ul {
-	background-color: darkred;
-}
+.top li {font-family: Arial, sans-serif;letter-spacing: 0;}
+.top {margin: 0 auto;width: 462px;}
+h1 {color: white;font-family: 'Lobster', cursive;font-size: 56px;margin: 0 auto;width: 391px;}
+h2, h3, h4, h5, h6 {font-family: 'Arial', sans-serif;font-weight: 900;}
+a {color: #48c9b0;}
+a:hover {color: #16A085;}
+p, li {font-weight: normal;font-size: 24px;color: #fff;letter-spacing: 1px;line-height: 175%;}
+p.metadata {font-size: 12px;margin-top: -28px;font-family: arial, sans-serif;}
+html {background: #C0392B;}
+section h1 {position: static;font-family: 'Arial', sans-serif;font-size: 40px;margin: 0 0 36px 0;width: auto;}
+section h2 {font-size: 32px;letter-spacing: 2px;}
+.top a {color: #fff;text-decoration: none;}
+.top ul ul {background-color: darkred;}
+footer p {font-size: 16px;opacity: 0.35;}

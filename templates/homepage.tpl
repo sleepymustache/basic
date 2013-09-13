@@ -1,10 +1,10 @@
 {{ #include header }}
-	<h1>News</h1>
+	<h1>Blogroll</h1>
 	{{ #each entry in teasers }}
 		<article>
 			<header>
 				<h2><a href="{{entry.link}}">{{ entry.title }}</a></h2>
-				<p>{{ entry.date }} - {{ entry.author }}</p>
+				<p class="metadata">{{ entry.date }} - {{ entry.author }}</p>
 			</header>
 			<p>{{ entry.description }}</p>
 			<p>
