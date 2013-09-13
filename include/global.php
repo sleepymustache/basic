@@ -9,21 +9,22 @@
 	}
 
 	$strCurrentDir = getcwd();
+	$workarea = '\\htdocs\\';
 
-	if (strpos($strCurrentDir, '\\htdocs\\') > 0) {
+	if (strpos($strCurrentDir, $workarea) > 0) {
 		$strBack = '.';
 	} else {
 		$strBack = '';
 	}
 
-	if (strpos($strCurrentDir, '\\htdocs\\') > 0) {
-		while (strpos($strCurrentDir, '\\htdocs\\') > 0) {
+	if (strpos($strCurrentDir, $workarea) > 0) {
+		while (strpos($strCurrentDir, $workarea) > 0) {
 			$strCurrentDir = substr($strCurrentDir, 0, strrpos($strCurrentDir, '\\'));
 			$strBack .= '/..';
 		}
 	} else {
-		while (strpos($strCurrentDir, '/htdocs/') > 0) {
-			$strCurrentDir = substr($strCurrentDir, 0, strrpos($strCurrentDir, '/'));
+		while (strpos($strCurrentDir, $workarea) > 0) {
+			$strCurrentDir = substr($strCurrentDir, 0, strrpos($strCurrentDir, '\\'));
 			$strBack .= '/..';
 		}
 	}
@@ -33,7 +34,7 @@
 	// Debugging
 	Debug::$enable_show = true;			// Show debug info on screen
 	Debug::$enable_send = false;		// Send debug info via email
-	Debug::$enable_log = false;			// Log debug info to a db
+	Debug::$enable_log  = false;		// Log debug info to a db
 
 	// Globals
 	define('LIVE_URL', '****CHANGE_LIVE_SITE_URL****');
@@ -50,9 +51,9 @@
 
 		// Email information
 		define('EMAIL_FROM', '');
-		define('EMAIL_TO', '');
-		define('EMAIL_CC', '');
-		define('EMAIL_BCC', '');
+		define('EMAIL_TO',   '');
+		define('EMAIL_CC',   '');
+		define('EMAIL_BCC',  '');
 
 		// Analytics
 		define('GA_ACCOUNT', '');
@@ -67,9 +68,9 @@
 
 		// Email information
 		define('EMAIL_FROM', '');
-		define('EMAIL_TO', '');
-		define('EMAIL_CC', '');
-		define('EMAIL_BCC', '');
+		define('EMAIL_TO',   '');
+		define('EMAIL_CC',   '');
+		define('EMAIL_BCC',  '');
 
 		// Analytics
 		define('GA_ACCOUNT', '');
