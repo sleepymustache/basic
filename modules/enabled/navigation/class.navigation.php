@@ -94,9 +94,15 @@ class Navigation {
 	 * @param  object $pages the page data
 	 * @return string        The string containing the unordered list
 	 */
-	private function renderNav($pages) {
+	private function renderNav($pages, $class="") {
 		$buffer = array();
-		$buffer[] = "<ul>";
+
+		if (strlen($class) > 1) {
+			$buffer[] = "<ul class=\"{$class}\">";
+		} else {
+			$buffer[] = "<ul>";
+		}
+
 		foreach ($pages as $page) {
 			$buffer[] = "<li class='";
 			if ($this->hasActive($page)) {
@@ -125,8 +131,8 @@ class Navigation {
 	 * Renders the Navigation
 	 * @return string The rendered navigation
 	 */
-	public function show() {
-		return $this->renderNav($this->data->pages);
+	public function show($class="") {
+		return $this->renderNav($this->data->pages, $class);
 	}
 
 	/**
