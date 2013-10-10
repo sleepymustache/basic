@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * Generates a class based on the URL. This way we can target this page with css
+ * 
+ * @return string The class name
+ */
 function wizard_render_placeholder_urlClass() {
 	// Get the current URL
 	$url = $_SERVER['REQUEST_URI'];
@@ -31,4 +37,4 @@ function wizard_render_placeholder_urlClass() {
 	return $url;
 }
 
-Hook::applyFilter('render_placeholder_urlClass', 'wizard_render_placeholder_urlClass');
+Hook::applyFilter('render_placeholder_urlclass', 'wizard_render_placeholder_urlclass');
