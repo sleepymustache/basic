@@ -34,9 +34,9 @@ class Mailer {
 	private $html;
 
 	public function __construct() {
-		$this->to = array();
-		$this->cc = array();
-		$this->bcc = array();
+		$this->to;
+		$this->cc;
+		$this->bcc;
 		
 		$this->addSubject();
 		$this->html = false;
