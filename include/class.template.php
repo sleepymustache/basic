@@ -32,13 +32,13 @@ require_once('class.hooks.php');
  * @endcode
  *
  * @section changelog Changelog
- * * added nesting to the #each loop
+ * * added bindStart() and bindStart() for capturing large amounts of HTML
  *
  * @todo add #if
  *
- * @date		June 24, 2013
+ * @date		September 17, 2013
  * @author		Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version		1.3
+ * @version		1.4
  * @copyright	GPL 3 http://cuttingedgecode.com
  */
 
@@ -162,18 +162,26 @@ class Template {
 		$template = Hook::addFilter('prerender_template', $template);
 
 		// Find all the single placeholders
-		preg_match_all('/{{\s?(.+?)\s?}}/', $template, $matches);
+		//preg_match_all('/{{\s?(.+?)\s?}}/', $template, $matches);
+		preg_match_all('/{{\s?(.*?)(\s.*)?\s?}}/', $template, $matches);
+
 
 		// For each replace with a value
-		foreach (array_unique($matches[0]) as $key => $placeholder) {
-			$key = trim(str_replace('{{', '', str_replace('}}', '', $placeholder)));
+		foreach (array_unique($matches[0]) as $index => $placeholder) {
+			$key = $matches[1][$index]; //trim(str_replace('{{', '', str_replace('}}', '', $placeholder)));
 
 			// make sure it isn't an array. We use #each for those.
 			if (@is_array($data[$key])) {
 				throw new Exception("Arrays can only be bound in #each loops. Placeholder: {$key}");
 			}
 
-			$template = str_replace($placeholder, Hook::addFilter('render_placeholder_' . $key, $this->assignArrayByPath($data, $key)), $template);
+			$arguments = array(
+				$this->assignArrayByPath($data, $key)
+			);
+
+			$arguments = array_merge($arguments, explode(" ", trim($matches[2][$index])));
+
+			$template = str_replace($placeholder, Hook::addFilter('render_placeholder_' . strtolower($key), $arguments), $template);
 		}
 
 		return $template;
@@ -195,6 +203,24 @@ class Template {
 	 */
 	public function bind($placeholder, $value) {
 		$this->_data[$placeholder] = $value; 
+	}
+
+	/**
+	 * Starts a buffer that will bind data to the template placeholders. The 
+	 * buffer will capture anything you output until $this->bindStop()
+	 */
+	public function bindStart() {
+		ob_start();
+	}
+
+	/**
+	 * Stops the buffer that binds data to the template placeholders
+	 * @param  string $placeholder   The template placeholder
+	 */
+	public function bindStop($placeholder) {
+		$content = ob_get_contents();
+		ob_end_clean();
+		$this->_data[$placeholder] = $content; 
 	}
 
 	/**
