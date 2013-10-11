@@ -216,8 +216,8 @@ class Hook {
 	 * @static
 	 * @return void
 	 */
-	public static function doAction($name, $function) {
-		self::applyFilter($name, $function);
+	public static function doAction($name, $function, $args='1') {
+		self::applyFilter($name, $function, $args);
 	}
 
 	/**

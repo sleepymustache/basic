@@ -113,17 +113,7 @@ class Debug {
 
 	public function __destruct() {
 		if (self::$enable_send) {
-			$headers = array();
-			$headers[] = 'From: ' . self::$emailFrom;
-			$headers[] = "MIME-Version: 1.0";
-			$headers[] = 'Content-type: text/html; charset=iso-8859-1';
-			if (self::$emailCC != '') {
-				$headers[] = 'Cc: ' . self::$emailCC;
-			}
-			if (self::$emailBCC != '') {
-				$headers[] = 'Bcc: ' . self::$emailBCC;
-			}
-			mail(self::$emailTo, self::$emailSubject, implode("<br />\n", self::$emailBuffer), implode("\n", $headers));
+			self::sendEmail();
 		}
 	}
 
@@ -267,5 +257,28 @@ class Debug {
 		self::$enable_send = false;
 		self::$enable_log = false;
 		self::$enable_show = false;
+	}
+
+	/**
+	 * Sends the email.
+	 *
+	 * @return bool true if sent successfully
+	 */
+	public static function sendEmail() {
+		if (!self::$enable_send) {
+			return false;
+		}
+		
+		$headers = array();
+		$headers[] = 'From: ' . self::$emailFrom;
+		$headers[] = "MIME-Version: 1.0";
+		$headers[] = 'Content-type: text/html; charset=iso-8859-1';
+		if (self::$emailCC != '') {
+			$headers[] = 'Cc: ' . self::$emailCC;
+		}
+		if (self::$emailBCC != '') {
+			$headers[] = 'Bcc: ' . self::$emailBCC;
+		}
+		return mail(self::$emailTo, self::$emailSubject, implode("<br />\n", self::$emailBuffer), implode("\n", $headers));
 	}
 }

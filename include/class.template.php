@@ -97,6 +97,14 @@ class Template {
 	}
 
 	/**
+	 * Sets the template to use.
+	 * @param [type] $file [description]
+	 */
+	public function setTemplate($file) {
+		$this->_file = $file;
+	}
+
+	/**
 	 * Renders the template
 	 * @param  string $template The template to render
 	 * @param  array $data      The data bound to the template
@@ -107,8 +115,13 @@ class Template {
 		// Process the includes
 		if (preg_match('/{{\s*#include\s.*}}/', $template, $include)) {
 			$index = trim(str_replace('{{', '', str_replace('}}', '', $include[0])));
-			ob_start();
-			include($this->directory . str_replace('#include ', '', $index) . $this->extension);
+			if (file_exists($this->directory . str_replace('#include ', '', $index) . $this->extension)) {
+				ob_start();
+				include($this->directory . str_replace('#include ', '', $index) . $this->extension);
+			} else {
+				ob_clean(); // clear buffer in $this->show();
+				throw new Exception($this->directory . str_replace('#include ', '', $index) . $this->extension . " doesn't exist. Cannot include file.");
+			}
 			$template = str_replace($include[0], $this->render(ob_get_contents(), $data), $template);
 			ob_end_clean();
 
@@ -168,7 +181,7 @@ class Template {
 
 		// For each replace with a value
 		foreach (array_unique($matches[0]) as $index => $placeholder) {
-			$key = $matches[1][$index]; //trim(str_replace('{{', '', str_replace('}}', '', $placeholder)));
+			$key = trim(strtolower($matches[1][$index])); //trim(str_replace('{{', '', str_replace('}}', '', $placeholder)));
 
 			// make sure it isn't an array. We use #each for those.
 			if (@is_array($data[$key])) {
@@ -191,9 +204,11 @@ class Template {
 	 * The constructor
 	 * @param string $template The name of the template
 	 */
-	public function __construct($template) {
+	public function __construct($template='') {
 		$this->directory = $_SERVER['DOCUMENT_ROOT'] . "/templates/";
-		$this->_file = $template;
+		if (!empty($template)) {
+			setTemplate($template);
+		}
 	}
 
 	/**
@@ -202,7 +217,7 @@ class Template {
 	 * @param  mixed  $value         The value that replaced the placeholder
 	 */
 	public function bind($placeholder, $value) {
-		$this->_data[$placeholder] = $value; 
+		$this->_data[trim(strtolower($placeholder))] = $value; 
 	}
 
 	/**
@@ -220,7 +235,7 @@ class Template {
 	public function bindStop($placeholder) {
 		$content = ob_get_contents();
 		ob_end_clean();
-		$this->_data[$placeholder] = $content; 
+		$this->_data[trim(strtolower($placeholder))] = $content;
 	}
 
 	/**
@@ -236,22 +251,16 @@ class Template {
 	 * Shows the rendered template
 	 */
 	public function show() {
-		try {
-				// Check if template is ok
-			$this->checkTemplate($this->_file);
+		// Check if template is ok
+		$this->checkTemplate($this->_file);
 
-			// Render template file
-			ob_start();
-			include($this->directory . $this->_file . $this->extension);
-			$template = $this->render(ob_get_contents(), $this->_data) ;
-			ob_end_clean();
+		// Render template file
+		ob_start();
+		include($this->directory . $this->_file . $this->extension);
+		$template = $this->render(ob_get_contents(), $this->_data) ;
+		ob_end_clean();
 
-			$template = Hook::addFilter('render_template_' . $this->_file, $template);
-			echo Hook::addFilter('render_template', $template);
-		} catch (Exception $e) {
-			ob_end_clean();
-			ob_end_clean();
-			echo "Error: " . $e->getMessage();
-		}
+		$template = Hook::addFilter('render_template_' . $this->_file, $template);
+		echo Hook::addFilter('render_template', $template);
 	}
 }
