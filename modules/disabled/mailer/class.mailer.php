@@ -96,12 +96,15 @@ class Mailer {
 		$emails = explode(',', $email);
 
 		foreach ($emails as $e) {
-			if ($this->rfcCheck(trim($e))) {
-				$this->to[] = trim($e);
+			$e = trim($e);
+			if ($this->rfcCheck($e)) {
+				$this->to[] = $e;
 			} else {
-				throw new Exception("The to parameter has a non RFC 2822 compliant addresses: {$e}");
+				throw new Exception("The \$email parameter has a non RFC 2822 compliant addresses: {$e}");
 			}
 		}
+
+		return true;
 	}
 
 	/**
@@ -112,12 +115,15 @@ class Mailer {
 		$emails = explode(',', $email);
 
 		foreach ($emails as $e) {
-			if ($this->rfcCheck(trim($e))) {
-				$this->cc[] = trim($e);
+			$e = trim($e);
+			if ($this->rfcCheck($e)) {
+				$this->cc[] = $e;
 			} else {
-				throw new Exception("The cc parameter has a non RFC 2822 compliant addresses: {$e}");
+				throw new Exception("The \$email parameter has a non RFC 2822 compliant addresses: {$e}");
 			}
 		}
+
+		return true;
 	}
 
 	/**
@@ -125,12 +131,18 @@ class Mailer {
 	 * @param string $email A valid email address
 	 */
 	public function addBcc($email) {
-		if ($this->rfcCheck($email)) {
-			$this->bcc[] = $email;
-			return true;
-		} else {
-			throw new Exception("The $to parameter has no RFC 2822 compliant addresses.");
+		$emails = explode(',', $email);
+
+		foreach ($emails as $e) {
+			$e = trim($e);
+			if ($this->rfcCheck($e)) {
+				$this->bcc[] = $e;
+			} else {
+				throw new Exception("The \$email parameter has a non RFC 2822 compliant addresses: {$e}");
+			}
 		}
+
+		return true;
 	}
 
 	/**
@@ -143,7 +155,7 @@ class Mailer {
 			$this->from = $email;
 			return true;
 		} else {
-			throw new Exception("The $to parameter has no RFC 2822 compliant addresses.");
+			throw new Exception("The \$email parameter has no RFC 2822 compliant addresses.");
 		}
 	}
 
