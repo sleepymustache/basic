@@ -9,19 +9,6 @@
 			Debug::$enable_send = false;
 		}*/
 
-		/* Make sure debug output is wrapped in pre */
-		function testDebugShow() {
-			Debug::$enable_show = true;
-			ob_start();
-			Debug::out(array(
-				'test' => 'data'
-			));
-			$output = ob_get_clean();
-			$this->assertNotNull($output);
-			$this->assertPattern('/<pre>(.*)?<\/pre>/is', $output);
-			Debug::$enable_show = false;
-		}
-
 		/* no output when $enabled_show is false*/
 		function testDebugDoNotShow() {
 			Debug::$enable_show = false;
@@ -32,7 +19,6 @@
 			$output = ob_get_clean();
 			$this->assertEqual('', $output);
 		}
-
 		/* no email is sent with $enabled_send is false */
 		function testDebugDoNotEmail() {
 			Debug::$enable_send = false;
@@ -51,5 +37,17 @@
 			if (is_callable(array('Debug', '__clone'))) {
 				$this->fail();
 			}
+			$this->pass();
+		}
+		/* Make sure debug output is wrapped in pre */
+		function testDebugShow() {
+			Debug::$enable_show = true;
+			ob_start();
+			Debug::out(array(
+				'test' => 'data'
+			));
+			$output = ob_get_clean();
+			$this->assertNotNull($output);
+			$this->assertPattern('/<pre>(.*)?<\/pre>/is', $output);
 		}
 	}

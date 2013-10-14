@@ -48,12 +48,18 @@ class Mailer {
 	 * @return bool Was the email successfully sent?
 	 */
 	public function send() {
-		if (!isset($this->to)) {
+		$headers = "";
+
+		if (count($this->from) < 1) {
+			throw new Exception('You forgot to addFrom();');
+		}
+
+		if (count($this->to) < 1) {
 			throw new Exception("You forgot to addTo();");
 		}
 
-		if (!isset($this->body)) {
-			throw new Exception("You forgot to fetchHtml();");
+		if (strlen($this->body) < 1) {
+			throw new Exception("You forgot to add content.");
 		}
 
 		if (!isset($this->subject)) {
@@ -62,7 +68,7 @@ class Mailer {
 
 		// To send HTML mail, the Content-type header must be set
 		if ($this->html) {
-			$headers  = 'MIME-Version: 1.0' . "\r\n";
+			$headers  .= 'MIME-Version: 1.0' . "\r\n";
 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 		}
 
@@ -191,6 +197,10 @@ class Mailer {
 	 *   The subject of the email
 	 */
 	public function addSubject($subject='') {
+		if (strlen($subject) > 78) {
+			throw new Exception('The subject cannot be longer than 78 characters.');
+		}
+
 		if ($subject == '') {
 			$this->subject = time();
 		} else {
