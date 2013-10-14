@@ -6,9 +6,7 @@
 		// make sure placeholders are case insensitive
 		// trim whitespace
 		function testBind() {
-			$t = new template();
-			$t->directory = "./";
-			$t->setTemplate('bind');
+			$t = new template('../tests/bind');
 			$t->bind('   naMe ', 'Sleepy Mustache!');
 			ob_start();
 			$t->show();
@@ -18,9 +16,7 @@
 		
 		// bind large chunks w/ bindStart/bindEnd
 		function testBindChunk() {
-			$t = new template();
-			$t->directory = "./";
-			$t->setTemplate('bind');
+			$t = new template('../tests/bind');
 			$t->bindStart();
 			?>
 			Sleepy Mustache!
@@ -41,9 +37,7 @@
 			Hook::applyFilter('render_placeholder_name', 'render_placeholder_filter');
 
 			// lets capture what the template
-			$t = new template();
-			$t->directory = "./";
-			$t->setTemplate('bind');
+			$t = new template('../tests/bind');
 			$t->bind('   naMe ', 'Sleepy Mustache!');
 			ob_start();
 			$t->show();

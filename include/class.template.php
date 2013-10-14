@@ -207,7 +207,7 @@ class Template {
 	public function __construct($template='') {
 		$this->directory = $_SERVER['DOCUMENT_ROOT'] . "/templates/";
 		if (!empty($template)) {
-			setTemplate($template);
+			$this->setTemplate($template);
 		}
 	}
 
