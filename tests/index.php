@@ -11,5 +11,7 @@
 			$this->addFile('hooks.php');
 			$this->addFile('mailer.php');
 			$this->addFile('templates.php');
+			$this->addFile('db.php');
+			$this->addFile('fsdb.php');
 		}
 	}

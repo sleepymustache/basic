@@ -9,10 +9,10 @@
  * forget to setup the public properties.
  *
  * @section changelog Changelog
- * * Changed to a static class pattern
+ * * Updated defaults to coinside with globals
  *
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version 1.5
+ * @version 1.6
  * @copyright  GPL 3 http://cuttingedgecode.com
  */
 class Debug {
@@ -100,15 +100,25 @@ class Debug {
 	private function __clone() {}
 
 	private function __construct() {
+		// Setup email defaults
 		Debug::$emailBuffer = array();
-		//$this->emailBuffer[] = "Date: " . date(DATE_ATOM, mktime(date("G"), date("i"), 0, date("m"), date("d"), date("Y")));
+		Debug::$emailBuffer[] = "Date: " . date(DATE_ATOM, mktime(date("G"), date("i"), 0, date("m"), date("d"), date("Y")));
+		Debug::$emailBuffer[] = "Server IP: " . $_SERVER['SERVER_ADDR'];
+		Debug::$emailBuffer[] = "Client IP: " . $_SERVER['REMOTE_ADDR'];
 		Debug::$emailBuffer[] = "Filename: " . $_SERVER["SCRIPT_FILENAME"];
-		Debug::$emailBuffer[] = "";
-		Debug::$emailTo = "hi.i.am.jaime@gmail.com";
-		Debug::$emailFrom = "hi.i.am.jaime@gmail.com";
-		//$this->emailSubject = date(DATE_ATOM, mktime(date("G"), date("i"), 0, date("m"), date("d"), date("Y")));
-		Debug::$emailCC = "";
-		Debug::$emailBCC = "";
+		Debug::$emailBuffer[] = "---";
+		Debug::$emailTo = EMAIL_TO;
+		Debug::$emailFrom = EMAIL_FROM;
+		Debug::$emailSubject = date(DATE_ATOM, mktime(date("G"), date("i"), 0, date("m"), date("d"), date("Y")));
+		Debug::$emailCC = EMAIL_CC;
+		Debug::$emailBCC = EMAIL_BCC;
+
+		// Setup logging defaults
+		Debug::$dbHost  = DBHOST;
+		Debug::$dbName  = DBNAME;
+		Debug::$dbUser  = DBUSER;
+		Debug::$dbPass  = DBPASS;
+		Debug::$dbTable = "log";
 	}
 
 	public function __destruct() {
@@ -170,7 +180,7 @@ class Debug {
 
 		try {
 			// MySQL with PDO_MYSQL
-			if (!is_object($this->dbPDO)) {
+			if (!is_object(self::$dbPDO)) {
 				self::$dbPDO = new PDO("mysql:host=" . self::$dbHost . ";dbname=" . self::$dbName, self::$dbUser, self::$dbPass);
 				self::$dbPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			}
@@ -196,13 +206,13 @@ class Debug {
 		if (!self::$enable_show) {
 			return false;
 		}
-		echo "<pre>\n";
+		echo "<pre>";
 		if (is_array($var) || is_object($var)) {
 			print_r($var);
 		} else {
 			echo $var;
 		}
-		echo "</pre>\n";
+		echo "</pre>";
 		return true;
 	}
 
@@ -235,17 +245,27 @@ class Debug {
 	 * @return void
 	 */
 	public static function out($var) {
+		$result = true;
+
 		self::initialize();
 
 		if (self::$enable_send) {
-			self::send($var);
+			$result = $result && self::send($var);
 		}
 		if (self::$enable_log) {
-			self::log($var);
+			$result = $result && self::log($var);
 		}
 		if (self::$enable_show) {
-			self::show($var);
+			$result = $result && self::show($var);
 		}
+
+		if (!self::$enable_show &&
+			!self::$enable_send &&
+			!self::$enable_log) {
+			$result = false;
+		}
+
+		return $result;
 	}
 
 	/**
