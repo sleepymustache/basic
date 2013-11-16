@@ -11,8 +11,7 @@
 	<title>{{ title }}</title>
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="/css/normalize.css">
-	<link rel="stylesheet" href="/css/style.css">
+	{{ css normalize style }}
 
 	<!-- JAVASCRIPT -->
 	<script data-main="/js/main" src="/js/require.js" ></script>
