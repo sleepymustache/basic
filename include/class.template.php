@@ -176,7 +176,7 @@ class Template {
 
 		// Find all the single placeholders
 		//preg_match_all('/{{\s?(.+?)\s?}}/', $template, $matches);
-		preg_match_all('/{{\s?(.*?)(\s.*)?\s?}}/', $template, $matches);
+		preg_match_all('/{{\s?(.*?)(\s.*?)?\s?}}/', $template, $matches);
 
 
 		// For each replace with a value
@@ -205,7 +205,7 @@ class Template {
 	 * @param string $template The name of the template
 	 */
 	public function __construct($template='') {
-		$this->directory = $_SERVER['DOCUMENT_ROOT'] . "/templates/";
+		$this->directory = DIRBASE . "/templates/";
 		if (!empty($template)) {
 			$this->setTemplate($template);
 		}

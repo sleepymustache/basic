@@ -111,13 +111,7 @@ class Hook {
 	*/
 	private static function initialize() {
 		if (!self::$initialized) {
-			// For teamsite, replace the path below with correct branch
-			if (strlen(ROOT) > 0) {
-				self::$directories[] = ROOT . "/modules/enabled";
-				self::$directories[] = "/var/www/webs/bybz25/htdocs/iw-mount/default/main/MarketingSites/BSP/Xofigo/LicensedFacilitiesDB/USA/LicensedFacilitiesDB/WORKAREA/htdocs/modules";
-			}
-
-			self::$directories[] = $_SERVER['DOCUMENT_ROOT'] . "/modules/enabled/";
+			self::$directories[] = DIRBASE . "/modules/enabled/";
 			self::$initialized = true;
 			self::load();
 		}

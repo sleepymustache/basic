@@ -5,7 +5,7 @@
  * 
  * @return string The class name
  */
-function wizard_render_placeholder_urlClass() {
+function urlclass_render_placeholder() {
 	// Get the current URL
 	$url = $_SERVER['REQUEST_URI'];
 
@@ -27,8 +27,15 @@ function wizard_render_placeholder_urlClass() {
 	}
 
 	// Remove the prefix from the class by setting the variable below
-	$prefix = "";
-	$url = str_replace($prefix, "", str_replace("/", "-", $url));
+	$prefixes = array(
+		'****DEV_PREFIX****',
+		'****STAGE_PREFIX****',
+		'****LIVE_PREFIX****'
+	);
+	
+	foreach ($prefixes as $prefix) {
+		$url = str_replace($prefix, "", str_replace("/", "-", $url));
+	}
 
 	if (empty($url)) {
 		$url = 'index';
@@ -37,4 +44,4 @@ function wizard_render_placeholder_urlClass() {
 	return $url;
 }
 
-Hook::applyFilter('render_placeholder_urlclass', 'wizard_render_placeholder_urlclass');
+Hook::applyFilter('render_placeholder_urlclass', 'urlclass_render_placeholder');
