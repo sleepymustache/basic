@@ -2,7 +2,7 @@
 	require_once('../include/class.template.php');
 
 	class TestOfTemplate extends UnitTestCase {
-		// replace placeholder with bind
+/*		// replace placeholder with bind
 		// make sure placeholders are case insensitive
 		// trim whitespace
 		function testBind() {
@@ -119,6 +119,21 @@
 			$name = ob_get_clean();
 			// The double !! is because the hook above...
 			$this->assertEqual($name, 'Sleepy Mustache!!');
+		}
+
+		*/
+		// Test inline placeholders
+		function testTwoInline() {
+			$t = new template();
+			$t->directory = "./";
+			$t->setTemplate('two-inline');
+			$t->bind('firstname', 'Jaime');
+			$t->bind('lastname', 'Rodriguez');
+			ob_start();
+			$t->show();
+			$name = ob_get_clean();
+			// The double !! is because the hook above...
+			$this->assertEqual(trim($name), 'Jaime Rodriguez');
 		}
 
 		// Test if template doesn't exist
