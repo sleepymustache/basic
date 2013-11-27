@@ -106,21 +106,3 @@ nav > ul ul li {
 nav > ul li:hover > ul {
 	display: block;
 }
-
-/*******************************************************************************
- * Delete these styles                                                         *
- ******************************************************************************/
-.top li {font-family: Arial, sans-serif;letter-spacing: 0;}
-.top {margin: 0 auto;width: 462px;}
-h1 {color: white;font-family: 'Lobster', cursive;font-size: 56px;margin: 0 auto;width: 391px;}
-h2, h3, h4, h5, h6 {font-family: 'Arial', sans-serif;font-weight: 900;}
-a {color: #48c9b0;}
-a:hover {color: #16A085;}
-p, li {font-weight: normal;font-size: 24px;color: #fff;letter-spacing: 1px;line-height: 175%;}
-p.metadata {font-size: 12px;margin-top: -28px;font-family: arial, sans-serif;}
-html {background: #C0392B;}
-section h1 {position: static;font-family: 'Arial', sans-serif;font-size: 40px;margin: 0 0 36px 0;width: auto;}
-section h2 {font-size: 32px;letter-spacing: 2px;}
-.top a {color: #fff;text-decoration: none;}
-.top ul ul {background-color: darkred;}
-footer p {font-size: 16px;opacity: 0.35;}
