@@ -45,7 +45,11 @@ define([], function () {
 					oLink.href = url;
 					oLink.rel = "stylesheet";
 					oLink.type = "text/css";
-					oLink.onload = decrementAndCallGlobalCallback;
+					
+					oLink.onload = oLink.onload = function () {
+						decrementAndCallGlobalCallback();
+					};
+
 					oLink.onreadystatechange = function () {
 						if (this.readyState == 'loaded' || this.readyState == 'complete') {
 							decrementAndCallGlobalCallback();
