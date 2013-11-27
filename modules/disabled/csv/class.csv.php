@@ -162,8 +162,8 @@ class CSV {
 	 * Instead of saving the file, it outputs to default output with headers.
 	 */
 	public function show() {
-		ob_start();
-
+		ob_end_clean();
+		
 		// Name the file
 		$filename = date('YmdHis') . ".csv";
 
@@ -181,6 +181,6 @@ class CSV {
 		$this->filename = "php://output";
 
 		$this->save();
-		ob_end_clean();
+		
 	}
 }
