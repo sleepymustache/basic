@@ -12,6 +12,7 @@
 	include_once('class.debug.php');
 	include_once('global.php');
 	include_once('class.hooks.php');
+	include_once('class.template.php');
 
 	class Sleepy {
 		public function __construct() {
@@ -24,5 +25,3 @@
 	}
 
 	$_sleepy = new Sleepy();
-
-	include_once('class.template.php');
