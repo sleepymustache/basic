@@ -11,7 +11,7 @@ var searchData=
   ['_24days',['$Days',['../class_schedule_calls_request_of_int32.html#a541b96a58d5cadab10a165a562fc066e',1,'ScheduleCallsRequestOfInt32']]],
   ['_24db',['$db',['../class_db_grid.html#a1fa3127fc82f96b1436d871ef02be319',1,'DbGrid\$db()'],['../class_record.html#a1fa3127fc82f96b1436d871ef02be319',1,'Record\$db()']]],
   ['_24dbhost',['$dbHost',['../class_debug.html#ad0ddb2725e69c88a729e0cc242a1b2a6',1,'Debug\$dbHost()'],['../class_d_b.html#a580dd98ba7f04c133d1a1e1b01af4a30',1,'DB\$dbhost()']]],
-  ['_24dbname',['$dbname',['../class_d_b.html#ac5111a571fffa2499732833bb7f0d8c1',1,'DB\$dbname()'],['../class_debug.html#a68f39949e76b64662a06cb56579d91c3',1,'Debug\$dbName()']]],
+  ['_24dbname',['$dbName',['../class_debug.html#a68f39949e76b64662a06cb56579d91c3',1,'Debug\$dbName()'],['../class_d_b.html#ac5111a571fffa2499732833bb7f0d8c1',1,'DB\$dbname()']]],
   ['_24dbpass',['$dbpass',['../class_d_b.html#a95e283b6dd5867f7b99c160bebf9826c',1,'DB\$dbpass()'],['../class_debug.html#a30d808caf55f524798c6a5aaafd633ad',1,'Debug\$dbPass()']]],
   ['_24dbtable',['$dbTable',['../class_debug.html#adfd23e5286c56c7632ecb55887dd2555',1,'Debug']]],
   ['_24dbuser',['$dbuser',['../class_d_b.html#a8d5ac1c3396a540f025f9bbe56a5b568',1,'DB\$dbuser()'],['../class_debug.html#a4a92606de85aafdc0dcae4976b7ca669',1,'Debug\$dbUser()']]],

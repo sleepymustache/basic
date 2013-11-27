@@ -43,6 +43,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -90,7 +91,7 @@ $(document).ready(function(){initNavTree('class_template.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -111,10 +112,16 @@ $(document).ready(function(){initNavTree('class_template.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af2deef993b5bb3c209fae5f994f3ebae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_template.html#af2deef993b5bb3c209fae5f994f3ebae">__construct</a> ($template)</td></tr>
-<tr class="separator:af2deef993b5bb3c209fae5f994f3ebae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ebd85d8c80be61c2f20f0bfeb9b5f7b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_template.html#a6ebd85d8c80be61c2f20f0bfeb9b5f7b">setTemplate</a> ($file)</td></tr>
+<tr class="separator:a6ebd85d8c80be61c2f20f0bfeb9b5f7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5efa1ad8f3267178937b8fb23003bbd4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_template.html#a5efa1ad8f3267178937b8fb23003bbd4">__construct</a> ($template='')</td></tr>
+<tr class="separator:a5efa1ad8f3267178937b8fb23003bbd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a820993178e7ede5e791288b36b9cef57"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_template.html#a820993178e7ede5e791288b36b9cef57">bind</a> ($placeholder, $value)</td></tr>
 <tr class="separator:a820993178e7ede5e791288b36b9cef57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a309bb1dc9b92dd7ad5348e48245468f8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_template.html#a309bb1dc9b92dd7ad5348e48245468f8">bindStart</a> ()</td></tr>
+<tr class="separator:a309bb1dc9b92dd7ad5348e48245468f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71662e1be36ebe0eeabd5fa629e5c538"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_template.html#a71662e1be36ebe0eeabd5fa629e5c538">bindStop</a> ($placeholder)</td></tr>
+<tr class="separator:a71662e1be36ebe0eeabd5fa629e5c538"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24a9bf83a1002d46ece83a93d14bd921"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_template.html#a24a9bf83a1002d46ece83a93d14bd921">get</a> ($key)</td></tr>
 <tr class="separator:a24a9bf83a1002d46ece83a93d14bd921"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b8e3779f5bd8c38f70307574859bd36"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_template.html#a2b8e3779f5bd8c38f70307574859bd36">show</a> ()</td></tr>
@@ -135,7 +142,7 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a5a3006290f2de94fff2dd63ca739d15a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="af2deef993b5bb3c209fae5f994f3ebae"></a>
+<a class="anchor" id="a5efa1ad8f3267178937b8fb23003bbd4"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -143,7 +150,7 @@ Protected Attributes</h2></td></tr>
           <td class="memname">__construct </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>$template</em></td><td>)</td>
+          <td class="paramname"><em>$template</em> = <code>''</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -193,6 +200,45 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a309bb1dc9b92dd7ad5348e48245468f8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bindStart </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Starts a buffer that will bind data to the template placeholders. The buffer will capture anything you output until $this-&gt;<a class="el" href="class_template.html#a71662e1be36ebe0eeabd5fa629e5c538">bindStop()</a> </p>
+
+</div>
+</div>
+<a class="anchor" id="a71662e1be36ebe0eeabd5fa629e5c538"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bindStop </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$placeholder</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Stops the buffer that binds data to the template placeholders </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$placeholder</td><td>The template placeholder </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a24a9bf83a1002d46ece83a93d14bd921"></a>
 <div class="memitem">
 <div class="memproto">
@@ -214,6 +260,29 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>mixed The data stored in the placeholder </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6ebd85d8c80be61c2f20f0bfeb9b5f7b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">setTemplate </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the template to use. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[type]</td><td>$file [description] </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -311,7 +380,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_template.html">Template</a></li>
-    <li class="footer">Generated on Fri Jul 12 2013 12:36:14 for Sleepy Mustache by
+    <li class="footer">Generated on Wed Nov 27 2013 11:36:20 for Sleepy Mustache by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

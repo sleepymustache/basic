@@ -2,8 +2,27 @@ var searchData=
 [
   ['mailer',['Mailer',['../class_mailer.html',1,'']]],
   ['mailer_20class',['Mailer Class',['../mailer1.html',1,'']]],
+  ['makeabsolute',['makeAbsolute',['../class_simple_url.html#ac47561c4b2f7445f7d2038d0aa5a841c',1,'SimpleUrl']]],
+  ['makearray',['makeArray',['../class_simple_checkbox_group.html#ae3a6a090729f08bfbbb77b8573cd6c62',1,'SimpleCheckboxGroup']]],
+  ['makedry',['makeDry',['../class_simple_scorer.html#aae2c1a899bdae1db5c9ef366f5e2820b',1,'SimpleScorer\makeDry()'],['../class_simple_reporter_decorator.html#aae2c1a899bdae1db5c9ef366f5e2820b',1,'SimpleReporterDecorator\makeDry()'],['../class_multiple_reporter.html#aae2c1a899bdae1db5c9ef366f5e2820b',1,'MultipleReporter\makeDry()']]],
+  ['makefilevariablesglobal',['makeFileVariablesGlobal',['../class_simple_file_loader.html#a71619840b718449fa05738b5f6692083',1,'SimpleFileLoader']]],
   ['mapfields',['mapFields',['../class_db_grid.html#a81b2f9024885c83fa1ff9eb0cd534dc2',1,'DbGrid']]],
+  ['maphandler',['mapHandler',['../class_simple_lexer.html#a4225a016771148346e06f31c47602f3f',1,'SimpleLexer']]],
+  ['match',['match',['../class_parallel_regex.html#ae093ae79ce05f269ba1c09ce92b3d6b9',1,'ParallelRegex']]],
+  ['matchestestcase',['matchesTestCase',['../class_selective_reporter.html#ab39a57be56ea1dbed9810e489e118537',1,'SelectiveReporter']]],
+  ['maximumcallcountexpectation',['MaximumCallCountExpectation',['../class_maximum_call_count_expectation.html',1,'']]],
+  ['memberexpectation',['MemberExpectation',['../class_member_expectation.html',1,'']]],
+  ['merge',['merge',['../class_simple_encoding.html#a9750b40b78aac906ec64a2a828eee4ab',1,'SimpleEncoding']]],
   ['messagerecipientofint32',['MessageRecipientOfInt32',['../class_message_recipient_of_int32.html',1,'']]],
+  ['methodexistsexpectation',['MethodExistsExpectation',['../class_method_exists_expectation.html',1,'']]],
+  ['minimumcallcountexpectation',['MinimumCallCountExpectation',['../class_minimum_call_count_expectation.html',1,'']]],
   ['mobidetect',['MobiDetect',['../class_mobi_detect.html',1,'']]],
-  ['msgtext',['msgText',['../class_mailer.html#aa8ccfd30329dbb3cd1b5740173072c9e',1,'Mailer']]]
+  ['mock',['Mock',['../class_mock.html',1,'']]],
+  ['mockgenerator',['MockGenerator',['../class_mock_generator.html',1,'']]],
+  ['mocktestexception',['MockTestException',['../class_mock_test_exception.html',1,'']]],
+  ['mockwithinjectedtestcase',['MockWithInjectedTestCase',['../class_mock_with_injected_test_case.html',1,'']]],
+  ['msgtext',['msgText',['../class_mailer.html#aa8ccfd30329dbb3cd1b5740173072c9e',1,'Mailer']]],
+  ['multiplereporter',['MultipleReporter',['../class_multiple_reporter.html',1,'']]],
+  ['multipleselectiontag',['MultipleSelectionTag',['../class_multiple_selection_tag.html',1,'']]],
+  ['mytestexception',['MyTestException',['../class_my_test_exception.html',1,'']]]
 ];

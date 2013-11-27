@@ -6,9 +6,6 @@ var NAVTREE =
       [ "Usage:", "hooks1.html#usage", null ],
       [ "Changelog", "hooks1.html#changelog", null ]
     ] ],
-    [ "Navigation Class", "nav1.html", [
-      [ "Usage:", "nav1.html#usage", null ]
-    ] ],
     [ "Performance Class", "perf1.html", [
       [ "Usage:", "perf1.html#usage", null ]
     ] ],
@@ -45,15 +42,25 @@ var NAVTREE =
     [ "RoboTalker", "robo1.html", [
       [ "Usage:", "robo1.html#usage", null ]
     ] ],
+    [ "CSS Class", "css1.html", [
+      [ "Usage:", "css1.html#usage", null ]
+    ] ],
+    [ "Navigation Class", "nav1.html", [
+      [ "Usage:", "nav1.html#usage", null ]
+    ] ],
     [ "README", "md__r_e_a_d_m_e.html", null ],
     [ "Todo List", "todo.html", null ],
+    [ "Deprecated List", "deprecated.html", null ],
+    [ "Namespaces", null, [
+      [ "Namespace List", "namespaces.html", "namespaces" ]
+    ] ],
     [ "Data Structures", null, [
       [ "Data Structures", "annotated.html", "annotated" ],
       [ "Data Structure Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Data Fields", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Functions", "functions_func.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
+        [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ]
       ] ]
     ] ]
@@ -62,7 +69,19 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"annotated.html",
+"class_hook.html#a044e40a84df383f73df2250624d13c42",
+"class_outside_margin_expectation.html#af5b3a3a852cc608bc34b7aa9b6359909",
+"class_simple_browser.html#aae670bf98b9e4010c956127ec2ec9554",
+"class_simple_frameset.html#a805f3a0554902632547bdb9ae48c17ac",
+"class_simple_put_encoding.html#af3e37e1a6ed9b8c87f86f659873a83b7",
+"class_simple_test_case.html#a7e247dd31cc8d37a6c97353a062a0080",
+"class_test_of_catching_exceptions.html#ad29646ba3688cf3445b2449780b67476",
+"class_test_of_frameset_page_interface.html#ab73ffee5948daf12598376a592a0031f",
+"class_test_of_live_page_linking_with_minimal_links.html#a987e3c02444872f8766492efcad1e20e",
+"class_test_of_parsing.html#ae988afffaa49a0c25e99299514fe1466",
+"class_test_of_unit_tester.html#a2fb891dc619f27c97890f0b9de9232e6",
+"class_with_static_method.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

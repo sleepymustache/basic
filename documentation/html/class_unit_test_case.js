@@ -1,0 +1,26 @@
+var class_unit_test_case =
+[
+    [ "__construct", "class_unit_test_case.html#abf7ed0e4e8575cd69b3030da7ac34306", null ],
+    [ "assertClone", "class_unit_test_case.html#a096d7225effdc8a2144ca0b5e4e5afe9", null ],
+    [ "assertCopy", "class_unit_test_case.html#acf4ab7f4c77dd60d7a8ca01934ab7ed8", null ],
+    [ "assertEqual", "class_unit_test_case.html#a4dfd80fc987c7176bc85e680aeb98161", null ],
+    [ "assertFalse", "class_unit_test_case.html#a0529d6b26388de2ea70a390874aa8e5f", null ],
+    [ "assertIdentical", "class_unit_test_case.html#a3cff1cbfb5adaab99797d5fc5e91cebd", null ],
+    [ "assertIsA", "class_unit_test_case.html#ad4cc633882e5fdb06720737d8348b80b", null ],
+    [ "assertNoPattern", "class_unit_test_case.html#a1c65eebd2a3dbf54c3421eb774ab6c17", null ],
+    [ "assertNotA", "class_unit_test_case.html#ad15664183eec3167fbbac6b92f4ae37e", null ],
+    [ "assertNotEqual", "class_unit_test_case.html#a7309392791c253e034cff15cea5990dc", null ],
+    [ "assertNotIdentical", "class_unit_test_case.html#a410f7ffe7f6fdcd69566a5c57b3356d1", null ],
+    [ "assertNotNull", "class_unit_test_case.html#a13922fe95d6d26c9d8d19907be43f11b", null ],
+    [ "assertNull", "class_unit_test_case.html#a328cb8ce1458e41fe1fd2c0ef504bda3", null ],
+    [ "assertOutsideMargin", "class_unit_test_case.html#a4e69823431b403242b6ad0eed30a36e6", null ],
+    [ "assertPattern", "class_unit_test_case.html#a4a39d1382a8934af6e8ad61c6a219494", null ],
+    [ "assertReference", "class_unit_test_case.html#abe4ebd1605ed4f944a1f98985a377ddc", null ],
+    [ "assertSame", "class_unit_test_case.html#ac17561a950065be9252d98423e2ed623", null ],
+    [ "assertTrue", "class_unit_test_case.html#a0b1a5fbb86c56cd7ab7d1dced7af0cad", null ],
+    [ "assertWithinMargin", "class_unit_test_case.html#a2d77ab3a5a7daa3c0733ce7895d34da0", null ],
+    [ "coerceExpectation", "class_unit_test_case.html#accf9811bda484165de4ddb7eb3c43f6f", null ],
+    [ "expectError", "class_unit_test_case.html#abc3681aefc80ab27077fd5f7079fd23e", null ],
+    [ "expectException", "class_unit_test_case.html#ac1b6376748b4ad8ba19ad54c608a7650", null ],
+    [ "ignoreException", "class_unit_test_case.html#aaf08881522403940166bdcfcbdd149f8", null ]
+];
