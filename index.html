@@ -33,32 +33,85 @@
       <section id="main_content" class="inner">
         <p><a></a></p>
 
-<p>Doxygen <a href="documentation/html/index.html">Documentation</a> is available.</p>
+<p>Doxygen <a href="http://www.sleepymustache.com/documentation/html/index.html">Documentation</a> is available.</p>
 
 <p>Sleepy mustache is a PHP framework that comes with solutions for everyday php
-challenges.  All the functionality is optional and tries to be as minimalist as
-possible.</p>
+challenges.  Most of the functionality is optional and tries to be as minimalist
+as possible.</p>
 
 <h2>
-<a name="included-functionality" class="anchor" href="#included-functionality"><span class="octicon octicon-link"></span></a>Included Functionality</h2>
+<a name="functionality" class="anchor" href="#functionality"><span class="octicon octicon-link"></span></a>Functionality</h2>
+
+<h3>
+<a name="core-functionality" class="anchor" href="#core-functionality"><span class="octicon octicon-link"></span></a>Core Functionality</h3>
+
+<p>The core is the basic functions that modules build off of</p>
 
 <ul>
-<li>Hooks</li>
-<li>Templating Engine</li>
-<li>Singleton PDO DB class</li>
-<li>Emailing</li>
-<li>CSV creation</li>
-<li>Debugging via Output, Email, and DB</li>
-<li>File System Database</li>
-<li>IP 2 Country detection</li>
-<li>Mobile device detection</li>
-<li>Navigation</li>
+<li><p><strong>Debugging</strong> -
+Easily send debug information via the browser, email, or database</p></li>
+<li><p><strong>Hooks</strong> -
+Assign functions to run at specific hook points throughout the loading
+process. This module is responsible for handling almost all functionality.</p></li>
+<li><p><strong>Benchmarking</strong>
+Lets you time the speed of functions</p></li>
+<li><p><strong>Templating</strong> -
+Basic templating functionality lets you separate business logic for the
+view. It replaces placeholders like "{{ title }}" with data</p></li>
 </ul><h3>
-<a name="misc" class="anchor" href="#misc"><span class="octicon octicon-link"></span></a>Misc</h3>
+<a name="default-modules" class="anchor" href="#default-modules"><span class="octicon octicon-link"></span></a>Default Modules</h3>
+
+<p>Some modules are enabled by default. To disable the modules move them from the
+"enabled" folder and put them into the "disabled" folder</p>
 
 <ul>
-<li>Robo Caller SOAP API (class.robotalker.php)</li>
-<li>SQL Select to DB Grid (class.dbgrid.php)</li>
+<li><p><strong>Navigation</strong> -
+Creates a UL that can be used for a navigation</p></li>
+<li><p><strong>URL Class</strong> -
+Adds a class based on the current page. /user/jaime will have a class added
+to the body that says "user-jaime-index". Additionally /user would be
+"user-index"</p></li>
+</ul><h3>
+<a name="available-modules" class="anchor" href="#available-modules"><span class="octicon octicon-link"></span></a>Available Modules</h3>
+
+<p>Most modules are disabled by default. To enable the modules move them from the
+into the "disabled" folder into "enabled" folder</p>
+
+<ul>
+<li><p><strong>CRUD</strong> -
+Create, Read, Update, Delete functionality using PDO</p></li>
+<li><p><strong>File System Database</strong> -
+A basic database that uses flat files and JSON documents</p></li>
+<li><p><strong>IP 2 Country detection</strong> -
+Uses the IP address to detect the country of origin.</p></li>
+<li><p><strong>Mobile device detection</strong> -
+Can detect mobile and tablet devices</p></li>
+<li><p><strong>CSV creation</strong> -
+CRUD class for CSV files</p></li>
+<li><p><strong>Emailing</strong> -
+Basic email functionality with RFC email validation</p></li>
+<li><p><strong>Robo Caller SOAP API (class.robotalker.php)</strong> -
+Class for interacting with the robotalker API</p></li>
+<li><p><strong>SQL Select to DB Grid (class.dbgrid.php)</strong> -
+Turns a SQL Select statement into a table with hook points</p></li>
+<li><p><strong>Memcache</strong> -
+Improve performance by implementing memcaching of pages (10 second default)</p></li>
+<li><p><strong>Users</strong> -
+Basic user and roles functionality includes auth, roles, and permissions</p></li>
+</ul><h3>
+<a name="sample-modules" class="anchor" href="#sample-modules"><span class="octicon octicon-link"></span></a>Sample Modules</h3>
+
+<p>These module have little-to-no practical use, but help demonstrate how to build
+simple modules with hook points.</p>
+
+<ul>
+<li>
+<strong>Timer</strong> -
+A module that replaces the {{ timer }} with the time it took the framework
+to generate the page.</li>
+<li>
+<strong>Wizard Title</strong> -
+This module prepends an ASCII wizard to the title of the page.</li>
 </ul><h2>
 <a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
 
@@ -86,7 +139,7 @@ the DB update.</p>
 $db-&gt;save();
 
 // add a hook action
-$content = Hook::addAction('record_saved');
+Hook::addAction('record_saved');
 
 // Add a function to the hook action
 function send_email() {
@@ -118,16 +171,16 @@ Hook::applyFilter(
 );
 </code></pre>
 
-<p>The <em>modules</em> directory provides a convenient location to put code that utilized
-the hooks system. Code inside of the <em>modules</em> directory are automatically added
-to the program at runtime.</p>
+<p>The <em>modules/enabled</em> directory provides a convenient location to put code that
+utilized the hooks system. Code inside of the <em>modules/enabled</em> directory are
+automatically added to the program at runtime.</p>
 
 <h3>
 <a name="templating" class="anchor" href="#templating"><span class="octicon octicon-link"></span></a>Templating</h3>
 
 <p>Templates reside inside the <em>'/templates/'</em> folder and should end in a .tpl
 extension. The templating system works by using placeholders that later get
-filled in later. The placeholders must have the following syntax:</p>
+replaced with text. The placeholders must have the following syntax:</p>
 
 <pre><code>{{ placeholder }}
 </code></pre>
@@ -138,7 +191,7 @@ method.</p>
 
 <pre><code>require_once('include/sleepy.php');
 
-$page = new Template('default.tpl');
+$page = new Template('default');
 $page-&gt;bind('title', 'Sleepy Mustache');
 $page-&gt;bind('header', 'Hello world!');
 $page-&gt;show();
@@ -157,11 +210,12 @@ $page-&gt;show();
 &lt;/html&gt;
 </code></pre>
 
-<p>We added a <em>{{ hits }}</em> placeholder in the template above. We can add that
-functionality using Hooks.</p>
+<p>We added a <em>{{ hits }}</em> placeholder in the template above. For this example, we
+want to replace the placeholder with the number of times this page was viewed.
+We can add that functionality using Hooks.</p>
 
-<pre><code>// filename: /modules/hits.php
-function hook_render_placeholder_topNav() {
+<pre><code>// filename: /modules/enabled/hit-counter/hits.php
+function hook_render_placeholder_hits() {
     $hits = new FakeClass();
 
     return $hits-&gt;getTotal();
@@ -175,10 +229,10 @@ Hook::applyFilter(
 
 <p>The first parameter of <em>Hook:applyFilter</em>, the hook filter, ends in 'hits' which
 correlates to the name of the placeholder. This hook filter is defined in
-'*class.template.php*'. The second parameter is the name of the function to run
+'<em>class.template.php</em>'. The second parameter is the name of the function to run
 when we render the placeholder.</p>
 
-<p>You can iterate through data using #each placeholders</p>
+<p>You can iterate through multidimensional array data using #each placeholders</p>
 
 <pre><code>// Bind the data like this
 $page-&gt;bind('fruits', array(
@@ -192,8 +246,8 @@ $page-&gt;bind('fruits', array(
 ));
 
 // in the template
-{{ #each fruit in fruits }}
-    &lt;p&gt;I like {{ fruit.color }}, because my {{ fruit.name }} is {{ fruit.color }}.&lt;/p&gt;
+{{ #each f in fruits }}
+    &lt;p&gt;I like {{ f.color }}, because my {{ f.name }} is {{ f.color }}.&lt;/p&gt;
 {{ /each }}
 </code></pre>
 
@@ -313,7 +367,7 @@ if ($md-&gt;isMobile()) {
 <h3>
 <a name="navigation" class="anchor" href="#navigation"><span class="octicon octicon-link"></span></a>Navigation</h3>
 
-<p>The navigation is generated by from JSON. It renders the JSON into a unordered
+<p>The navigation is generated from JSON. It renders the JSON into a unordered
 list with some classes added for the current active page.</p>
 
 <pre><code>// Add a placeholder in your template
