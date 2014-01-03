@@ -1,0 +1,202 @@
+\hypertarget{class_hook}{\section{Hook Class Reference}
+\label{class_hook}\index{Hook@{Hook}}
+}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_hook_aae875eca0ec73f226ce615840f06d161}{apply\-Filter} (\$name, \$function, \$args='1')
+\item 
+static \hyperlink{class_hook_a6489ed6b12329279b9e7cae26afc4dd6}{add\-Filter} (\$name, \$value='')
+\item 
+static \hyperlink{class_hook_a044e40a84df383f73df2250624d13c42}{do\-Action} (\$name, \$function, \$args='1')
+\item 
+static \hyperlink{class_hook_afff7a7869d2dd304043b69a3fff24655}{add\-Action} (\$name)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_hook_aca1cfea95d9874525c94ddc586b87633}{\$directories}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is the main hook class. Call it using class\-::method. 
+\begin{DoxyCode}
+\hyperlink{class_hook_a6489ed6b12329279b9e7cae26afc4dd6}{Hook::addFilter}(\textcolor{stringliteral}{'fitername'}, $variable);
+\end{DoxyCode}
+ \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 80 of file class.\-hooks.\-php.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_hook_afff7a7869d2dd304043b69a3fff24655}{\index{Hook@{Hook}!add\-Action@{add\-Action}}
+\index{add\-Action@{add\-Action}!Hook@{Hook}}
+\subsubsection[{add\-Action}]{\setlength{\rightskip}{0pt plus 5cm}static add\-Action (
+\begin{DoxyParamCaption}
+\item[{}]{\$name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_hook_afff7a7869d2dd304043b69a3fff24655}
+Adds a new action-\/type hook point
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \mbox{[}description\mbox{]}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 224 of file class.\-hooks.\-php.
+
+
+\begin{DoxyCode}
+                                                       \{
+                              self::addFilter($name);
+               \}
+\end{DoxyCode}
+\hypertarget{class_hook_a6489ed6b12329279b9e7cae26afc4dd6}{\index{Hook@{Hook}!add\-Filter@{add\-Filter}}
+\index{add\-Filter@{add\-Filter}!Hook@{Hook}}
+\subsubsection[{add\-Filter}]{\setlength{\rightskip}{0pt plus 5cm}static add\-Filter (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$value = {\ttfamily ''}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_hook_a6489ed6b12329279b9e7cae26afc4dd6}
+Adds a new filter-\/type hook point
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$name} & \mbox{[}description\mbox{]} \\
+\hline
+string & {\em \$value} & \mbox{[}description\mbox{]}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 183 of file class.\-hooks.\-php.
+
+
+\begin{DoxyCode}
+                                                                  \{
+                              self::initialize();
+
+                              \textcolor{keywordflow}{if} (!isset(self::$filters[$name])) \{
+                                             \textcolor{keywordflow}{if} (is\_array($value)) \{
+                                                            \textcolor{keywordflow}{return} $value[0];
+                                             \} \textcolor{keywordflow}{else} \{
+                                                            \textcolor{keywordflow}{return} $value;
+                                             \}
+                              \}
+
+                              \textcolor{keywordflow}{foreach} (self::$filters[$name]->functions as 
+      $function => $args) \{
+                                             \textcolor{keywordflow}{if} (is\_array($value)) \{
+                                                            $returned = 
+      call\_user\_func\_array($function, $value);
+                                             \} \textcolor{keywordflow}{else} \{
+                                                            $returned = 
+      call\_user\_func($function, $value);
+                                             \}
+                              \}
+
+                              \textcolor{keywordflow}{return} $returned;
+               \}
+\end{DoxyCode}
+\hypertarget{class_hook_aae875eca0ec73f226ce615840f06d161}{\index{Hook@{Hook}!apply\-Filter@{apply\-Filter}}
+\index{apply\-Filter@{apply\-Filter}!Hook@{Hook}}
+\subsubsection[{apply\-Filter}]{\setlength{\rightskip}{0pt plus 5cm}static apply\-Filter (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$function, }
+\item[{}]{\$args = {\ttfamily '1'}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_hook_aae875eca0ec73f226ce615840f06d161}
+Add a new filter to a filter-\/type hook point
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \mbox{[}description\mbox{]} \\
+\hline
+string & {\em \$function} & \mbox{[}description\mbox{]} \\
+\hline
+int & {\em \$args} & \mbox{[}description\mbox{]}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 164 of file class.\-hooks.\-php.
+
+
+\begin{DoxyCode}
+                                                                               
+      \{
+                              self::initialize();
+
+                              \textcolor{keywordflow}{if} (!isset(self::$filters[$name])) \{
+                                             self::$filters[$name] = \textcolor{keyword}{new} \hyperlink{class_filter}{Filter}
+       ($name);
+                              \}
+
+                              \textcolor{comment}{// add the function to the filter}
+                              self::$filters[$name]->add($function, $args);
+               \}
+\end{DoxyCode}
+\hypertarget{class_hook_a044e40a84df383f73df2250624d13c42}{\index{Hook@{Hook}!do\-Action@{do\-Action}}
+\index{do\-Action@{do\-Action}!Hook@{Hook}}
+\subsubsection[{do\-Action}]{\setlength{\rightskip}{0pt plus 5cm}static do\-Action (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$function, }
+\item[{}]{\$args = {\ttfamily '1'}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_hook_a044e40a84df383f73df2250624d13c42}
+Adds a new function to a action-\/type hook point
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & Name of filter \\
+\hline
+string & {\em \$function} & Function to call\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 213 of file class.\-hooks.\-php.
+
+
+\begin{DoxyCode}
+                                                                            \{
+                              self::applyFilter($name, $function, $args);
+               \}
+\end{DoxyCode}
+
+
+\subsection{Field Documentation}
+\hypertarget{class_hook_aca1cfea95d9874525c94ddc586b87633}{\index{Hook@{Hook}!\$directories@{\$directories}}
+\index{\$directories@{\$directories}!Hook@{Hook}}
+\subsubsection[{\$directories}]{\setlength{\rightskip}{0pt plus 5cm}\$directories\hspace{0.3cm}{\ttfamily [static]}}}\label{class_hook_aca1cfea95d9874525c94ddc586b87633}
+array string The directories where the modules are stored 
+
+Definition at line 97 of file class.\-hooks.\-php.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{class_8hooks_8php}{class.\-hooks.\-php}\end{DoxyCompactItemize}

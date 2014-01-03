@@ -4,31 +4,34 @@ This class uses J\-S\-O\-N to structure navigation pages and attributes. It can 
 
 \begin{DoxyCode}
 $topNavData = \textcolor{stringliteral}{'\{}
-\textcolor{stringliteral}{    "pages": [}
-\textcolor{stringliteral}{        \{}
-\textcolor{stringliteral}{            "title": "Nav 1",}
-\textcolor{stringliteral}{            "link": "/nav1/"}
-\textcolor{stringliteral}{        \}, \{}
-\textcolor{stringliteral}{            "title": "Nav 2",}
-\textcolor{stringliteral}{            "link": "/nav2/",}
-\textcolor{stringliteral}{            "pages": [}
-\textcolor{stringliteral}{                \{}
-\textcolor{stringliteral}{                    "title": "Subnav 1",}
-\textcolor{stringliteral}{                    "link": "/downloads/fpo.pdf",}
-\textcolor{stringliteral}{                    "target": "\_blank"}
-\textcolor{stringliteral}{                \}}
-\textcolor{stringliteral}{            ]}
-\textcolor{stringliteral}{        \}}
-\textcolor{stringliteral}{    ]}
-\textcolor{stringliteral}{ \}'};
+\textcolor{stringliteral}{               "pages": [}
+\textcolor{stringliteral}{                              \{}
+\textcolor{stringliteral}{                                             "title": "Nav 1",}
+\textcolor{stringliteral}{                                             "link": "/nav1/"}
+\textcolor{stringliteral}{                              \}, \{}
+\textcolor{stringliteral}{                                             "title": "Nav 2",}
+\textcolor{stringliteral}{                                             "link": "/nav2/",}
+\textcolor{stringliteral}{                                             "pages": [}
+\textcolor{stringliteral}{                                                            \{}
+\textcolor{stringliteral}{                                                                          
+       "title": "Subnav 1",}
+\textcolor{stringliteral}{                                                                          
+       "link": "/downloads/fpo.pdf",}
+\textcolor{stringliteral}{                                                                          
+       "target": "\_blank"}
+\textcolor{stringliteral}{                                                            \}}
+\textcolor{stringliteral}{                                             ]}
+\textcolor{stringliteral}{                              \}}
+\textcolor{stringliteral}{               ]}
+\textcolor{stringliteral}{            \}'};
 
- $topNav = \textcolor{keyword}{new} \hyperlink{class_navigation}{Navigation}($topNavData);
- $topNav->setCurrent($\_SERVER[\textcolor{stringliteral}{'SCRIPT\_NAME'}]);
+            $topNav = \textcolor{keyword}{new} \hyperlink{class_navigation}{Navigation}($topNavData);
+            $topNav->setCurrent($\_SERVER[\textcolor{stringliteral}{'SCRIPT\_NAME'}]);
 
 \textcolor{comment}{// In body somewhere...}
 <nav \textcolor{keyword}{class}=\textcolor{stringliteral}{"top"}>
-    <?php echo $topNav->show(); ?>
- </nav>
+               <?php echo $topNav->show(); ?>
+            </nav>
 \end{DoxyCode}
 
 

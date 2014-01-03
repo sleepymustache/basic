@@ -1,0 +1,71 @@
+\hypertarget{urlclass_8php}{\section{modules/enabled/urlclass/urlclass.php File Reference}
+\label{urlclass_8php}\index{modules/enabled/urlclass/urlclass.\-php@{modules/enabled/urlclass/urlclass.\-php}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{urlclass_8php_ac8c1eabe6de0b9de6c8ebf1b5a648bf9}{urlclass\-\_\-render\-\_\-placeholder} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{urlclass_8php_ac8c1eabe6de0b9de6c8ebf1b5a648bf9}{\index{urlclass.\-php@{urlclass.\-php}!urlclass\-\_\-render\-\_\-placeholder@{urlclass\-\_\-render\-\_\-placeholder}}
+\index{urlclass\-\_\-render\-\_\-placeholder@{urlclass\-\_\-render\-\_\-placeholder}!urlclass.php@{urlclass.\-php}}
+\subsubsection[{urlclass\-\_\-render\-\_\-placeholder}]{\setlength{\rightskip}{0pt plus 5cm}urlclass\-\_\-render\-\_\-placeholder (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{urlclass_8php_ac8c1eabe6de0b9de6c8ebf1b5a648bf9}
+Generates a class based on the U\-R\-L. This way we can target this page with css
+
+\begin{DoxyReturn}{Returns}
+string The class name 
+\end{DoxyReturn}
+
+
+Definition at line 8 of file urlclass.\-php.
+
+
+\begin{DoxyCode}
+                                       \{
+               \textcolor{comment}{// Get the current URL}
+               $url = $\_SERVER[\textcolor{stringliteral}{'REQUEST\_URI'}];
+
+               \textcolor{comment}{// Remove the parameters}
+               \textcolor{keywordflow}{if} ($parameters = strlen($url) - (strlen($url) - strpos($url, \textcolor{stringliteral}{"?
+      "}))) \{
+                              $url = substr($url, 0, $parameters);
+               \}
+
+               \textcolor{comment}{// If it doesn't end in php, then add default page}
+               \textcolor{keywordflow}{if} (!strpos($url, \textcolor{stringliteral}{".php"})) \{
+                              $url = $url . \textcolor{stringliteral}{"index"};
+               \} \textcolor{keywordflow}{else} \{
+                              $url = substr($url, 0, strlen($url) - 4);
+               \}
+
+               \textcolor{comment}{// Remove trailing slash}
+               \textcolor{keywordflow}{if} (strpos($url, \textcolor{stringliteral}{"/"}) == 0) \{
+                              $url = substr($url, 1, strlen($url) - 1);
+               \}
+
+               \textcolor{comment}{// Remove the prefix from the class by setting the variable
+       below}
+               $prefixes = array(
+                              \textcolor{stringliteral}{'****DEV\_PREFIX****'},
+                              \textcolor{stringliteral}{'****STAGE\_PREFIX****'},
+                              \textcolor{stringliteral}{'****LIVE\_PREFIX****'}
+               );
+               
+               \textcolor{keywordflow}{foreach} ($prefixes as $prefix) \{
+                              $url = str\_replace($prefix, \textcolor{stringliteral}{""}, str\_replace(\textcolor{stringliteral}{"/"}, \textcolor{stringliteral}{
+      "-"}, $url));
+               \}
+
+               \textcolor{keywordflow}{if} (empty($url)) \{
+                              $url = \textcolor{stringliteral}{'index'};
+               \}
+
+               \textcolor{keywordflow}{return} $url;
+\}
+\end{DoxyCode}

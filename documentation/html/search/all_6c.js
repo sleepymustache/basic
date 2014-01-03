@@ -1,12 +1,6 @@
 var searchData=
 [
-  ['leave',['leave',['../class_simple_state_stack.html#a8aee9a4b3e196b8ce9608eadd74bcb2d',1,'SimpleStateStack']]],
-  ['likeexpectation',['LikeExpectation',['../class_like_expectation.html',1,'']]],
-  ['linkisabsolute',['linkIsAbsolute',['../class_simple_page.html#a3a5c2779c0743bdad414802949f7d9ef',1,'SimplePage']]],
-  ['livehttptestcase',['LiveHttpTestCase',['../class_live_http_test_case.html',1,'']]],
-  ['livetestofforms',['LiveTestOfForms',['../class_live_test_of_forms.html',1,'']]],
-  ['load',['load',['../class_c_s_v.html#ac3e60980a993f765445acea4e30bed73',1,'CSV\load()'],['../class_record.html#a7160b09d9d37ede69811a66dc9e4f272',1,'Record\load()'],['../class_simple_browser.html#abc13ffb32fdf61b67bee819c6cd1ca03',1,'SimpleBrowser\load()'],['../class_simple_file_loader.html#a291a597d60353236b451ef528ff97016',1,'SimpleFileLoader\load()']]],
-  ['loadframe',['loadFrame',['../class_simple_browser.html#aae670bf98b9e4010c956127ec2ec9554',1,'SimpleBrowser']]],
-  ['loadpage',['loadPage',['../class_simple_browser.html#a6a844b58937c25882302cdd3d04eb17a',1,'SimpleBrowser']]],
+  ['live_5furl',['LIVE_URL',['../global_8php.html#ade7436eeb9a94e391a9d15a8a6865dd9',1,'global.php']]],
+  ['load',['load',['../class_c_s_v.html#ac3e60980a993f765445acea4e30bed73',1,'CSV\load()'],['../class_record.html#a7160b09d9d37ede69811a66dc9e4f272',1,'Record\load()'],['../class_user.html#a7160b09d9d37ede69811a66dc9e4f272',1,'User\load()'],['../class_role.html#a7160b09d9d37ede69811a66dc9e4f272',1,'Role\load()']]],
   ['loginrequest',['LoginRequest',['../class_login_request.html',1,'']]]
 ];

@@ -4,17 +4,17 @@ Used to create a grid view of a sql statement\hypertarget{nav1_usage}{}\section{
 $dbg = \textcolor{keyword}{new} \hyperlink{class_db_grid}{DbGrid}(\textcolor{stringliteral}{'users'}, \textcolor{stringliteral}{'SELECT * FROM users'});
 
 $dbg->exclude(array(
-    \textcolor{stringliteral}{'user\_id'},
-    \textcolor{stringliteral}{'password'}
+               \textcolor{stringliteral}{'user\_id'},
+               \textcolor{stringliteral}{'password'}
 ));
 
 $dbg->mapFields(array(
-    \textcolor{stringliteral}{'name'} => \textcolor{stringliteral}{'user\_id'}
+               \textcolor{stringliteral}{'name'} => \textcolor{stringliteral}{'user\_id'}
 ));
 
 $dbg->sortable(array(
-    \textcolor{stringliteral}{'name'},
-    \textcolor{stringliteral}{'date'}
+               \textcolor{stringliteral}{'name'},
+               \textcolor{stringliteral}{'date'}
 ));
 
 $dbg->show();
@@ -22,8 +22,8 @@ $dbg->show();
 \hypertarget{ip2country_dependencies}{}\section{Dependencies}\label{ip2country_dependencies}
 
 \begin{DoxyItemize}
-\item class.\-db.\-php
-\item class.\-hooks.\-php
+\item \hyperlink{class_8db_8php}{class.\-db.\-php}
+\item \hyperlink{class_8hooks_8php}{class.\-hooks.\-php}
 \end{DoxyItemize}
 
 \begin{DoxyAuthor}{Author}

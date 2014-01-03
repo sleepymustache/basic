@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Sleepy Mustache: &lt;|:{)</title>
+<title>sleepyMUSTACHE: &lt;|:{)</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Sleepy Mustache
+   <div id="projectname">sleepyMUSTACHE
    </div>
   </td>
  </tr>
@@ -43,8 +43,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +83,7 @@ $(document).ready(function(){initNavTree('index.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -97,9 +97,9 @@ $(document).ready(function(){initNavTree('index.html','');});
 <div class="title">&lt;|:{) </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="el" href="class_sleepy.html">Sleepy</a> Mustache</h1>
+<div class="textblock"><h1>sleepyMUSTACHE</h1>
 <p>Doxygen <a href="http://www.sleepymustache.com/documentation/html/index.html">Documentation</a> is available.</p>
-<p><a class="el" href="class_sleepy.html">Sleepy</a> mustache is a PHP framework that comes with solutions for everyday php challenges. Most of the functionality is optional and tries to be as minimalist as possible.</p>
+<p>sleepyMUSTACHE is a PHP framework that comes with solutions for everyday php challenges. Most of the functionality is optional and tries to be as minimalist as possible.</p>
 <h2>Functionality</h2>
 <h3>Core Functionality</h3>
 <p>The core is the basic functions that modules build off of</p>
@@ -113,10 +113,22 @@ $(document).ready(function(){initNavTree('index.html','');});
 <li><b>Benchmarking</b> Lets you time the speed of functions</li>
 </ul>
 <ul>
-<li><b>Templating</b> - Basic templating functionality lets you separate business logic for the view. It replaces placeholders like "{{ title }}" with data</li>
+<li><b>Templating</b> - Basic templating functionality lets you separate business logic from the view. It replaces placeholders like "{{ title }}" with data.</li>
 </ul>
 <h3>Default Modules</h3>
-<p>Some modules are enabled by default. To disable the modules move them from the "enabled" folder and put them into the "disabled" folder</p>
+<p>Some modules are enabled by default. To disable the modules move them from the "enabled" folder and put them into the "disabled" folder.</p>
+<ul>
+<li><b>HTML Compress</b> - Compresses the output HTML if the ENV variable is set to "LIVE"</li>
+</ul>
+<ul>
+<li><b><a class="el" href="class_c_s_s.html">CSS</a> Compress</b> - Compressed the output <a class="el" href="class_c_s_s.html">CSS</a> if the ENV variable is set to "LIVE"</li>
+</ul>
+<ul>
+<li><b>Head Inserter - Joey Bomber</b> - Allows you to insert HTML to the bottom of the HEAD tag</li>
+</ul>
+<ul>
+<li><b>Robots Dev Hide - Joey Bomber</b> - If the site is not live, add the meta robots tag to omit from Google search</li>
+</ul>
 <ul>
 <li><b><a class="el" href="class_navigation.html">Navigation</a></b> - Creates a UL that can be used for a navigation</li>
 </ul>
@@ -126,31 +138,31 @@ $(document).ready(function(){initNavTree('index.html','');});
 <h3>Available Modules</h3>
 <p>Most modules are disabled by default. To enable the modules move them from the into the "disabled" folder into "enabled" folder</p>
 <ul>
-<li><b>CRUD</b> - Create, Read, Update, Delete functionality using PDO</li>
+<li><b><a class="el" href="class_c_s_v.html">CSV</a></b> - CRUD class for <a class="el" href="class_c_s_v.html">CSV</a> files.</li>
 </ul>
 <ul>
-<li><b>File System Database</b> - A basic database that uses flat files and JSON documents</li>
+<li><b><a class="el" href="class_d_b.html">DB</a></b> - Create, Read, Update, Delete (CRUD) functionality using PDO and mySQL.</li>
 </ul>
 <ul>
-<li><b>IP 2 Country detection</b> - Uses the IP address to detect the country of origin.</li>
+<li><b><a class="el" href="class_d_b.html">DB</a> Grid</b> - Turns a SQL Select statement into a table with hook points</li>
 </ul>
 <ul>
-<li><b>Mobile device detection</b> - Can detect mobile and tablet devices</li>
+<li><b>File System Database</b> - A basic database that uses flat files and JSON documents.</li>
 </ul>
 <ul>
-<li><b><a class="el" href="class_c_s_v.html">CSV</a> creation</b> - CRUD class for <a class="el" href="class_c_s_v.html">CSV</a> files</li>
+<li><b>IP 2 Country</b> - Uses the IP address to detect the country of origin.</li>
 </ul>
 <ul>
-<li><b>Emailing</b> - Basic email functionality with RFC email validation</li>
-</ul>
-<ul>
-<li><b>Robo Caller SOAP API (class.robotalker.php)</b> - Class for interacting with the robotalker API</li>
-</ul>
-<ul>
-<li><b>SQL Select to <a class="el" href="class_d_b.html">DB</a> Grid (class.dbgrid.php)</b> - Turns a SQL Select statement into a table with hook points</li>
+<li><b><a class="el" href="class_mailer.html">Mailer</a></b> - Provides basic email functionality with RFC email validation.</li>
 </ul>
 <ul>
 <li><b>Memcache</b> - Improve performance by implementing memcaching of pages (10 second default)</li>
+</ul>
+<ul>
+<li><b>Mobile detection</b> - Can detect mobile and tablet devices</li>
+</ul>
+<ul>
+<li><b>Robotalker</b> - Class for interacting with the robotalker API</li>
 </ul>
 <ul>
 <li><b>Users</b> - Basic user and roles functionality includes auth, roles, and permissions</li>
@@ -166,204 +178,204 @@ $(document).ready(function(){initNavTree('index.html','');});
 <ul>
 <li>Setup debugging</li>
 <li>Set Live site URL</li>
-<li>Set <a class="el" href="class_d_b.html">DB</a> credentials for live/stage</li>
-<li>Set Emailing info for live/stage</li>
-<li>Setup GA Account for live/state</li>
+<li>Set <a class="el" href="class_d_b.html">DB</a> credentials for live/stage/dev</li>
+<li>Set Emailing info for live/stage/dev</li>
+<li>Setup GA Account for live/state/dev</li>
 </ul>
 <h2>Sample Code</h2>
 <h3>Hooks</h3>
 <p>The <em>Hooks</em> system is made up of <em>hook filters</em> and <em>hook actions</em>. <em><a class="el" href="class_hook.html">Hook</a> actions</em> are points in the code where you can assign functions to run. For example, we can put a <em>hook action</em> after a record is saved to the database, then assign a function to the <em>hook action</em> that will send an email after the <a class="el" href="class_d_b.html">DB</a> update. </p>
-<pre class="fragment">// Save to the database
-$db-&gt;save();
+<pre class="fragment">           // Save to the database
+           $db-&gt;save();
 
-// add a hook action
-Hook::addAction('record_saved');
+           // add a hook action
+           Hook::addAction('record_saved');
 
-// Add a function to the hook action
-function send_email() {
-    // send an email saying a record was updated
-}
+           // Add a function to the hook action
+           function send_email() {
+                          // send an email saying a record was updated
+           }
 
-Hook::doAction(
-    'record_saved',
-    'send_email'
-);
+           Hook::doAction(
+                          'record_saved',
+                          'send_email'
+           );
 </pre><p><em><a class="el" href="class_hook.html">Hook</a> filters</em> are similar to <em>hook actions</em> but pass data as parameters to the functions that get assigned to the hook. After manipulating this data you should return the edited data back to the program. </p>
-<pre class="fragment">// add a hook filter
-$content = Hook::addFilter('update_content', $_POST['content']);
+<pre class="fragment">           // add a hook filter
+           $content = Hook::addFilter('update_content', $_POST['content']);
 
-// Add a function to the hook filter
-function clean_html ($html) {
-    $c = htmlentities(trim($html), ENT_NOQUOTES, "UTF-8", false);
-    return $c;
-}
+           // Add a function to the hook filter
+           function clean_html ($html) {
+                          $c = htmlentities(trim($html), ENT_NOQUOTES, "UTF-8", false);
+                          return $c;
+           }
 
-Hook::applyFilter(
-    'update_content',
-    'clean_html'
-);
+           Hook::applyFilter(
+                          'update_content',
+                          'clean_html'
+           );
 </pre><p>The <em>modules/enabled</em> directory provides a convenient location to put code that utilized the hooks system. Code inside of the <em>modules/enabled</em> directory are automatically added to the program at runtime.</p>
 <h3>Templating</h3>
 <p>Templates reside inside the *'/templates/'* folder and should end in a .tpl extension. The templating system works by using placeholders that later get replaced with text. The placeholders must have the following syntax: </p>
-<pre class="fragment">{{ placeholder }}
+<pre class="fragment">           {{ placeholder }}
 </pre><p>To use a template you instantiate the template class passing in the template name. You then bind data to the placeholders and call the <em><a class="el" href="class_template.html#a2b8e3779f5bd8c38f70307574859bd36">Template::show()</a></em> method. </p>
-<pre class="fragment">require_once('include/sleepy.php');
+<pre class="fragment">           require_once('include/sleepy.php');
 
-$page = new Template('default');
-$page-&gt;bind('title', 'Sleepy Mustache');
-$page-&gt;bind('header', 'Hello world!');
-$page-&gt;show();
+           $page = new Template('default');
+           $page-&gt;bind('title', 'sleepyMUSTACHE');
+           $page-&gt;bind('header', 'Hello world!');
+           $page-&gt;show();
 </pre><p>Here is the sample template file (templates/default.tpl) </p>
-<pre class="fragment">&lt;html&gt;
-    &lt;head&gt;
-        &lt;title&gt;{{ title }}&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;h1&gt;{{ header }}&lt;/h1&gt;
-        &lt;p&gt;This page has been viewed {{ hits }} times.&lt;/p&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
+<pre class="fragment">           &lt;html&gt;
+                          &lt;head&gt;
+                                         &lt;title&gt;{{ title }}&lt;/title&gt;
+                          &lt;/head&gt;
+                          &lt;body&gt;
+                                         &lt;h1&gt;{{ header }}&lt;/h1&gt;
+                                         &lt;p&gt;This page has been viewed {{ hits }} times.&lt;/p&gt;
+                          &lt;/body&gt;
+           &lt;/html&gt;
 </pre><p>We added a *{{ hits }}* placeholder in the template above. For this example, we want to replace the placeholder with the number of times this page was viewed. We can add that functionality using Hooks. </p>
-<pre class="fragment">// filename: /modules/enabled/hit-counter/hits.php
-function hook_render_placeholder_hits() {
-    $hits = new FakeClass();
+<pre class="fragment">           // filename: /modules/enabled/hit-counter/hits.php
+           function hook_render_placeholder_hits() {
+                          $hits = new FakeClass();
 
-    return $hits-&gt;getTotal();
-}
+                          return $hits-&gt;getTotal();
+           }
 
-Hook::applyFilter(
-    'render_placeholder_hits',
-    'hook_render_placeholder_hits'
-);
-</pre><p>The first parameter of <em><a class="el" href="class_hook.html">Hook</a>:applyFilter</em>, the hook filter, ends in 'hits' which correlates to the name of the placeholder. This hook filter is defined in '<em>class.template.php</em>'. The second parameter is the name of the function to run when we render the placeholder.</p>
+           Hook::applyFilter(
+                          'render_placeholder_hits',
+                          'hook_render_placeholder_hits'
+           );
+</pre><p>The first parameter of <em><a class="el" href="class_hook.html">Hook</a>:applyFilter</em>, the hook filter, ends in 'hits' which correlates to the name of the placeholder. This hook filter is defined in '<em><a class="el" href="class_8template_8php.html">class.template.php</a></em>'. The second parameter is the name of the function to run when we render the placeholder.</p>
 <p>You can iterate through multidimensional array data using #each placeholders </p>
-<pre class="fragment">// Bind the data like this
-$page-&gt;bind('fruits', array(
-    array(
-        "name" =&gt; "apple",
-        "color" =&gt; "red"
-    ), array(
-        "name" =&gt; "banana",
-        "color" =&gt; "yellow"
-    )
-));
+<pre class="fragment">           // Bind the data like this
+           $page-&gt;bind('fruits', array(
+                          array(
+                                         "name" =&gt; "apple",
+                                         "color" =&gt; "red"
+                          ), array(
+                                         "name" =&gt; "banana",
+                                         "color" =&gt; "yellow"
+                          )
+           ));
 
-// in the template
-{{ #each f in fruits }}
-    &lt;p&gt;I like {{ f.color }}, because my {{ f.name }} is {{ f.color }}.&lt;/p&gt;
-{{ /each }}
+           // in the template
+           {{ #each f in fruits }}
+                          &lt;p&gt;I like {{ f.color }}, because my {{ f.name }} is {{ f.color }}.&lt;/p&gt;
+           {{ /each }}
 </pre><h3>Databases</h3>
-<p>The database connection settings are defined in the */include/global.php* file. After the <em>LIVE_URL</em> is set in <em>global.php</em> the framework will detect which <a class="el" href="class_d_b.html">DB</a> to use based on the current URL.</p>
+<p>The database connection settings are defined in the */include/global.php* file. After the <em>LIVE_URL</em> is set in <em><a class="el" href="global_8php.html">global.php</a></em> the framework will detect which <a class="el" href="class_d_b.html">DB</a> to use based on the current URL.</p>
 <p>To get a database instance, use: </p>
-<pre class="fragment">$db = DB::getInstance();
+<pre class="fragment">           $db = DB::getInstance();
 </pre><p>The <a class="el" href="class_d_b.html">DB</a> class is static and will automatically handle suppressing multiple instances.</p>
 <h3>Sending emails</h3>
 <p>The <a class="el" href="class_mailer.html">Mailer</a> class simplifies sending emails by generating headers for you and using an easy to use object to clearly define your email. The <a class="el" href="class_mailer.html">Mailer</a> can send emails using an HTML template or text. </p>
-<pre class="fragment">$m = new Mailer();
-$m-&gt;addTo("test@test.com");
-$m-&gt;addFrom("from.me@test.com");
-$m-&gt;addSubject("This is a test, don't panic.");
-$m-&gt;fetchHTML("http://test.com/template.php");
-// OR
-$m-&gt;msgText("This is my message.")
-$m-&gt;send();
+<pre class="fragment">           $m = new Mailer();
+           $m-&gt;addTo("test@test.com");
+           $m-&gt;addFrom("from.me@test.com");
+           $m-&gt;addSubject("This is a test, don't panic.");
+           $m-&gt;fetchHTML("http://test.com/template.php");
+           // OR
+           $m-&gt;msgText("This is my message.")
+           $m-&gt;send();
 </pre><h3><a class="el" href="class_c_s_v.html">CSV</a></h3>
 <p>The <a class="el" href="class_c_s_v.html">CSV</a> class ensures that all records are properly escaped and allows you to easily manipulate data inside of a <a class="el" href="class_c_s_v.html">CSV</a> file. </p>
-<pre class="fragment">$c = new CSV();
-$data = array(
-    'George',
-    'Washington'
-);
-$c-&gt;add($data);
+<pre class="fragment">           $c = new CSV();
+           $data = array(
+                          'George',
+                          'Washington'
+           );
+           $c-&gt;add($data);
 
-// Saves to the filesystem
-$c-&gt;save('presidents.csv');
+           // Saves to the filesystem
+           $c-&gt;save('presidents.csv');
 
-// OR
+           // OR
 
-// Sends the file to the browser, does not save to the filesystem
-$c-&gt;show();
+           // Sends the file to the browser, does not save to the filesystem
+           $c-&gt;show();
 </pre><h3>Debugging</h3>
 <p>The <em><a class="el" href="class_debug.html">Debug</a></em> static class allows you to debug on-screen, via email, or by logging to a database. </p>
-<pre class="fragment">$db = DB::getInstance();
-Debug::out($db);
-</pre><h3>File System Database (class.fsdb.php)</h3>
-<p>Sometimes using a database is overkill. A simple solution is to use the <em><a class="el" href="class_f_s_d_b.html">FSDB</a></em>. It is very simple and does not allow complex queries, however it is fast, easy to use and requires no setup, except checking that proper permissions are set. </p>
-<pre class="fragment">$fruit = new stdClass();
+<pre class="fragment">           $db = DB::getInstance();
+           Debug::out($db);
+</pre><h3>File System Database (<a class="el" href="class_8fsdb_8php.html">class.fsdb.php</a>)</h3>
+<p>Sometimes using a database is overkill. A simple solution is to use the <em><a class="el" href="class_f_s_d_b.html">FSDB</a></em>. It is very simple and does not allow complex queries, however it is fast, easy to use, and requires no setup, except checking that proper permissions are set. </p>
+<pre class="fragment">           $fruit = new stdClass();
 
-$fruit-&gt;name = "Apple";
-$fruit-&gt;color = "Red";
-$fruit-&gt;texture = "Crispy";
-$fruit-&gt;price = 0.50;
+           $fruit-&gt;name = "Apple";
+           $fruit-&gt;color = "Red";
+           $fruit-&gt;texture = "Crispy";
+           $fruit-&gt;price = 0.50;
 
-$db = new FSDB();
+           $db = new FSDB();
 
-$db-&gt;insert('fruit', $fruit);
-$data = $db-&gt;select('fruit', 'name', 'Banana');
+           $db-&gt;insert('fruit', $fruit);
+           $data = $db-&gt;select('fruit', 'name', 'Apple');
 </pre><h3>Country detection</h3>
 <p><em>Country detection</em> uses the <em><a class="el" href="class_f_s_d_b.html">FSDB</a></em> to do a quick lookup of the current country. </p>
-<pre class="fragment">$i = new IP2CO();
+<pre class="fragment">           $i = new IP2CO();
 
-$countryCode = $i-&gt;getCountryCode($_SERVER['REMOTE_ADDR']);
+           $countryCode = $i-&gt;getCountryCode($_SERVER['REMOTE_ADDR']);
 
-if ($countryCode != false) {
-    echo $countryCode;
-} else {
-    echo $_SERVER['REMOTE_ADDR'] . "(" . ip2long($_SERVER['REMOTE_ADDR']) . ") Not found in " . $i-&gt;getTable($_SERVER['REMOTE_ADDR']) . ".";
-}
+           if ($countryCode != false) {
+                          echo $countryCode;
+           } else {
+                          echo $_SERVER['REMOTE_ADDR'] . "(" . ip2long($_SERVER['REMOTE_ADDR']) . ") Not found in " . $i-&gt;getTable($_SERVER['REMOTE_ADDR']) . ".";
+           }
 </pre><h3>Mobile detection</h3>
 <p>Mobile detection is done by comparing the UA (user-agent) to a list of currently available mobile and tablet UA. </p>
-<pre class="fragment">$md = new MobiDetect();
+<pre class="fragment">           $md = new MobiDetect();
 
-if ($md-&gt;isMobile()) {
-    // goto mobile site
-}
+           if ($md-&gt;isMobile()) {
+                          // goto mobile site
+           }
 </pre><h3><a class="el" href="class_navigation.html">Navigation</a></h3>
 <p>The navigation is generated from JSON. It renders the JSON into a unordered list with some classes added for the current active page. </p>
-<pre class="fragment">// Add a placeholder in your template
-{{ TopNav }}
+<pre class="fragment">           // Add a placeholder in your template
+           {{ TopNav }}
 
-// Create a php file in */modules/*
-require_once('include/class.navigation.php');
+           // Create a php file in */modules/enabled/*
+           require_once('include/class.navigation.php');
 
-// create a function to add to the *hook filter*
-function hook_render_placeholder_TopNav() {
+           // create a function to add to the *hook filter*
+           function hook_render_placeholder_TopNav() {
 
-    // Page data is passed via JSON
-    $topNavData = '{
-        "pages": [
-            {
-                "title": "Nav 1",
-                "link": "/nav1/"
-            }, {
-                "title": "Nav 2",
-                "link": "/nav2/",
-                "pages": [
-                    {
-                        "title": "Subnav 1",
-                        "link": "/downloads/fpo.pdf",
-                        "target": "_blank"
-                    }
-                ]
-            }
-        ]
-    }';
+                          // Page data is passed via JSON
+                          $topNavData = '{
+                                         "pages": [
+                                                        {
+                                                                       "title": "Nav 1",
+                                                                       "link": "/nav1/"
+                                                        }, {
+                                                                       "title": "Nav 2",
+                                                                       "link": "/nav2/",
+                                                                       "pages": [
+                                                                                      {
+                                                                                                     "title": "Subnav 1",
+                                                                                                     "link": "/downloads/fpo.pdf",
+                                                                                                     "target": "_blank"
+                                                                                      }
+                                                                       ]
+                                                        }
+                                         ]
+                          }';
 
-    $topNav = new Navigation($topNavData);
-    $topNav-&gt;setCurrent($_SERVER['SCRIPT_NAME']);
+                          $topNav = new Navigation($topNavData);
+                          $topNav-&gt;setCurrent($_SERVER['SCRIPT_NAME']);
 
-    return $topNav-&gt;show();
-}
+                          return $topNav-&gt;show();
+           }
 
-Hook::applyFilter(
-    'render_placeholder_TopNav',
-    'hook_render_placeholder_TopNav'
-);</pre> </div></div><!-- contents -->
+           Hook::applyFilter(
+                          'render_placeholder_TopNav',
+                          'hook_render_placeholder_TopNav'
+           );</pre> </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Nov 27 2013 11:36:22 for Sleepy Mustache by
+    <li class="footer">Generated on Fri Jan 3 2014 13:11:20 for sleepyMUSTACHE by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

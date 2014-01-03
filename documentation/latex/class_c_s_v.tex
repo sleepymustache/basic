@@ -1,0 +1,314 @@
+\hypertarget{class_c_s_v}{\section{C\-S\-V Class Reference}
+\label{class_c_s_v}\index{C\-S\-V@{C\-S\-V}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_c_s_v_a14c84bb63122ad8fcb01df17afd63a1f}{\-\_\-\-\_\-construct} (\$filename='')
+\item 
+\hyperlink{class_c_s_v_ac3e60980a993f765445acea4e30bed73}{load} (\$filename='')
+\item 
+\hyperlink{class_c_s_v_a3a876f7e0ace40b48d9369e4855c498d}{save} (\$filename='')
+\item 
+\hyperlink{class_c_s_v_aa4de84fb89ac3c97fbaf4ad312bb47eb}{add} (\$array)
+\item 
+\hyperlink{class_c_s_v_a11f0aa9afc724ac4074e3ca127e79a2a}{remove} (\$id)
+\item 
+\hyperlink{class_c_s_v_a2b8e3779f5bd8c38f70307574859bd36}{show} ()
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_c_s_v_a0722441477f957078ee2437054556cbc}{\$filename} = ''
+\item 
+\hyperlink{class_c_s_v_a40acc7b8c08cfbb456cd9444cb0e8f61}{\$delimiter} = ','
+\item 
+\hyperlink{class_c_s_v_a6efc15b5a2314dd4b5aaa556a375c6d6}{\$data}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 26 of file class.\-csv.\-php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_c_s_v_a14c84bb63122ad8fcb01df17afd63a1f}{\index{C\-S\-V@{C\-S\-V}!\-\_\-\-\_\-construct@{\-\_\-\-\_\-construct}}
+\index{\-\_\-\-\_\-construct@{\-\_\-\-\_\-construct}!CSV@{C\-S\-V}}
+\subsubsection[{\-\_\-\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$filename = {\ttfamily ''}}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_a14c84bb63122ad8fcb01df17afd63a1f}
+Constructor
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$filename} & (optional) if set, loads the file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 50 of file class.\-csv.\-php.
+
+
+\begin{DoxyCode}
+                                                         \{
+                              \textcolor{keywordflow}{if} (\hyperlink{class_c_s_v_a0722441477f957078ee2437054556cbc}{$filename} != \textcolor{stringliteral}{''}) \{
+                                             $this->\hyperlink{class_c_s_v_ac3e60980a993f765445acea4e30bed73}{load}(\hyperlink{class_c_s_v_a0722441477f957078ee2437054556cbc}{$filename}
+      );
+                              \}
+               \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_c_s_v_aa4de84fb89ac3c97fbaf4ad312bb47eb}{\index{C\-S\-V@{C\-S\-V}!add@{add}}
+\index{add@{add}!CSV@{C\-S\-V}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}add (
+\begin{DoxyParamCaption}
+\item[{}]{\$array}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_aa4de84fb89ac3c97fbaf4ad312bb47eb}
+Adds a new line to the \hyperlink{class_c_s_v}{C\-S\-V} file
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$array} & An array of values. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Returns true if successful. 
+\end{DoxyReturn}
+
+
+Definition at line 128 of file class.\-csv.\-php.
+
+
+\begin{DoxyCode}
+                                           \{
+                              \textcolor{keywordflow}{if} (!is\_array($array)) \{
+                                             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception(\textcolor{stringliteral}{'CSV::add -
+       Parameter must be an array.'});
+                              \}
+
+                              \textcolor{keywordflow}{if} (count($array) == count($array, 
+      COUNT\_RECURSIVE)) \{
+                                             $this->data[] = $array;
+                              \} \textcolor{keywordflow}{else} \{
+                                             \textcolor{keywordflow}{foreach} ($array as $record) \{
+                                                            $this->data[] = 
+      $record;
+                                             \}
+                              \}
+
+                              \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+               \}
+\end{DoxyCode}
+\hypertarget{class_c_s_v_ac3e60980a993f765445acea4e30bed73}{\index{C\-S\-V@{C\-S\-V}!load@{load}}
+\index{load@{load}!CSV@{C\-S\-V}}
+\subsubsection[{load}]{\setlength{\rightskip}{0pt plus 5cm}load (
+\begin{DoxyParamCaption}
+\item[{}]{\$filename = {\ttfamily ''}}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_ac3e60980a993f765445acea4e30bed73}
+Loads an existing \hyperlink{class_c_s_v}{C\-S\-V} file into \$this-\/$>$data
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$filename} & (optional) Name of file. If it is not set, then it uses \$this-\/$>$filename instead. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Returns true if successful. 
+\end{DoxyReturn}
+
+
+Definition at line 65 of file class.\-csv.\-php.
+
+
+\begin{DoxyCode}
+                                                  \{
+                              \textcolor{keywordflow}{if} (\hyperlink{class_c_s_v_a0722441477f957078ee2437054556cbc}{$filename} != \textcolor{stringliteral}{''}) \{
+                                             $this->filename = \hyperlink{class_c_s_v_a0722441477f957078ee2437054556cbc}{$filename}
+      ;
+                              \} \textcolor{keywordflow}{else} \{
+                                             \textcolor{keywordflow}{if} ($this->filename == \textcolor{stringliteral}{''}) \{
+                                                            \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception
+      (\textcolor{stringliteral}{'CSV::load - Cannot save without a filename.'});
+                                             \}
+                              \}
+                              \textcolor{keywordflow}{if} (($handle = @fopen($this->filename, \textcolor{stringliteral}{"r"})) !== 
+      FALSE) \{
+                                             flock($handle, LOCK\_EX);
+                                             \textcolor{keywordflow}{while} ((\hyperlink{class_c_s_v_a6efc15b5a2314dd4b5aaa556a375c6d6}{$data} = fgetcsv(
+      $handle, 0, $this->delimiter)) !== FALSE) \{
+                                                            $this->data[] = 
+      \hyperlink{class_c_s_v_a6efc15b5a2314dd4b5aaa556a375c6d6}{$data};
+                                                            $num = count(\hyperlink{class_c_s_v_a6efc15b5a2314dd4b5aaa556a375c6d6}{$data}
+      );
+                                             \}
+                                             flock($handle, LOCK\_UN);
+                                             fclose($handle);
+                                             $numberOfFields = count(\hyperlink{class_c_s_v_a6efc15b5a2314dd4b5aaa556a375c6d6}{$data}
+      );
+                              \} \textcolor{keywordflow}{else} \{
+                                             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception(\textcolor{stringliteral}{'CSV::load -
+       Cannot open file for writing'});
+                              \}
+
+                              \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+               \}
+\end{DoxyCode}
+\hypertarget{class_c_s_v_a11f0aa9afc724ac4074e3ca127e79a2a}{\index{C\-S\-V@{C\-S\-V}!remove@{remove}}
+\index{remove@{remove}!CSV@{C\-S\-V}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}remove (
+\begin{DoxyParamCaption}
+\item[{}]{\$id}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_a11f0aa9afc724ac4074e3ca127e79a2a}
+Removes a line from the \hyperlink{class_c_s_v}{C\-S\-V} file
+
+
+\begin{DoxyParams}[1]{Parameters}
+int & {\em \$id} & The array key to remove from \$this-\/$>$data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Returns true if successful. 
+\end{DoxyReturn}
+
+
+Definition at line 152 of file class.\-csv.\-php.
+
+
+\begin{DoxyCode}
+                                           \{
+                              \textcolor{keywordflow}{if} (isset($this->data[$id])) \{
+                                             unset($this->data[$id]);
+                                             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+                              \} \textcolor{keywordflow}{else} \{
+                                             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception(\textcolor{stringliteral}{'CSV::remove -
+       Row does not exist. Data not removed.'});
+                              \}
+               \}
+\end{DoxyCode}
+\hypertarget{class_c_s_v_a3a876f7e0ace40b48d9369e4855c498d}{\index{C\-S\-V@{C\-S\-V}!save@{save}}
+\index{save@{save}!CSV@{C\-S\-V}}
+\subsubsection[{save}]{\setlength{\rightskip}{0pt plus 5cm}save (
+\begin{DoxyParamCaption}
+\item[{}]{\$filename = {\ttfamily ''}}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_a3a876f7e0ace40b48d9369e4855c498d}
+Saves the \hyperlink{class_c_s_v}{C\-S\-V} file.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$filename} & (optional) Name of file. If it is not set, then it uses \$this-\/$>$filename instead. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Returns true if successful. 
+\end{DoxyReturn}
+
+
+Definition at line 98 of file class.\-csv.\-php.
+
+
+\begin{DoxyCode}
+                                                  \{
+                              \textcolor{keywordflow}{if} (\hyperlink{class_c_s_v_a0722441477f957078ee2437054556cbc}{$filename} != \textcolor{stringliteral}{''}) \{
+                                             $this->filename = \hyperlink{class_c_s_v_a0722441477f957078ee2437054556cbc}{$filename}
+      ;
+                              \} \textcolor{keywordflow}{else} \{
+                                             \textcolor{keywordflow}{if} ($this->filename == \textcolor{stringliteral}{''}) \{
+                                                            \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception
+      (\textcolor{stringliteral}{'CSV::save - Cannot save without a filename.'});
+                                             \}
+                              \}
+                              \textcolor{keywordflow}{if} ($handle = @fopen($this->filename, \textcolor{stringliteral}{'r+'})) \{
+                                             flock($handle, LOCK\_EX);
+                                             \textcolor{keywordflow}{foreach} ($this->data as $row) \{
+                                                            fputcsv($handle, 
+      $row);
+                                             \}
+                                             flock($handle, LOCK\_UN);
+                                             fclose($handle);
+                              \} \textcolor{keywordflow}{else} \{
+                                             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception(\textcolor{stringliteral}{'CSV::save -
+       Cannot open file for writing'});
+                              \}
+
+                              \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+               \}
+\end{DoxyCode}
+\hypertarget{class_c_s_v_a2b8e3779f5bd8c38f70307574859bd36}{\index{C\-S\-V@{C\-S\-V}!show@{show}}
+\index{show@{show}!CSV@{C\-S\-V}}
+\subsubsection[{show}]{\setlength{\rightskip}{0pt plus 5cm}show (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_a2b8e3779f5bd8c38f70307574859bd36}
+Instead of saving the file, it outputs to default output with headers. 
+
+Definition at line 164 of file class.\-csv.\-php.
+
+
+\begin{DoxyCode}
+                                      \{
+                              ob\_end\_clean();
+                              
+                              \textcolor{comment}{// Name the file}
+                              \hyperlink{class_c_s_v_a0722441477f957078ee2437054556cbc}{$filename} = date(\textcolor{stringliteral}{'YmdHis'}) . \textcolor{stringliteral}{".csv"};
+
+                              \textcolor{comment}{// Write the CSV headers}
+                              header\_remove();
+                              header(\textcolor{stringliteral}{"Pragma: public"});
+                              header(\textcolor{stringliteral}{"Expires: 0"});
+                              header(\textcolor{stringliteral}{"Cache-Control: must-revalidate,
+       post-check=0, pre-check=0"});
+                              header(\textcolor{stringliteral}{"Cache-Control: private"}, \textcolor{keyword}{false});
+                              header(\textcolor{stringliteral}{"Content-Type: application/octet-stream"});
+                              header(\textcolor{stringliteral}{"Content-Disposition: attachment;
+       filename=\(\backslash\)"$filename\(\backslash\)";"} );
+                              header(\textcolor{stringliteral}{"Content-Transfer-Encoding: binary"});
+
+                              \textcolor{comment}{// output of csv to default output (screen)
+       instead of a file}
+                              $this->filename = \textcolor{stringliteral}{"php://output"};
+
+                              $this->\hyperlink{class_c_s_v_a3a876f7e0ace40b48d9369e4855c498d}{save}();
+                              
+               \}
+\end{DoxyCode}
+
+
+\subsection{Field Documentation}
+\hypertarget{class_c_s_v_a6efc15b5a2314dd4b5aaa556a375c6d6}{\index{C\-S\-V@{C\-S\-V}!\$data@{\$data}}
+\index{\$data@{\$data}!CSV@{C\-S\-V}}
+\subsubsection[{\$data}]{\setlength{\rightskip}{0pt plus 5cm}\$data}}\label{class_c_s_v_a6efc15b5a2314dd4b5aaa556a375c6d6}
+mixed The data gets stored here while \char`\"{}in utero\char`\"{} 
+
+Definition at line 42 of file class.\-csv.\-php.
+
+\hypertarget{class_c_s_v_a40acc7b8c08cfbb456cd9444cb0e8f61}{\index{C\-S\-V@{C\-S\-V}!\$delimiter@{\$delimiter}}
+\index{\$delimiter@{\$delimiter}!CSV@{C\-S\-V}}
+\subsubsection[{\$delimiter}]{\setlength{\rightskip}{0pt plus 5cm}\$delimiter = ','}}\label{class_c_s_v_a40acc7b8c08cfbb456cd9444cb0e8f61}
+string Define what character to use as a delimiter 
+
+Definition at line 36 of file class.\-csv.\-php.
+
+\hypertarget{class_c_s_v_a0722441477f957078ee2437054556cbc}{\index{C\-S\-V@{C\-S\-V}!\$filename@{\$filename}}
+\index{\$filename@{\$filename}!CSV@{C\-S\-V}}
+\subsubsection[{\$filename}]{\setlength{\rightskip}{0pt plus 5cm}\$filename = ''}}\label{class_c_s_v_a0722441477f957078ee2437054556cbc}
+string The filename of the \hyperlink{class_c_s_v}{C\-S\-V} file 
+
+Definition at line 30 of file class.\-csv.\-php.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+modules/disabled/csv/\hyperlink{class_8csv_8php}{class.\-csv.\-php}\end{DoxyCompactItemize}

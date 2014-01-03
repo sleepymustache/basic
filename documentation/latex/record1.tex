@@ -5,11 +5,11 @@ Extend this class and add a property \$table that is equal to the table name in 
 \begin{DoxyCode}
 \textcolor{comment}{// load a record with id= 5 from a table called 'user'}
 \textcolor{keyword}{class }user \textcolor{keyword}{extends} record \{
-    \textcolor{keyword}{public} $table = \textcolor{stringliteral}{'user'};
+               \textcolor{keyword}{public} $table = \textcolor{stringliteral}{'user'};
 \}
-$u = \textcolor{keyword}{new} user();
-$u->load(5);
-$u->columns[\textcolor{stringliteral}{'first\_name'}] = \textcolor{stringliteral}{'Joe'};
+\hyperlink{modules_2disabled_2users_2user_2login_2index_8php_ad9bcfd597eba04db946451e8368a1f05}{$u} = \textcolor{keyword}{new} user();
+\hyperlink{modules_2disabled_2users_2user_2login_2index_8php_ad9bcfd597eba04db946451e8368a1f05}{$u}->load(5);
+\hyperlink{modules_2disabled_2users_2user_2login_2index_8php_ad9bcfd597eba04db946451e8368a1f05}{$u}->columns[\textcolor{stringliteral}{'first\_name'}] = \textcolor{stringliteral}{'Joe'};
 \end{DoxyCode}
 
 
@@ -17,23 +17,23 @@ You can then save the new information by calling the save method\-:
 
 
 \begin{DoxyCode}
-$u->save();
+\hyperlink{modules_2disabled_2users_2user_2login_2index_8php_ad9bcfd597eba04db946451e8368a1f05}{$u}->save();
 \end{DoxyCode}
 
 
 You can also show a nice form to edit or add new records like this 
 \begin{DoxyCode}
-$u->form(array(
-   \textcolor{stringliteral}{'first\_name'} => \textcolor{stringliteral}{'First Name: '},
-   \textcolor{stringliteral}{'last\_name'} => \textcolor{stringliteral}{'Last Name: '},
-   \textcolor{stringliteral}{'phone'} => \textcolor{stringliteral}{'(800) 555-5555'}
+\hyperlink{modules_2disabled_2users_2user_2login_2index_8php_ad9bcfd597eba04db946451e8368a1f05}{$u}->form(array(
+              \textcolor{stringliteral}{'first\_name'} => \textcolor{stringliteral}{'First Name: '},
+              \textcolor{stringliteral}{'last\_name'} => \textcolor{stringliteral}{'Last Name: '},
+              \textcolor{stringliteral}{'phone'} => \textcolor{stringliteral}{'(800) 555-5555'}
 ));
 \end{DoxyCode}
 \hypertarget{ip2country_dependencies}{}\section{Dependencies}\label{ip2country_dependencies}
 
 \begin{DoxyItemize}
-\item class.\-hooks.\-php
-\item class.\-db.\-php
+\item \hyperlink{class_8hooks_8php}{class.\-hooks.\-php}
+\item \hyperlink{class_8db_8php}{class.\-db.\-php}
 \end{DoxyItemize}
 
 \begin{DoxyAuthor}{Author}

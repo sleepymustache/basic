@@ -1,0 +1,110 @@
+\hypertarget{html-compress_8php}{\section{modules/enabled/html-\/compress/html-\/compress.php File Reference}
+\label{html-compress_8php}\index{modules/enabled/html-\/compress/html-\/compress.\-php@{modules/enabled/html-\/compress/html-\/compress.\-php}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{html-compress_8php_ad92e8a635538094abc0019a51df21d32}{htmlcompress\-\_\-sleepy\-\_\-preprocess} ()
+\item 
+\hyperlink{html-compress_8php_ad1fd4cb9e3e35be287ba153b9693dc03}{htmlcompress\-\_\-sleepy\-\_\-postprocess} ()
+\item 
+\hyperlink{html-compress_8php_a19f136ad2f2bf69aabe3748bafc19505}{process\-\_\-data\-\_\-jmr1} (\$text)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{html-compress_8php_ad1fd4cb9e3e35be287ba153b9693dc03}{\index{html-\/compress.\-php@{html-\/compress.\-php}!htmlcompress\-\_\-sleepy\-\_\-postprocess@{htmlcompress\-\_\-sleepy\-\_\-postprocess}}
+\index{htmlcompress\-\_\-sleepy\-\_\-postprocess@{htmlcompress\-\_\-sleepy\-\_\-postprocess}!html-compress.php@{html-\/compress.\-php}}
+\subsubsection[{htmlcompress\-\_\-sleepy\-\_\-postprocess}]{\setlength{\rightskip}{0pt plus 5cm}htmlcompress\-\_\-sleepy\-\_\-postprocess (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{html-compress_8php_ad1fd4cb9e3e35be287ba153b9693dc03}
+
+
+Definition at line 14 of file html-\/compress.\-php.
+
+
+\begin{DoxyCode}
+                                           \{
+               ob\_end\_flush();
+\}
+\end{DoxyCode}
+\hypertarget{html-compress_8php_ad92e8a635538094abc0019a51df21d32}{\index{html-\/compress.\-php@{html-\/compress.\-php}!htmlcompress\-\_\-sleepy\-\_\-preprocess@{htmlcompress\-\_\-sleepy\-\_\-preprocess}}
+\index{htmlcompress\-\_\-sleepy\-\_\-preprocess@{htmlcompress\-\_\-sleepy\-\_\-preprocess}!html-compress.php@{html-\/compress.\-php}}
+\subsubsection[{htmlcompress\-\_\-sleepy\-\_\-preprocess}]{\setlength{\rightskip}{0pt plus 5cm}htmlcompress\-\_\-sleepy\-\_\-preprocess (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{html-compress_8php_ad92e8a635538094abc0019a51df21d32}
+Hooks into the preprocess and postprocess hooks to buffer and compress H\-T\-M\-L
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 8 of file html-\/compress.\-php.
+
+
+\begin{DoxyCode}
+                                          \{
+               ob\_start(\textcolor{stringliteral}{'process\_data\_jmr1'});
+
+               ini\_set(\textcolor{stringliteral}{"pcre.recursion\_limit"}, \textcolor{stringliteral}{"16777"});
+\}
+\end{DoxyCode}
+\hypertarget{html-compress_8php_a19f136ad2f2bf69aabe3748bafc19505}{\index{html-\/compress.\-php@{html-\/compress.\-php}!process\-\_\-data\-\_\-jmr1@{process\-\_\-data\-\_\-jmr1}}
+\index{process\-\_\-data\-\_\-jmr1@{process\-\_\-data\-\_\-jmr1}!html-compress.php@{html-\/compress.\-php}}
+\subsubsection[{process\-\_\-data\-\_\-jmr1}]{\setlength{\rightskip}{0pt plus 5cm}process\-\_\-data\-\_\-jmr1 (
+\begin{DoxyParamCaption}
+\item[{}]{\$text}
+\end{DoxyParamCaption}
+)}}\label{html-compress_8php_a19f136ad2f2bf69aabe3748bafc19505}
+
+
+Definition at line 18 of file html-\/compress.\-php.
+
+
+\begin{DoxyCode}
+                                  \{
+               $re = \textcolor{stringliteral}{'%# Collapse whitespace everywhere but in blacklisted
+       elements.}
+\textcolor{stringliteral}{                              (?>             # Match all whitespans other than
+       single space.}
+\textcolor{stringliteral}{                                [^\(\backslash\)S ]\(\backslash\)s*     # Either one [\(\backslash\)t\(\backslash\)r\(\backslash\)n\(\backslash\)f\(\backslash\)v] and
+       zero or more ws,}
+\textcolor{stringliteral}{                              | \(\backslash\)s\{2,\}        # or two or more
+       consecutive-any-whitespace.}
+\textcolor{stringliteral}{                              ) # Note: The remaining regex consumes no text at
+       all...}
+\textcolor{stringliteral}{                              (?=             # Ensure we are not in a
+       blacklist tag.}
+\textcolor{stringliteral}{                                [^<]*+        # Either zero or more non-"<"
+       \{normal*\}}
+\textcolor{stringliteral}{                                (?:           # Begin \{(special normal*)*\}
+       construct}
+\textcolor{stringliteral}{                                  <           # or a < starting a non-blacklist
+       tag.}
+\textcolor{stringliteral}{                                  (?!/?(?:textarea|pre|script)\(\backslash\)b)}
+\textcolor{stringliteral}{                                  [^<]*+      # more non-"<" \{normal*\}}
+\textcolor{stringliteral}{                                )*+           # Finish "unrolling-the-loop"}
+\textcolor{stringliteral}{                                (?:           # Begin alternation group.}
+\textcolor{stringliteral}{                                  <           # Either a blacklist start tag.}
+\textcolor{stringliteral}{                                  (?>textarea|pre|script)\(\backslash\)b}
+\textcolor{stringliteral}{                                | \(\backslash\)z          # or end of file.}
+\textcolor{stringliteral}{                                )             # End alternation group.}
+\textcolor{stringliteral}{                              )  # If we made it here, we are not in a
+       blacklist tag.}
+\textcolor{stringliteral}{                              %Six'};
+               $text = preg\_replace($re, \textcolor{stringliteral}{" "}, $text);
+               \textcolor{keywordflow}{if} ($text === null) exit(\textcolor{stringliteral}{"PCRE Error! File too big.\(\backslash\)n"});
+               \textcolor{keywordflow}{return} $text;
+\}
+
+\textcolor{keywordflow}{if} (ENV === \textcolor{stringliteral}{"LIVE"}) \{
+               \hyperlink{class_hook_a044e40a84df383f73df2250624d13c42}{Hook::doAction}(\textcolor{stringliteral}{'sleepy\_preprocess'},  \textcolor{stringliteral}{'
+      htmlcompress\_sleepy\_preprocess'} );
+               \hyperlink{class_hook_a044e40a84df383f73df2250624d13c42}{Hook::doAction}(\textcolor{stringliteral}{'sleepy\_postprocess'}, \textcolor{stringliteral}{'
+      htmlcompress\_sleepy\_postprocess'});
+\}\end{DoxyCode}

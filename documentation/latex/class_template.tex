@@ -1,0 +1,259 @@
+\hypertarget{class_template}{\section{Template Class Reference}
+\label{class_template}\index{Template@{Template}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_template_a6ebd85d8c80be61c2f20f0bfeb9b5f7b}{set\-Template} (\$file)
+\item 
+\hyperlink{class_template_a5efa1ad8f3267178937b8fb23003bbd4}{\-\_\-\-\_\-construct} (\$template='')
+\item 
+\hyperlink{class_template_a820993178e7ede5e791288b36b9cef57}{bind} (\$placeholder, \$value)
+\item 
+\hyperlink{class_template_a309bb1dc9b92dd7ad5348e48245468f8}{bind\-Start} ()
+\item 
+\hyperlink{class_template_a71662e1be36ebe0eeabd5fa629e5c538}{bind\-Stop} (\$placeholder)
+\item 
+\hyperlink{class_template_a24a9bf83a1002d46ece83a93d14bd921}{get} (\$key)
+\item 
+\hyperlink{class_template_a2b8e3779f5bd8c38f70307574859bd36}{show} ()
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_template_aed02cd2cd0ee08bd99a2ac1ef4f955ce}{\$extension} = \char`\"{}.tpl\char`\"{}
+\item 
+\hyperlink{class_template_a1b07c630eb02f770a082a013373a16d6}{\$directory}
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_template_abddaf0b77086e2b7d920f5d1a9616889}{\$\-\_\-file}
+\item 
+\hyperlink{class_template_a5a3006290f2de94fff2dd63ca739d15a}{\$\-\_\-data} = array()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 45 of file class.\-template.\-php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_template_a5efa1ad8f3267178937b8fb23003bbd4}{\index{Template@{Template}!\-\_\-\-\_\-construct@{\-\_\-\-\_\-construct}}
+\index{\-\_\-\-\_\-construct@{\-\_\-\-\_\-construct}!Template@{Template}}
+\subsubsection[{\-\_\-\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$template = {\ttfamily ''}}
+\end{DoxyParamCaption}
+)}}\label{class_template_a5efa1ad8f3267178937b8fb23003bbd4}
+The constructor 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$template} & The name of the template \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 207 of file class.\-template.\-php.
+
+
+\begin{DoxyCode}
+                                                         \{
+                              \hyperlink{class_hook_afff7a7869d2dd304043b69a3fff24655}{Hook::addAction}(\textcolor{stringliteral}{'template\_start'});
+                              $this->directory = \hyperlink{global_8php_a504552fd43e46a0032aa3f2895349f22}{DIRBASE} . \textcolor{stringliteral}{"/templates/"}
+      ;
+                              
+                              \textcolor{keywordflow}{if} (!empty($template)) \{
+                                             $this->\hyperlink{class_template_a6ebd85d8c80be61c2f20f0bfeb9b5f7b}{setTemplate}(
+      $template);
+                              \}
+               \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_template_a820993178e7ede5e791288b36b9cef57}{\index{Template@{Template}!bind@{bind}}
+\index{bind@{bind}!Template@{Template}}
+\subsubsection[{bind}]{\setlength{\rightskip}{0pt plus 5cm}bind (
+\begin{DoxyParamCaption}
+\item[{}]{\$placeholder, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}}\label{class_template_a820993178e7ede5e791288b36b9cef57}
+Binds data to the template placeholders 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$placeholder} & The template placeholder \\
+\hline
+mixed & {\em \$value} & The value that replaced the placeholder \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 221 of file class.\-template.\-php.
+
+
+\begin{DoxyCode}
+                                                          \{
+                              $this->\_data[trim(strtolower($placeholder))] = 
+      $value; 
+               \}
+\end{DoxyCode}
+\hypertarget{class_template_a309bb1dc9b92dd7ad5348e48245468f8}{\index{Template@{Template}!bind\-Start@{bind\-Start}}
+\index{bind\-Start@{bind\-Start}!Template@{Template}}
+\subsubsection[{bind\-Start}]{\setlength{\rightskip}{0pt plus 5cm}bind\-Start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_template_a309bb1dc9b92dd7ad5348e48245468f8}
+Starts a buffer that will bind data to the template placeholders. The buffer will capture anything you output until \$this-\/$>$\hyperlink{class_template_a71662e1be36ebe0eeabd5fa629e5c538}{bind\-Stop()} 
+
+Definition at line 229 of file class.\-template.\-php.
+
+
+\begin{DoxyCode}
+                                           \{
+                              ob\_start();
+               \}
+\end{DoxyCode}
+\hypertarget{class_template_a71662e1be36ebe0eeabd5fa629e5c538}{\index{Template@{Template}!bind\-Stop@{bind\-Stop}}
+\index{bind\-Stop@{bind\-Stop}!Template@{Template}}
+\subsubsection[{bind\-Stop}]{\setlength{\rightskip}{0pt plus 5cm}bind\-Stop (
+\begin{DoxyParamCaption}
+\item[{}]{\$placeholder}
+\end{DoxyParamCaption}
+)}}\label{class_template_a71662e1be36ebe0eeabd5fa629e5c538}
+Stops the buffer that binds data to the template placeholders 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$placeholder} & The template placeholder \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 237 of file class.\-template.\-php.
+
+
+\begin{DoxyCode}
+                                                      \{
+                              $content = ob\_get\_contents();
+                              ob\_end\_clean();
+                              $this->\_data[trim(strtolower($placeholder))] = 
+      $content;
+               \}
+\end{DoxyCode}
+\hypertarget{class_template_a24a9bf83a1002d46ece83a93d14bd921}{\index{Template@{Template}!get@{get}}
+\index{get@{get}!Template@{Template}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}get (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)}}\label{class_template_a24a9bf83a1002d46ece83a93d14bd921}
+Gets the data for a placeholder 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$placeholder} & The placeholder \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed The data stored in the placeholder 
+\end{DoxyReturn}
+
+
+Definition at line 248 of file class.\-template.\-php.
+
+
+\begin{DoxyCode}
+                                         \{
+                              \textcolor{keywordflow}{return} \hyperlink{class_hook_a6489ed6b12329279b9e7cae26afc4dd6}{Hook::addFilter}(\textcolor{stringliteral}{'
+      template\_get\_'} . $key, $this->\_data[$key]);
+               \}
+\end{DoxyCode}
+\hypertarget{class_template_a6ebd85d8c80be61c2f20f0bfeb9b5f7b}{\index{Template@{Template}!set\-Template@{set\-Template}}
+\index{set\-Template@{set\-Template}!Template@{Template}}
+\subsubsection[{set\-Template}]{\setlength{\rightskip}{0pt plus 5cm}set\-Template (
+\begin{DoxyParamCaption}
+\item[{}]{\$file}
+\end{DoxyParamCaption}
+)}}\label{class_template_a6ebd85d8c80be61c2f20f0bfeb9b5f7b}
+Sets the template to use. 
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}type\mbox{]}} & \$file \mbox{[}description\mbox{]} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 103 of file class.\-template.\-php.
+
+
+\begin{DoxyCode}
+                                                  \{
+                              $this->\_file = $file;
+               \}
+\end{DoxyCode}
+\hypertarget{class_template_a2b8e3779f5bd8c38f70307574859bd36}{\index{Template@{Template}!show@{show}}
+\index{show@{show}!Template@{Template}}
+\subsubsection[{show}]{\setlength{\rightskip}{0pt plus 5cm}show (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_template_a2b8e3779f5bd8c38f70307574859bd36}
+Shows the rendered template 
+
+Definition at line 255 of file class.\-template.\-php.
+
+
+\begin{DoxyCode}
+                                      \{
+                              \textcolor{comment}{// Check if template is ok}
+                              $this->checkTemplate($this->\_file);
+
+                              \textcolor{comment}{// Render template file}
+                              ob\_start();
+                              include($this->directory . $this->\_file . $this->
+      extension);
+                              $template = $this->render(ob\_get\_contents(), 
+      $this->\_data) ;
+                              ob\_end\_clean();
+
+                              $template = \hyperlink{class_hook_a6489ed6b12329279b9e7cae26afc4dd6}{Hook::addFilter}(\textcolor{stringliteral}{'
+      render\_template\_'} . $this->\_file, $template);
+                              echo \hyperlink{class_hook_a6489ed6b12329279b9e7cae26afc4dd6}{Hook::addFilter}(\textcolor{stringliteral}{'
+      render\_template'}, $template);
+               \}
+\end{DoxyCode}
+
+
+\subsection{Field Documentation}
+\hypertarget{class_template_a5a3006290f2de94fff2dd63ca739d15a}{\index{Template@{Template}!\$\-\_\-data@{\$\-\_\-data}}
+\index{\$\-\_\-data@{\$\-\_\-data}!Template@{Template}}
+\subsubsection[{\$\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}\$\-\_\-data = array()\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_template_a5a3006290f2de94fff2dd63ca739d15a}
+array The data bound to the template 
+
+Definition at line 66 of file class.\-template.\-php.
+
+\hypertarget{class_template_abddaf0b77086e2b7d920f5d1a9616889}{\index{Template@{Template}!\$\-\_\-file@{\$\-\_\-file}}
+\index{\$\-\_\-file@{\$\-\_\-file}!Template@{Template}}
+\subsubsection[{\$\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}\$\-\_\-file\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_template_abddaf0b77086e2b7d920f5d1a9616889}
+string The template file 
+
+Definition at line 60 of file class.\-template.\-php.
+
+\hypertarget{class_template_a1b07c630eb02f770a082a013373a16d6}{\index{Template@{Template}!\$directory@{\$directory}}
+\index{\$directory@{\$directory}!Template@{Template}}
+\subsubsection[{\$directory}]{\setlength{\rightskip}{0pt plus 5cm}\$directory}}\label{class_template_a1b07c630eb02f770a082a013373a16d6}
+string The template directory 
+
+Definition at line 54 of file class.\-template.\-php.
+
+\hypertarget{class_template_aed02cd2cd0ee08bd99a2ac1ef4f955ce}{\index{Template@{Template}!\$extension@{\$extension}}
+\index{\$extension@{\$extension}!Template@{Template}}
+\subsubsection[{\$extension}]{\setlength{\rightskip}{0pt plus 5cm}\$extension = \char`\"{}.tpl\char`\"{}}}\label{class_template_aed02cd2cd0ee08bd99a2ac1ef4f955ce}
+string The extension for template files 
+
+Definition at line 49 of file class.\-template.\-php.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{class_8template_8php}{class.\-template.\-php}\end{DoxyCompactItemize}

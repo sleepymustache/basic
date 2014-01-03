@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Sleepy Mustache: RoboTalker Class Reference</title>
+<title>sleepyMUSTACHE: RoboTalker Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Sleepy Mustache
+   <div id="projectname">sleepyMUSTACHE
    </div>
   </td>
  </tr>
@@ -43,8 +43,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('class_robo_talker.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -125,6 +125,8 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="class_robo_talker.html">RoboTalker</a> class controls the communication to the WebService </p>
+
+<p>Definition at line <a class="el" href="class_8robotalker_8php_source.html#l00179">179</a> of file <a class="el" href="class_8robotalker_8php_source.html">class.robotalker.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a095c5d389db211932136b53f25f39685"></a>
 <div class="memitem">
@@ -141,6 +143,12 @@ Public Member Functions</h2></td></tr>
 <p>Connects to webservice, login, store SessionId.</p>
 <dl class="section return"><dt>Returns</dt><dd>instance </dd></dl>
 
+<p>Definition at line <a class="el" href="class_8robotalker_8php_source.html#l00230">230</a> of file <a class="el" href="class_8robotalker_8php_source.html">class.robotalker.php</a>.</p>
+<div class="fragment"><div class="line">                                             {</div>
+<div class="line">                              $this-&gt;WebService = <span class="keyword">new</span> SoapClient($this-&gt;wsdl, $this-&gt;soap_options);</div>
+<div class="line">                              $this-&gt;Login();</div>
+<div class="line">               }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -172,6 +180,23 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int CampaignId </dd></dl>
 
+<p>Definition at line <a class="el" href="class_8robotalker_8php_source.html#l00375">375</a> of file <a class="el" href="class_8robotalker_8php_source.html">class.robotalker.php</a>.</p>
+<div class="fragment"><div class="line">                                                 {</div>
+<div class="line">                              $r = <span class="keyword">new</span> <a class="code" href="class_message_recipient_of_int32.html">MessageRecipientOfInt32</a>;</div>
+<div class="line">                              $r-&gt;DialNumber = $phoneNumber;</div>
+<div class="line">                              $r-&gt;Message = $this-&gt;messageId;</div>
+<div class="line"></div>
+<div class="line">                              $recipients = <span class="keyword">new</span> <a class="code" href="class_array_of_message_recipient_of_int32.html">ArrayOfMessageRecipientOfInt32</a>;</div>
+<div class="line">                              $recipients-&gt;MessageRecipientOfInt32[] = $r;</div>
+<div class="line"></div>
+<div class="line">                              <span class="keywordflow">try</span> {</div>
+<div class="line">                                             $result = $this-&gt;ScheduleCalls($recipients);</div>
+<div class="line">                                             <span class="keywordflow">return</span> $result;</div>
+<div class="line">                              } <span class="keywordflow">catch</span> (Exception $e) {</div>
+<div class="line">                                             <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception($e-&gt;getMessage());</div>
+<div class="line">                              }</div>
+<div class="line">               }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a6c473c02f29af893f4ad6983ead3ddb8"></a>
@@ -202,6 +227,44 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>array An Array of phone numbers deleted. </dd></dl>
 
+<p>Definition at line <a class="el" href="class_8robotalker_8php_source.html#l00397">397</a> of file <a class="el" href="class_8robotalker_8php_source.html">class.robotalker.php</a>.</p>
+<div class="fragment"><div class="line">                                                     {</div>
+<div class="line"></div>
+<div class="line">                              $calls = $this-&gt;<a class="code" href="class_robo_talker.html#acb6ab21469df29a582bee44e78f97edc">GetScheduledCalls</a>();</div>
+<div class="line"></div>
+<div class="line">                              <span class="keywordflow">if</span> (is_array($calls-&gt;ScheduledCall)) {</div>
+<div class="line">                                             <span class="keywordflow">foreach</span> ($calls-&gt;ScheduledCall as $call) {</div>
+<div class="line">                                                            $numbersToDelete = array();</div>
+<div class="line"></div>
+<div class="line">                                                            <span class="keywordflow">if</span> ($call-&gt;DialNumber == $phoneNumber) {</div>
+<div class="line">                                                                           $numbersToDelete[] = $call-&gt;Id;</div>
+<div class="line"></div>
+<div class="line">                                                                           <span class="keywordflow">try</span> {</div>
+<div class="line">                                                                                          $deleted = $this-&gt;DeleteScheduledCalls($numbersToDelete);</div>
+<div class="line">                                                                           } <span class="keywordflow">catch</span> (Exception $e) {</div>
+<div class="line">                                                                                          <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception($e-&gt;getMessage());</div>
+<div class="line">                                                                           }</div>
+<div class="line">                                                            }</div>
+<div class="line">                                             }</div>
+<div class="line">                              } <span class="keywordflow">else</span> {</div>
+<div class="line">                                             <span class="keywordflow">if</span> (isset($calls-&gt;ScheduledCall)) {</div>
+<div class="line">                                                            $numbersToDelete = array();</div>
+<div class="line"></div>
+<div class="line">                                                            <span class="keywordflow">if</span> ($calls-&gt;ScheduledCall-&gt;DialNumber == $phoneNumber) {</div>
+<div class="line">                                                                           $numbersToDelete[] = $calls-&gt;ScheduledCall-&gt;Id;</div>
+<div class="line"></div>
+<div class="line">                                                                           <span class="keywordflow">try</span> {</div>
+<div class="line">                                                                                          $deleted = $this-&gt;DeleteScheduledCalls($numbersToDelete);</div>
+<div class="line">                                                                           } <span class="keywordflow">catch</span> (Exception $e) {</div>
+<div class="line">                                                                                          <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception($e-&gt;getMessage());</div>
+<div class="line">                                                                           }</div>
+<div class="line">                                                            }</div>
+<div class="line">                                             }</div>
+<div class="line">                              }</div>
+<div class="line"></div>
+<div class="line">                              <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">               }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a7e73ba6712fb06fbcb1bbbc998ba5a0c"></a>
@@ -226,6 +289,23 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>array Calls objects </dd></dl>
 
+<p>Definition at line <a class="el" href="class_8robotalker_8php_source.html#l00286">286</a> of file <a class="el" href="class_8robotalker_8php_source.html">class.robotalker.php</a>.</p>
+<div class="fragment"><div class="line">                                                     {</div>
+<div class="line">                              $r = <span class="keyword">new</span> StdClass();</div>
+<div class="line">                              $r-&gt;request = <span class="keyword">new</span> <a class="code" href="class_get_campaign_stats_request.html">GetCampaignStatsRequest</a>();</div>
+<div class="line">                              $r-&gt;request-&gt;SessionId = $this-&gt;SessionId;</div>
+<div class="line">                              $r-&gt;request-&gt;IncludeDetails = <span class="keyword">true</span>;</div>
+<div class="line">                              $r-&gt;request-&gt;CampaignId = $id;</div>
+<div class="line"></div>
+<div class="line">                              $result = $this-&gt;WebService-&gt;GetCampaignStats($r);</div>
+<div class="line"></div>
+<div class="line">                              <span class="keywordflow">if</span> ($result-&gt;GetCampaignStatsResult-&gt;Error &lt;&gt; <span class="stringliteral">&quot;None&quot;</span>) {</div>
+<div class="line">                                             <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception($result-&gt;GetCampaignStatsResult-&gt;Error);</div>
+<div class="line">                              } <span class="keywordflow">else</span> {</div>
+<div class="line">                                             <span class="keywordflow">return</span> $result-&gt;GetCampaignStatsResult;</div>
+<div class="line">                              }</div>
+<div class="line">               }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="acb6ab21469df29a582bee44e78f97edc"></a>
@@ -243,6 +323,23 @@ Public Member Functions</h2></td></tr>
 <p>Gets all scheduled calls</p>
 <dl class="section return"><dt>Returns</dt><dd>array Calls objects </dd></dl>
 
+<p>Definition at line <a class="el" href="class_8robotalker_8php_source.html#l00263">263</a> of file <a class="el" href="class_8robotalker_8php_source.html">class.robotalker.php</a>.</p>
+<div class="fragment"><div class="line">                                                   {</div>
+<div class="line">                              $r = <span class="keyword">new</span> StdClass();</div>
+<div class="line">                              $r-&gt;request = <span class="keyword">new</span> getCallsRequest();</div>
+<div class="line">                              $r-&gt;request-&gt;SessionId = $this-&gt;SessionId;</div>
+<div class="line">                              $r-&gt;request-&gt;StartDate = date(DATE_ATOM, mktime(date(<span class="stringliteral">&quot;G&quot;</span>), date(<span class="stringliteral">&quot;i&quot;</span>), 0, date(<span class="stringliteral">&quot;m&quot;</span>), date(<span class="stringliteral">&quot;d&quot;</span>), date(<span class="stringliteral">&quot;Y&quot;</span>)));</div>
+<div class="line">                              $r-&gt;request-&gt;EndDate = date(DATE_ATOM, mktime(date(<span class="stringliteral">&quot;G&quot;</span>), date(<span class="stringliteral">&quot;i&quot;</span>), 0, date(<span class="stringliteral">&quot;m&quot;</span>), date(<span class="stringliteral">&quot;d&quot;</span>), 2111));</div>
+<div class="line"></div>
+<div class="line">                              $result = $this-&gt;WebService-&gt;GetScheduledCalls($r);</div>
+<div class="line"></div>
+<div class="line">                              <span class="keywordflow">if</span> ($result-&gt;GetScheduledCallsResult-&gt;Error &lt;&gt; <span class="stringliteral">&quot;None&quot;</span>) {</div>
+<div class="line">                                             <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception($result-&gt;GetScheduledCallsResult-&gt;Error);</div>
+<div class="line">                              } <span class="keywordflow">else</span> {</div>
+<div class="line">                                             <span class="keywordflow">return</span> $result-&gt;GetScheduledCallsResult-&gt;Calls;</div>
+<div class="line">                              }</div>
+<div class="line">               }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a96bef29f5a68282aac40e6b197e39d2b"></a>
@@ -260,10 +357,15 @@ Public Member Functions</h2></td></tr>
 <p>Toggle a voicemail. </p>
 <dl class="section return"><dt>Returns</dt><dd>nothing </dd></dl>
 
+<p>Definition at line <a class="el" href="class_8robotalker_8php_source.html#l00438">438</a> of file <a class="el" href="class_8robotalker_8php_source.html">class.robotalker.php</a>.</p>
+<div class="fragment"><div class="line">                                               {</div>
+<div class="line">                              $this-&gt;voicemail = <span class="keyword">true</span>;</div>
+<div class="line">               }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/Jaime.Ushuaia/Documents/GitHub/sleepy-mustache/modules/disabled/robotalker/class.robotalker.php</li>
+<li>modules/disabled/robotalker/<a class="el" href="class_8robotalker_8php_source.html">class.robotalker.php</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -271,7 +373,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_robo_talker.html">RoboTalker</a></li>
-    <li class="footer">Generated on Wed Nov 27 2013 11:36:19 for Sleepy Mustache by
+    <li class="footer">Generated on Fri Jan 3 2014 13:11:20 for sleepyMUSTACHE by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

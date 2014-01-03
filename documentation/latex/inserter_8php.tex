@@ -1,0 +1,38 @@
+\hypertarget{inserter_8php}{\section{modules/enabled/head-\/inserter/inserter.php File Reference}
+\label{inserter_8php}\index{modules/enabled/head-\/inserter/inserter.\-php@{modules/enabled/head-\/inserter/inserter.\-php}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{inserter_8php_a5673e840df379e9b53c9c9fb4f249c2a}{insert\-Head\-Stuff\-J\-F} (\$html)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{inserter_8php_a5673e840df379e9b53c9c9fb4f249c2a}{\index{inserter.\-php@{inserter.\-php}!insert\-Head\-Stuff\-J\-F@{insert\-Head\-Stuff\-J\-F}}
+\index{insert\-Head\-Stuff\-J\-F@{insert\-Head\-Stuff\-J\-F}!inserter.php@{inserter.\-php}}
+\subsubsection[{insert\-Head\-Stuff\-J\-F}]{\setlength{\rightskip}{0pt plus 5cm}insert\-Head\-Stuff\-J\-F (
+\begin{DoxyParamCaption}
+\item[{}]{\$html}
+\end{DoxyParamCaption}
+)}}\label{inserter_8php_a5673e840df379e9b53c9c9fb4f249c2a}
+
+
+Definition at line 9 of file inserter.\-php.
+
+
+\begin{DoxyCode}
+                                   \{
+               $toInsert = \hyperlink{class_hook_a6489ed6b12329279b9e7cae26afc4dd6}{Hook::addFilter}(\textcolor{stringliteral}{'head\_inserter'}, \textcolor{stringliteral}{"\(\backslash\)n"}
+      );
+
+               $pos = strrpos($html, \textcolor{stringliteral}{'</head>'});
+
+               $html = ($pos !== -1) 
+                                             ? substr\_replace($html, $toInsert,
+       $pos, 0) 
+                                             : $html;
+
+               \textcolor{keywordflow}{return} $html;
+\}
+\end{DoxyCode}

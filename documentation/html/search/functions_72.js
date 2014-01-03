@@ -1,27 +1,5 @@
 var searchData=
 [
-  ['read',['read',['../class_simple_file_socket.html#a64571309bfb3238c65fd3c2898f92440',1,'SimpleFileSocket\read()'],['../class_simple_socket.html#a64571309bfb3238c65fd3c2898f92440',1,'SimpleSocket\read()']]],
-  ['readall',['readAll',['../class_simple_http_response.html#ae1024ef909ac3ededd6288d0c9d3e979',1,'SimpleHttpResponse']]],
-  ['readcookiesfromjar',['readCookiesFromJar',['../class_simple_http_request.html#a66ff4328d6bcc64d3af87533065b3fa1',1,'SimpleHttpRequest']]],
-  ['recordentry',['recordEntry',['../class_simple_browser_history.html#a25502423bf514fb183fad44a14bbf474',1,'SimpleBrowserHistory']]],
-  ['reduce',['reduce',['../class_simple_lexer.html#a89abe1f5b324d24c75ba7be1f7a00bfd',1,'SimpleLexer']]],
-  ['register',['register',['../class_simple_call_schedule.html#a8a72c8622d5763b6610d2ed76778fcc1',1,'SimpleCallSchedule']]],
-  ['registerat',['registerAt',['../class_simple_call_schedule.html#a998bd2efdfcb3e01c5f394f9fb7be2c0',1,'SimpleCallSchedule']]],
   ['remove',['remove',['../class_c_s_v.html#a11f0aa9afc724ac4074e3ca127e79a2a',1,'CSV']]],
-  ['removetrailingslash',['removeTrailingSlash',['../class_simple_collector.html#ae5d742965c29bd38b05ae46efc84c5fe',1,'SimpleCollector']]],
-  ['render',['render',['../class_simple_help.html#afde88292c44dc59faf017738dae6dffb',1,'SimpleHelp']]],
-  ['renderarguments',['renderArguments',['../class_parameters_expectation.html#ab1c52c7717c0d7322b5374d6602f6d22',1,'ParametersExpectation']]],
-  ['replacewildcards',['replaceWildcards',['../class_simple_call_schedule.html#a97c3be255e31206267833059144fc49f',1,'SimpleCallSchedule\replaceWildcards()'],['../class_simple_mock.html#a97c3be255e31206267833059144fc49f',1,'SimpleMock\replaceWildcards()']]],
-  ['resetvalue',['resetValue',['../class_simple_widget.html#a6b44bd44cd971a8cbbfa743c258bec75',1,'SimpleWidget']]],
-  ['respond',['respond',['../class_simple_call_schedule.html#ac95651d5a1aeb5a863f4abb368161f42',1,'SimpleCallSchedule']]],
-  ['restart',['restart',['../class_simple_browser.html#afab0a8b5630130f4553f89da333cb624',1,'SimpleBrowser\restart()'],['../class_simple_user_agent.html#afab0a8b5630130f4553f89da333cb624',1,'SimpleUserAgent\restart()'],['../class_web_test_case.html#afab0a8b5630130f4553f89da333cb624',1,'WebTestCase\restart()']]],
-  ['restartsession',['restartSession',['../class_simple_authenticator.html#a3d95dade9e91b247d3fa23e965cdbe17',1,'SimpleAuthenticator\restartSession()'],['../class_simple_cookie_jar.html#a44359e7cec95d6e30430e9355d42c27a',1,'SimpleCookieJar\restartSession()']]],
-  ['retry',['retry',['../class_simple_browser.html#af495dbc02290e841a92f2dda36434191',1,'SimpleBrowser\retry()'],['../class_web_test_case.html#af495dbc02290e841a92f2dda36434191',1,'WebTestCase\retry()']]],
-  ['returns',['returns',['../class_simple_mock.html#a1caa4caf5b5b66d893f03d06b3057533',1,'SimpleMock']]],
-  ['returnsat',['returnsAt',['../class_simple_mock.html#a58e809aaba1c4425167a175260a8f6d4',1,'SimpleMock']]],
-  ['returnsbyreference',['returnsByReference',['../class_simple_mock.html#a77bf890e665dc6791b7cee8126928c8f',1,'SimpleMock']]],
-  ['returnsbyreferenceat',['returnsByReferenceAt',['../class_simple_mock.html#aa957531f82911dfe2081886116fac95b',1,'SimpleMock']]],
-  ['returnsbyvalue',['returnsByValue',['../class_simple_mock.html#ac2461777fba3dfc96a1f04100c41b188',1,'SimpleMock']]],
-  ['returnsbyvalueat',['returnsByValueAt',['../class_simple_mock.html#adfe20b9b83bf883c018a4cf52ada2496',1,'SimpleMock']]],
-  ['run',['run',['../class_detached_test_case.html#a1a94801f88862a099d4c4ad175ff1313',1,'DetachedTestCase\run()'],['../class_remote_test_case.html#a2f12518bc8ebaa709bba2ddf6dd15380',1,'RemoteTestCase\run()'],['../class_simple_test_case.html#a2f12518bc8ebaa709bba2ddf6dd15380',1,'SimpleTestCase\run()'],['../class_test_suite.html#a2f12518bc8ebaa709bba2ddf6dd15380',1,'TestSuite\run()'],['../class_bad_test_suite.html#a2f12518bc8ebaa709bba2ddf6dd15380',1,'BadTestSuite\run()']]]
+  ['robotsdevhide',['robotsDevHide',['../hider_8php.html#abd0817d9f994e71fd6fd1516e4751164',1,'hider.php']]]
 ];

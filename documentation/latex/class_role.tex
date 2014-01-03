@@ -1,0 +1,136 @@
+\hypertarget{class_role}{\section{Role Class Reference}
+\label{class_role}\index{Role@{Role}}
+}
+Inheritance diagram for Role\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_role}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_role_a610dd05d53d99e1ddc05596468eb4914}{get\-Permission} (\$key)
+\item 
+\hyperlink{class_role_a7160b09d9d37ede69811a66dc9e4f272}{load} (\$id=0)
+\item 
+\hyperlink{class_role_a20b0e06124acf9f1e66afa1b1c8f996a}{set\-Permission} (\$key, \$value)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_role_ae8876a14058f368335baccf35af4a22b}{\$table} = 'roles'
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 155 of file class.\-user.\-php.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_role_a610dd05d53d99e1ddc05596468eb4914}{\index{Role@{Role}!get\-Permission@{get\-Permission}}
+\index{get\-Permission@{get\-Permission}!Role@{Role}}
+\subsubsection[{get\-Permission}]{\setlength{\rightskip}{0pt plus 5cm}get\-Permission (
+\begin{DoxyParamCaption}
+\item[{}]{\$key}
+\end{DoxyParamCaption}
+)}}\label{class_role_a610dd05d53d99e1ddc05596468eb4914}
+
+
+Definition at line 159 of file class.\-user.\-php.
+
+
+\begin{DoxyCode}
+                                                                  \{
+                                             \textcolor{keywordflow}{if} (isset($this->\_permissions[$key
+      ])) \{
+                                                            \textcolor{keywordflow}{return} $this->
+      \_permissions[$key];
+                                             \} \textcolor{keywordflow}{else} \{
+                                                            \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception
+      (\textcolor{stringliteral}{"\{$key\} permission does not exist."});
+                                             \}
+                              \}
+\end{DoxyCode}
+\hypertarget{class_role_a7160b09d9d37ede69811a66dc9e4f272}{\index{Role@{Role}!load@{load}}
+\index{load@{load}!Role@{Role}}
+\subsubsection[{load}]{\setlength{\rightskip}{0pt plus 5cm}load (
+\begin{DoxyParamCaption}
+\item[{}]{\$id = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{class_role_a7160b09d9d37ede69811a66dc9e4f272}
+
+
+Definition at line 167 of file class.\-user.\-php.
+
+
+\begin{DoxyCode}
+                                                          \{
+                                             parent::load($id);
+
+                                             \textcolor{comment}{// Load permissions}
+                                             $query = $this->db->query(\textcolor{stringliteral}{"SELECT
+       * FROM permissions where role\_id=\{$this->columns['id']\}"});
+                                             $query->setFetchMode(
+      PDO::FETCH\_ASSOC);
+                                             $query->execute();
+
+                                             $permissions = $query->fetchAll();
+
+                                             \textcolor{keywordflow}{foreach} ($permissions as $p) \{
+                                                            $temp = \textcolor{keyword}{new} 
+      \hyperlink{class_permission}{Permission}($p[\textcolor{stringliteral}{'id'}]);
+                                                            $this->\_permissions
+      [$temp->columns[\textcolor{stringliteral}{'key'}]] = $temp->columns[\textcolor{stringliteral}{'value'}];
+                                             \}
+                              \}
+\end{DoxyCode}
+\hypertarget{class_role_a20b0e06124acf9f1e66afa1b1c8f996a}{\index{Role@{Role}!set\-Permission@{set\-Permission}}
+\index{set\-Permission@{set\-Permission}!Role@{Role}}
+\subsubsection[{set\-Permission}]{\setlength{\rightskip}{0pt plus 5cm}set\-Permission (
+\begin{DoxyParamCaption}
+\item[{}]{\$key, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}}\label{class_role_a20b0e06124acf9f1e66afa1b1c8f996a}
+
+
+Definition at line 183 of file class.\-user.\-php.
+
+
+\begin{DoxyCode}
+                                                                          \{
+                                             \textcolor{keywordflow}{if} (isset($this->\_permissions[$key
+      ])) \{
+                                                            $this->\_permissions
+      [$key] = $value;
+                                             \} \textcolor{keywordflow}{else} \{
+                                                            $temp = \textcolor{keyword}{new} 
+      \hyperlink{class_permission}{Permission}();
+                                                            $temp->columns[\textcolor{stringliteral}{'key
+      '}] = $key;
+                                                            $temp->columns[\textcolor{stringliteral}{'
+      value'}] = $value;
+                                                            $temp->save();
+                                             \}
+                              \}
+\end{DoxyCode}
+
+
+\subsection{Field Documentation}
+\hypertarget{class_role_ae8876a14058f368335baccf35af4a22b}{\index{Role@{Role}!\$table@{\$table}}
+\index{\$table@{\$table}!Role@{Role}}
+\subsubsection[{\$table}]{\setlength{\rightskip}{0pt plus 5cm}\$table = 'roles'}}\label{class_role_ae8876a14058f368335baccf35af4a22b}
+
+
+Definition at line 156 of file class.\-user.\-php.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+modules/disabled/users/\hyperlink{class_8user_8php}{class.\-user.\-php}\end{DoxyCompactItemize}

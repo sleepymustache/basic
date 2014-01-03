@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Sleepy Mustache: Data Fields - Variables</title>
+<title>sleepyMUSTACHE: Data Fields - Variables</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Sleepy Mustache
+   <div id="projectname">sleepyMUSTACHE
    </div>
   </td>
  </tr>
@@ -43,8 +43,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -144,8 +144,8 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 : <a class="el" href="class_schedule_calls_request_of_int32.html#a541b96a58d5cadab10a165a562fc066e">ScheduleCallsRequestOfInt32</a>
 </li>
 <li>$db
-: <a class="el" href="class_db_grid.html#a1fa3127fc82f96b1436d871ef02be319">DbGrid</a>
-, <a class="el" href="class_record.html#a1fa3127fc82f96b1436d871ef02be319">Record</a>
+: <a class="el" href="class_record.html#a1fa3127fc82f96b1436d871ef02be319">Record</a>
+, <a class="el" href="class_db_grid.html#a1fa3127fc82f96b1436d871ef02be319">DbGrid</a>
 </li>
 <li>$dbHost
 : <a class="el" href="class_debug.html#ad0ddb2725e69c88a729e0cc242a1b2a6">Debug</a>
@@ -234,6 +234,9 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <li>$Ids
 : <a class="el" href="class_delete_calls_request.html#a003384fac9231dcb79d5719b16e9eed8">DeleteCallsRequest</a>
 </li>
+<li>$IncludeDetails
+: <a class="el" href="class_get_campaign_stats_request.html#a6a7dc0605d9a2e10066aeb57b77fc272">GetCampaignStatsRequest</a>
+</li>
 <li>$Interval
 : <a class="el" href="class_schedule_calls_request_of_int32.html#a06a0c2a526e2a41abe73b0ffdf2932ee">ScheduleCallsRequestOfInt32</a>
 </li>
@@ -246,12 +249,19 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <li>$Message
 : <a class="el" href="class_schedule_calls_request_of_int32.html#ab23576849f64a6b190167099cfab7eae">ScheduleCallsRequestOfInt32</a>
 </li>
+<li>$MessageRecipientOfInt32
+: <a class="el" href="class_array_of_message_recipient_of_int32.html#a6b5727823285f1bcb9ee8061f4fc6a49">ArrayOfMessageRecipientOfInt32</a>
+</li>
 <li>$meta
-: <a class="el" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">Record</a>
-, <a class="el" href="class_db_grid.html#a9e6fc1ae0498be7d1e682f8bcc9299df">DbGrid</a>
+: <a class="el" href="class_db_grid.html#a9e6fc1ae0498be7d1e682f8bcc9299df">DbGrid</a>
+, <a class="el" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">Record</a>
+</li>
+<li>$metadata
+: <a class="el" href="class_user.html#ae7fc3682b173ad9d4b1892bdc04d18d9">User</a>
 </li>
 <li>$name
-: <a class="el" href="class_db_grid.html#ab2fc40d43824ea3e1ce5d86dee0d763b">DbGrid</a>
+: <a class="el" href="class_filter.html#ab2fc40d43824ea3e1ce5d86dee0d763b">Filter</a>
+, <a class="el" href="class_db_grid.html#ab2fc40d43824ea3e1ce5d86dee0d763b">DbGrid</a>
 </li>
 <li>$page
 : <a class="el" href="class_db_grid.html#a0a44e6760141442bb439b1ab1395d8ff">DbGrid</a>
@@ -290,7 +300,11 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 : <a class="el" href="class_schedule_calls_request_of_int32.html#a2f8fa05008bd8e80ae9cb79699e0ed2c">ScheduleCallsRequestOfInt32</a>
 </li>
 <li>$table
-: <a class="el" href="class_record.html#ae8876a14058f368335baccf35af4a22b">Record</a>
+: <a class="el" href="class_user.html#ae8876a14058f368335baccf35af4a22b">User</a>
+, <a class="el" href="class_role.html#ae8876a14058f368335baccf35af4a22b">Role</a>
+, <a class="el" href="class_permission.html#ae8876a14058f368335baccf35af4a22b">Permission</a>
+, <a class="el" href="class_record.html#ae8876a14058f368335baccf35af4a22b">Record</a>
+, <a class="el" href="class_user_meta.html#ae8876a14058f368335baccf35af4a22b">UserMeta</a>
 </li>
 <li>$UserId
 : <a class="el" href="class_login_request.html#a5e6181896c4104715348824d02a3075d">LoginRequest</a>
@@ -304,7 +318,7 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Nov 27 2013 11:36:22 for Sleepy Mustache by
+    <li class="footer">Generated on Fri Jan 3 2014 13:11:20 for sleepyMUSTACHE by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

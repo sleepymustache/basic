@@ -3,10 +3,10 @@ index.\-php
 \begin{DoxyCode}
 require\_once(\textcolor{stringliteral}{'include/sleepy.php'});
 
-$page = \textcolor{keyword}{new} \hyperlink{class_template}{Template}(\textcolor{stringliteral}{'templates/default.tpl'});
-$page->bind(\textcolor{stringliteral}{'title'}, \textcolor{stringliteral}{'Sleepy Mustache'});
-$page->bind(\textcolor{stringliteral}{'header'}, \textcolor{stringliteral}{'Hello world!'});
-$page->show();
+\hyperlink{index_8php_a0a44e6760141442bb439b1ab1395d8ff}{$page} = \textcolor{keyword}{new} \hyperlink{class_template}{Template}(\textcolor{stringliteral}{'templates/default.tpl'});
+\hyperlink{index_8php_a0a44e6760141442bb439b1ab1395d8ff}{$page}->bind(\textcolor{stringliteral}{'title'}, \textcolor{stringliteral}{'Sleepy Mustache'});
+\hyperlink{index_8php_a0a44e6760141442bb439b1ab1395d8ff}{$page}->bind(\textcolor{stringliteral}{'header'}, \textcolor{stringliteral}{'Hello world!'});
+\hyperlink{index_8php_a0a44e6760141442bb439b1ab1395d8ff}{$page}->show();
 \end{DoxyCode}
 
 
@@ -14,11 +14,11 @@ default.\-tpl
 \begin{DoxyCode}
    <html>
    <head>
-       <title>\{\{ title \}\}</title>
+                  <title>\{\{ title \}\}</title>
    </head>
    <body>
-       <h1>\{\{ header \}\}</h1>
-       <p>This page has been viewed \{\{ hits \}\} times.</p>
+                  <h1>\{\{ header \}\}</h1>
+                  <p>This page has been viewed \{\{ hits \}\} times.</p>
    </body>
 </html>
 \end{DoxyCode}

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Sleepy Mustache: Template Class Reference</title>
+<title>sleepyMUSTACHE: Template Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Sleepy Mustache
+   <div id="projectname">sleepyMUSTACHE
    </div>
   </td>
  </tr>
@@ -43,8 +43,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('class_template.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -141,7 +141,10 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a5a3006290f2de94fff2dd63ca739d15a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_template.html#a5a3006290f2de94fff2dd63ca739d15a">$_data</a> = array()</td></tr>
 <tr class="separator:a5a3006290f2de94fff2dd63ca739d15a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="class_8template_8php_source.html#l00045">45</a> of file <a class="el" href="class_8template_8php_source.html">class.template.php</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a5efa1ad8f3267178937b8fb23003bbd4"></a>
 <div class="memitem">
 <div class="memproto">
@@ -163,6 +166,16 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="class_8template_8php_source.html#l00207">207</a> of file <a class="el" href="class_8template_8php_source.html">class.template.php</a>.</p>
+<div class="fragment"><div class="line">                                                         {</div>
+<div class="line">                              <a class="code" href="class_hook.html#afff7a7869d2dd304043b69a3fff24655">Hook::addAction</a>(<span class="stringliteral">&#39;template_start&#39;</span>);</div>
+<div class="line">                              $this-&gt;directory = <a class="code" href="global_8php.html#a504552fd43e46a0032aa3f2895349f22">DIRBASE</a> . <span class="stringliteral">&quot;/templates/&quot;</span>;</div>
+<div class="line">                              </div>
+<div class="line">                              <span class="keywordflow">if</span> (!empty($template)) {</div>
+<div class="line">                                             $this-&gt;<a class="code" href="class_template.html#a6ebd85d8c80be61c2f20f0bfeb9b5f7b">setTemplate</a>($template);</div>
+<div class="line">                              }</div>
+<div class="line">               }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -198,6 +211,11 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="class_8template_8php_source.html#l00221">221</a> of file <a class="el" href="class_8template_8php_source.html">class.template.php</a>.</p>
+<div class="fragment"><div class="line">                                                          {</div>
+<div class="line">                              $this-&gt;_data[trim(strtolower($placeholder))] = $value; </div>
+<div class="line">               }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a309bb1dc9b92dd7ad5348e48245468f8"></a>
@@ -214,6 +232,11 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Starts a buffer that will bind data to the template placeholders. The buffer will capture anything you output until $this-&gt;<a class="el" href="class_template.html#a71662e1be36ebe0eeabd5fa629e5c538">bindStop()</a> </p>
 
+<p>Definition at line <a class="el" href="class_8template_8php_source.html#l00229">229</a> of file <a class="el" href="class_8template_8php_source.html">class.template.php</a>.</p>
+<div class="fragment"><div class="line">                                           {</div>
+<div class="line">                              ob_start();</div>
+<div class="line">               }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a71662e1be36ebe0eeabd5fa629e5c538"></a>
@@ -237,6 +260,13 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="class_8template_8php_source.html#l00237">237</a> of file <a class="el" href="class_8template_8php_source.html">class.template.php</a>.</p>
+<div class="fragment"><div class="line">                                                      {</div>
+<div class="line">                              $content = ob_get_contents();</div>
+<div class="line">                              ob_end_clean();</div>
+<div class="line">                              $this-&gt;_data[trim(strtolower($placeholder))] = $content;</div>
+<div class="line">               }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a24a9bf83a1002d46ece83a93d14bd921"></a>
@@ -261,6 +291,11 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>mixed The data stored in the placeholder </dd></dl>
 
+<p>Definition at line <a class="el" href="class_8template_8php_source.html#l00248">248</a> of file <a class="el" href="class_8template_8php_source.html">class.template.php</a>.</p>
+<div class="fragment"><div class="line">                                         {</div>
+<div class="line">                              <span class="keywordflow">return</span> <a class="code" href="class_hook.html#a6489ed6b12329279b9e7cae26afc4dd6">Hook::addFilter</a>(<span class="stringliteral">&#39;template_get_&#39;</span> . $key, $this-&gt;_data[$key]);</div>
+<div class="line">               }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a6ebd85d8c80be61c2f20f0bfeb9b5f7b"></a>
@@ -284,6 +319,11 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="class_8template_8php_source.html#l00103">103</a> of file <a class="el" href="class_8template_8php_source.html">class.template.php</a>.</p>
+<div class="fragment"><div class="line">                                                  {</div>
+<div class="line">                              $this-&gt;_file = $file;</div>
+<div class="line">               }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a2b8e3779f5bd8c38f70307574859bd36"></a>
@@ -300,6 +340,21 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Shows the rendered template </p>
 
+<p>Definition at line <a class="el" href="class_8template_8php_source.html#l00255">255</a> of file <a class="el" href="class_8template_8php_source.html">class.template.php</a>.</p>
+<div class="fragment"><div class="line">                                      {</div>
+<div class="line">                              <span class="comment">// Check if template is ok</span></div>
+<div class="line">                              $this-&gt;checkTemplate($this-&gt;_file);</div>
+<div class="line"></div>
+<div class="line">                              <span class="comment">// Render template file</span></div>
+<div class="line">                              ob_start();</div>
+<div class="line">                              include($this-&gt;directory . $this-&gt;_file . $this-&gt;extension);</div>
+<div class="line">                              $template = $this-&gt;render(ob_get_contents(), $this-&gt;_data) ;</div>
+<div class="line">                              ob_end_clean();</div>
+<div class="line"></div>
+<div class="line">                              $template = <a class="code" href="class_hook.html#a6489ed6b12329279b9e7cae26afc4dd6">Hook::addFilter</a>(<span class="stringliteral">&#39;render_template_&#39;</span> . $this-&gt;_file, $template);</div>
+<div class="line">                              echo <a class="code" href="class_hook.html#a6489ed6b12329279b9e7cae26afc4dd6">Hook::addFilter</a>(<span class="stringliteral">&#39;render_template&#39;</span>, $template);</div>
+<div class="line">               }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -322,6 +377,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>array The data bound to the template </p>
 
+<p>Definition at line <a class="el" href="class_8template_8php_source.html#l00066">66</a> of file <a class="el" href="class_8template_8php_source.html">class.template.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="abddaf0b77086e2b7d920f5d1a9616889"></a>
@@ -343,6 +400,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>string The template file </p>
 
+<p>Definition at line <a class="el" href="class_8template_8php_source.html#l00060">60</a> of file <a class="el" href="class_8template_8php_source.html">class.template.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a1b07c630eb02f770a082a013373a16d6"></a>
@@ -355,6 +414,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>string The template directory </p>
+
+<p>Definition at line <a class="el" href="class_8template_8php_source.html#l00054">54</a> of file <a class="el" href="class_8template_8php_source.html">class.template.php</a>.</p>
 
 </div>
 </div>
@@ -369,10 +430,12 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>string The extension for template files </p>
 
+<p>Definition at line <a class="el" href="class_8template_8php_source.html#l00049">49</a> of file <a class="el" href="class_8template_8php_source.html">class.template.php</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/Jaime.Ushuaia/Documents/GitHub/sleepy-mustache/include/class.template.php</li>
+<li>include/<a class="el" href="class_8template_8php_source.html">class.template.php</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -380,7 +443,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_template.html">Template</a></li>
-    <li class="footer">Generated on Wed Nov 27 2013 11:36:20 for Sleepy Mustache by
+    <li class="footer">Generated on Fri Jan 3 2014 13:11:20 for sleepyMUSTACHE by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

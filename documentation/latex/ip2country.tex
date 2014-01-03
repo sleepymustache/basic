@@ -4,19 +4,20 @@ This class will lookup what country an I\-P is from using a flat-\/file-\/databa
 
 \begin{DoxyCode}
 $i = \textcolor{keyword}{new} \hyperlink{class_i_p2_c_o}{IP2CO}();
-    $countryCode = $i->getCountryCode($\_SERVER[\textcolor{stringliteral}{'REMOTE\_ADDR'}]);
+               $countryCode = $i->getCountryCode($\_SERVER[\textcolor{stringliteral}{'REMOTE\_ADDR'}]);
 
-    \textcolor{keywordflow}{if} ($countryCode != \textcolor{keyword}{false}) \{
-        echo $countryCode;
-    \} \textcolor{keywordflow}{else} \{
-        echo $\_SERVER[\textcolor{stringliteral}{'REMOTE\_ADDR'}] . \textcolor{stringliteral}{"("} . ip2long($\_SERVER[\textcolor{stringliteral}{'REMOTE\_ADDR'}]) .
-       \textcolor{stringliteral}{") Not found in "} . $i->getTable($\_SERVER[\textcolor{stringliteral}{'REMOTE\_ADDR'}]) . \textcolor{stringliteral}{"."};
-    \}
+               \textcolor{keywordflow}{if} ($countryCode != \textcolor{keyword}{false}) \{
+                              echo $countryCode;
+               \} \textcolor{keywordflow}{else} \{
+                              echo $\_SERVER[\textcolor{stringliteral}{'REMOTE\_ADDR'}] . \textcolor{stringliteral}{"("} . ip2long(
+      $\_SERVER[\textcolor{stringliteral}{'REMOTE\_ADDR'}]) . \textcolor{stringliteral}{") Not found in "} . $i->getTable($\_SERVER[\textcolor{stringliteral}{'REMOTE\_ADDR'}])
+       . \textcolor{stringliteral}{"."};
+               \}
 \end{DoxyCode}
 \hypertarget{ip2country_dependencies}{}\section{Dependencies}\label{ip2country_dependencies}
 
 \begin{DoxyItemize}
-\item class.\-fsdb.\-php
+\item \hyperlink{class_8fsdb_8php}{class.\-fsdb.\-php}
 \end{DoxyItemize}
 
 \begin{DoxyAuthor}{Author}

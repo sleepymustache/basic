@@ -1,0 +1,508 @@
+\hypertarget{class_db_grid}{\section{Db\-Grid Class Reference}
+\label{class_db_grid}\index{Db\-Grid@{Db\-Grid}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_db_grid_acb9a3136ace647e5e0f4512fc88f7c40}{\-\_\-\-\_\-construct} (\$name, \$sql)
+\item 
+\hyperlink{class_db_grid_aeacb971f985ff1651a2ab65eddb2e210}{sortable} (\$array)
+\item 
+\hyperlink{class_db_grid_a24266229cb2543d0f438b06cb26fdd7d}{set\-Querystring} (\$query)
+\item 
+\hyperlink{class_db_grid_ab7abf389a489e98a67891c1451ee3df1}{sort} (\$column, \$asc=true)
+\item 
+\hyperlink{class_db_grid_a20b391ab095b4f5c1f3ef1bed6977d81}{exclude} (\$array)
+\item 
+\hyperlink{class_db_grid_a81b2f9024885c83fa1ff9eb0cd534dc2}{map\-Fields} (\$array)
+\item 
+\hyperlink{class_db_grid_a4f006f9108398d9dc80b0d0ba057b32b}{number\-Of\-Pages} ()
+\item 
+\hyperlink{class_db_grid_a2b8e3779f5bd8c38f70307574859bd36}{show} ()
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_db_grid_ad48e2eb22ba0d9bef2ad4d665d9784b2}{\$max\-Records} = 10
+\item 
+\hyperlink{class_db_grid_a0a44e6760141442bb439b1ab1395d8ff}{\$page} = 1
+\item 
+\hyperlink{class_db_grid_a9e6fc1ae0498be7d1e682f8bcc9299df}{\$meta}
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_db_grid_a1fa3127fc82f96b1436d871ef02be319}{\$db}
+\item 
+\hyperlink{class_db_grid_ab2fc40d43824ea3e1ce5d86dee0d763b}{\$name}
+\item 
+\hyperlink{class_db_grid_a047170d6020a882807665812a27e2525}{\$sql}
+\item 
+\hyperlink{class_db_grid_ae4a5f363089eeaaa9f463a99c6503bcb}{\$sort\-By} = ''
+\item 
+\hyperlink{class_db_grid_ab38893e590c3f831edfdcf64fc2aa02c}{\$asc} = true
+\item 
+\hyperlink{class_db_grid_a233ec0718ad15633825ab07d1f3a744b}{\$can\-Sortby}
+\item 
+\hyperlink{class_db_grid_a461d2a3e41e45e6ced688a7ae506c407}{\$excluded}
+\item 
+\hyperlink{class_db_grid_acdcfcd6e65900bdadd894106750cf520}{\$map}
+\item 
+\hyperlink{class_db_grid_a6bdad518c2534d667e646f89df728d54}{\$querystring}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 40 of file class.\-dbgrid.\-php.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_db_grid_acb9a3136ace647e5e0f4512fc88f7c40}{\index{Db\-Grid@{Db\-Grid}!\-\_\-\-\_\-construct@{\-\_\-\-\_\-construct}}
+\index{\-\_\-\-\_\-construct@{\-\_\-\-\_\-construct}!DbGrid@{Db\-Grid}}
+\subsubsection[{\-\_\-\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$sql}
+\end{DoxyParamCaption}
+)}}\label{class_db_grid_acb9a3136ace647e5e0f4512fc88f7c40}
+Constructor 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & Give our D\-B\-Form a name, used for hooks and id \\
+\hline
+string & {\em \$sql} & What S\-Q\-L to run? \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 106 of file class.\-dbgrid.\-php.
+
+
+\begin{DoxyCode}
+                                                        \{
+                              $this->db = \hyperlink{class_d_b_ac93fbec81f07e5d15f80db907e63dc10}{DB::getInstance}();
+                              $this->sql = \hyperlink{class_db_grid_a047170d6020a882807665812a27e2525}{$sql};
+                              $this->name = \hyperlink{class_db_grid_ab2fc40d43824ea3e1ce5d86dee0d763b}{$name};
+               \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_db_grid_a20b391ab095b4f5c1f3ef1bed6977d81}{\index{Db\-Grid@{Db\-Grid}!exclude@{exclude}}
+\index{exclude@{exclude}!DbGrid@{Db\-Grid}}
+\subsubsection[{exclude}]{\setlength{\rightskip}{0pt plus 5cm}exclude (
+\begin{DoxyParamCaption}
+\item[{}]{\$array}
+\end{DoxyParamCaption}
+)}}\label{class_db_grid_a20b391ab095b4f5c1f3ef1bed6977d81}
+Which fields are excluded from the table 
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$array} & a list of fields \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 143 of file class.\-dbgrid.\-php.
+
+
+\begin{DoxyCode}
+                                               \{
+                              $this->excluded = $array;
+               \}
+\end{DoxyCode}
+\hypertarget{class_db_grid_a81b2f9024885c83fa1ff9eb0cd534dc2}{\index{Db\-Grid@{Db\-Grid}!map\-Fields@{map\-Fields}}
+\index{map\-Fields@{map\-Fields}!DbGrid@{Db\-Grid}}
+\subsubsection[{map\-Fields}]{\setlength{\rightskip}{0pt plus 5cm}map\-Fields (
+\begin{DoxyParamCaption}
+\item[{}]{\$array}
+\end{DoxyParamCaption}
+)}}\label{class_db_grid_a81b2f9024885c83fa1ff9eb0cd534dc2}
+Maps I\-Ds to fields for processing later 
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$array} & a list of fields =$>$ id that gets passed to the hooks \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 170 of file class.\-dbgrid.\-php.
+
+
+\begin{DoxyCode}
+                                                 \{
+                              $this->map = $array;
+               \}
+\end{DoxyCode}
+\hypertarget{class_db_grid_a4f006f9108398d9dc80b0d0ba057b32b}{\index{Db\-Grid@{Db\-Grid}!number\-Of\-Pages@{number\-Of\-Pages}}
+\index{number\-Of\-Pages@{number\-Of\-Pages}!DbGrid@{Db\-Grid}}
+\subsubsection[{number\-Of\-Pages}]{\setlength{\rightskip}{0pt plus 5cm}number\-Of\-Pages (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_db_grid_a4f006f9108398d9dc80b0d0ba057b32b}
+Returns how many pages of results we have \begin{DoxyReturn}{Returns}
+int The number of pages in our resultset 
+\end{DoxyReturn}
+
+
+Definition at line 178 of file class.\-dbgrid.\-php.
+
+
+\begin{DoxyCode}
+                                               \{
+                              \textcolor{comment}{// Create SQL Statement}
+                              \hyperlink{class_db_grid_a047170d6020a882807665812a27e2525}{$sql} = \hyperlink{class_db_grid_a047170d6020a882807665812a27e2525}{$this->sql};
+
+                              $query = $this->db->prepare(\hyperlink{class_db_grid_a047170d6020a882807665812a27e2525}{$sql});
+                              $query->execute();
+                              $query->setFetchMode(PDO::FETCH\_OBJ);
+
+                              \textcolor{keywordflow}{return} ceil($query->rowCount() / \hyperlink{class_db_grid_ad48e2eb22ba0d9bef2ad4d665d9784b2}{
+      $this->maxRecords});
+               \}
+\end{DoxyCode}
+\hypertarget{class_db_grid_a24266229cb2543d0f438b06cb26fdd7d}{\index{Db\-Grid@{Db\-Grid}!set\-Querystring@{set\-Querystring}}
+\index{set\-Querystring@{set\-Querystring}!DbGrid@{Db\-Grid}}
+\subsubsection[{set\-Querystring}]{\setlength{\rightskip}{0pt plus 5cm}set\-Querystring (
+\begin{DoxyParamCaption}
+\item[{}]{\$query}
+\end{DoxyParamCaption}
+)}}\label{class_db_grid_a24266229cb2543d0f438b06cb26fdd7d}
+Sets the Querystring to pass into the sorting links in the th 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$query} & the querystring \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 125 of file class.\-dbgrid.\-php.
+
+
+\begin{DoxyCode}
+                                                      \{
+                              $this->querystring = $query;
+               \}
+\end{DoxyCode}
+\hypertarget{class_db_grid_a2b8e3779f5bd8c38f70307574859bd36}{\index{Db\-Grid@{Db\-Grid}!show@{show}}
+\index{show@{show}!DbGrid@{Db\-Grid}}
+\subsubsection[{show}]{\setlength{\rightskip}{0pt plus 5cm}show (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_db_grid_a2b8e3779f5bd8c38f70307574859bd36}
+Shows an editable form 
+
+Definition at line 192 of file class.\-dbgrid.\-php.
+
+
+\begin{DoxyCode}
+                                      \{
+                              \textcolor{comment}{// Create SQL Statement}
+                              \hyperlink{class_db_grid_a047170d6020a882807665812a27e2525}{$sql} = \hyperlink{class_db_grid_a047170d6020a882807665812a27e2525}{$this->sql};
+
+                              \textcolor{comment}{// Change the sort order}
+                              \textcolor{keywordflow}{if} (!empty($this->sortBy)) \{
+                                             \hyperlink{class_db_grid_ab38893e590c3f831edfdcf64fc2aa02c}{$asc} = (\hyperlink{class_db_grid_ab38893e590c3f831edfdcf64fc2aa02c}{$this->asc}) 
+      ? \textcolor{stringliteral}{"ASC"} : \textcolor{stringliteral}{"DESC"};
+
+                                             \hyperlink{class_db_grid_a047170d6020a882807665812a27e2525}{$sql} = \hyperlink{class_db_grid_a047170d6020a882807665812a27e2525}{$sql} . \textcolor{stringliteral}{" ORDER BY `
+      "} . $this->sortBy . \textcolor{stringliteral}{"` $asc"};
+                              \}
+
+                              \textcolor{comment}{// Limit records}
+                              \textcolor{keywordflow}{if} ($this->maxRecords > 0) \{
+                                             \hyperlink{class_db_grid_a047170d6020a882807665812a27e2525}{$sql} = \hyperlink{class_db_grid_a047170d6020a882807665812a27e2525}{$sql} . \textcolor{stringliteral}{" LIMIT "} . 
+      ($this->page - 1) * $this->maxRecords . \textcolor{stringliteral}{", "} . $this->maxRecords;
+                              \}
+
+                              $query = $this->db->prepare(\hyperlink{class_db_grid_a047170d6020a882807665812a27e2525}{$sql});
+                              $query->execute();
+                              $query->setFetchMode(PDO::FETCH\_OBJ);
+
+                              \textcolor{comment}{// Get column data}
+                              \textcolor{keywordflow}{for} ($i = 0; $i <= $query->columnCount(); $i ++) 
+      \{
+                                             \hyperlink{class_db_grid_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta} = $query->getColumnMeta
+      ($i);
+                                             \textcolor{keywordflow}{if} (isset(\hyperlink{class_db_grid_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta}[\textcolor{stringliteral}{'name'}])) \{
+                                                            $this->meta[\hyperlink{class_db_grid_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta}
+      [\textcolor{stringliteral}{'name'}]] = \hyperlink{class_db_grid_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta};
+                                             \}
+                              \}
+
+                              \hyperlink{class_hook_afff7a7869d2dd304043b69a3fff24655}{Hook::addAction}($this->name . \textcolor{stringliteral}{"
+      \_beforeTable"});
+                              \hyperlink{class_hook_afff7a7869d2dd304043b69a3fff24655}{Hook::addAction}(\textcolor{stringliteral}{"
+      dbGrid\_beforeTable"});
+                              echo \textcolor{stringliteral}{"<table id='\{$this->name\}\_dbgrid'
+       cellpadding='0' cellspacing='0'>\(\backslash\)n<tr>"};
+
+                              \textcolor{keywordflow}{foreach} ($this->meta as \hyperlink{class_db_grid_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta}) \{
+                                             $metaName = \hyperlink{class_hook_a6489ed6b12329279b9e7cae26afc4dd6}{Hook::addFilter}
+      ($this->name . \textcolor{stringliteral}{"\_tableHeader"}, $meta[\textcolor{stringliteral}{'name'}]);
+                                             $metaName = \hyperlink{class_hook_a6489ed6b12329279b9e7cae26afc4dd6}{Hook::addFilter}
+      (\textcolor{stringliteral}{"dbgrid\_tableHeader"}, $metaName);
+                                             \textcolor{keywordflow}{if} (!$this->isExcluded($meta[\textcolor{stringliteral}{'name
+      '}])) \{
+                                                            \textcolor{keywordflow}{if} ($this->sortBy 
+      == $meta[\textcolor{stringliteral}{'name'}]) \{
+                                                                           \textcolor{keywordflow}{if} (
+      $this->asc) \{
+                                                                                          
+      \hyperlink{class_db_grid_ab38893e590c3f831edfdcf64fc2aa02c}{$asc} = \textcolor{stringliteral}{"&amp;asc=false"};
+                                                                                          
+      $class = \textcolor{stringliteral}{"asc"};
+                                                                                          
+      $char = \textcolor{stringliteral}{"&#x21E7;"};
+                                                                           \} \textcolor{keywordflow}{
+      else} \{
+                                                                                          
+      \hyperlink{class_db_grid_ab38893e590c3f831edfdcf64fc2aa02c}{$asc} = \textcolor{stringliteral}{"&amp;asc=true"};
+                                                                                          
+      $class = \textcolor{stringliteral}{"desc"};
+                                                                           \}
+                                                            \} \textcolor{keywordflow}{else} \{
+                                                                           \hyperlink{class_db_grid_ab38893e590c3f831edfdcf64fc2aa02c}{$asc}
+       = \textcolor{stringliteral}{""};
+                                                                           
+      $class = \textcolor{stringliteral}{""};
+                                                            \}
+                                                            echo \textcolor{stringliteral}{"<th>"};
+                                                            \textcolor{keywordflow}{if} ($this->
+      canSortBy[$meta[\textcolor{stringliteral}{'name'}]]) \{
+                                                                           \textcolor{keywordflow}{if} (
+      !empty($this->querystring)) \{
+                                                                                          
+      echo \textcolor{stringliteral}{"<a class='\{$class\}' href='\{$this->querystring\}&amp;sort="} . urlencode(
+      $meta[\textcolor{stringliteral}{'name'}]) . \hyperlink{class_db_grid_ab38893e590c3f831edfdcf64fc2aa02c}{$asc} . \textcolor{stringliteral}{"'>"} .$metaName . \textcolor{stringliteral}{"</a>"};
+                                                                           \} \textcolor{keywordflow}{
+      else} \{
+                                                                                          
+      echo \textcolor{stringliteral}{"<a class='\{$class\}' href='?sort="} . urlencode($meta[\textcolor{stringliteral}{'name'}]) . \hyperlink{class_db_grid_ab38893e590c3f831edfdcf64fc2aa02c}{$asc} . \textcolor{stringliteral}{
+      "'>"} .$metaName . \textcolor{stringliteral}{"</a>"};
+                                                                           \}
+                                                            \} \textcolor{keywordflow}{else} \{
+                                                                           echo
+       $metaName;
+                                                            \}
+
+                                                            echo \textcolor{stringliteral}{"</th>"};
+                                             \}
+                              \}
+
+                              echo \textcolor{stringliteral}{"</tr>"};
+
+                              \textcolor{keywordflow}{foreach}($query->fetchAll() as $row) \{
+                                             \textcolor{keywordflow}{if} (empty($rzebra)) \{
+                                                                           
+      $rzebra = \textcolor{stringliteral}{"zebra"};
+                                                            \} \textcolor{keywordflow}{else} \{
+                                                                           
+      $rzebra = \textcolor{stringliteral}{""};
+                                                            \}
+                                             echo \textcolor{stringliteral}{"<tr class='\{$rzebra\}'>"};
+                                             \textcolor{keywordflow}{foreach} ($row as $key => $value) \{
+                                                            $value = 
+      htmlentities($value);
+
+                                                            \textcolor{keywordflow}{if} (empty($czebra))
+       \{
+                                                                           
+      $czebra = \textcolor{stringliteral}{"zebra"};
+                                                            \} \textcolor{keywordflow}{else} \{
+                                                                           
+      $czebra = \textcolor{stringliteral}{""};
+                                                            \}
+
+                                                            \textcolor{keywordflow}{if} (isset($this->
+      map[$key])) \{
+                                                                           $kid
+       = $this->map[$key];
+                                                                           $id 
+      = $row->$kid;
+                                                            \} \textcolor{keywordflow}{else} \{
+                                                                           $id 
+      = 0;
+                                                            \}
+
+                                                            $value = 
+      \hyperlink{class_hook_a6489ed6b12329279b9e7cae26afc4dd6}{Hook::addFilter}($this->name . \textcolor{stringliteral}{"\_tableColumn"}, array(
+                                                                           
+      $value,
+                                                                           $key
+      ,
+                                                                           $id
+                                                            ));
+
+                                                            $value = 
+      \hyperlink{class_hook_a6489ed6b12329279b9e7cae26afc4dd6}{Hook::addFilter}(\textcolor{stringliteral}{"dbgrid\_tableColumn"}, array(
+                                                                           
+      $value,
+                                                                           $key
+      ,
+                                                                           $id
+                                                            ));
+
+                                                            \textcolor{keywordflow}{if} (!$this->
+      isExcluded($key)) \{
+                                                                           echo
+       \textcolor{stringliteral}{"<td class=\{$czebra\}>\{$value\}</td>"};
+                                                            \}
+                                             \}
+                                             echo \textcolor{stringliteral}{"</tr>"};
+                              \}
+
+                              echo \textcolor{stringliteral}{"</table>"};
+                              \hyperlink{class_hook_afff7a7869d2dd304043b69a3fff24655}{Hook::addAction}($this->name . \textcolor{stringliteral}{"
+      \_afterTable"});
+                              \hyperlink{class_hook_afff7a7869d2dd304043b69a3fff24655}{Hook::addAction}(\textcolor{stringliteral}{"dbGrid\_afterTable
+      "});
+
+                              \textcolor{keywordflow}{if} (isset($labels[$meta[\textcolor{stringliteral}{'name'}]])) \{
+                                             $label = $labels[$meta[\textcolor{stringliteral}{'name'}]];
+                              \} \textcolor{keywordflow}{else} \{
+                                             $label = $meta[\textcolor{stringliteral}{'name'}];
+                              \}
+               \}
+\end{DoxyCode}
+\hypertarget{class_db_grid_ab7abf389a489e98a67891c1451ee3df1}{\index{Db\-Grid@{Db\-Grid}!sort@{sort}}
+\index{sort@{sort}!DbGrid@{Db\-Grid}}
+\subsubsection[{sort}]{\setlength{\rightskip}{0pt plus 5cm}sort (
+\begin{DoxyParamCaption}
+\item[{}]{\$column, }
+\item[{}]{\$asc = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}}\label{class_db_grid_ab7abf389a489e98a67891c1451ee3df1}
+Sorts the table data 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$column} & The column to sort by \\
+\hline
+boolean & {\em \$asc} & Sort ascending? \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 134 of file class.\-dbgrid.\-php.
+
+
+\begin{DoxyCode}
+                                                        \{
+                              $this->sortBy = $column;
+                              $this->asc = \hyperlink{class_db_grid_ab38893e590c3f831edfdcf64fc2aa02c}{$asc};
+               \}
+\end{DoxyCode}
+\hypertarget{class_db_grid_aeacb971f985ff1651a2ab65eddb2e210}{\index{Db\-Grid@{Db\-Grid}!sortable@{sortable}}
+\index{sortable@{sortable}!DbGrid@{Db\-Grid}}
+\subsubsection[{sortable}]{\setlength{\rightskip}{0pt plus 5cm}sortable (
+\begin{DoxyParamCaption}
+\item[{}]{\$array}
+\end{DoxyParamCaption}
+)}}\label{class_db_grid_aeacb971f985ff1651a2ab65eddb2e210}
+What columns can be sorted? 
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$array} & fields that are sortable, used when rendering the table headers \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 117 of file class.\-dbgrid.\-php.
+
+
+\begin{DoxyCode}
+                                                \{
+                              $this->canSortBy = $array;
+               \}
+\end{DoxyCode}
+
+
+\subsection{Field Documentation}
+\hypertarget{class_db_grid_ab38893e590c3f831edfdcf64fc2aa02c}{\index{Db\-Grid@{Db\-Grid}!\$asc@{\$asc}}
+\index{\$asc@{\$asc}!DbGrid@{Db\-Grid}}
+\subsubsection[{\$asc}]{\setlength{\rightskip}{0pt plus 5cm}\$asc = true\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_db_grid_ab38893e590c3f831edfdcf64fc2aa02c}
+string Ascending? or Descending? 
+
+Definition at line 64 of file class.\-dbgrid.\-php.
+
+\hypertarget{class_db_grid_a233ec0718ad15633825ab07d1f3a744b}{\index{Db\-Grid@{Db\-Grid}!\$can\-Sortby@{\$can\-Sortby}}
+\index{\$can\-Sortby@{\$can\-Sortby}!DbGrid@{Db\-Grid}}
+\subsubsection[{\$can\-Sortby}]{\setlength{\rightskip}{0pt plus 5cm}\$can\-Sortby\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_db_grid_a233ec0718ad15633825ab07d1f3a744b}
+array string fields that are sortable. Used when rendering column header links 
+
+Definition at line 84 of file class.\-dbgrid.\-php.
+
+\hypertarget{class_db_grid_a1fa3127fc82f96b1436d871ef02be319}{\index{Db\-Grid@{Db\-Grid}!\$db@{\$db}}
+\index{\$db@{\$db}!DbGrid@{Db\-Grid}}
+\subsubsection[{\$db}]{\setlength{\rightskip}{0pt plus 5cm}\$db\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_db_grid_a1fa3127fc82f96b1436d871ef02be319}
+\hyperlink{class_d_b}{D\-B} The \hyperlink{class_d_b}{D\-B} object 
+
+Definition at line 44 of file class.\-dbgrid.\-php.
+
+\hypertarget{class_db_grid_a461d2a3e41e45e6ced688a7ae506c407}{\index{Db\-Grid@{Db\-Grid}!\$excluded@{\$excluded}}
+\index{\$excluded@{\$excluded}!DbGrid@{Db\-Grid}}
+\subsubsection[{\$excluded}]{\setlength{\rightskip}{0pt plus 5cm}\$excluded\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_db_grid_a461d2a3e41e45e6ced688a7ae506c407}
+array string Which fields to exclude from the table 
+
+Definition at line 89 of file class.\-dbgrid.\-php.
+
+\hypertarget{class_db_grid_acdcfcd6e65900bdadd894106750cf520}{\index{Db\-Grid@{Db\-Grid}!\$map@{\$map}}
+\index{\$map@{\$map}!DbGrid@{Db\-Grid}}
+\subsubsection[{\$map}]{\setlength{\rightskip}{0pt plus 5cm}\$map\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_db_grid_acdcfcd6e65900bdadd894106750cf520}
+array associative An array of fields =$>$ id that gets passed to the hooks 
+
+Definition at line 94 of file class.\-dbgrid.\-php.
+
+\hypertarget{class_db_grid_ad48e2eb22ba0d9bef2ad4d665d9784b2}{\index{Db\-Grid@{Db\-Grid}!\$max\-Records@{\$max\-Records}}
+\index{\$max\-Records@{\$max\-Records}!DbGrid@{Db\-Grid}}
+\subsubsection[{\$max\-Records}]{\setlength{\rightskip}{0pt plus 5cm}\$max\-Records = 10}}\label{class_db_grid_ad48e2eb22ba0d9bef2ad4d665d9784b2}
+int How many records per page? 
+
+Definition at line 69 of file class.\-dbgrid.\-php.
+
+\hypertarget{class_db_grid_a9e6fc1ae0498be7d1e682f8bcc9299df}{\index{Db\-Grid@{Db\-Grid}!\$meta@{\$meta}}
+\index{\$meta@{\$meta}!DbGrid@{Db\-Grid}}
+\subsubsection[{\$meta}]{\setlength{\rightskip}{0pt plus 5cm}\$meta}}\label{class_db_grid_a9e6fc1ae0498be7d1e682f8bcc9299df}
+object The meta data for the fields 
+
+Definition at line 79 of file class.\-dbgrid.\-php.
+
+\hypertarget{class_db_grid_ab2fc40d43824ea3e1ce5d86dee0d763b}{\index{Db\-Grid@{Db\-Grid}!\$name@{\$name}}
+\index{\$name@{\$name}!DbGrid@{Db\-Grid}}
+\subsubsection[{\$name}]{\setlength{\rightskip}{0pt plus 5cm}\$name\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_db_grid_ab2fc40d43824ea3e1ce5d86dee0d763b}
+string The name of our grid 
+
+Definition at line 49 of file class.\-dbgrid.\-php.
+
+\hypertarget{class_db_grid_a0a44e6760141442bb439b1ab1395d8ff}{\index{Db\-Grid@{Db\-Grid}!\$page@{\$page}}
+\index{\$page@{\$page}!DbGrid@{Db\-Grid}}
+\subsubsection[{\$page}]{\setlength{\rightskip}{0pt plus 5cm}\$page = 1}}\label{class_db_grid_a0a44e6760141442bb439b1ab1395d8ff}
+int Which page are we on? 
+
+Definition at line 74 of file class.\-dbgrid.\-php.
+
+\hypertarget{class_db_grid_a6bdad518c2534d667e646f89df728d54}{\index{Db\-Grid@{Db\-Grid}!\$querystring@{\$querystring}}
+\index{\$querystring@{\$querystring}!DbGrid@{Db\-Grid}}
+\subsubsection[{\$querystring}]{\setlength{\rightskip}{0pt plus 5cm}\$querystring\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_db_grid_a6bdad518c2534d667e646f89df728d54}
+string Querystring to pass into the sorting links in the th 
+
+Definition at line 99 of file class.\-dbgrid.\-php.
+
+\hypertarget{class_db_grid_ae4a5f363089eeaaa9f463a99c6503bcb}{\index{Db\-Grid@{Db\-Grid}!\$sort\-By@{\$sort\-By}}
+\index{\$sort\-By@{\$sort\-By}!DbGrid@{Db\-Grid}}
+\subsubsection[{\$sort\-By}]{\setlength{\rightskip}{0pt plus 5cm}\$sort\-By = ''\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_db_grid_ae4a5f363089eeaaa9f463a99c6503bcb}
+string The column to sort by 
+
+Definition at line 59 of file class.\-dbgrid.\-php.
+
+\hypertarget{class_db_grid_a047170d6020a882807665812a27e2525}{\index{Db\-Grid@{Db\-Grid}!\$sql@{\$sql}}
+\index{\$sql@{\$sql}!DbGrid@{Db\-Grid}}
+\subsubsection[{\$sql}]{\setlength{\rightskip}{0pt plus 5cm}\$sql\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_db_grid_a047170d6020a882807665812a27e2525}
+string The S\-Q\-L to run to make the grid 
+
+Definition at line 54 of file class.\-dbgrid.\-php.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+modules/disabled/db-\/grid/\hyperlink{class_8dbgrid_8php}{class.\-dbgrid.\-php}\end{DoxyCompactItemize}

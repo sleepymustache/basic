@@ -1,0 +1,64 @@
+\hypertarget{memcache_8php}{\section{modules/disabled/memcache/memcache.php File Reference}
+\label{memcache_8php}\index{modules/disabled/memcache/memcache.\-php@{modules/disabled/memcache/memcache.\-php}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{memcache_8php_a005520b1913ae4561b4fc760beac9491}{manage\-\_\-cached\-\_\-page} (\$page)
+\item 
+\hyperlink{memcache_8php_a65dc3621190b0b9b4f92e08213307374}{show\-\_\-cached\-\_\-page} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{memcache_8php_a005520b1913ae4561b4fc760beac9491}{\index{memcache.\-php@{memcache.\-php}!manage\-\_\-cached\-\_\-page@{manage\-\_\-cached\-\_\-page}}
+\index{manage\-\_\-cached\-\_\-page@{manage\-\_\-cached\-\_\-page}!memcache.php@{memcache.\-php}}
+\subsubsection[{manage\-\_\-cached\-\_\-page}]{\setlength{\rightskip}{0pt plus 5cm}manage\-\_\-cached\-\_\-page (
+\begin{DoxyParamCaption}
+\item[{}]{\$page}
+\end{DoxyParamCaption}
+)}}\label{memcache_8php_a005520b1913ae4561b4fc760beac9491}
+
+
+Definition at line 3 of file memcache.\-php.
+
+
+\begin{DoxyCode}
+                                   \{
+               $memcache = \textcolor{keyword}{new} Memcache;
+               $memcache->connect(\textcolor{stringliteral}{'localhost'}, 11211) or die (\textcolor{stringliteral}{"Could not
+       connect"});
+
+               \textcolor{keywordflow}{if} (!$get\_result = $memcache->get(\_\_FILE\_\_)) \{
+                              $get\_result = $memcache->set(\_\_FILE\_\_, \hyperlink{index_8php_a0a44e6760141442bb439b1ab1395d8ff}{$page}
+      , \textcolor{keyword}{false}, 10) or
+                              die (\textcolor{stringliteral}{"Failed to save data at the server"});
+               \}
+
+               \textcolor{keywordflow}{return} \hyperlink{index_8php_a0a44e6760141442bb439b1ab1395d8ff}{$page};
+\}
+\end{DoxyCode}
+\hypertarget{memcache_8php_a65dc3621190b0b9b4f92e08213307374}{\index{memcache.\-php@{memcache.\-php}!show\-\_\-cached\-\_\-page@{show\-\_\-cached\-\_\-page}}
+\index{show\-\_\-cached\-\_\-page@{show\-\_\-cached\-\_\-page}!memcache.php@{memcache.\-php}}
+\subsubsection[{show\-\_\-cached\-\_\-page}]{\setlength{\rightskip}{0pt plus 5cm}show\-\_\-cached\-\_\-page (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{memcache_8php_a65dc3621190b0b9b4f92e08213307374}
+
+
+Definition at line 15 of file memcache.\-php.
+
+
+\begin{DoxyCode}
+                            \{
+               $memcache = \textcolor{keyword}{new} Memcache;
+               $memcache->connect(\textcolor{stringliteral}{'localhost'}, 11211) or die (\textcolor{stringliteral}{"Could not
+       connect"});
+
+               \textcolor{keywordflow}{if} ($get\_result = $memcache->get(\_\_FILE\_\_)) \{
+                              echo $get\_result;
+                              die();
+               \}
+\}
+\end{DoxyCode}

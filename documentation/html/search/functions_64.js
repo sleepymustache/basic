@@ -1,30 +1,6 @@
 var searchData=
 [
-  ['decodespecial',['decodeSpecial',['../class_simple_lexer.html#afcc445f565747115727c6ce68401998c',1,'SimpleLexer']]],
-  ['deducemimetype',['deduceMimeType',['../class_simple_attachment.html#a461376f291b35213698c2c4fb32b405e',1,'SimpleAttachment']]],
-  ['defaultcontent',['defaultContent',['../class_simple_test_xml_parser.html#aacdde11bee8168ca32a62bf613b144da',1,'SimpleTestXmlParser']]],
-  ['delete',['delete',['../class_record.html#a13bdffdd926f26b825ea57066334ff01',1,'Record\delete()'],['../class_f_s_table.html#ac7aad87bd98f18250d97481375114759',1,'FSTable\delete()'],['../class_robo_talker.html#a6c473c02f29af893f4ad6983ead3ddb8',1,'RoboTalker\delete()'],['../class_simple_browser.html#a3466ad7231cfb907f9fd9dd3e8994c0f',1,'SimpleBrowser\delete()'],['../class_web_test_case.html#a3466ad7231cfb907f9fd9dd3e8994c0f',1,'WebTestCase\delete()']]],
-  ['describearraydifference',['describeArrayDifference',['../class_simple_dumper.html#aef0baba0f98a49ab6388b3fb7632824a',1,'SimpleDumper']]],
-  ['describebooleandifference',['describeBooleanDifference',['../class_simple_dumper.html#a9281948a9fdfc4058f6a02cc17fd934b',1,'SimpleDumper']]],
-  ['describedifference',['describeDifference',['../class_simple_dumper.html#afc0b7e6c4b319af5882b360c4b19cc0e',1,'SimpleDumper\describeDifference()'],['../class_parameters_expectation.html#a4bf6e513ee6645287d8b4309e6962632',1,'ParametersExpectation\describeDifference()']]],
-  ['describeexception',['describeException',['../class_exception_expectation.html#a36d190122c96bf4db920d23787d22033',1,'ExceptionExpectation']]],
-  ['describefloatdifference',['describeFloatDifference',['../class_simple_dumper.html#af07511403b03f94a4eb944ffa522d3e7',1,'SimpleDumper']]],
-  ['describegenericdifference',['describeGenericDifference',['../class_simple_dumper.html#a5f010ffa67f6c5e8464f2d26543f5f0c',1,'SimpleDumper']]],
-  ['describeintegerdifference',['describeIntegerDifference',['../class_simple_dumper.html#a61fa90e9d86e6fdf1499b703397fdb57',1,'SimpleDumper']]],
-  ['describenulldifference',['describeNullDifference',['../class_simple_dumper.html#a8e85a303dad830209624fdf08705af7e',1,'SimpleDumper']]],
-  ['describeobjectdifference',['describeObjectDifference',['../class_simple_dumper.html#aaf0d5ec94d7179eaa223a9b6cd0eb092',1,'SimpleDumper']]],
-  ['describepatternmatch',['describePatternMatch',['../class_pattern_expectation.html#a63fcd27184bd3085bce99a9e7cc7b888',1,'PatternExpectation']]],
-  ['describeresourcedifference',['describeResourceDifference',['../class_simple_dumper.html#af15e6c8154c738f609e54a10cd3df263',1,'SimpleDumper']]],
-  ['describestringdifference',['describeStringDifference',['../class_simple_dumper.html#aa40a91092b0c81804f307354ff7b52b1',1,'SimpleDumper']]],
-  ['describetextmatch',['describeTextMatch',['../class_text_expectation.html#aa59bf907c0b8e3d4011d9cdee25e64cd',1,'TextExpectation']]],
-  ['describevalue',['describeValue',['../class_simple_dumper.html#a33c4ec815fbd0785036b8f06c3d00fcc',1,'SimpleDumper']]],
-  ['dieonnomethod',['dieOnNoMethod',['../class_simple_mock.html#a81f0830f96f465cacc07dd2d4734b254',1,'SimpleMock']]],
+  ['delete',['delete',['../class_record.html#a13bdffdd926f26b825ea57066334ff01',1,'Record\delete()'],['../class_f_s_table.html#ac7aad87bd98f18250d97481375114759',1,'FSTable\delete()'],['../class_robo_talker.html#a6c473c02f29af893f4ad6983ead3ddb8',1,'RoboTalker\delete()']]],
   ['disable',['disable',['../class_debug.html#a545341e59cc9a0dafc4e265d60d4b5d6',1,'Debug']]],
-  ['disableexpectationnamechecks',['disableExpectationNameChecks',['../class_simple_mock.html#aff926ca7338b7021d38c41617534d103',1,'SimpleMock']]],
-  ['dispatchrequest',['dispatchRequest',['../class_simple_http_request.html#acc9f1025a8dbfb50f5d32f8f2b1f2efa',1,'SimpleHttpRequest']]],
-  ['dispatchtokens',['dispatchTokens',['../class_simple_lexer.html#acc9a4d24768dee703a88f6450dfea99a',1,'SimpleLexer']]],
-  ['doaction',['doAction',['../class_hook.html#a044e40a84df383f73df2250624d13c42',1,'Hook']]],
-  ['dropfuture',['dropFuture',['../class_simple_browser_history.html#a8533687c93e0a7a0d75cbc4d1ea11017',1,'SimpleBrowserHistory']]],
-  ['dump',['dump',['../class_simple_dumper.html#a9eefea65a00046bcdab2f8219df123bf',1,'SimpleDumper\dump()'],['../class_simple_test_case.html#a0b0216f92304c09d73df53c9ef3e4621',1,'SimpleTestCase\dump()']]],
-  ['dumpoutput',['dumpOutput',['../class_shell_test_case.html#a1fcae311366bee5b29b77d496b74c844',1,'ShellTestCase']]]
+  ['doaction',['doAction',['../class_hook.html#a044e40a84df383f73df2250624d13c42',1,'Hook']]]
 ];
