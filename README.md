@@ -1,11 +1,11 @@
 [] (\mainpage <|:{)
 
-Sleepy Mustache
+sleepyMUSTACHE
 ================================================================================
 
 Doxygen [Documentation] (http://www.sleepymustache.com/documentation/html/index.html) is available.
 
-Sleepy mustache is a PHP framework that comes with solutions for everyday php
+sleepyMUSTACHE is a PHP framework that comes with solutions for everyday php
 challenges.  Most of the functionality is optional and tries to be as minimalist
 as possible.
 
