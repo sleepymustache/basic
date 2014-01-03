@@ -1,4 +1,8 @@
 <?php
+/**
+ * Sample Navigation 
+ * @return string The rendered navigation
+ */
 function hook_render_placeholder_topNav() {
 	$topNavData = '{
 		"pages": [
@@ -51,4 +55,4 @@ function hook_render_placeholder_topNav() {
 	return $topNav->show();
 }
 
-Hook::applyFilter('render_placeholder_topNav', 'hook_render_placeholder_topNav');
+Hook::applyFilter('render_placeholder_topnav', 'hook_render_placeholder_topNav');
