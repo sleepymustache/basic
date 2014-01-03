@@ -176,7 +176,7 @@ method.
 	require_once('include/sleepy.php');
 
 	$page = new Template('default');
-	$page->bind('title', 'Sleepy Mustache');
+	$page->bind('title', 'sleepyMUSTACHE');
 	$page->bind('header', 'Hello world!');
 	$page->show();
 
