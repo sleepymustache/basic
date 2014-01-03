@@ -1,11 +1,11 @@
-@import url(http://fonts.googleapis.com/css?family=Lobster);
+/* Fix box model */
+*, *:before, *:after {-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
 
-html {overflow-y: scroll;}
+/* Persistant scrollbar and mobile text sizing fix */
+html {overflow-y: scroll;-moz-text-size-adjust:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;}
 
 /* Micro clearfix */
-.cf:before,.cf:after{content:" ";display:table;}
-.cf:after{clear:both;}
-.cf {*zoom: 1;}
+.cf:before,.cf:after{content:" ";display:table;}.cf:after{clear:both;}.cf {*zoom: 1;}
 
 /* Custom text-selection colors ----------------->#??????*/
 ::-moz-selection{	color:#fff;       background:darkred;text-shadow:none;}
@@ -78,11 +78,12 @@ fieldset.submit {
 nav ul {
 	padding: 0;
 	list-style: none;
+	border-left: 1px solid #000;
 }
 nav ul ul {
-	background-color: #fff;
 	display: none;
 	position: absolute;
+	margin: 0 0 0 -1px;
 }
 nav ul ul ul {
 	left: 100%;
@@ -90,19 +91,94 @@ nav ul ul ul {
 }
 nav ul li {
 	display: inline-block;
-	padding: 0 24px;
+}
+nav ul li a {
+	display: block;
+	color: #fff;
+	background: #f44;
+	text-align: center;
+	min-width: 198px;
+	padding: 8px 24px;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+	border-right: 1px solid #000;
+	text-decoration: none;
 }
 nav ul ul li {
-	min-width: 150px;
 	float: left;
 	clear: both;
 }
-nav > ul li + li {
-	padding-left: 12px;
-}
-nav > ul ul li {
-	padding: 0 12px;
+nav ul ul li a {
+	min-width: 304px;
+	margin-top: -1px;
+	text-align: left;
 }
 nav > ul li:hover > ul {
 	display: block;
+}
+
+/* Delete styles below this comment */
+header h1 {
+	font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+	text-align: center;
+	color: #181800;
+	font-size: 105px;
+	line-height: 0px;
+	margin-top: 22px;
+	letter-spacing: -8px;
+}
+header h1 span {
+	position: relative;
+	top: 21px;
+}
+nav {
+	min-width: 597px;
+	position:absolute;
+	margin-top: -26px;
+	right: -5px;
+}
+nav ul li:first-child a {
+	width: 200px;
+}
+nav ul li a:hover {
+	color: #ffff80;
+}
+.content article {
+	float: left;
+	clear: both;
+}
+.content {
+	margin-top: 155px;
+}
+.content article {
+	margin-bottom: 48px;
+}
+.content h1, .content h1 a {
+	font-family: sans-serif;
+	letter-spacing: 0;
+	color: #181800;
+	font-size: 48px;
+	line-height: 56px;
+}
+.content h2 {
+	font-size: 24px;
+	line-height: 30px;
+}
+footer p,
+.content p {
+	color: #181800;
+	font-size: 24px;
+	line-height: 36px;
+	font-family: georgia, serif;
+}
+.content p.metadata {
+	text-align: center;
+	font-style: italic;
+	font-size: 18px;
+	line-height: 24px;
+	margin-top: -32px;
+}
+footer p {
+	float: right;
+	font-size: 18px;
 }
