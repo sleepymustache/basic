@@ -1,9 +1,8 @@
 {{ #include header }}
-	<h1>Blogroll</h1>
 	{{ #each entry in teasers }}
 		<article>
 			<header>
-				<h2><a href="{{entry.link}}">{{ entry.title }}</a></h2>
+				<h1><a href="{{entry.link}}">{{ entry.title }}</a></h1>
 				<p class="metadata">{{ entry.date }} - {{ entry.author }}</p>
 			</header>
 			<p>{{ entry.description }}</p>
