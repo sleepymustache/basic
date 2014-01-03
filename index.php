@@ -1,24 +1,6 @@
 <?php
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/include/sleepy.php');
 
-	/**
-	 * Example of using the User module
-	 */
-	if (class_exists('User')) {
-		$u = new User();
-
-		// check if a user is logged in
-		if (!$u->isLoggedIn()) {
-			header('location: /user/login/');
-		}
-
-		// check if a user is an admin
-		if (!$u->isAdmin()) {
-			echo "You must be an Administrator to see this page.";
-			die();
-		}
-	}
-
 	$page = new Template('homepage');
 
 	// SEO
@@ -27,7 +9,7 @@
 	$page->bind('keywords', 'blog, sleepy mustache, framework');
 
 	// Content
-	$page->bind('header', 'Sleepy Mustache!');
+	$page->bind('header', 'sleepy<span>MUSTACHE</span>');
 	$page->bind('teasers', array(
 		array(
 			"title" => "Memcache module",
