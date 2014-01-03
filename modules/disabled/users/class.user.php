@@ -1,4 +1,24 @@
 <?php
+/**
+ * Example of using the User module
+ * 
+ * @code
+ *	if (class_exists('User')) {
+ *		$u = new User();
+ *
+ *		// check if a user is logged in
+ *		if (!$u->isLoggedIn()) {
+ *			header('location: /user/login/');
+ *		}
+ *
+ *		// check if a user is an admin
+ *		if (!$u->isAdmin()) {
+ *			echo "You must be an Administrator to see this page.";
+ *			die();
+ *		}
+ *	}
+ *	@endcode
+ */
 	error_reporting(E_ALL);
 	ini_set("display_errors", 1);
 
