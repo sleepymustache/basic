@@ -8,7 +8,7 @@ require_once('class.css.php');
 function css_render_placeholder() {
 	$args = Hook::addFilter("csscompress_files", array(func_get_args()));
 
-	if (ENV === "live") {
+	if (ENV === "LIVE") {
 		$c = new CSS();
 
 		$files = "";
@@ -26,13 +26,13 @@ function css_render_placeholder() {
 		}
 
 		$files = urlencode($files);
-		return "<link rel=\"stylesheet\" href=\"/modules/enabled/css-compress/?css={$files}\">";
+		return "<link rel=\"stylesheet\" type=\"text/css\" href=\"/modules/enabled/css-compress/?css={$files}\">";
 	} else {
 		foreach ($args as $file) {
 			if (empty($file)) {
 				continue;
 			}
-			$buffer .= "<link rel=\"stylesheet\" href=\"/css/{$file}.css\">";
+			$buffer .= "<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/{$file}.css\">\n\t";
 		}
 
 		return $buffer;
