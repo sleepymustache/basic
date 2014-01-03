@@ -40,5 +40,7 @@ function process_data_jmr1($text) {
 	return $text;
 }
 
-Hook::doAction('sleepy_preprocess',  'htmlcompress_sleepy_preprocess' );
-Hook::doAction('sleepy_postprocess', 'htmlcompress_sleepy_postprocess');
+if (ENV === "LIVE") {
+	Hook::doAction('sleepy_preprocess',  'htmlcompress_sleepy_preprocess' );
+	Hook::doAction('sleepy_postprocess', 'htmlcompress_sleepy_postprocess');
+}
