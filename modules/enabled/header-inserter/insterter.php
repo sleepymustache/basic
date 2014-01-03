@@ -7,7 +7,7 @@
 */
 
 function insertHeadStuffJF ($html) {
-	$toInsert = Hook::addFilter('head_inserter', '');
+	$toInsert = Hook::addFilter('head_inserter', "\n");
 
 	$pos = strrpos($html, '</head>');
 
