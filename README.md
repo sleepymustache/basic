@@ -27,13 +27,25 @@ The core is the basic functions that modules build off of
     Lets you time the speed of functions
 
 * **Templating** -
-    Basic templating functionality lets you separate business logic for the
-    view. It replaces placeholders like "{{ title }}" with data
+    Basic templating functionality lets you separate business logic from the
+    view. It replaces placeholders like "{{ title }}" with data.
 
 ### Default Modules
 
 Some modules are enabled by default. To disable the modules move them from the
-"enabled" folder and put them into the "disabled" folder
+"enabled" folder and put them into the "disabled" folder.
+
+* **HTML Compress** -
+    Compresses the output HTML if the ENV variable is set to "LIVE"
+
+* **CSS Compress** -
+    Compressed the output CSS if the ENV variable is set to "LIVE"
+
+* **Head Inserter - Joey Bomber** -
+    Allows you to insert HTML to the bottom of the HEAD tag
+
+* **Robots Dev Hide - Joey Bomber** -
+    If the site is not live, add the meta robots tag to omit from Google search
 
 * **Navigation** -
     Creates a UL that can be used for a navigation
@@ -48,32 +60,32 @@ Some modules are enabled by default. To disable the modules move them from the
 Most modules are disabled by default. To enable the modules move them from the
 into the "disabled" folder into "enabled" folder
 
-* **CRUD** -
-    Create, Read, Update, Delete functionality using PDO
+* **CSV** -
+    CRUD class for CSV files.
+
+* **DB** -
+    Create, Read, Update, Delete (CRUD) functionality using PDO and mySQL.
+
+* **DB Grid** -
+    Turns a SQL Select statement into a table with hook points
 
 * **File System Database** -
-    A basic database that uses flat files and JSON documents
+    A basic database that uses flat files and JSON documents.
 
-* **IP 2 Country detection** -
+* **IP 2 Country** -
     Uses the IP address to detect the country of origin.
 
-* **Mobile device detection** -
-    Can detect mobile and tablet devices
-
-* **CSV creation** -
-    CRUD class for CSV files
-
-* **Emailing** -
-    Basic email functionality with RFC email validation
-
-* **Robo Caller SOAP API (class.robotalker.php)** -
-    Class for interacting with the robotalker API
-
-* **SQL Select to DB Grid (class.dbgrid.php)** -
-    Turns a SQL Select statement into a table with hook points
+* **Mailer** -
+    Provides basic email functionality with RFC email validation.
 
 * **Memcache** -
     Improve performance by implementing memcaching of pages (10 second default)
+
+* **Mobile detection** -
+    Can detect mobile and tablet devices
+
+* **Robotalker** -
+    Class for interacting with the robotalker API
 
 * **Users** -
     Basic user and roles functionality includes auth, roles, and permissions
@@ -96,9 +108,9 @@ There are a few globals you will want to set in the include/globals.php file.
 
 * Setup debugging
 * Set Live site URL
-* Set DB credentials for live/stage
-* Set Emailing info for live/stage
-* Setup GA Account for live/state
+* Set DB credentials for live/stage/dev
+* Set Emailing info for live/stage/dev
+* Setup GA Account for live/state/dev
 
 Sample Code
 --------------------------------------------------------------------------------
@@ -261,9 +273,9 @@ easily manipulate data inside of a CSV file.
 
 	// Saves to the filesystem
 	$c->save('presidents.csv');
-
+	
 	// OR
-
+	
 	// Sends the file to the browser, does not save to the filesystem
 	$c->show();
 
@@ -280,7 +292,7 @@ to a database.
 
 Sometimes using a database is overkill.  A simple solution is to use the *FSDB*.
 It is very simple and does not allow complex queries, however it is fast, easy
-to use and requires no setup, except checking that proper permissions are set.
+to use, and requires no setup, except checking that proper permissions are set.
 
 	$fruit = new stdClass();
 
@@ -292,7 +304,7 @@ to use and requires no setup, except checking that proper permissions are set.
 	$db = new FSDB();
 
 	$db->insert('fruit', $fruit);
-	$data = $db->select('fruit', 'name', 'Banana');
+	$data = $db->select('fruit', 'name', 'Apple');
 
 ### Country detection
 
@@ -327,7 +339,7 @@ list with some classes added for the current active page.
 	// Add a placeholder in your template
 	{{ TopNav }}
 
-	// Create a php file in */modules/*
+	// Create a php file in */modules/enabled/*
 	require_once('include/class.navigation.php');
 
 	// create a function to add to the *hook filter*
