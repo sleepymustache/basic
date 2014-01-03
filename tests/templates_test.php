@@ -1,12 +1,16 @@
 <?php
 	require_once('../include/class.template.php');
 
+
 	class TestOfTemplate extends UnitTestCase {
-/*		// replace placeholder with bind
+
+		// replace placeholder with bind
 		// make sure placeholders are case insensitive
 		// trim whitespace
 		function testBind() {
-			$t = new template('../tests/bind');
+			$t = new template();
+			$t->directory = "./";
+			$t->setTemplate('templates/bind');
 			$t->bind('   naMe ', 'Sleepy Mustache!');
 			ob_start();
 			$t->show();
@@ -16,7 +20,9 @@
 		
 		// bind large chunks w/ bindStart/bindEnd
 		function testBindChunk() {
-			$t = new template('../tests/bind');
+			$t = new template();
+			$t->directory = "./";
+			$t->setTemplate('templates/bind');
 			$t->bindStart();
 			?>
 			Sleepy Mustache!
@@ -37,7 +43,9 @@
 			Hook::applyFilter('render_placeholder_name', 'render_placeholder_filter');
 
 			// lets capture what the template
-			$t = new template('../tests/bind');
+			$t = new template();
+			$t->directory = "./";
+			$t->setTemplate('templates/bind');
 			$t->bind('   naMe ', 'Sleepy Mustache!');
 			ob_start();
 			$t->show();
@@ -72,7 +80,7 @@
 			// lets capture what the template
 			$t = new template();
 			$t->directory = "./";
-			$t->setTemplate('parameters');
+			$t->setTemplate('templates/parameters');
 			ob_start();
 			$t->show();
 			$color = ob_get_clean();
@@ -85,7 +93,7 @@
 		function testEach() {
 			$t = new template();
 			$t->directory = "./";
-			$t->setTemplate('each');
+			$t->setTemplate('templates/each');
 			$t->bind('poem', array(
 				array(
 					'number' => 1,
@@ -111,7 +119,7 @@
 		// Test hooks inside of included templates
 		function testInclude() {
 			$t = new template();
-			$t->directory = "./";
+			$t->directory = "./templates/";
 			$t->setTemplate('include');
 			$t->bind('   naMe ', 'Sleepy Mustache!');
 			ob_start();
@@ -121,12 +129,11 @@
 			$this->assertEqual($name, 'Sleepy Mustache!!');
 		}
 
-		*/
 		// Test inline placeholders
 		function testTwoInline() {
 			$t = new template();
 			$t->directory = "./";
-			$t->setTemplate('two-inline');
+			$t->setTemplate('templates/two-inline');
 			$t->bind('firstname', 'Jaime');
 			$t->bind('lastname', 'Rodriguez');
 			ob_start();
@@ -138,10 +145,10 @@
 
 		// Test if template doesn't exist
 		function testTemplateMissing() {
-			$this->expectException(new Exception("Template ./missing.tpl doesn't exist."));
+			$this->expectException(new Exception("Template ./templates/missing.tpl doesn't exist."));
 			$t = new template();
 			$t->directory = "./";
-			$t->setTemplate('missing');
+			$t->setTemplate('templates/missing');
 			$t->show();
 		}
 		
@@ -150,7 +157,7 @@
 			$this->expectException(new Exception("./binding.tpl doesn't exist. Cannot include file."));
 			$t = new template();
 			$t->directory = "./";
-			$t->setTemplate('include-missing');
+			$t->setTemplate('templates/include-missing');
 			$t->show();
 		}
 	}

@@ -1,4 +1,6 @@
 <?php
+	define("ENV", "LIVE");
+
 	require_once('../include/class.debug.php');
 	require_once('../include/global.php');
 	require_once('simpletest/autorun.php');
@@ -7,11 +9,9 @@
 		function __construct() {
 			parent::__construct();
 			$this->TestSuite('All Tests');
-			$this->addFile('debug.php');
-			$this->addFile('hooks.php');
-			$this->addFile('mailer.php');
-			$this->addFile('templates.php');
-			$this->addFile('db.php');
-			$this->addFile('fsdb.php');
+			$this->collect(
+				dirname(__file_),
+				new SimplePatternCollector('/_test.php/')
+			);
 		}
 	}

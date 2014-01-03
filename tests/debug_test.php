@@ -10,6 +10,17 @@
 			Debug::$enable_show = true;
 		}
 
+		/* there is only a static instance of Debug */
+		function testDebugHighlander() {
+			if (is_callable(array('Debug', '__construct'))) {
+				$this->fail();
+			}
+			if (is_callable(array('Debug', '__clone'))) {
+				$this->fail();
+			}
+			$this->pass();
+		}
+
 		/**
 		 * Debug should have show enabled by default
 		 * Make sure debug output is wrapped in pre
@@ -49,17 +60,9 @@
 
 		/* database logging is working */
 		function testDBLogging() {
-			Debug::$enable_log = true;
-			$this->assertTrue(Debug::out('Testing, testing, 123'));
-		}
-		/* there is only a static instance of Debug */
-		function testDebugHighlander() {
-			if (is_callable(array('Debug', '__construct'))) {
-				$this->fail();
+			if (strlen(DBPASS) > 0) {
+				Debug::$enable_log = true;
+				$this->assertTrue(Debug::out('Testing, testing, 123'));
 			}
-			if (is_callable(array('Debug', '__clone'))) {
-				$this->fail();
-			}
-			$this->pass();
 		}
 	}
