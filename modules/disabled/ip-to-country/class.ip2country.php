@@ -1,5 +1,5 @@
 <?php
-require_once('modules/enabled/file-system-database/class.fsdb.php');
+require_once(DIRBASE . 'modules/enabled/file-system-database/class.fsdb.php');
 
 /**
  * @page ip2country IP2CO Class

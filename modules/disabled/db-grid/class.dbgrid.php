@@ -1,7 +1,4 @@
 <?php
-require_once(dirname(__file__) . '../db/class.db.php');
-require_once(dirname(__file__) . '/../../../include/class.hooks.php');
-
 /**
  * @page dbgrid1 DbGrid Class
  *

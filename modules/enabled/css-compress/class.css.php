@@ -39,7 +39,7 @@ class CSS {
 
 		// Load the files
 		foreach ($this->files as $file) {
-			$buffer .= file_get_contents($_SERVER['DOCUMENT_ROOT'] . $file);
+			$buffer .= file_get_contents(DIRBASE . $file);
 		}
 
 		// Compress the files

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Detects if a device is a mobile device and which kind.
  *

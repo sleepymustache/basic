@@ -22,7 +22,7 @@
 	error_reporting(E_ALL);
 	ini_set("display_errors", 1);
 
-	require_once(dirname(__file__) . '/../db/class.record.php');
+	require_once(DIRBASE . 'modules/enabled/db/class.record.php');
 
 	class User extends Record {
 		public $table = 'users';

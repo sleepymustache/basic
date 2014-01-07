@@ -1,6 +1,6 @@
 <?php
-require_once(dirname(__file__) . '/class.db.php');
-require_once(dirname(__file__) . '/../../../include/class.hooks.php');
+require_once(DIRBASE . '/modules/enabled/db/class.db.php');
+require_once(DIRBASE . 'include/class.hooks.php');
 
 /**
  * @page record1 Record Class

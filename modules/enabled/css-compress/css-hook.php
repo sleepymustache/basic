@@ -1,4 +1,4 @@
-<?php
+ <?php
 require_once('class.css.php');
 
 /**
@@ -26,13 +26,13 @@ function css_render_placeholder() {
 		}
 
 		$files = urlencode($files);
-		return "<link rel=\"stylesheet\" type=\"text/css\" href=\"/modules/enabled/css-compress/?css={$files}\">";
+		return "<link rel=\"stylesheet\" type=\"text/css\" href=\"" . URLBASE . "modules/enabled/css-compress/?css={$files}\">";
 	} else {
 		foreach ($args as $file) {
 			if (empty($file)) {
 				continue;
 			}
-			$buffer .= "<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/{$file}.css\">\n\t";
+			$buffer .= "<link rel=\"stylesheet\" type=\"text/css\" href=\"" . URLBASE . "css/{$file}.css\">\n\t";
 		}
 
 		return $buffer;

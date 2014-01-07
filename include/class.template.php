@@ -144,7 +144,6 @@ class Template {
 
 				// get the array based on the <in>
 				$in = $this->assignArrayByPath($data, $forin['in']);
-				//var_dump($in);
 
 				// for each changelog
 				if (is_array($in[0])) {
@@ -160,7 +159,6 @@ class Template {
 
 					foreach ($in as $string) {
 						$new_data[$forin['for']] = $string;
-						//echo "<pre>";var_dump($new_data);echo "</pre>";
 						$rendered = $rendered . $this->render($new_template, $new_data);
 					}
 
@@ -175,9 +173,7 @@ class Template {
 		$template = Hook::addFilter('prerender_template', $template);
 
 		// Find all the single placeholders
-		//preg_match_all('/{{\s?(.+?)\s?}}/', $template, $matches);
 		preg_match_all('/{{\s?(.*?)(\s.*?)?\s?}}/', $template, $matches);
-
 
 		// For each replace with a value
 		foreach (array_unique($matches[0]) as $index => $placeholder) {
@@ -206,8 +202,8 @@ class Template {
 	 */
 	public function __construct($template='') {
 		Hook::addAction('template_start');
-		$this->directory = DIRBASE . "/templates/";
-		
+		$this->directory = DIRBASE . "templates/";
+
 		if (!empty($template)) {
 			$this->setTemplate($template);
 		}
