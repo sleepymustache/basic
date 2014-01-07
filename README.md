@@ -100,6 +100,44 @@ simple modules with hook points.
     to generate the page.
 * **Wizard Title** -
     This module prepends an ASCII wizard to the title of the page.
+    
+### Constants
+
+* **ENV**
+	What is the current environment. Values: DEV, STAGE, LIVE
+
+* **URLBASE**
+	The base URL to the sleepyMUSTACHE base directory
+
+* **DIRBASE**
+	the base directory to the sleepyMUSTACHE base directory
+
+* **DBHOST**
+	the mysql host URL
+
+* **DBUSER**
+	the mysql username
+
+* **DBPASS**
+	the mysql password
+
+* **DBNAME**
+	the mysql database name
+
+* **EMAIL_FROM**
+	the email address to use for the "from" field
+
+* **EMAIL_TO**
+	the email address to use for the "to" field
+
+* **EMAIL_CC**
+	the email address to use for the "cc" field
+
+* **EMAIL_BCC**
+	the email address to use for the "bcc" field
+
+* **GA_ACCOUNT**
+	the Google Analytics GA Account ID
 
 
 Getting Started
