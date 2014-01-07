@@ -17,3 +17,4 @@ Disallow: /js/
 Disallow: /include/
 Disallow: /modules/
 Disallow: /templates/
+Disallow: /tests/
