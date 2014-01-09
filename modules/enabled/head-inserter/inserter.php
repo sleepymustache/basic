@@ -11,7 +11,7 @@ function insertHeadStuffJF ($html) {
 
 	$pos = strrpos($html, '</head>');
 
-	$html = ($pos !== -1) 
+	$html = ($pos !== false) 
 			? substr_replace($html, $toInsert, $pos, 0) 
 			: $html;
 
