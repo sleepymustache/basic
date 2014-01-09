@@ -157,12 +157,17 @@ class Hook {
 	 *
 	 * @param  string $name     [description]
 	 * @param  string $function [description]
-	 * @param  int $args     [description]
+	 * @param  int $args        [description]
 	 * @static
 	 * @return void
 	 */
-	public static function applyFilter($name, $function, $args='1') {
+	public static function applyFilter($name, $function) {
 		self::initialize();
+
+		$args = func_get_args();
+
+		array_shift($args);
+		array_shift($args);
 
 		if (!isset(self::$filters[$name])) {
 			self::$filters[$name] = new Filter ($name);
@@ -175,14 +180,15 @@ class Hook {
 	/**
 	 * Adds a new filter-type hook point
 	 *
-	 * @param mixed $name  [description]
+	 * @param mixed  $name  [description]
 	 * @param string $value [description]
 	 * @static
 	 * @return void
 	 */
-	public static function addFilter($name, $value='') {
+	public static function addFilter($name, $value) {
 		self::initialize();
 
+		// If there are no functions to run
 		if (!isset(self::$filters[$name])) {
 			if (is_array($value)) {
 				return $value[0];
@@ -210,8 +216,8 @@ class Hook {
 	 * @static
 	 * @return void
 	 */
-	public static function doAction($name, $function, $args='1') {
-		self::applyFilter($name, $function, $args);
+	public static function doAction($name, $function) {
+		call_user_func_array('self::applyFilter', func_get_args());
 	}
 
 	/**
@@ -222,6 +228,6 @@ class Hook {
 	 * @return void
 	 */
 	public static function addAction($name) {
-		self::addFilter($name);
+		self::addFilter($name, '');
 	}
 }
