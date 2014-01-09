@@ -98,6 +98,7 @@ simple modules with hook points.
 * **Timer** -
     A module that replaces the {{ timer }} with the time it took the framework
     to generate the page.
+    
 * **Wizard Title** -
     This module prepends an ASCII wizard to the title of the page.
     
