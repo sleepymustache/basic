@@ -155,8 +155,6 @@ class Template {
 						$rendered = $rendered . $this->render($new_template, $new_data);
 					}
 				} else {
-					echo "<h1>!!" . $in[0] . " is not array</h1><pre>";var_dump($in);echo "</pre>";
-
 					foreach ($in as $string) {
 						$new_data[$forin['for']] = $string;
 						$rendered = $rendered . $this->render($new_template, $new_data);
@@ -177,7 +175,7 @@ class Template {
 
 		// For each replace with a value
 		foreach (array_unique($matches[0]) as $index => $placeholder) {
-			$key = trim(strtolower($matches[1][$index])); //trim(str_replace('{{', '', str_replace('}}', '', $placeholder)));
+			$key = strtolower($matches[1][$index]); //trim(str_replace('{{', '', str_replace('}}', '', $placeholder)));
 
 			// make sure it isn't an array. We use #each for those.
 			if (@is_array($data[$key])) {
@@ -188,7 +186,7 @@ class Template {
 				$this->assignArrayByPath($data, $key)
 			);
 
-			$arguments = array_merge($arguments, explode(" ", trim($matches[2][$index])));
+			$arguments = array_merge($arguments, explode(" ", $matches[2][$index]));	
 
 			$template = str_replace($placeholder, Hook::addFilter('render_placeholder_' . strtolower($key), $arguments), $template);
 		}
@@ -215,7 +213,11 @@ class Template {
 	 * @param  mixed  $value         The value that replaced the placeholder
 	 */
 	public function bind($placeholder, $value) {
-		$this->_data[trim(strtolower($placeholder))] = $value; 
+		if (!is_array($value)) {
+			$value = Hook::addFilter('bind_placeholder_' . $placeholder, $value);
+		}
+
+		$this->_data[trim(strtolower($placeholder))] = $value;
 	}
 
 	/**
@@ -233,6 +235,11 @@ class Template {
 	public function bindStop($placeholder) {
 		$content = ob_get_contents();
 		ob_end_clean();
+		
+		if (!is_array($content)) {
+			$content = Hook::addFilter('bind_placeholder_' . $placeholder, $content);
+		}
+
 		$this->_data[trim(strtolower($placeholder))] = $content;
 	}
 
@@ -255,7 +262,7 @@ class Template {
 		// Render template file
 		ob_start();
 		include($this->directory . $this->_file . $this->extension);
-		$template = $this->render(ob_get_contents(), $this->_data) ;
+		$template = $this->render(ob_get_contents(), $this->_data);
 		ob_end_clean();
 
 		$template = Hook::addFilter('render_template_' . $this->_file, $template);
