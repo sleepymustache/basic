@@ -31,7 +31,7 @@
 <body>
 	<div class="wrapper">
 		<header>
-			<h1>{{ header }}</h1>
+			<hgroup><h1>{{ header }}</h1></hgroup>
 
 			<!-- A sample menu -->
 			<nav class="top">

@@ -6,12 +6,14 @@
 				<p class="metadata">{{ entry.date }} - {{ entry.author }}</p>
 			</header>
 			<p>{{ entry.description }}</p>
-			<p>
-				<strong>Tags: </strong>
-				{{ #each t in entry.tags }}
-					<a href="{{ t.link }}">{{ t.name }}</a>
-				{{ /each }}
-			</p>
+			<footer>
+				<p>
+					<strong>Tags: </strong>
+					{{ #each t in entry.tags }}
+						<a href="{{ t.link }}">{{ t.name }}</a>
+					{{ /each }}
+				</p>
+			</footer>
 		</article>
 	{{ /each }}
 {{ #include footer }}
