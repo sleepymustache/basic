@@ -200,7 +200,7 @@ class Template {
 	 */
 	public function __construct($template='') {
 		Hook::addAction('template_start');
-		$this->directory = DIRBASE . "templates/";
+		$this->directory = DIRBASE . "/templates/";
 
 		if (!empty($template)) {
 			$this->setTemplate($template);
