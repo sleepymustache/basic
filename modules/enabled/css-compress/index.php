@@ -1,5 +1,6 @@
 <?php
-
+require_once(dirname(__FILE__) . '/../../../include/class.debug.php');
+require_once(dirname(__FILE__) . '/../../../include/global.php');
 /**
  * This is where the <link> tag points to. It should be in the format of:
  *
@@ -15,7 +16,7 @@ if (!empty($_GET['css'])) {
 	$c = new CSS();
 	$files = explode("&", $_GET['css']);
 	foreach ($files as $file) {
-		$c->add("/css/" . $file . ".css");
+		$c->add(DIRBASE . "/css/" . $file . ".css");
 	}
 
 	$c->show();
