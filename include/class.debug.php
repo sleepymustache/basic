@@ -224,7 +224,7 @@ class Debug {
 	 * @return bool
 	 * @private
 	 */
-	private function send($var) {
+	private static function send($var) {
 		if (!self::$enable_send) {
 			return false;
 		}
@@ -273,7 +273,7 @@ class Debug {
 	 *
 	 * @return void
 	 */
-	public function disable() {
+	public static function disable() {
 		self::$enable_send = false;
 		self::$enable_log = false;
 		self::$enable_show = false;
