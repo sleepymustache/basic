@@ -147,7 +147,21 @@ class Template {
 
 				// for each changelog
 				if (is_array($in[0])) {
+
+					// Allow hooks to edit the data
+					$in = Hook::addFilter('template_each_array', array($in));
+
+					$iterator = 0;
+
 					foreach ($in as $new_data) {
+						$iterator++;
+
+						$new_data = Hook::addFilter('template_each', array($new_data));
+						$new_data = Hook::addFilter('template_each_' + $forin['for'], array($new_data));
+
+						$new_data['iterator'] = $iterator;
+						$new_data['zebra'] = ($iterator % 2) ? 'odd' : 'even';
+
 						// Make the $new_data match the <for>
 						$new_data[$forin['for']] =  $new_data;
 
@@ -175,12 +189,7 @@ class Template {
 
 		// For each replace with a value
 		foreach (array_unique($matches[0]) as $index => $placeholder) {
-			$key = strtolower($matches[1][$index]); //trim(str_replace('{{', '', str_replace('}}', '', $placeholder)));
-
-			// make sure it isn't an array. We use #each for those.
-			if (@is_array($data[$key])) {
-				throw new Exception("Arrays can only be bound in #each loops. Placeholder: {$key}");
-			}
+			$key = strtolower($matches[1][$index]);
 
 			$arguments = array(
 				$this->assignArrayByPath($data, $key)
