@@ -48,10 +48,21 @@ fieldset li label {
 	display: block;
 	width: 150px;
 }
+fieldset li label.error {
+	width: auto;
+	font-size: 10px;
+	line-height: 26px;
+	margin-left: 10px;
+	color: red;
+	font-weight: normal;
+}
 fieldset li input {
+	float: left;
 	margin: 0 0 12px 0;
 }
 fieldset li select {
+	float: left;
+	margin: 0 0 12px 0;
 	width: 150px;
 }
 fieldset li ul {
