@@ -8,11 +8,6 @@
 		require_once('teamsite.php');
 	}
 
-	// Debugging
-	Debug::$enable_show = true;			// Show debug info on screen
-	Debug::$enable_send = false;		// Send debug info via email
-	Debug::$enable_log  = false;		// Log debug info to a db
-
 	// Globals
 	define('LIVE_URL',  '****CHANGE_URL****');
 	define('STAGE_URL', '****CHANGE_URL****');
@@ -100,3 +95,8 @@
 		// Analytics
 		define('GA_ACCOUNT', '');
 	}
+
+	// Debugging
+	Debug::$enable_show = true;			// Show debug info on screen
+	Debug::$enable_send = false;		// Send debug info via email
+	Debug::$enable_log  = false;		// Log debug info to a db
