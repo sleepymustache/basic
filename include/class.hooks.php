@@ -205,6 +205,10 @@ class Hook {
 			}
 		}
 
+		// Memory profiling
+		//Debug::$enable_send = true;
+		//Debug::out($name . " " . memory_get_usage());
+
 		return $returned;
 	}
 
