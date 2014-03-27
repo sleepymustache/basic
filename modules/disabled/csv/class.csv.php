@@ -16,11 +16,12 @@
  * @endcode
  *
  * @section changelog Changelog
- * * Can load from the object instantiation
- *
- * @date		June 12, 2013
+ * * check if we can remove the header before doing it... teamsite issue.
+ * * suppress flock warnings... teamsite issue
+ * 
+ * @date		March 26, 2014
  * @author		Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version		1.4
+ * @version		1.5
  * @copyright	GPL 3 http://cuttingedgecode.com
  */
 class CSV {
@@ -104,11 +105,11 @@ class CSV {
 			}
 		}
 		if ($handle = @fopen($this->filename, 'r+')) {
-			flock($handle, LOCK_EX);
+			@flock($handle, LOCK_EX);
 			foreach ($this->data as $row) {
 				fputcsv($handle, $row);
 			}
-			flock($handle, LOCK_UN);
+			@flock($handle, LOCK_UN);
 			fclose($handle);
 		} else {
 			throw new Exception('CSV::save - Cannot open file for writing');
@@ -168,7 +169,10 @@ class CSV {
 		$filename = date('YmdHis') . ".csv";
 
 		// Write the CSV headers
-		header_remove();
+		if (function_exists('header_remove')) {
+			header_remove();
+		}
+
 		header("Pragma: public");
 		header("Expires: 0");
 		header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
@@ -181,6 +185,5 @@ class CSV {
 		$this->filename = "php://output";
 
 		$this->save();
-		
 	}
 }
