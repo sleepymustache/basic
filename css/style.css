@@ -131,7 +131,7 @@ nav > ul li:hover > ul {
 /* Delete styles below this comment */
 .wrapper {padding-top:115px;padding-bottom: 0;}
 .wrapper > header{position:absolute;left:0;top:0;width:100%;}
-header hgroup {width:100%;overflow:hidden;margin-top:-31px;padding-left:25px;}
+header hgroup {width:100%;overflow:hidden;margin-top: -36px;padding-left:25px;}
 header h1 {font-family:'Arial Black','Arial Bold',sans-serif;color:#333;font-size:105px;line-height:0;letter-spacing:-8px;}
 header h1 span {position:relative;top:21px;}
 nav {margin-top: -26px;width:100%;}
