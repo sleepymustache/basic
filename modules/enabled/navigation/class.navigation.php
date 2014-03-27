@@ -140,6 +140,6 @@ class Navigation {
 	 * @param string $string A string used to determine if a page is current
 	 */
 	public function setCurrent($string) {
-		$this->current = str_replace("/iw-mount/default/main/MarketingSites/BSP/Xofigo/USA/Scientific/WORKAREA/htdocs", "", str_replace("index.php", "", $string));
+		$this->current = str_replace(URLBASE, "/", str_replace("index.php", "", $string));
 	}
 }
