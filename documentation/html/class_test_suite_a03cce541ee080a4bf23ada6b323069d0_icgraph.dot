@@ -1,0 +1,13 @@
+digraph "addFile"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="addFile",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="AllTests\\AllTests",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_all_tests.html#a9edbc8177dd0d4ab2318a2785eeb6953"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="BadTestCases\\BadTestCases",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_bad_test_cases.html#a4f39f8e454f489c041ab371c8a0c7393"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="UnitTests\\UnitTests",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_unit_tests.html#ac41ca4bf8b24a0874c94fe36679e31da"];
+}

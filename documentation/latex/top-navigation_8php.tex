@@ -1,5 +1,5 @@
-\hypertarget{top-navigation_8php}{\section{modules/enabled/navigation/top-\/navigation.php File Reference}
-\label{top-navigation_8php}\index{modules/enabled/navigation/top-\/navigation.\-php@{modules/enabled/navigation/top-\/navigation.\-php}}
+\hypertarget{top-navigation_8php}{\section{modules/enabled/sample-\/navigation/top-\/navigation.php File Reference}
+\label{top-navigation_8php}\index{modules/enabled/sample-\/navigation/top-\/navigation.\-php@{modules/enabled/sample-\/navigation/top-\/navigation.\-php}}
 }
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -23,91 +23,3 @@ string The rendered navigation
 
 Definition at line 6 of file top-\/navigation.\-php.
 
-
-\begin{DoxyCode}
-                                          \{
-               $topNavData = \textcolor{stringliteral}{'\{}
-\textcolor{stringliteral}{                              "pages": [}
-\textcolor{stringliteral}{                                             \{}
-\textcolor{stringliteral}{                                                            "title":
-       "Documentation",}
-\textcolor{stringliteral}{                                                            "link":
-       "http://www.sleepymustache.com/documentation/html/index.html",}
-\textcolor{stringliteral}{                                                                           
-      "pages": [}
-\textcolor{stringliteral}{                                                                                          
-      \{}
-\textcolor{stringliteral}{                                                                                                         
-      "title": "CSV Class",}
-\textcolor{stringliteral}{                                                                                                         
-      "link": "http://www.sleepymustache.com/documentation/html/csv1.html"}
-\textcolor{stringliteral}{                                                                                          
-      \}, \{}
-\textcolor{stringliteral}{                                                                                                         
-      "title": "DB Class",}
-\textcolor{stringliteral}{                                                                                                         
-      "link": "http://www.sleepymustache.com/documentation/html/db1.html"}
-\textcolor{stringliteral}{                                                                                          
-      \}, \{}
-\textcolor{stringliteral}{                                                                                                         
-      "title": "DbGrid Class",}
-\textcolor{stringliteral}{                                                                                                         
-      "link": "http://www.sleepymustache.com/documentation/html/dbgrid1.html"}
-\textcolor{stringliteral}{                                                                                          
-      \}, \{}
-\textcolor{stringliteral}{                                                                                                         
-      "title": "File System Database Class",}
-\textcolor{stringliteral}{                                                                                                         
-      "link": "http://www.sleepymustache.com/documentation/html/fsdb.html"}
-\textcolor{stringliteral}{                                                                                          
-      \}, \{}
-\textcolor{stringliteral}{                                                                                                         
-      "title": "Hook Class",}
-\textcolor{stringliteral}{                                                                                                         
-      "link": "http://www.sleepymustache.com/documentation/html/hooks1.html"}
-\textcolor{stringliteral}{                                                                                          
-      \}, \{}
-\textcolor{stringliteral}{                                                                                                         
-      "title": "IP 2 Country Class",}
-\textcolor{stringliteral}{                                                                                                         
-      "link": "http://www.sleepymustache.com/documentation/html/ip2country.html"}
-\textcolor{stringliteral}{                                                                                          
-      \}, \{}
-\textcolor{stringliteral}{                                                                                                         
-      "title": "Mailer Class",}
-\textcolor{stringliteral}{                                                                                                         
-      "link": "http://www.sleepymustache.com/documentation/html/mailer1.html"}
-\textcolor{stringliteral}{                                                                                          
-      \}, \{}
-\textcolor{stringliteral}{                                                                                                         
-      "title": "Navigation Class",}
-\textcolor{stringliteral}{                                                                                                         
-      "link": "http://www.sleepymustache.com/documentation/html/nav1.html"}
-\textcolor{stringliteral}{                                                                                          
-      \}, \{}
-\textcolor{stringliteral}{                                                                                                         
-      "title": "Record Class",}
-\textcolor{stringliteral}{                                                                                                         
-      "link": "http://www.sleepymustache.com/documentation/html/record1.html"}
-\textcolor{stringliteral}{                                                                                          
-      \}}
-\textcolor{stringliteral}{                                                                           ]}
-\textcolor{stringliteral}{                                             \}, \{}
-\textcolor{stringliteral}{                                                            "title":
-       "Download",}
-\textcolor{stringliteral}{                                                            "link":
-       "https://github.com/jaimerod/sleepy-mustache/zipball/master"}
-\textcolor{stringliteral}{                                             \}, \{}
-\textcolor{stringliteral}{                                                            "title": "Github",}
-\textcolor{stringliteral}{                                                            "link":
-       "https://github.com/jaimerod/sleepy-mustache"}
-\textcolor{stringliteral}{                                             \}}
-\textcolor{stringliteral}{                              ]}
-\textcolor{stringliteral}{               \}'};
-
-               $topNav = \textcolor{keyword}{new} \hyperlink{class_navigation}{Navigation}($topNavData);
-               $topNav->setCurrent($\_SERVER[\textcolor{stringliteral}{'SCRIPT\_NAME'}]);
-
-               \textcolor{keywordflow}{return} $topNav->show();
-\}
-\end{DoxyCode}

@@ -1,0 +1,11 @@
+digraph "copy"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="copy",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="SimplePhpPageBuilder\l\\acceptLabelEnd",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_php_page_builder.html#a7b361e536bf07cb0a1626f82a0f6acb1"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="SimplePhpPageBuilder\l\\endElement",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_php_page_builder.html#a244bb4b318beb77a7e2eb1c79d0f62e1"];
+}

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>sleepyMUSTACHE: DbGrid Class Reference</title>
+<title>Sleepy Mustache: DbGrid Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">sleepyMUSTACHE
+   <div id="projectname">Sleepy Mustache
    </div>
   </td>
  </tr>
@@ -161,7 +161,7 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00040">40</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00042">42</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="acb9a3136ace647e5e0f4512fc88f7c40"></a>
 <div class="memitem">
@@ -195,13 +195,8 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00106">106</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
-<div class="fragment"><div class="line">                                                        {</div>
-<div class="line">                              $this-&gt;db = <a class="code" href="class_d_b.html#ac93fbec81f07e5d15f80db907e63dc10">DB::getInstance</a>();</div>
-<div class="line">                              $this-&gt;sql = <a class="code" href="class_db_grid.html#a047170d6020a882807665812a27e2525">$sql</a>;</div>
-<div class="line">                              $this-&gt;name = <a class="code" href="class_db_grid.html#ab2fc40d43824ea3e1ce5d86dee0d763b">$name</a>;</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00108">108</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -226,11 +221,8 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00143">143</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
-<div class="fragment"><div class="line">                                               {</div>
-<div class="line">                              $this-&gt;excluded = $array;</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00145">145</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a81b2f9024885c83fa1ff9eb0cd534dc2"></a>
@@ -254,11 +246,8 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00170">170</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
-<div class="fragment"><div class="line">                                                 {</div>
-<div class="line">                              $this-&gt;map = $array;</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00172">172</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a4f006f9108398d9dc80b0d0ba057b32b"></a>
@@ -276,18 +265,8 @@ Protected Attributes</h2></td></tr>
 <p>Returns how many pages of results we have </p>
 <dl class="section return"><dt>Returns</dt><dd>int The number of pages in our resultset </dd></dl>
 
-<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00178">178</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
-<div class="fragment"><div class="line">                                               {</div>
-<div class="line">                              <span class="comment">// Create SQL Statement</span></div>
-<div class="line">                              <a class="code" href="class_db_grid.html#a047170d6020a882807665812a27e2525">$sql</a> = <a class="code" href="class_db_grid.html#a047170d6020a882807665812a27e2525">$this-&gt;sql</a>;</div>
-<div class="line"></div>
-<div class="line">                              $query = $this-&gt;db-&gt;prepare(<a class="code" href="class_db_grid.html#a047170d6020a882807665812a27e2525">$sql</a>);</div>
-<div class="line">                              $query-&gt;execute();</div>
-<div class="line">                              $query-&gt;setFetchMode(PDO::FETCH_OBJ);</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">return</span> ceil($query-&gt;rowCount() / <a class="code" href="class_db_grid.html#ad48e2eb22ba0d9bef2ad4d665d9784b2">$this-&gt;maxRecords</a>);</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00180">180</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a24266229cb2543d0f438b06cb26fdd7d"></a>
@@ -311,11 +290,8 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00125">125</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
-<div class="fragment"><div class="line">                                                      {</div>
-<div class="line">                              $this-&gt;querystring = $query;</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00127">127</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a2b8e3779f5bd8c38f70307574859bd36"></a>
@@ -332,126 +308,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Shows an editable form </p>
 
-<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00192">192</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
-<div class="fragment"><div class="line">                                      {</div>
-<div class="line">                              <span class="comment">// Create SQL Statement</span></div>
-<div class="line">                              <a class="code" href="class_db_grid.html#a047170d6020a882807665812a27e2525">$sql</a> = <a class="code" href="class_db_grid.html#a047170d6020a882807665812a27e2525">$this-&gt;sql</a>;</div>
-<div class="line"></div>
-<div class="line">                              <span class="comment">// Change the sort order</span></div>
-<div class="line">                              <span class="keywordflow">if</span> (!empty($this-&gt;sortBy)) {</div>
-<div class="line">                                             <a class="code" href="class_db_grid.html#ab38893e590c3f831edfdcf64fc2aa02c">$asc</a> = (<a class="code" href="class_db_grid.html#ab38893e590c3f831edfdcf64fc2aa02c">$this-&gt;asc</a>) ? <span class="stringliteral">&quot;ASC&quot;</span> : <span class="stringliteral">&quot;DESC&quot;</span>;</div>
-<div class="line"></div>
-<div class="line">                                             <a class="code" href="class_db_grid.html#a047170d6020a882807665812a27e2525">$sql</a> = <a class="code" href="class_db_grid.html#a047170d6020a882807665812a27e2525">$sql</a> . <span class="stringliteral">&quot; ORDER BY `&quot;</span> . $this-&gt;sortBy . <span class="stringliteral">&quot;` $asc&quot;</span>;</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              <span class="comment">// Limit records</span></div>
-<div class="line">                              <span class="keywordflow">if</span> ($this-&gt;maxRecords &gt; 0) {</div>
-<div class="line">                                             <a class="code" href="class_db_grid.html#a047170d6020a882807665812a27e2525">$sql</a> = <a class="code" href="class_db_grid.html#a047170d6020a882807665812a27e2525">$sql</a> . <span class="stringliteral">&quot; LIMIT &quot;</span> . ($this-&gt;page - 1) * $this-&gt;maxRecords . <span class="stringliteral">&quot;, &quot;</span> . $this-&gt;maxRecords;</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              $query = $this-&gt;db-&gt;prepare(<a class="code" href="class_db_grid.html#a047170d6020a882807665812a27e2525">$sql</a>);</div>
-<div class="line">                              $query-&gt;execute();</div>
-<div class="line">                              $query-&gt;setFetchMode(PDO::FETCH_OBJ);</div>
-<div class="line"></div>
-<div class="line">                              <span class="comment">// Get column data</span></div>
-<div class="line">                              <span class="keywordflow">for</span> ($i = 0; $i &lt;= $query-&gt;columnCount(); $i ++) {</div>
-<div class="line">                                             <a class="code" href="class_db_grid.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a> = $query-&gt;getColumnMeta($i);</div>
-<div class="line">                                             <span class="keywordflow">if</span> (isset(<a class="code" href="class_db_grid.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>[<span class="stringliteral">&#39;name&#39;</span>])) {</div>
-<div class="line">                                                            $this-&gt;meta[<a class="code" href="class_db_grid.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>[<span class="stringliteral">&#39;name&#39;</span>]] = <a class="code" href="class_db_grid.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>;</div>
-<div class="line">                                             }</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              <a class="code" href="class_hook.html#afff7a7869d2dd304043b69a3fff24655">Hook::addAction</a>($this-&gt;name . <span class="stringliteral">&quot;_beforeTable&quot;</span>);</div>
-<div class="line">                              <a class="code" href="class_hook.html#afff7a7869d2dd304043b69a3fff24655">Hook::addAction</a>(<span class="stringliteral">&quot;dbGrid_beforeTable&quot;</span>);</div>
-<div class="line">                              echo <span class="stringliteral">&quot;&lt;table id=&#39;{$this-&gt;name}_dbgrid&#39; cellpadding=&#39;0&#39; cellspacing=&#39;0&#39;&gt;\n&lt;tr&gt;&quot;</span>;</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">foreach</span> ($this-&gt;meta as <a class="code" href="class_db_grid.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>) {</div>
-<div class="line">                                             $metaName = <a class="code" href="class_hook.html#a6489ed6b12329279b9e7cae26afc4dd6">Hook::addFilter</a>($this-&gt;name . <span class="stringliteral">&quot;_tableHeader&quot;</span>, $meta[<span class="stringliteral">&#39;name&#39;</span>]);</div>
-<div class="line">                                             $metaName = <a class="code" href="class_hook.html#a6489ed6b12329279b9e7cae26afc4dd6">Hook::addFilter</a>(<span class="stringliteral">&quot;dbgrid_tableHeader&quot;</span>, $metaName);</div>
-<div class="line">                                             <span class="keywordflow">if</span> (!$this-&gt;isExcluded($meta[<span class="stringliteral">&#39;name&#39;</span>])) {</div>
-<div class="line">                                                            <span class="keywordflow">if</span> ($this-&gt;sortBy == $meta[<span class="stringliteral">&#39;name&#39;</span>]) {</div>
-<div class="line">                                                                           <span class="keywordflow">if</span> ($this-&gt;asc) {</div>
-<div class="line">                                                                                          <a class="code" href="class_db_grid.html#ab38893e590c3f831edfdcf64fc2aa02c">$asc</a> = <span class="stringliteral">&quot;&amp;amp;asc=false&quot;</span>;</div>
-<div class="line">                                                                                          $class = <span class="stringliteral">&quot;asc&quot;</span>;</div>
-<div class="line">                                                                                          $char = <span class="stringliteral">&quot;&amp;#x21E7;&quot;</span>;</div>
-<div class="line">                                                                           } <span class="keywordflow">else</span> {</div>
-<div class="line">                                                                                          <a class="code" href="class_db_grid.html#ab38893e590c3f831edfdcf64fc2aa02c">$asc</a> = <span class="stringliteral">&quot;&amp;amp;asc=true&quot;</span>;</div>
-<div class="line">                                                                                          $class = <span class="stringliteral">&quot;desc&quot;</span>;</div>
-<div class="line">                                                                           }</div>
-<div class="line">                                                            } <span class="keywordflow">else</span> {</div>
-<div class="line">                                                                           <a class="code" href="class_db_grid.html#ab38893e590c3f831edfdcf64fc2aa02c">$asc</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">                                                                           $class = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">                                                            }</div>
-<div class="line">                                                            echo <span class="stringliteral">&quot;&lt;th&gt;&quot;</span>;</div>
-<div class="line">                                                            <span class="keywordflow">if</span> ($this-&gt;canSortBy[$meta[<span class="stringliteral">&#39;name&#39;</span>]]) {</div>
-<div class="line">                                                                           <span class="keywordflow">if</span> (!empty($this-&gt;querystring)) {</div>
-<div class="line">                                                                                          echo <span class="stringliteral">&quot;&lt;a class=&#39;{$class}&#39; href=&#39;{$this-&gt;querystring}&amp;amp;sort=&quot;</span> . urlencode($meta[<span class="stringliteral">&#39;name&#39;</span>]) . <a class="code" href="class_db_grid.html#ab38893e590c3f831edfdcf64fc2aa02c">$asc</a> . <span class="stringliteral">&quot;&#39;&gt;&quot;</span> .$metaName . <span class="stringliteral">&quot;&lt;/a&gt;&quot;</span>;</div>
-<div class="line">                                                                           } <span class="keywordflow">else</span> {</div>
-<div class="line">                                                                                          echo <span class="stringliteral">&quot;&lt;a class=&#39;{$class}&#39; href=&#39;?sort=&quot;</span> . urlencode($meta[<span class="stringliteral">&#39;name&#39;</span>]) . <a class="code" href="class_db_grid.html#ab38893e590c3f831edfdcf64fc2aa02c">$asc</a> . <span class="stringliteral">&quot;&#39;&gt;&quot;</span> .$metaName . <span class="stringliteral">&quot;&lt;/a&gt;&quot;</span>;</div>
-<div class="line">                                                                           }</div>
-<div class="line">                                                            } <span class="keywordflow">else</span> {</div>
-<div class="line">                                                                           echo $metaName;</div>
-<div class="line">                                                            }</div>
-<div class="line"></div>
-<div class="line">                                                            echo <span class="stringliteral">&quot;&lt;/th&gt;&quot;</span>;</div>
-<div class="line">                                             }</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              echo <span class="stringliteral">&quot;&lt;/tr&gt;&quot;</span>;</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">foreach</span>($query-&gt;fetchAll() as $row) {</div>
-<div class="line">                                             <span class="keywordflow">if</span> (empty($rzebra)) {</div>
-<div class="line">                                                                           $rzebra = <span class="stringliteral">&quot;zebra&quot;</span>;</div>
-<div class="line">                                                            } <span class="keywordflow">else</span> {</div>
-<div class="line">                                                                           $rzebra = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">                                                            }</div>
-<div class="line">                                             echo <span class="stringliteral">&quot;&lt;tr class=&#39;{$rzebra}&#39;&gt;&quot;</span>;</div>
-<div class="line">                                             <span class="keywordflow">foreach</span> ($row as $key =&gt; $value) {</div>
-<div class="line">                                                            $value = htmlentities($value);</div>
-<div class="line"></div>
-<div class="line">                                                            <span class="keywordflow">if</span> (empty($czebra)) {</div>
-<div class="line">                                                                           $czebra = <span class="stringliteral">&quot;zebra&quot;</span>;</div>
-<div class="line">                                                            } <span class="keywordflow">else</span> {</div>
-<div class="line">                                                                           $czebra = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">                                                            }</div>
-<div class="line"></div>
-<div class="line">                                                            <span class="keywordflow">if</span> (isset($this-&gt;map[$key])) {</div>
-<div class="line">                                                                           $kid = $this-&gt;map[$key];</div>
-<div class="line">                                                                           $id = $row-&gt;$kid;</div>
-<div class="line">                                                            } <span class="keywordflow">else</span> {</div>
-<div class="line">                                                                           $id = 0;</div>
-<div class="line">                                                            }</div>
-<div class="line"></div>
-<div class="line">                                                            $value = <a class="code" href="class_hook.html#a6489ed6b12329279b9e7cae26afc4dd6">Hook::addFilter</a>($this-&gt;name . <span class="stringliteral">&quot;_tableColumn&quot;</span>, array(</div>
-<div class="line">                                                                           $value,</div>
-<div class="line">                                                                           $key,</div>
-<div class="line">                                                                           $id</div>
-<div class="line">                                                            ));</div>
-<div class="line"></div>
-<div class="line">                                                            $value = <a class="code" href="class_hook.html#a6489ed6b12329279b9e7cae26afc4dd6">Hook::addFilter</a>(<span class="stringliteral">&quot;dbgrid_tableColumn&quot;</span>, array(</div>
-<div class="line">                                                                           $value,</div>
-<div class="line">                                                                           $key,</div>
-<div class="line">                                                                           $id</div>
-<div class="line">                                                            ));</div>
-<div class="line"></div>
-<div class="line">                                                            <span class="keywordflow">if</span> (!$this-&gt;isExcluded($key)) {</div>
-<div class="line">                                                                           echo <span class="stringliteral">&quot;&lt;td class={$czebra}&gt;{$value}&lt;/td&gt;&quot;</span>;</div>
-<div class="line">                                                            }</div>
-<div class="line">                                             }</div>
-<div class="line">                                             echo <span class="stringliteral">&quot;&lt;/tr&gt;&quot;</span>;</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              echo <span class="stringliteral">&quot;&lt;/table&gt;&quot;</span>;</div>
-<div class="line">                              <a class="code" href="class_hook.html#afff7a7869d2dd304043b69a3fff24655">Hook::addAction</a>($this-&gt;name . <span class="stringliteral">&quot;_afterTable&quot;</span>);</div>
-<div class="line">                              <a class="code" href="class_hook.html#afff7a7869d2dd304043b69a3fff24655">Hook::addAction</a>(<span class="stringliteral">&quot;dbGrid_afterTable&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">if</span> (isset($labels[$meta[<span class="stringliteral">&#39;name&#39;</span>]])) {</div>
-<div class="line">                                             $label = $labels[$meta[<span class="stringliteral">&#39;name&#39;</span>]];</div>
-<div class="line">                              } <span class="keywordflow">else</span> {</div>
-<div class="line">                                             $label = $meta[<span class="stringliteral">&#39;name&#39;</span>];</div>
-<div class="line">                              }</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00194">194</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ab7abf389a489e98a67891c1451ee3df1"></a>
@@ -486,12 +344,8 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00134">134</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
-<div class="fragment"><div class="line">                                                        {</div>
-<div class="line">                              $this-&gt;sortBy = $column;</div>
-<div class="line">                              $this-&gt;asc = <a class="code" href="class_db_grid.html#ab38893e590c3f831edfdcf64fc2aa02c">$asc</a>;</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00136">136</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aeacb971f985ff1651a2ab65eddb2e210"></a>
@@ -515,11 +369,8 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00117">117</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
-<div class="fragment"><div class="line">                                                {</div>
-<div class="line">                              $this-&gt;canSortBy = $array;</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00119">119</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -542,7 +393,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>string Ascending? or Descending? </p>
 
-<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00064">64</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00066">66</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
 
 </div>
 </div>
@@ -565,7 +416,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>array string fields that are sortable. Used when rendering column header links </p>
 
-<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00084">84</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00086">86</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
 
 </div>
 </div>
@@ -588,7 +439,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p><a class="el" href="class_d_b.html">DB</a> The <a class="el" href="class_d_b.html">DB</a> object </p>
 
-<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00044">44</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00046">46</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
 
 </div>
 </div>
@@ -611,7 +462,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>array string Which fields to exclude from the table </p>
 
-<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00089">89</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00091">91</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
 
 </div>
 </div>
@@ -634,7 +485,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>array associative An array of fields =&gt; id that gets passed to the hooks </p>
 
-<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00094">94</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00096">96</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
 
 </div>
 </div>
@@ -649,7 +500,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>int How many records per page? </p>
 
-<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00069">69</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00071">71</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
 
 </div>
 </div>
@@ -664,7 +515,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>object The meta data for the fields </p>
 
-<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00079">79</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00081">81</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
 
 </div>
 </div>
@@ -687,7 +538,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>string The name of our grid </p>
 
-<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00049">49</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00051">51</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
 
 </div>
 </div>
@@ -702,7 +553,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>int Which page are we on? </p>
 
-<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00074">74</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00076">76</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
 
 </div>
 </div>
@@ -725,7 +576,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>string Querystring to pass into the sorting links in the th </p>
 
-<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00099">99</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00101">101</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
 
 </div>
 </div>
@@ -748,7 +599,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>string The column to sort by </p>
 
-<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00059">59</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00061">61</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
 
 </div>
 </div>
@@ -771,7 +622,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>string The SQL to run to make the grid </p>
 
-<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00054">54</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8dbgrid_8php_source.html#l00056">56</a> of file <a class="el" href="class_8dbgrid_8php_source.html">class.dbgrid.php</a>.</p>
 
 </div>
 </div>
@@ -784,7 +635,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_db_grid.html">DbGrid</a></li>
-    <li class="footer">Generated on Fri Jan 3 2014 13:11:20 for sleepyMUSTACHE by
+    <li class="footer">Generated on Mon Jun 16 2014 18:08:24 for Sleepy Mustache by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

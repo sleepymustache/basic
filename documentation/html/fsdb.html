@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>sleepyMUSTACHE: File System Database Class</title>
+<title>Sleepy Mustache: File System Database Class</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">sleepyMUSTACHE
+   <div id="projectname">Sleepy Mustache
    </div>
   </td>
  </tr>
@@ -100,7 +100,7 @@ $(document).ready(function(){initNavTree('fsdb.html','');});
 <div class="textblock"><p>A mock database that can be used when a real <a class="el" href="class_d_b.html">DB</a> is overkill.</p>
 <p>A database that uses flat files for basic database functionality like select, insert, update, and delete.</p>
 <h1><a class="anchor" id="usage"></a>
-Usage:</h1>
+Usage</h1>
 <div class="fragment"><div class="line">$fruit = <span class="keyword">new</span> stdClass();</div>
 <div class="line">$fruit-&gt;name = <span class="stringliteral">&quot;Apple&quot;</span>;</div>
 <div class="line">$fruit-&gt;color = <span class="stringliteral">&quot;Red&quot;</span>;</div>
@@ -110,16 +110,23 @@ Usage:</h1>
 <div class="line">$db = <span class="keyword">new</span> <a class="code" href="class_f_s_d_b.html">FSDB</a>();</div>
 <div class="line">$db-&gt;insert(<span class="stringliteral">&#39;fruit&#39;</span>, $fruit);</div>
 <div class="line">$data = $db-&gt;select(<span class="stringliteral">&#39;fruit&#39;</span>, <span class="stringliteral">&#39;name&#39;</span>, <span class="stringliteral">&#39;Banana&#39;</span>);</div>
-</div><!-- fragment --><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>select with =, &gt;, &lt;, !=, &gt;=, &lt;= </dd></dl>
+</div><!-- fragment --><h1><a class="anchor" id="changelog"></a>
+Changelog</h1>
+<h2>Version 0.8</h2>
+<ul>
+<li>Added the date and changelog sections to documentation</li>
+</ul>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>select with =, &gt;, &lt;, !=, &gt;=, &lt;=</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>June 16, 2014 </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Jaime A. Rodriguez <a href="#" onclick="location.href='mai'+'lto:'+'hi.'+'i.'+'am.'+'ja'+'ime'+'@g'+'mai'+'l.'+'com'; return false;">hi.i.<span style="display: none;">.nosp@m.</span>am.j<span style="display: none;">.nosp@m.</span>aime@<span style="display: none;">.nosp@m.</span>gmai<span style="display: none;">.nosp@m.</span>l.com</a> </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>0.7 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.8 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>GPL 3 <a href="http://cuttingedgecode.com">http://cuttingedgecode.com</a> </dd></dl>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Jan 3 2014 13:11:20 for sleepyMUSTACHE by
+    <li class="footer">Generated on Mon Jun 16 2014 18:08:24 for Sleepy Mustache by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

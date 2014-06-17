@@ -1,0 +1,9 @@
+digraph "modules/disabled/robotalker" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_963797e61b298ab29dc641f49fcfb6d7 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="disabled" fontname="Helvetica", fontsize="10", URL="dir_963797e61b298ab29dc641f49fcfb6d7.html"]
+  dir_77e316d8c79da7faeb8b3f12b7c5c6d7 [shape=box, label="robotalker", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_77e316d8c79da7faeb8b3f12b7c5c6d7.html"];
+  }
+}

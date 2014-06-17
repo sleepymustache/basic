@@ -1,0 +1,11 @@
+digraph "testNulls"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="testNulls",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="PHPUnit_TestCase\\assertNull",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_p_h_p_unit___test_case.html#ab12b68c9b5c6b6715143be030219f8de"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="PHPUnit_TestCase\\assertNotNull",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_p_h_p_unit___test_case.html#a3c1517db31de3a6019ff64ac1b5b4d96"];
+}

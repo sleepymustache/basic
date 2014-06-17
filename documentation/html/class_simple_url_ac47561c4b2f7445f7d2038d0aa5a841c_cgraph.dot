@@ -1,0 +1,30 @@
+digraph "makeAbsolute"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="makeAbsolute",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="getHost",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_url.html#af89674df83d1ee2198e54b5c8340795e"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="getScheme",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_url.html#af5a3601e33a3ba4a8e94346dba6459d3"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="getPort",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_url.html#afd4db46d3c12f47f0bee19cd2101be64"];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="getIdentity",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_url.html#a8d0c4e1299abe333956fca30fdc44143"];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="normalisePath",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_url.html#a5ffe3f5775240325dc1099c1e1abcf7b"];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="extractAbsolutePath",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_url.html#a9b3e023ae701f58c9cc25354836246a1"];
+  Node7 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="isRelativePath",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_url.html#a8a42d0777fc665f6f1185b1c97b5b5c1"];
+  Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="getEncodedRequest",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_url.html#aec717d6d668b9227045a0413e8a23583"];
+  Node1 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="getFragment",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_url.html#a8e9be93affbfde43840cbaf4b6712ea9"];
+  Node1 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="getX",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_url.html#a403d7c3dc9b308567cf859a67b1cf1e5"];
+  Node1 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="getY",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_url.html#ac878fc1b93b7d5c1bd6d3142dd197f19"];
+}

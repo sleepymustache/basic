@@ -1,0 +1,39 @@
+digraph "loadPage"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="loadPage",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="load",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#abc13ffb32fdf61b67bee819c6cd1ca03"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="get",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#a8c924acbcbf1f8e0bd5fce273a107af3"];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="post",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#a680a458bae8a85b247073083d26e7851"];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="put",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#a4df23de92f6fe5f7a3c493ea82b1543e"];
+  Node2 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="delete",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#a3466ad7231cfb907f9fd9dd3e8994c0f"];
+  Node2 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="clickSubmit",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#a67cc36f3e3acdad590220e3c40b94404"];
+  Node7 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="click",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#a0b173117f020df8397ad7c049309491e"];
+  Node2 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="clickSubmitByName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#a0345f14a17e92f9cdce98f2ada5b076a"];
+  Node2 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="clickSubmitById",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#aa2e09251bec51122d0f0f7b5dfcf33a8"];
+  Node2 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="clickImage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#a272236a3ca47981ed9df9952135d2fe1"];
+  Node11 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="clickImageByName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#a90b5b0477b9a1f643484acd3f216a071"];
+  Node2 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="clickImageById",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#a28d330cbd1bca271d560ec23b66b3421"];
+  Node2 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 [label="submitFormById",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#a3c1761f2062be92a4fd68011ac69438e"];
+  Node2 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node15 [label="clickLink",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#aaff72b22c800809b350ec4804c2d1ab9"];
+  Node15 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 -> Node16 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node16 [label="clickLinkById",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#ab4a10a33520202a43961e62b05f58869"];
+}

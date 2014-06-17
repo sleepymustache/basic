@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>sleepyMUSTACHE: include/sleepy.php Source File</title>
+<title>Sleepy Mustache: include/sleepy.php Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">sleepyMUSTACHE
+   <div id="projectname">Sleepy Mustache
    </div>
   </td>
  </tr>
@@ -104,39 +104,39 @@ $(document).ready(function(){initNavTree('sleepy_8php_source.html','');});
 </div><!--header-->
 <div class="contents">
 <a href="sleepy_8php.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;               <span class="comment">// Performance benchmarking</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;               require_once(<span class="stringliteral">&#39;class.performance.php&#39;</span>);</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;               <a class="code" href="class_performance.html#a1f9e601dc116eccc60485bab6079b705">Performance::start</a>(<span class="stringliteral">&#39;template&#39;</span>);</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;    <span class="comment">// Performance benchmarking</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;    require_once(<span class="stringliteral">&#39;class.performance.php&#39;</span>);</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <a class="code" href="class_performance.html#a1f9e601dc116eccc60485bab6079b705">Performance::start</a>(<span class="stringliteral">&#39;template&#39;</span>);</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;               <span class="comment">// Enable sessions</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;               session_start();</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="comment">// Enable sessions</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    session_start();</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;               <span class="comment">// Send the encoding ahead of time to speed up rendering</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;               header(<span class="stringliteral">&#39;Content-Type: text/html; charset=utf-8&#39;</span>);</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;               include_once(<span class="stringliteral">&#39;class.debug.php&#39;</span>);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;               include_once(<span class="stringliteral">&#39;global.php&#39;</span>);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;               include_once(<span class="stringliteral">&#39;class.hooks.php&#39;</span>);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;               include_once(<span class="stringliteral">&#39;class.template.php&#39;</span>);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="class_sleepy.html">   17</a></span>&#160;               <span class="keyword">class </span><a class="code" href="class_sleepy.html">Sleepy</a> {</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="class_sleepy.html#a095c5d389db211932136b53f25f39685">   18</a></span>&#160;                              <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_sleepy.html#a095c5d389db211932136b53f25f39685">__construct</a>() {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                                             <a class="code" href="class_hook.html#afff7a7869d2dd304043b69a3fff24655">Hook::addAction</a>(<span class="stringliteral">&#39;sleepy_preprocess&#39;</span>);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                              }</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    include_once(<span class="stringliteral">&#39;class.debug.php&#39;</span>);</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    include_once(<span class="stringliteral">&#39;global.php&#39;</span>);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    include_once(<span class="stringliteral">&#39;class.hooks.php&#39;</span>);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    include_once(<span class="stringliteral">&#39;class.template.php&#39;</span>);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="class_sleepy.html">   14</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_sleepy.html">Sleepy</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="class_sleepy.html#a095c5d389db211932136b53f25f39685">   15</a></span>&#160;        <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_sleepy.html#a095c5d389db211932136b53f25f39685">__construct</a>() {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <a class="code" href="class_hook.html#afff7a7869d2dd304043b69a3fff24655">Hook::addAction</a>(<span class="stringliteral">&#39;sleepy_preprocess&#39;</span>);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <span class="comment">// Send the encoding ahead of time to speed up rendering</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            header(<span class="stringliteral">&#39;Content-Type: text/html; charset=utf-8&#39;</span>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        }</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="class_sleepy.html#a421831a265621325e1fdd19aace0c758">   22</a></span>&#160;                              <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_sleepy.html#a421831a265621325e1fdd19aace0c758">__destruct</a>() {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                                             <a class="code" href="class_hook.html#afff7a7869d2dd304043b69a3fff24655">Hook::addAction</a>(<span class="stringliteral">&#39;sleepy_postprocess&#39;</span>);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                              }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;               }</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="class_sleepy.html#a421831a265621325e1fdd19aace0c758">   22</a></span>&#160;        <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_sleepy.html#a421831a265621325e1fdd19aace0c758">__destruct</a>() {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <a class="code" href="class_hook.html#afff7a7869d2dd304043b69a3fff24655">Hook::addAction</a>(<span class="stringliteral">&#39;sleepy_postprocess&#39;</span>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="sleepy_8php.html#a1b81bc59aa35aa47690249e597b5c682">   27</a></span>&#160;               <a class="code" href="sleepy_8php.html#a1b81bc59aa35aa47690249e597b5c682">$_sleepy</a> = <span class="keyword">new</span> <a class="code" href="class_sleepy.html">Sleepy</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="sleepy_8php.html#a1b81bc59aa35aa47690249e597b5c682">   27</a></span>&#160;    <a class="code" href="sleepy_8php.html#a1b81bc59aa35aa47690249e597b5c682">$_sleepy</a> = <span class="keyword">new</span> <a class="code" href="class_sleepy.html">Sleepy</a>();</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="sleepy_8php.html">sleepy.php</a></li>
-    <li class="footer">Generated on Fri Jan 3 2014 13:11:19 for sleepyMUSTACHE by
+    <li class="footer">Generated on Mon Jun 16 2014 18:08:24 for Sleepy Mustache by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

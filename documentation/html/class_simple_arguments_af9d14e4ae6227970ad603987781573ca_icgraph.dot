@@ -1,0 +1,13 @@
+digraph "all"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="all",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="assign",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_arguments.html#a4aa62b003ad9bade1760bb1f729a9cf0"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="__construct",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_arguments.html#a4bf3fbd824f07b1cafad69f13cb3f26f"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="__get",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_arguments.html#a4537dad3b44254124991341cc91b28fb"];
+}

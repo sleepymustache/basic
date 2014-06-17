@@ -1,0 +1,27 @@
+digraph "getExpectationLine"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="getExpectationLine",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="SimpleCallSchedule\l\\expectArguments",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_call_schedule.html#a62dcc3d6294d11560725d4e66852749a"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="SimpleMock\\expect",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_mock.html#a388a6138e4309a29d701d1a868aacd1e"];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="SimpleMock\\expectOnce",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_mock.html#ae2d9ef313ed087c4c85d5fc9c5b5658c"];
+  Node3 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="SimpleMock\\expectAtLeastOnce",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_mock.html#ae2f62a01a49e4e1c22cf713925f942d4"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="SimpleMock\\expectAt",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_mock.html#a624ee9fd5b14c15570efa6ad1b7775ca"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="SimpleMock\\expectCallCount",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_mock.html#a91a30f1b440f00fb0a869fee5b31b72c"];
+  Node7 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="SimpleMock\\expectMaximum\lCallCount",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_mock.html#a475b6700aabb33a964539204778ebf75"];
+  Node8 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="SimpleMock\\expectNever",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_mock.html#a2d88caedfcd445f3c48f3c9e925417d0"];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="SimpleMock\\expectMinimum\lCallCount",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_mock.html#a12961248a297982e17d1a25e8deaaa6b"];
+  Node10 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

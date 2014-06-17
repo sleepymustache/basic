@@ -1,0 +1,33 @@
+digraph "clickLinkById"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="clickLinkById",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="getLinkById",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#a75a8e3b80624562732dd986d793cc42b"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="load",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#abc13ffb32fdf61b67bee819c6cd1ca03"];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="loadPage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#a6a844b58937c25882302cdd3d04eb17a"];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="fetch",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#a625ef5dc40929a14ff182371200293cf"];
+  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="parse",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#a49f7f75946cb2db7bcafccad91fceed5"];
+  Node6 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="buildPage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#a9e51bf4e2a9f62f6875e4dd1857117af"];
+  Node7 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="getParser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#a4b6907ea868dc9053e1f7d6260fa4b4f"];
+  Node8 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="SimpleTest\\getParsers",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_test.html#a4b51a0f9099ff86bcc8e850ac62af344"];
+  Node9 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="SimpleTest\\getRegistry",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_test.html#a91320adbec8b564c37b40a29aa9df772"];
+  Node10 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="SimpleTest\\getDefaults",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_test.html#a82efa1571705e561b8bae6b73060945d"];
+  Node6 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="loadFrame",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#aae670bf98b9e4010c956127ec2ec9554"];
+  Node12 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node13 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="getContent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#a58e43f09a06ce4e29b192c4e17ce7915"];
+}

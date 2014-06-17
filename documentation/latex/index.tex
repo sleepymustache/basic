@@ -125,7 +125,73 @@ These module have little-\/to-\/no practical use, but help demonstrate how to bu
 
 \begin{DoxyItemize}
 \item {\bfseries Timer} -\/ A module that replaces the \{\{ timer \}\} with the time it took the framework to generate the page.
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
 \item {\bfseries Wizard Title} -\/ This module prepends an A\-S\-C\-I\-I wizard to the title of the page.
+\end{DoxyItemize}
+
+\subsubsection*{Constants}
+
+
+\begin{DoxyItemize}
+\item {\bfseries E\-N\-V} What is the current environment. Values\-: D\-E\-V, S\-T\-A\-G\-E, L\-I\-V\-E
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\bfseries U\-R\-L\-B\-A\-S\-E} The base U\-R\-L to the sleepy\-M\-U\-S\-T\-A\-C\-H\-E base directory
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\bfseries D\-I\-R\-B\-A\-S\-E} the base directory to the sleepy\-M\-U\-S\-T\-A\-C\-H\-E base directory
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\bfseries D\-B\-H\-O\-S\-T} the mysql host U\-R\-L
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\bfseries D\-B\-U\-S\-E\-R} the mysql username
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\bfseries D\-B\-P\-A\-S\-S} the mysql password
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\bfseries D\-B\-N\-A\-M\-E} the mysql database name
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\bfseries E\-M\-A\-I\-L\-\_\-\-F\-R\-O\-M} the email address to use for the \char`\"{}from\char`\"{} field
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\bfseries E\-M\-A\-I\-L\-\_\-\-T\-O} the email address to use for the \char`\"{}to\char`\"{} field
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\bfseries E\-M\-A\-I\-L\-\_\-\-C\-C} the email address to use for the \char`\"{}cc\char`\"{} field
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\bfseries E\-M\-A\-I\-L\-\_\-\-B\-C\-C} the email address to use for the \char`\"{}bcc\char`\"{} field
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\bfseries G\-A\-\_\-\-A\-C\-C\-O\-U\-N\-T} the Google Analytics G\-A Account I\-D
 \end{DoxyItemize}
 
 \subsection*{Getting Started}
@@ -145,37 +211,37 @@ There are a few globals you will want to set in the include/globals.\-php file.
 
 \subsubsection*{Hooks}
 
-The {\itshape Hooks} system is made up of {\itshape hook filters} and {\itshape hook actions}. {\itshape \hyperlink{class_hook}{Hook} actions} are points in the code where you can assign functions to run. For example, we can put a {\itshape hook action} after a record is saved to the database, then assign a function to the {\itshape hook action} that will send an email after the \hyperlink{class_d_b}{D\-B} update. \begin{DoxyVerb}           // Save to the database
-           $db->save();
+The {\itshape Hooks} system is made up of {\itshape hook filters} and {\itshape hook actions}. {\itshape \hyperlink{class_hook}{Hook} actions} are points in the code where you can assign functions to run. For example, we can put a {\itshape hook action} after a record is saved to the database, then assign a function to the {\itshape hook action} that will send an email after the \hyperlink{class_d_b}{D\-B} update. \begin{DoxyVerb}// Save to the database
+$db->save();
 
-           // add a hook action
-           Hook::addAction('record_saved');
+// add a hook action
+Hook::addAction('record_saved');
 
-           // Add a function to the hook action
-           function send_email() {
-                          // send an email saying a record was updated
-           }
+// Add a function to the hook action
+function send_email() {
+    // send an email saying a record was updated
+}
 
-           Hook::doAction(
-                          'record_saved',
-                          'send_email'
-           );
+Hook::doAction(
+    'record_saved',
+    'send_email'
+);
 \end{DoxyVerb}
 
 
-{\itshape \hyperlink{class_hook}{Hook} filters} are similar to {\itshape hook actions} but pass data as parameters to the functions that get assigned to the hook. After manipulating this data you should return the edited data back to the program. \begin{DoxyVerb}           // add a hook filter
-           $content = Hook::addFilter('update_content', $_POST['content']);
+{\itshape \hyperlink{class_hook}{Hook} filters} are similar to {\itshape hook actions} but pass data as parameters to the functions that get assigned to the hook. After manipulating this data you should return the edited data back to the program. \begin{DoxyVerb}// add a hook filter
+$content = Hook::addFilter('update_content', $_POST['content']);
 
-           // Add a function to the hook filter
-           function clean_html ($html) {
-                          $c = htmlentities(trim($html), ENT_NOQUOTES, "UTF-8", false);
-                          return $c;
-           }
+// Add a function to the hook filter
+function clean_html ($html) {
+    $c = htmlentities(trim($html), ENT_NOQUOTES, "UTF-8", false);
+    return $c;
+}
 
-           Hook::applyFilter(
-                          'update_content',
-                          'clean_html'
-           );
+Hook::applyFilter(
+    'update_content',
+    'clean_html'
+);
 \end{DoxyVerb}
 
 
@@ -183,62 +249,62 @@ The {\itshape modules/enabled} directory provides a convenient location to put c
 
 \subsubsection*{Templating}
 
-Templates reside inside the $\ast$'/templates/'$\ast$ folder and should end in a .tpl extension. The templating system works by using placeholders that later get replaced with text. The placeholders must have the following syntax\-: \begin{DoxyVerb}           {{ placeholder }}
+Templates reside inside the $\ast$'/templates/'$\ast$ folder and should end in a .tpl extension. The templating system works by using placeholders that later get replaced with text. The placeholders must have the following syntax\-: \begin{DoxyVerb}{{ placeholder }}
 \end{DoxyVerb}
 
 
-To use a template you instantiate the template class passing in the template name. You then bind data to the placeholders and call the {\itshape \hyperlink{class_template_a2b8e3779f5bd8c38f70307574859bd36}{Template\-::show()}} method. \begin{DoxyVerb}           require_once('include/sleepy.php');
+To use a template you instantiate the template class passing in the template name. You then bind data to the placeholders and call the {\itshape \hyperlink{class_template_a2b8e3779f5bd8c38f70307574859bd36}{Template\-::show()}} method. \begin{DoxyVerb}require_once('include/sleepy.php');
 
-           $page = new Template('default');
-           $page->bind('title', 'sleepyMUSTACHE');
-           $page->bind('header', 'Hello world!');
-           $page->show();
+$page = new Template('default');
+$page->bind('title', 'sleepyMUSTACHE');
+$page->bind('header', 'Hello world!');
+$page->show();
 \end{DoxyVerb}
 
 
-Here is the sample template file (templates/default.\-tpl) \begin{DoxyVerb}           <html>
-                          <head>
-                                         <title>{{ title }}</title>
-                          </head>
-                          <body>
-                                         <h1>{{ header }}</h1>
-                                         <p>This page has been viewed {{ hits }} times.</p>
-                          </body>
-           </html>
+Here is the sample template file (templates/default.\-tpl) \begin{DoxyVerb}<html>
+    <head>
+        <title>{{ title }}</title>
+    </head>
+    <body>
+        <h1>{{ header }}</h1>
+        <p>This page has been viewed {{ hits }} times.</p>
+    </body>
+</html>
 \end{DoxyVerb}
 
 
-We added a $\ast$\{\{ hits \}\}$\ast$ placeholder in the template above. For this example, we want to replace the placeholder with the number of times this page was viewed. We can add that functionality using Hooks. \begin{DoxyVerb}           // filename: /modules/enabled/hit-counter/hits.php
-           function hook_render_placeholder_hits() {
-                          $hits = new FakeClass();
+We added a $\ast$\{\{ hits \}\}$\ast$ placeholder in the template above. For this example, we want to replace the placeholder with the number of times this page was viewed. We can add that functionality using Hooks. \begin{DoxyVerb}// filename: /modules/enabled/hit-counter/hits.php
+function hook_render_placeholder_hits() {
+    $hits = new FakeClass();
 
-                          return $hits->getTotal();
-           }
+    return $hits->getTotal();
+}
 
-           Hook::applyFilter(
-                          'render_placeholder_hits',
-                          'hook_render_placeholder_hits'
-           );
+Hook::applyFilter(
+    'render_placeholder_hits',
+    'hook_render_placeholder_hits'
+);
 \end{DoxyVerb}
 
 
 The first parameter of {\itshape \hyperlink{class_hook}{Hook}\-:apply\-Filter}, the hook filter, ends in 'hits' which correlates to the name of the placeholder. This hook filter is defined in '{\itshape \hyperlink{class_8template_8php}{class.\-template.\-php}}'. The second parameter is the name of the function to run when we render the placeholder.
 
-You can iterate through multidimensional array data using \#each placeholders \begin{DoxyVerb}           // Bind the data like this
-           $page->bind('fruits', array(
-                          array(
-                                         "name" => "apple",
-                                         "color" => "red"
-                          ), array(
-                                         "name" => "banana",
-                                         "color" => "yellow"
-                          )
-           ));
+You can iterate through multidimensional array data using \#each placeholders \begin{DoxyVerb}// Bind the data like this
+$page->bind('fruits', array(
+    array(
+        "name" => "apple",
+        "color" => "red"
+    ), array(
+        "name" => "banana",
+        "color" => "yellow"
+    )
+));
 
-           // in the template
-           {{ #each f in fruits }}
-                          <p>I like {{ f.color }}, because my {{ f.name }} is {{ f.color }}.</p>
-           {{ /each }}
+// in the template
+{{ #each f in fruits }}
+    <p>I like {{ f.color }}, because my {{ f.name }} is {{ f.color }}.</p>
+{{ /each }}
 \end{DoxyVerb}
 
 
@@ -246,7 +312,7 @@ You can iterate through multidimensional array data using \#each placeholders \b
 
 The database connection settings are defined in the $\ast$/include/global.php$\ast$ file. After the {\itshape L\-I\-V\-E\-\_\-\-U\-R\-L} is set in {\itshape \hyperlink{global_8php}{global.\-php}} the framework will detect which \hyperlink{class_d_b}{D\-B} to use based on the current U\-R\-L.
 
-To get a database instance, use\-: \begin{DoxyVerb}           $db = DB::getInstance();
+To get a database instance, use\-: \begin{DoxyVerb}$db = DB::getInstance();
 \end{DoxyVerb}
 
 
@@ -254,122 +320,122 @@ The \hyperlink{class_d_b}{D\-B} class is static and will automatically handle su
 
 \subsubsection*{Sending emails}
 
-The \hyperlink{class_mailer}{Mailer} class simplifies sending emails by generating headers for you and using an easy to use object to clearly define your email. The \hyperlink{class_mailer}{Mailer} can send emails using an H\-T\-M\-L template or text. \begin{DoxyVerb}           $m = new Mailer();
-           $m->addTo("test@test.com");
-           $m->addFrom("from.me@test.com");
-           $m->addSubject("This is a test, don't panic.");
-           $m->fetchHTML("http://test.com/template.php");
-           // OR
-           $m->msgText("This is my message.")
-           $m->send();
+The \hyperlink{class_mailer}{Mailer} class simplifies sending emails by generating headers for you and using an easy to use object to clearly define your email. The \hyperlink{class_mailer}{Mailer} can send emails using an H\-T\-M\-L template or text. \begin{DoxyVerb}$m = new Mailer();
+$m->addTo("test@test.com");
+$m->addFrom("from.me@test.com");
+$m->addSubject("This is a test, don't panic.");
+$m->fetchHTML("http://test.com/template.php");
+// OR
+$m->msgText("This is my message.")
+$m->send();
 \end{DoxyVerb}
 
 
 \subsubsection*{\hyperlink{class_c_s_v}{C\-S\-V}}
 
-The \hyperlink{class_c_s_v}{C\-S\-V} class ensures that all records are properly escaped and allows you to easily manipulate data inside of a \hyperlink{class_c_s_v}{C\-S\-V} file. \begin{DoxyVerb}           $c = new CSV();
-           $data = array(
-                          'George',
-                          'Washington'
-           );
-           $c->add($data);
+The \hyperlink{class_c_s_v}{C\-S\-V} class ensures that all records are properly escaped and allows you to easily manipulate data inside of a \hyperlink{class_c_s_v}{C\-S\-V} file. \begin{DoxyVerb}$c = new CSV();
+$data = array(
+    'George',
+    'Washington'
+);
+$c->add($data);
 
-           // Saves to the filesystem
-           $c->save('presidents.csv');
+// Saves to the filesystem
+$c->save('presidents.csv');
 
-           // OR
+// OR
 
-           // Sends the file to the browser, does not save to the filesystem
-           $c->show();
+// Sends the file to the browser, does not save to the filesystem
+$c->show();
 \end{DoxyVerb}
 
 
 \subsubsection*{Debugging}
 
-The {\itshape \hyperlink{class_debug}{Debug}} static class allows you to debug on-\/screen, via email, or by logging to a database. \begin{DoxyVerb}           $db = DB::getInstance();
-           Debug::out($db);
+The {\itshape \hyperlink{class_debug}{Debug}} static class allows you to debug on-\/screen, via email, or by logging to a database. \begin{DoxyVerb}$db = DB::getInstance();
+Debug::out($db);
 \end{DoxyVerb}
 
 
 \subsubsection*{File System Database (\hyperlink{class_8fsdb_8php}{class.\-fsdb.\-php})}
 
-Sometimes using a database is overkill. A simple solution is to use the {\itshape \hyperlink{class_f_s_d_b}{F\-S\-D\-B}}. It is very simple and does not allow complex queries, however it is fast, easy to use, and requires no setup, except checking that proper permissions are set. \begin{DoxyVerb}           $fruit = new stdClass();
+Sometimes using a database is overkill. A simple solution is to use the {\itshape \hyperlink{class_f_s_d_b}{F\-S\-D\-B}}. It is very simple and does not allow complex queries, however it is fast, easy to use, and requires no setup, except checking that proper permissions are set. \begin{DoxyVerb}$fruit = new stdClass();
 
-           $fruit->name = "Apple";
-           $fruit->color = "Red";
-           $fruit->texture = "Crispy";
-           $fruit->price = 0.50;
+$fruit->name = "Apple";
+$fruit->color = "Red";
+$fruit->texture = "Crispy";
+$fruit->price = 0.50;
 
-           $db = new FSDB();
+$db = new FSDB();
 
-           $db->insert('fruit', $fruit);
-           $data = $db->select('fruit', 'name', 'Apple');
+$db->insert('fruit', $fruit);
+$data = $db->select('fruit', 'name', 'Apple');
 \end{DoxyVerb}
 
 
 \subsubsection*{Country detection}
 
-{\itshape Country detection} uses the {\itshape \hyperlink{class_f_s_d_b}{F\-S\-D\-B}} to do a quick lookup of the current country. \begin{DoxyVerb}           $i = new IP2CO();
+{\itshape Country detection} uses the {\itshape \hyperlink{class_f_s_d_b}{F\-S\-D\-B}} to do a quick lookup of the current country. \begin{DoxyVerb}$i = new IP2CO();
 
-           $countryCode = $i->getCountryCode($_SERVER['REMOTE_ADDR']);
+$countryCode = $i->getCountryCode($_SERVER['REMOTE_ADDR']);
 
-           if ($countryCode != false) {
-                          echo $countryCode;
-           } else {
-                          echo $_SERVER['REMOTE_ADDR'] . "(" . ip2long($_SERVER['REMOTE_ADDR']) . ") Not found in " . $i->getTable($_SERVER['REMOTE_ADDR']) . ".";
-           }
+if ($countryCode != false) {
+    echo $countryCode;
+} else {
+    echo $_SERVER['REMOTE_ADDR'] . "(" . ip2long($_SERVER['REMOTE_ADDR']) . ") Not found in " . $i->getTable($_SERVER['REMOTE_ADDR']) . ".";
+}
 \end{DoxyVerb}
 
 
 \subsubsection*{Mobile detection}
 
-Mobile detection is done by comparing the U\-A (user-\/agent) to a list of currently available mobile and tablet U\-A. \begin{DoxyVerb}           $md = new MobiDetect();
+Mobile detection is done by comparing the U\-A (user-\/agent) to a list of currently available mobile and tablet U\-A. \begin{DoxyVerb}$md = new MobiDetect();
 
-           if ($md->isMobile()) {
-                          // goto mobile site
-           }
+if ($md->isMobile()) {
+    // goto mobile site
+}
 \end{DoxyVerb}
 
 
 \subsubsection*{\hyperlink{class_navigation}{Navigation}}
 
-The navigation is generated from J\-S\-O\-N. It renders the J\-S\-O\-N into a unordered list with some classes added for the current active page. \begin{DoxyVerb}           // Add a placeholder in your template
-           {{ TopNav }}
+The navigation is generated from J\-S\-O\-N. It renders the J\-S\-O\-N into a unordered list with some classes added for the current active page. \begin{DoxyVerb}// Add a placeholder in your template
+{{ TopNav }}
 
-           // Create a php file in */modules/enabled/*
-           require_once('include/class.navigation.php');
+// Create a php file in */modules/enabled/*
+require_once('include/class.navigation.php');
 
-           // create a function to add to the *hook filter*
-           function hook_render_placeholder_TopNav() {
+// create a function to add to the *hook filter*
+function hook_render_placeholder_TopNav() {
 
-                          // Page data is passed via JSON
-                          $topNavData = '{
-                                         "pages": [
-                                                        {
-                                                                       "title": "Nav 1",
-                                                                       "link": "/nav1/"
-                                                        }, {
-                                                                       "title": "Nav 2",
-                                                                       "link": "/nav2/",
-                                                                       "pages": [
-                                                                                      {
-                                                                                                     "title": "Subnav 1",
-                                                                                                     "link": "/downloads/fpo.pdf",
-                                                                                                     "target": "_blank"
-                                                                                      }
-                                                                       ]
-                                                        }
-                                         ]
-                          }';
+    // Page data is passed via JSON
+    $topNavData = '{
+        "pages": [
+            {
+                "title": "Nav 1",
+                "link": "/nav1/"
+            }, {
+                "title": "Nav 2",
+                "link": "/nav2/",
+                "pages": [
+                    {
+                        "title": "Subnav 1",
+                        "link": "/downloads/fpo.pdf",
+                        "target": "_blank"
+                    }
+                ]
+            }
+        ]
+    }';
 
-                          $topNav = new Navigation($topNavData);
-                          $topNav->setCurrent($_SERVER['SCRIPT_NAME']);
+    $topNav = new Navigation($topNavData);
+    $topNav->setCurrent($_SERVER['SCRIPT_NAME']);
 
-                          return $topNav->show();
-           }
+    return $topNav->show();
+}
 
-           Hook::applyFilter(
-                          'render_placeholder_TopNav',
-                          'hook_render_placeholder_TopNav'
-           );\end{DoxyVerb}
+Hook::applyFilter(
+    'render_placeholder_TopNav',
+    'hook_render_placeholder_TopNav'
+);\end{DoxyVerb}
  

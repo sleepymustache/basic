@@ -1,0 +1,21 @@
+digraph "sendValidEnd"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="sendValidEnd",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="testPass",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_xml_results_parsing.html#a822ccbbc05f2002a274cccd5c462ccb5"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="testFail",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_xml_results_parsing.html#a5646821af3c3d8899e68016b97ecca60"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="testException",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_xml_results_parsing.html#a4ae4fb14577c6ec366041bab6ffb43dd"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="testSkip",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_xml_results_parsing.html#a6247dfe100beef76b9fd6371d844fbb3"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="testSignal",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_xml_results_parsing.html#ae193da5778935d7780d37cb1aa0ebfa5"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="testMessage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_xml_results_parsing.html#a74d351f84b9c8237326110854a6b6163"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="testFormattedMessage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_xml_results_parsing.html#acd51a46754effbd14c2a26556c7575bc"];
+}

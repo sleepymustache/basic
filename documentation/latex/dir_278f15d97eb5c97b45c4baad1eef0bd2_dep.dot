@@ -1,0 +1,9 @@
+digraph "modules/enabled/sample-navigation" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_378ef3c682277ef2d15fb43e7be64692 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="enabled" fontname="Helvetica", fontsize="10", URL="dir_378ef3c682277ef2d15fb43e7be64692.html"]
+  dir_278f15d97eb5c97b45c4baad1eef0bd2 [shape=box, label="sample-navigation", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_278f15d97eb5c97b45c4baad1eef0bd2.html"];
+  }
+}

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>sleepyMUSTACHE: IP2CO Class Reference</title>
+<title>Sleepy Mustache: IP2CO Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">sleepyMUSTACHE
+   <div id="projectname">Sleepy Mustache
    </div>
   </td>
  </tr>
@@ -119,7 +119,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="class_8ip2country_8php_source.html#l00031">31</a> of file <a class="el" href="class_8ip2country_8php_source.html">class.ip2country.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8ip2country_8php_source.html#l00038">38</a> of file <a class="el" href="class_8ip2country_8php_source.html">class.ip2country.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a095c5d389db211932136b53f25f39685"></a>
 <div class="memitem">
@@ -134,11 +134,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="class_8ip2country_8php_source.html#l00051">51</a> of file <a class="el" href="class_8ip2country_8php_source.html">class.ip2country.php</a>.</p>
-<div class="fragment"><div class="line">                                             {</div>
-<div class="line">                              $this-&gt;db = <span class="keyword">new</span> <a class="code" href="class_f_s_d_b.html">FSDB</a>(<span class="stringliteral">&#39;./ipData/&#39;</span>);</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8ip2country_8php_source.html#l00058">58</a> of file <a class="el" href="class_8ip2country_8php_source.html">class.ip2country.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -156,19 +153,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="class_8ip2country_8php_source.html#l00055">55</a> of file <a class="el" href="class_8ip2country_8php_source.html">class.ip2country.php</a>.</p>
-<div class="fragment"><div class="line">                                                   {</div>
-<div class="line">                              $dec = ip2long($ip);</div>
-<div class="line">                              $data = $this-&gt;db-&gt;select($this-&gt;<a class="code" href="class_i_p2_c_o.html#a827810b3e6446a9dd09e79a0d03f040d">getTable</a>($ip), <span class="stringliteral">&quot;*&quot;</span>);</div>
-<div class="line">                              <span class="keywordflow">foreach</span> ($data as $row) {</div>
-<div class="line">                                             <span class="keywordflow">if</span> ($row-&gt;startIP &lt;= $dec &amp;&amp; $row-&gt;endIP &gt;= $dec) {</div>
-<div class="line">                                                            <span class="keywordflow">return</span> $row-&gt;countryCode;</div>
-<div class="line">                                             }</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8ip2country_8php_source.html#l00062">62</a> of file <a class="el" href="class_8ip2country_8php_source.html">class.ip2country.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a827810b3e6446a9dd09e79a0d03f040d"></a>
@@ -185,19 +171,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="class_8ip2country_8php_source.html#l00067">67</a> of file <a class="el" href="class_8ip2country_8php_source.html">class.ip2country.php</a>.</p>
-<div class="fragment"><div class="line">                                             {</div>
-<div class="line">                              $dec = ip2long($ip);</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">foreach</span> ($this-&gt;upperRange as $limit) {</div>
-<div class="line">                                             <span class="keywordflow">if</span> ($dec &gt;= $limit - 50000000 &amp;&amp; $dec &lt;= $limit) {</div>
-<div class="line">                                                            <span class="keywordflow">return</span> (<span class="keywordtype">string</span>) $limit;</div>
-<div class="line">                                             }</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8ip2country_8php_source.html#l00074">74</a> of file <a class="el" href="class_8ip2country_8php_source.html">class.ip2country.php</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -209,7 +184,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_i_p2_c_o.html">IP2CO</a></li>
-    <li class="footer">Generated on Fri Jan 3 2014 13:11:20 for sleepyMUSTACHE by
+    <li class="footer">Generated on Mon Jun 16 2014 18:08:24 for Sleepy Mustache by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

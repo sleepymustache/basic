@@ -16,7 +16,7 @@
 \item[{}]{\$html}
 \end{DoxyParamCaption}
 )}}\label{hider_8php_abd0817d9f994e71fd6fd1516e4751164}
-Adds do not follow tag to head of document if not in the L\-I\-V\-E environment. This module depends on the head\-\_\-insert module. 
+Adds do not follow tag to head of document if not in the L\-I\-V\-E environment. This module depends on the head\-\_\-inserter module. 
 \begin{DoxyParams}[1]{Parameters}
 string & {\em \$html} & Whats currently in the head\-\_\-inserter \\
 \hline
@@ -28,14 +28,3 @@ string Our alterations to head\-\_\-inserter
 
 Definition at line 8 of file hider.\-php.
 
-
-\begin{DoxyCode}
-                               \{
-               \textcolor{keywordflow}{return} $html . \textcolor{stringliteral}{"\(\backslash\)t<meta name=\(\backslash\)"robots\(\backslash\)" content=\(\backslash\)"noindex,
-       nofollow\(\backslash\)">\(\backslash\)n"};
-\}
-
-\textcolor{keywordflow}{if} (ENV !== \textcolor{stringliteral}{"LIVE"}) \{
-               \hyperlink{class_hook_aae875eca0ec73f226ce615840f06d161}{Hook::applyFilter}(\textcolor{stringliteral}{'head\_inserter'}, \textcolor{stringliteral}{'
-      robotsDevHide'});
-\}\end{DoxyCode}

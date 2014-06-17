@@ -1,16 +1,19 @@
 \hypertarget{global_8php}{\section{include/global.php File Reference}
 \label{global_8php}\index{include/global.\-php@{include/global.\-php}}
 }
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{global_8php_aa708b5658547eba853300c5c0f5b97b9}{is\-E\-N\-V} (\$str)
+\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-const \hyperlink{global_8php_ade7436eeb9a94e391a9d15a8a6865dd9}{L\-I\-V\-E\-\_\-\-U\-R\-L} '$\ast$$\ast$$\ast$$\ast$C\-H\-A\-N\-G\-E\-\_\-\-U\-R\-L$\ast$$\ast$$\ast$$\ast$'
+const \hyperlink{global_8php_aa55bd7b507e10bb441ac76d99b4c1358}{L\-I\-V\-E\-\_\-\-U\-R\-L} (!@include\-\_\-once('Webkit/init.\-php')) '$\ast$$\ast$$\ast$$\ast$C\-H\-A\-N\-G\-E\-\_\-\-U\-R\-L$\ast$$\ast$$\ast$$\ast$'
 \item 
 const \hyperlink{global_8php_a9de38c82260effe90ef1caa4d6026973}{S\-T\-A\-G\-E\-\_\-\-U\-R\-L} '$\ast$$\ast$$\ast$$\ast$C\-H\-A\-N\-G\-E\-\_\-\-U\-R\-L$\ast$$\ast$$\ast$$\ast$'
 \item 
-if(strpos(\$\-\_\-\-S\-E\-R\-V\-E\-R\mbox{[}'S\-E\-R\-V\-E\-R\-\_\-\-N\-A\-M\-E'\mbox{]}, \\*
-\hyperlink{global_8php_a9de38c82260effe90ef1caa4d6026973}{S\-T\-A\-G\-E\-\_\-\-U\-R\-L})!==false) elseif(strpos(\$\-\_\-\-S\-E\-R\-V\-E\-R\mbox{[}'S\-E\-R\-V\-E\-R\-\_\-\-N\-A\-M\-E'\mbox{]}, \\*
-\hyperlink{global_8php_ade7436eeb9a94e391a9d15a8a6865dd9}{L\-I\-V\-E\-\_\-\-U\-R\-L})) \hyperlink{global_8php_a44a5a7f896e2444d9c7b91deffff3b49}{else}
+if(\hyperlink{global_8php_aa708b5658547eba853300c5c0f5b97b9}{is\-E\-N\-V}(\hyperlink{global_8php_a9de38c82260effe90ef1caa4d6026973}{S\-T\-A\-G\-E\-\_\-\-U\-R\-L})) elseif(\hyperlink{global_8php_aa708b5658547eba853300c5c0f5b97b9}{is\-E\-N\-V}(\hyperlink{global_8php_aa55bd7b507e10bb441ac76d99b4c1358}{L\-I\-V\-E\-\_\-\-U\-R\-L})) \hyperlink{global_8php_a84d6f541e8b918d4d74fe5a02b30588e}{else}
 \item 
 const \hyperlink{global_8php_a422353d788747ecd47fc7a656e4ebd92}{U\-R\-L\-B\-A\-S\-E} \char`\"{}/\char`\"{}
 \item 
@@ -24,9 +27,9 @@ const \hyperlink{global_8php_add7bef9fbed1ad1fa386dcb65fd5d813}{D\-B\-P\-A\-S\-S
 \item 
 const \hyperlink{global_8php_af7d219badcc93cc3a13a604c769542bc}{D\-B\-N\-A\-M\-E} \$W\-H\-G\-\_\-\-D\-B\-\_\-\-R\-E\-P\-L\-D\-B
 \item 
-const \hyperlink{global_8php_af97c5ff33b4f726b36d6db60e5b757eb}{E\-M\-A\-I\-L\-\_\-\-F\-R\-O\-M} ''
+const \hyperlink{global_8php_af97c5ff33b4f726b36d6db60e5b757eb}{E\-M\-A\-I\-L\-\_\-\-F\-R\-O\-M} 'from@mailinator.\-com'
 \item 
-const \hyperlink{global_8php_adf9a2b18bea582e3d0ca5892d2c274fc}{E\-M\-A\-I\-L\-\_\-\-T\-O} ''
+const \hyperlink{global_8php_adf9a2b18bea582e3d0ca5892d2c274fc}{E\-M\-A\-I\-L\-\_\-\-T\-O} 'jaime@mailinator.\-com'
 \item 
 const \hyperlink{global_8php_a437cf4a502c60e7174f5d5a97a8b0fb4}{E\-M\-A\-I\-L\-\_\-\-C\-C} ''
 \item 
@@ -36,107 +39,129 @@ const \hyperlink{global_8php_a63584e945f652ffb7392f41c4f013922}{G\-A\-\_\-\-A\-C
 \end{DoxyCompactItemize}
 
 
+\subsection{Function Documentation}
+\hypertarget{global_8php_aa708b5658547eba853300c5c0f5b97b9}{\index{global.\-php@{global.\-php}!is\-E\-N\-V@{is\-E\-N\-V}}
+\index{is\-E\-N\-V@{is\-E\-N\-V}!global.php@{global.\-php}}
+\subsubsection[{is\-E\-N\-V}]{\setlength{\rightskip}{0pt plus 5cm}is\-E\-N\-V (
+\begin{DoxyParamCaption}
+\item[{}]{\$str}
+\end{DoxyParamCaption}
+)}}\label{global_8php_aa708b5658547eba853300c5c0f5b97b9}
+Checks if the current site matches a U\-R\-L 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$str} & The U\-R\-L to match with current site \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean true if there was a match 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file global.\-php.
+
+
+
 \subsection{Variable Documentation}
 \hypertarget{global_8php_a40edb9274f7711736cc3ee12d2e5ddba}{\index{global.\-php@{global.\-php}!D\-B\-H\-O\-S\-T@{D\-B\-H\-O\-S\-T}}
 \index{D\-B\-H\-O\-S\-T@{D\-B\-H\-O\-S\-T}!global.php@{global.\-php}}
 \subsubsection[{D\-B\-H\-O\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}const D\-B\-H\-O\-S\-T \$W\-H\-G\-\_\-\-D\-B\-\_\-\-H\-O\-S\-T}}\label{global_8php_a40edb9274f7711736cc3ee12d2e5ddba}
 
 
-Definition at line 71 of file global.\-php.
+Definition at line 84 of file global.\-php.
 
 \hypertarget{global_8php_af7d219badcc93cc3a13a604c769542bc}{\index{global.\-php@{global.\-php}!D\-B\-N\-A\-M\-E@{D\-B\-N\-A\-M\-E}}
 \index{D\-B\-N\-A\-M\-E@{D\-B\-N\-A\-M\-E}!global.php@{global.\-php}}
 \subsubsection[{D\-B\-N\-A\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}const D\-B\-N\-A\-M\-E \$W\-H\-G\-\_\-\-D\-B\-\_\-\-R\-E\-P\-L\-D\-B}}\label{global_8php_af7d219badcc93cc3a13a604c769542bc}
 
 
-Definition at line 74 of file global.\-php.
+Definition at line 87 of file global.\-php.
 
 \hypertarget{global_8php_add7bef9fbed1ad1fa386dcb65fd5d813}{\index{global.\-php@{global.\-php}!D\-B\-P\-A\-S\-S@{D\-B\-P\-A\-S\-S}}
 \index{D\-B\-P\-A\-S\-S@{D\-B\-P\-A\-S\-S}!global.php@{global.\-php}}
 \subsubsection[{D\-B\-P\-A\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}const D\-B\-P\-A\-S\-S \$W\-H\-G\-\_\-\-D\-B\-\_\-\-P\-A\-S\-S\-W\-D}}\label{global_8php_add7bef9fbed1ad1fa386dcb65fd5d813}
 
 
-Definition at line 73 of file global.\-php.
+Definition at line 86 of file global.\-php.
 
 \hypertarget{global_8php_a221f39b0b526c043e3a1ade2dd56a70e}{\index{global.\-php@{global.\-php}!D\-B\-U\-S\-E\-R@{D\-B\-U\-S\-E\-R}}
 \index{D\-B\-U\-S\-E\-R@{D\-B\-U\-S\-E\-R}!global.php@{global.\-php}}
 \subsubsection[{D\-B\-U\-S\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}const D\-B\-U\-S\-E\-R \$W\-H\-G\-\_\-\-D\-B\-\_\-\-U\-S\-E\-R}}\label{global_8php_a221f39b0b526c043e3a1ade2dd56a70e}
 
 
-Definition at line 72 of file global.\-php.
+Definition at line 85 of file global.\-php.
 
 \hypertarget{global_8php_a504552fd43e46a0032aa3f2895349f22}{\index{global.\-php@{global.\-php}!D\-I\-R\-B\-A\-S\-E@{D\-I\-R\-B\-A\-S\-E}}
 \index{D\-I\-R\-B\-A\-S\-E@{D\-I\-R\-B\-A\-S\-E}!global.php@{global.\-php}}
 \subsubsection[{D\-I\-R\-B\-A\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}const D\-I\-R\-B\-A\-S\-E \$\-\_\-\-S\-E\-R\-V\-E\-R\mbox{[}'D\-O\-C\-U\-M\-E\-N\-T\-\_\-\-R\-O\-O\-T'\mbox{]}}}\label{global_8php_a504552fd43e46a0032aa3f2895349f22}
 
 
-Definition at line 68 of file global.\-php.
+Definition at line 81 of file global.\-php.
 
-\hypertarget{global_8php_a44a5a7f896e2444d9c7b91deffff3b49}{\index{global.\-php@{global.\-php}!else@{else}}
+\hypertarget{global_8php_a84d6f541e8b918d4d74fe5a02b30588e}{\index{global.\-php@{global.\-php}!else@{else}}
 \index{else@{else}!global.php@{global.\-php}}
-\subsubsection[{else}]{\setlength{\rightskip}{0pt plus 5cm}if (strpos(\$\-\_\-\-S\-E\-R\-V\-E\-R\mbox{[}'S\-E\-R\-V\-E\-R\-\_\-\-N\-A\-M\-E'\mbox{]}, {\bf S\-T\-A\-G\-E\-\_\-\-U\-R\-L})!==false) elseif (strpos(\$\-\_\-\-S\-E\-R\-V\-E\-R\mbox{[}'S\-E\-R\-V\-E\-R\-\_\-\-N\-A\-M\-E'\mbox{]}, {\bf L\-I\-V\-E\-\_\-\-U\-R\-L})) else}}\label{global_8php_a44a5a7f896e2444d9c7b91deffff3b49}
+\subsubsection[{else}]{\setlength{\rightskip}{0pt plus 5cm}if ({\bf is\-E\-N\-V}({\bf S\-T\-A\-G\-E\-\_\-\-U\-R\-L})) elseif ({\bf is\-E\-N\-V}({\bf L\-I\-V\-E\-\_\-\-U\-R\-L})) else}}\label{global_8php_a84d6f541e8b918d4d74fe5a02b30588e}
 {\bfseries Initial value\-:}
 \begin{DoxyCode}
 \{
-                              define(\textcolor{stringliteral}{"ENV"}, \textcolor{stringliteral}{"DEV"})
+        define(\textcolor{stringliteral}{"ENV"}, \textcolor{stringliteral}{"DEV"})
 \end{DoxyCode}
 
 
-Definition at line 63 of file global.\-php.
+Definition at line 76 of file global.\-php.
 
 \hypertarget{global_8php_ae82459bfcf33ac1be174bfe1237a545d}{\index{global.\-php@{global.\-php}!E\-M\-A\-I\-L\-\_\-\-B\-C\-C@{E\-M\-A\-I\-L\-\_\-\-B\-C\-C}}
 \index{E\-M\-A\-I\-L\-\_\-\-B\-C\-C@{E\-M\-A\-I\-L\-\_\-\-B\-C\-C}!global.php@{global.\-php}}
 \subsubsection[{E\-M\-A\-I\-L\-\_\-\-B\-C\-C}]{\setlength{\rightskip}{0pt plus 5cm}const E\-M\-A\-I\-L\-\_\-\-B\-C\-C ''}}\label{global_8php_ae82459bfcf33ac1be174bfe1237a545d}
 
 
-Definition at line 80 of file global.\-php.
+Definition at line 93 of file global.\-php.
 
 \hypertarget{global_8php_a437cf4a502c60e7174f5d5a97a8b0fb4}{\index{global.\-php@{global.\-php}!E\-M\-A\-I\-L\-\_\-\-C\-C@{E\-M\-A\-I\-L\-\_\-\-C\-C}}
 \index{E\-M\-A\-I\-L\-\_\-\-C\-C@{E\-M\-A\-I\-L\-\_\-\-C\-C}!global.php@{global.\-php}}
 \subsubsection[{E\-M\-A\-I\-L\-\_\-\-C\-C}]{\setlength{\rightskip}{0pt plus 5cm}const E\-M\-A\-I\-L\-\_\-\-C\-C ''}}\label{global_8php_a437cf4a502c60e7174f5d5a97a8b0fb4}
 
 
-Definition at line 79 of file global.\-php.
+Definition at line 92 of file global.\-php.
 
 \hypertarget{global_8php_af97c5ff33b4f726b36d6db60e5b757eb}{\index{global.\-php@{global.\-php}!E\-M\-A\-I\-L\-\_\-\-F\-R\-O\-M@{E\-M\-A\-I\-L\-\_\-\-F\-R\-O\-M}}
 \index{E\-M\-A\-I\-L\-\_\-\-F\-R\-O\-M@{E\-M\-A\-I\-L\-\_\-\-F\-R\-O\-M}!global.php@{global.\-php}}
-\subsubsection[{E\-M\-A\-I\-L\-\_\-\-F\-R\-O\-M}]{\setlength{\rightskip}{0pt plus 5cm}const E\-M\-A\-I\-L\-\_\-\-F\-R\-O\-M ''}}\label{global_8php_af97c5ff33b4f726b36d6db60e5b757eb}
+\subsubsection[{E\-M\-A\-I\-L\-\_\-\-F\-R\-O\-M}]{\setlength{\rightskip}{0pt plus 5cm}const E\-M\-A\-I\-L\-\_\-\-F\-R\-O\-M 'from@mailinator.\-com'}}\label{global_8php_af97c5ff33b4f726b36d6db60e5b757eb}
 
 
-Definition at line 77 of file global.\-php.
+Definition at line 90 of file global.\-php.
 
 \hypertarget{global_8php_adf9a2b18bea582e3d0ca5892d2c274fc}{\index{global.\-php@{global.\-php}!E\-M\-A\-I\-L\-\_\-\-T\-O@{E\-M\-A\-I\-L\-\_\-\-T\-O}}
 \index{E\-M\-A\-I\-L\-\_\-\-T\-O@{E\-M\-A\-I\-L\-\_\-\-T\-O}!global.php@{global.\-php}}
-\subsubsection[{E\-M\-A\-I\-L\-\_\-\-T\-O}]{\setlength{\rightskip}{0pt plus 5cm}const E\-M\-A\-I\-L\-\_\-\-T\-O ''}}\label{global_8php_adf9a2b18bea582e3d0ca5892d2c274fc}
+\subsubsection[{E\-M\-A\-I\-L\-\_\-\-T\-O}]{\setlength{\rightskip}{0pt plus 5cm}const E\-M\-A\-I\-L\-\_\-\-T\-O 'jaime@mailinator.\-com'}}\label{global_8php_adf9a2b18bea582e3d0ca5892d2c274fc}
 
 
-Definition at line 78 of file global.\-php.
+Definition at line 91 of file global.\-php.
 
 \hypertarget{global_8php_a63584e945f652ffb7392f41c4f013922}{\index{global.\-php@{global.\-php}!G\-A\-\_\-\-A\-C\-C\-O\-U\-N\-T@{G\-A\-\_\-\-A\-C\-C\-O\-U\-N\-T}}
 \index{G\-A\-\_\-\-A\-C\-C\-O\-U\-N\-T@{G\-A\-\_\-\-A\-C\-C\-O\-U\-N\-T}!global.php@{global.\-php}}
 \subsubsection[{G\-A\-\_\-\-A\-C\-C\-O\-U\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}const G\-A\-\_\-\-A\-C\-C\-O\-U\-N\-T ''}}\label{global_8php_a63584e945f652ffb7392f41c4f013922}
 
 
-Definition at line 83 of file global.\-php.
+Definition at line 96 of file global.\-php.
 
-\hypertarget{global_8php_ade7436eeb9a94e391a9d15a8a6865dd9}{\index{global.\-php@{global.\-php}!L\-I\-V\-E\-\_\-\-U\-R\-L@{L\-I\-V\-E\-\_\-\-U\-R\-L}}
+\hypertarget{global_8php_aa55bd7b507e10bb441ac76d99b4c1358}{\index{global.\-php@{global.\-php}!L\-I\-V\-E\-\_\-\-U\-R\-L@{L\-I\-V\-E\-\_\-\-U\-R\-L}}
 \index{L\-I\-V\-E\-\_\-\-U\-R\-L@{L\-I\-V\-E\-\_\-\-U\-R\-L}!global.php@{global.\-php}}
-\subsubsection[{L\-I\-V\-E\-\_\-\-U\-R\-L}]{\setlength{\rightskip}{0pt plus 5cm}const L\-I\-V\-E\-\_\-\-U\-R\-L '$\ast$$\ast$$\ast$$\ast$C\-H\-A\-N\-G\-E\-\_\-\-U\-R\-L$\ast$$\ast$$\ast$$\ast$'}}\label{global_8php_ade7436eeb9a94e391a9d15a8a6865dd9}
+\subsubsection[{L\-I\-V\-E\-\_\-\-U\-R\-L}]{\setlength{\rightskip}{0pt plus 5cm}const L\-I\-V\-E\-\_\-\-U\-R\-L(!@include\-\_\-once('Webkit/init.\-php')) '$\ast$$\ast$$\ast$$\ast$C\-H\-A\-N\-G\-E\-\_\-\-U\-R\-L$\ast$$\ast$$\ast$$\ast$'}}\label{global_8php_aa55bd7b507e10bb441ac76d99b4c1358}
 
 
-Definition at line 17 of file global.\-php.
+Definition at line 12 of file global.\-php.
 
 \hypertarget{global_8php_a9de38c82260effe90ef1caa4d6026973}{\index{global.\-php@{global.\-php}!S\-T\-A\-G\-E\-\_\-\-U\-R\-L@{S\-T\-A\-G\-E\-\_\-\-U\-R\-L}}
 \index{S\-T\-A\-G\-E\-\_\-\-U\-R\-L@{S\-T\-A\-G\-E\-\_\-\-U\-R\-L}!global.php@{global.\-php}}
 \subsubsection[{S\-T\-A\-G\-E\-\_\-\-U\-R\-L}]{\setlength{\rightskip}{0pt plus 5cm}const S\-T\-A\-G\-E\-\_\-\-U\-R\-L '$\ast$$\ast$$\ast$$\ast$C\-H\-A\-N\-G\-E\-\_\-\-U\-R\-L$\ast$$\ast$$\ast$$\ast$'}}\label{global_8php_a9de38c82260effe90ef1caa4d6026973}
 
 
-Definition at line 18 of file global.\-php.
+Definition at line 13 of file global.\-php.
 
 \hypertarget{global_8php_a422353d788747ecd47fc7a656e4ebd92}{\index{global.\-php@{global.\-php}!U\-R\-L\-B\-A\-S\-E@{U\-R\-L\-B\-A\-S\-E}}
 \index{U\-R\-L\-B\-A\-S\-E@{U\-R\-L\-B\-A\-S\-E}!global.php@{global.\-php}}
 \subsubsection[{U\-R\-L\-B\-A\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}const U\-R\-L\-B\-A\-S\-E \char`\"{}/\char`\"{}}}\label{global_8php_a422353d788747ecd47fc7a656e4ebd92}
 
 
-Definition at line 67 of file global.\-php.
+Definition at line 80 of file global.\-php.
 

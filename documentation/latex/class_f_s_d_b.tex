@@ -19,7 +19,7 @@ Jaime A. Rodriguez \href{mailto:hi.i.am.jaime@gmail.com}{\tt hi.\-i.\-am.\-jaime
 \end{DoxyAuthor}
 
 
-Definition at line 306 of file class.\-fsdb.\-php.
+Definition at line 312 of file class.\-fsdb.\-php.
 
 
 
@@ -40,29 +40,8 @@ string & {\em \$directory} & Directory where data is stored (optional) \\
 \end{DoxyParams}
 
 
-Definition at line 325 of file class.\-fsdb.\-php.
+Definition at line 331 of file class.\-fsdb.\-php.
 
-
-\begin{DoxyCode}
-                                                            \{
-                              \textcolor{keywordflow}{if} ($directory == \textcolor{stringliteral}{''}) \{
-                                             $directory = getcwd() . \textcolor{stringliteral}{"/data/"};
-                              \}
-                              \textcolor{keywordflow}{if} (is\_dir($directory)) \{
-                                             $this->directory = $directory;
-                              \} \textcolor{keywordflow}{else} \{
-                                             $oldumask = umask(0);
-                                             \textcolor{keywordflow}{if} (@mkdir($directory, 0777)) \{
-                                                            $this->directory = 
-      $directory;
-                                             \} \textcolor{keywordflow}{else} \{
-                                                            \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception
-      (\textcolor{stringliteral}{"FSDB: Cannot create data directory at:"} . $directory);
-                                             \}
-                                             umask($oldumask);
-                              \}
-               \}
-\end{DoxyCode}
 
 
 \subsection{Member Function Documentation}
@@ -90,32 +69,8 @@ mixed Value.
 \end{DoxyReturn}
 
 
-Definition at line 351 of file class.\-fsdb.\-php.
+Definition at line 357 of file class.\-fsdb.\-php.
 
-
-\begin{DoxyCode}
-                                                      \{
-                              \textcolor{keywordflow}{if} (method\_exists(\textcolor{stringliteral}{"FSTable"}, $method)) \{
-                                             $tableName = $args[0];
-                                             $filename = $args[0] . \textcolor{stringliteral}{".json"};
-
-                                             \textcolor{keywordflow}{if} (!isset($this->tables[
-      $tableName])) \{
-                                                            $this->tables[
-      $tableName] = \textcolor{keyword}{new} \hyperlink{class_f_s_table}{FSTable}($this->directory . $filename);
-                                             \}
-
-                                             array\_shift($args);
-
-                                             \textcolor{keywordflow}{return} call\_user\_func\_array(array(
-      $this->tables[$tableName], $method), $args);
-
-                              \} \textcolor{keywordflow}{else} \{
-                                             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception(\textcolor{stringliteral}{"FSDB: Method
-       does not exist: $method"});
-                              \}
-               \}
-\end{DoxyCode}
 
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}

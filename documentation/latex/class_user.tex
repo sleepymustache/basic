@@ -62,30 +62,6 @@ Definition at line 27 of file class.\-user.\-php.
 
 Definition at line 34 of file class.\-user.\-php.
 
-
-\begin{DoxyCode}
-                                                                          \{
-                                             $pass = crypt($pass, $this->salt);
-
-                                             $query = $this->db->prepare(\textcolor{stringliteral}{"
-      SELECT * FROM users WHERE email=:email AND password=:pass"});
-                                             $query->execute(array(
-                                                            \textcolor{stringliteral}{':email'} => $email,
-                                                            \textcolor{stringliteral}{':pass'} => $pass
-                                             ));
-                                             $query->setFetchMode(
-      PDO::FETCH\_ASSOC);
-
-                                             \textcolor{keywordflow}{if} ($row = $query->fetch()) \{
-                                                            $this->\hyperlink{class_user_a7160b09d9d37ede69811a66dc9e4f272}{load}(
-      $row[\textcolor{stringliteral}{'id'}]);
-                                                            \textcolor{keywordflow}{return} $row[\textcolor{stringliteral}{'id'}];
-                                             \} \textcolor{keywordflow}{else} \{
-                                                            \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception
-      (\textcolor{stringliteral}{"Invalid user or password."});
-                                             \}
-                              \}
-\end{DoxyCode}
 \hypertarget{class_user_a610dd05d53d99e1ddc05596468eb4914}{\index{User@{User}!get\-Permission@{get\-Permission}}
 \index{get\-Permission@{get\-Permission}!User@{User}}
 \subsubsection[{get\-Permission}]{\setlength{\rightskip}{0pt plus 5cm}get\-Permission (
@@ -97,13 +73,6 @@ Definition at line 34 of file class.\-user.\-php.
 
 Definition at line 52 of file class.\-user.\-php.
 
-
-\begin{DoxyCode}
-                                                                  \{
-                                             \textcolor{keywordflow}{return} $this->role->getPermission(
-      $key);
-                              \}
-\end{DoxyCode}
 \hypertarget{class_user_a0b2e7098f1c48a7439a42bada5b69689}{\index{User@{User}!get\-Role@{get\-Role}}
 \index{get\-Role@{get\-Role}!User@{User}}
 \subsubsection[{get\-Role}]{\setlength{\rightskip}{0pt plus 5cm}get\-Role (
@@ -115,13 +84,6 @@ Definition at line 52 of file class.\-user.\-php.
 
 Definition at line 146 of file class.\-user.\-php.
 
-
-\begin{DoxyCode}
-                                                        \{
-                                             \textcolor{keywordflow}{return} $this->role->columns[\textcolor{stringliteral}{'name'}
-      ];
-                              \}
-\end{DoxyCode}
 \hypertarget{class_user_ab62d4b3c3a14ab592768235dad6deb63}{\index{User@{User}!get\-User\-Data@{get\-User\-Data}}
 \index{get\-User\-Data@{get\-User\-Data}!User@{User}}
 \subsubsection[{get\-User\-Data}]{\setlength{\rightskip}{0pt plus 5cm}get\-User\-Data (
@@ -133,21 +95,6 @@ Definition at line 146 of file class.\-user.\-php.
 
 Definition at line 56 of file class.\-user.\-php.
 
-
-\begin{DoxyCode}
-                                                                \{
-                                             \textcolor{keywordflow}{if} (isset($this->columns[$key])) \{
-                                                            \textcolor{keywordflow}{return} $this->
-      columns[$key];
-                                             \} \textcolor{keywordflow}{else} \{
-                                                            \textcolor{keywordflow}{if} (isset($this->
-      metadata[$key])) \{
-                                                                           \textcolor{keywordflow}{
-      return} $this->metadata[$key];
-                                                            \}
-                                             \}
-                              \}
-\end{DoxyCode}
 \hypertarget{class_user_aabf23b66cd362adaa508de5bfb22706a}{\index{User@{User}!is\-Admin@{is\-Admin}}
 \index{is\-Admin@{is\-Admin}!User@{User}}
 \subsubsection[{is\-Admin}]{\setlength{\rightskip}{0pt plus 5cm}is\-Admin (
@@ -159,27 +106,6 @@ Definition at line 56 of file class.\-user.\-php.
 
 Definition at line 130 of file class.\-user.\-php.
 
-
-\begin{DoxyCode}
-                                                        \{
-                                             \textcolor{keywordflow}{if} (!$uid = $this->\hyperlink{class_user_a33bdd79e5da367ebddd4cfbdbbfc7cff}{isLoggedIn}
-      ()) \{
-                                                            \textcolor{keywordflow}{return} \textcolor{keyword}{false};
-                                             \}
-
-                                             \textcolor{keywordflow}{if} (!$this->\hyperlink{class_user_a2f27c20674620565aa8b3433bffe305d}{isLoaded}()) \{
-                                                            $this->\hyperlink{class_user_a7160b09d9d37ede69811a66dc9e4f272}{load}(
-      $uid);
-                                             \}
-
-                                             \textcolor{keywordflow}{if} ($this->columns[\textcolor{stringliteral}{'role\_id'}] == 1
-      ) \{
-                                                            \textcolor{keywordflow}{return} \textcolor{keyword}{true};
-                                             \} \textcolor{keywordflow}{else} \{
-                                                            \textcolor{keywordflow}{return} \textcolor{keyword}{false};
-                                             \}
-                              \}
-\end{DoxyCode}
 \hypertarget{class_user_a2f27c20674620565aa8b3433bffe305d}{\index{User@{User}!is\-Loaded@{is\-Loaded}}
 \index{is\-Loaded@{is\-Loaded}!User@{User}}
 \subsubsection[{is\-Loaded}]{\setlength{\rightskip}{0pt plus 5cm}is\-Loaded (
@@ -191,14 +117,6 @@ Definition at line 130 of file class.\-user.\-php.
 
 Definition at line 116 of file class.\-user.\-php.
 
-
-\begin{DoxyCode}
-                                                         \{
-                                             \textcolor{keywordflow}{if} (isset($this->columns[\textcolor{stringliteral}{'id'}])) \{
-                                                            \textcolor{keywordflow}{return} \textcolor{keyword}{true};
-                                             \}
-                              \}
-\end{DoxyCode}
 \hypertarget{class_user_a33bdd79e5da367ebddd4cfbdbbfc7cff}{\index{User@{User}!is\-Logged\-In@{is\-Logged\-In}}
 \index{is\-Logged\-In@{is\-Logged\-In}!User@{User}}
 \subsubsection[{is\-Logged\-In}]{\setlength{\rightskip}{0pt plus 5cm}is\-Logged\-In (
@@ -210,17 +128,6 @@ Definition at line 116 of file class.\-user.\-php.
 
 Definition at line 122 of file class.\-user.\-php.
 
-
-\begin{DoxyCode}
-                                                           \{
-                                             \textcolor{keywordflow}{if} (isset($\_SESSION[\textcolor{stringliteral}{'uid'}])) \{
-                                                            \textcolor{keywordflow}{return} $\_SESSION[\textcolor{stringliteral}{'
-      uid'}];
-                                             \} \textcolor{keywordflow}{else} \{
-                                                            \textcolor{keywordflow}{return} \textcolor{keyword}{false};
-                                             \}
-                              \}
-\end{DoxyCode}
 \hypertarget{class_user_a7160b09d9d37ede69811a66dc9e4f272}{\index{User@{User}!load@{load}}
 \index{load@{load}!User@{User}}
 \subsubsection[{load}]{\setlength{\rightskip}{0pt plus 5cm}load (
@@ -232,34 +139,6 @@ Definition at line 122 of file class.\-user.\-php.
 
 Definition at line 66 of file class.\-user.\-php.
 
-
-\begin{DoxyCode}
-                                                          \{
-                                             parent::load($id);
-
-                                             \textcolor{comment}{// Load usermeta data}
-                                             $query = $this->db->query(\textcolor{stringliteral}{"SELECT
-       * FROM usermeta where user\_id=\{$this->columns['id']\}"});
-                                             $query->setFetchMode(
-      PDO::FETCH\_ASSOC);
-                                             $query->execute();
-
-                                             \hyperlink{class_user_ae7fc3682b173ad9d4b1892bdc04d18d9}{$metadata} = $query->
-      fetchAll();
-
-                                             \textcolor{keywordflow}{foreach} (\hyperlink{class_user_ae7fc3682b173ad9d4b1892bdc04d18d9}{$metadata} as 
-      $data) \{
-                                                            $temp = \textcolor{keyword}{new} \hyperlink{class_user_meta}{
-      UserMeta}($data[\textcolor{stringliteral}{'id'}]);
-                                                            $this->metadata[
-      $temp->columns[\textcolor{stringliteral}{'key'}]] = $temp->columns[\textcolor{stringliteral}{'value'}];
-                                             \}
-
-                                             \textcolor{comment}{// Load the Role}
-                                             $this->role = \textcolor{keyword}{new} \hyperlink{class_role}{Role}($this->
-      columns[\textcolor{stringliteral}{'role\_id'}]);
-                              \}
-\end{DoxyCode}
 \hypertarget{class_user_a8cdc6b049e470fac0e97101e4f353a05}{\index{User@{User}!salt\-Password@{salt\-Password}}
 \index{salt\-Password@{salt\-Password}!User@{User}}
 \subsubsection[{salt\-Password}]{\setlength{\rightskip}{0pt plus 5cm}salt\-Password (
@@ -271,12 +150,6 @@ Definition at line 66 of file class.\-user.\-php.
 
 Definition at line 100 of file class.\-user.\-php.
 
-
-\begin{DoxyCode}
-                                                                  \{
-                                             \textcolor{keywordflow}{return} crypt($pass, $this->salt);
-                              \}
-\end{DoxyCode}
 \hypertarget{class_user_afc8a3c62679cf00ade9f15fb2a6d6132}{\index{User@{User}!save@{save}}
 \index{save@{save}!User@{User}}
 \subsubsection[{save}]{\setlength{\rightskip}{0pt plus 5cm}save (
@@ -288,24 +161,6 @@ Definition at line 100 of file class.\-user.\-php.
 
 Definition at line 104 of file class.\-user.\-php.
 
-
-\begin{DoxyCode}
-                                                     \{
-                                             $query = $this->db->prepare(\textcolor{stringliteral}{"
-      SELECT * from users where email=:email"});
-                                             $query->setFetchMode(
-      PDO::FETCH\_ASSOC);
-                                             $query->execute(array(\textcolor{stringliteral}{':email'} => 
-      $this->columns[\textcolor{stringliteral}{'email'}]));
-
-                                             \textcolor{keywordflow}{if} ($query->fetch()) \{
-                                                            \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception
-      (\textcolor{stringliteral}{'The user already exists.'});
-                                             \} \textcolor{keywordflow}{else} \{
-                                                            parent::save();
-                                             \}
-                              \}
-\end{DoxyCode}
 \hypertarget{class_user_a96f600de7f4fe416bf8565d9d0eebee4}{\index{User@{User}!set\-User\-Data@{set\-User\-Data}}
 \index{set\-User\-Data@{set\-User\-Data}!User@{User}}
 \subsubsection[{set\-User\-Data}]{\setlength{\rightskip}{0pt plus 5cm}set\-User\-Data (
@@ -318,30 +173,6 @@ Definition at line 104 of file class.\-user.\-php.
 
 Definition at line 85 of file class.\-user.\-php.
 
-
-\begin{DoxyCode}
-                                                                        \{
-                                             \textcolor{keywordflow}{if} (isset($this->columns[$key])) \{
-                                                            $this->columns[$key
-      ] = $value;
-                                             \} \textcolor{keywordflow}{else} \{
-                                                            \textcolor{keywordflow}{if} (isset($this->
-      metadata[$key])) \{
-                                                                           
-      $this->metadata[$key] = $value;
-                                                            \} \textcolor{keywordflow}{else} \{
-                                                                           
-      $temp = \textcolor{keyword}{new} \hyperlink{class_user_meta}{UserMeta}();
-                                                                           
-      $temp->columns[\textcolor{stringliteral}{'key'}] = $key;
-                                                                           
-      $temp->columns[\textcolor{stringliteral}{'value'}] = $value;
-                                                                           
-      $temp->save();
-                                                            \}
-                                             \}
-                              \}
-\end{DoxyCode}
 
 
 \subsection{Field Documentation}

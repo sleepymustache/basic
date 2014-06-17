@@ -1,0 +1,109 @@
+\hypertarget{errors_8php}{\section{tests/simpletest/errors.php File Reference}
+\label{errors_8php}\index{tests/simpletest/errors.\-php@{tests/simpletest/errors.\-php}}
+}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_simple_error_trapping_invoker}{Simple\-Error\-Trapping\-Invoker}
+\item 
+class \hyperlink{class_simple_error_queue}{Simple\-Error\-Queue}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespace_simple_test}{Simple\-Test}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{errors_8php_a58d28a96baef5def3eafc2513a98ab2d}{Simple\-Test\-Error\-Handler} (\$severity, \$message, \$filename=null, \$line=null, \$super\-\_\-globals=null, \$mask=null)
+\item 
+\hyperlink{errors_8php_a012af8db52e47aabc046cd6fdbb2ac13}{Is\-Not\-Caused\-By\-Simple\-Test} (\$message)
+\item 
+\hyperlink{errors_8php_ac0ff044ea1ecf535cfcc339153238cfe}{Is\-Not\-Time\-Zone\-Nag} (\$message)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{errors_8php_a012af8db52e47aabc046cd6fdbb2ac13}{\index{errors.\-php@{errors.\-php}!Is\-Not\-Caused\-By\-Simple\-Test@{Is\-Not\-Caused\-By\-Simple\-Test}}
+\index{Is\-Not\-Caused\-By\-Simple\-Test@{Is\-Not\-Caused\-By\-Simple\-Test}!errors.php@{errors.\-php}}
+\subsubsection[{Is\-Not\-Caused\-By\-Simple\-Test}]{\setlength{\rightskip}{0pt plus 5cm}Is\-Not\-Caused\-By\-Simple\-Test (
+\begin{DoxyParamCaption}
+\item[{}]{\$message}
+\end{DoxyParamCaption}
+)}}\label{errors_8php_a012af8db52e47aabc046cd6fdbb2ac13}
+Certain messages can be caused by the unit tester itself. These have to be filtered. 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$message} & Message to filter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean True if genuine failure. 
+\end{DoxyReturn}
+
+
+Definition at line 254 of file errors.\-php.
+
+
+
+Here is the caller graph for this function\-:
+
+
+\hypertarget{errors_8php_ac0ff044ea1ecf535cfcc339153238cfe}{\index{errors.\-php@{errors.\-php}!Is\-Not\-Time\-Zone\-Nag@{Is\-Not\-Time\-Zone\-Nag}}
+\index{Is\-Not\-Time\-Zone\-Nag@{Is\-Not\-Time\-Zone\-Nag}!errors.php@{errors.\-php}}
+\subsubsection[{Is\-Not\-Time\-Zone\-Nag}]{\setlength{\rightskip}{0pt plus 5cm}Is\-Not\-Time\-Zone\-Nag (
+\begin{DoxyParamCaption}
+\item[{}]{\$message}
+\end{DoxyParamCaption}
+)}}\label{errors_8php_ac0ff044ea1ecf535cfcc339153238cfe}
+Certain messages caused by P\-H\-P are just noise. These have to be filtered. 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$message} & Message to filter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean True if genuine failure. 
+\end{DoxyReturn}
+
+
+Definition at line 264 of file errors.\-php.
+
+
+
+Here is the caller graph for this function\-:
+
+
+\hypertarget{errors_8php_a58d28a96baef5def3eafc2513a98ab2d}{\index{errors.\-php@{errors.\-php}!Simple\-Test\-Error\-Handler@{Simple\-Test\-Error\-Handler}}
+\index{Simple\-Test\-Error\-Handler@{Simple\-Test\-Error\-Handler}!errors.php@{errors.\-php}}
+\subsubsection[{Simple\-Test\-Error\-Handler}]{\setlength{\rightskip}{0pt plus 5cm}Simple\-Test\-Error\-Handler (
+\begin{DoxyParamCaption}
+\item[{}]{\$severity, }
+\item[{}]{\$message, }
+\item[{}]{\$filename = {\ttfamily null}, }
+\item[{}]{\$line = {\ttfamily null}, }
+\item[{}]{\$super\-\_\-globals = {\ttfamily null}, }
+\item[{}]{\$mask = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}\label{errors_8php_a58d28a96baef5def3eafc2513a98ab2d}
+Error handler that simply stashes any errors into the global error queue. Simulates the existing behaviour with respect to logging errors, but this feature may be removed in future. 
+\begin{DoxyParams}{Parameters}
+{\em \$severity} & P\-H\-P error code. \\
+\hline
+{\em \$message} & Text of error. \\
+\hline
+{\em \$filename} & File error occoured in. \\
+\hline
+{\em \$line} & Line number of error. \\
+\hline
+{\em \$super\-\_\-globals} & Hash of P\-H\-P super global arrays.  public \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 231 of file errors.\-php.
+
+
+
+Here is the call graph for this function\-:
+
+

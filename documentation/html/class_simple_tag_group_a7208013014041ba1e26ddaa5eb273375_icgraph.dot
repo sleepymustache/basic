@@ -1,0 +1,25 @@
+digraph "getWidgets"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="getWidgets",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="SimpleCheckboxGroup\l\\getValue",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_checkbox_group.html#ac0bc18784b182c89fcfd276625aef435"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="SimpleCheckboxGroup\l\\getDefault",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_checkbox_group.html#adc30a2a4d3e48cb6aee21562afbc4022"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="SimpleCheckboxGroup\l\\setValue",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_checkbox_group.html#a632cfa5aa1306f8a5735f079d2a9ad8d"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="SimpleCheckboxGroup\l\\valuesArePossible",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_checkbox_group.html#a4a422f53669ed90857aff1d032cfc6a0"];
+  Node5 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="SimpleRadioGroup\\setValue",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_radio_group.html#a7494441b6ed08a391704971873f31432"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="SimpleRadioGroup\\valueIs\lPossible",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_radio_group.html#afda9691e503561e956916102e13d08bc"];
+  Node7 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="SimpleRadioGroup\\getValue",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_radio_group.html#ac0bc18784b182c89fcfd276625aef435"];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="SimpleRadioGroup\\getDefault",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_radio_group.html#adc30a2a4d3e48cb6aee21562afbc4022"];
+}

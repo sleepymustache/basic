@@ -1,0 +1,25 @@
+digraph "generate"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="generate",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="TestOfSpl\\testCanMockAll\lSplClasses",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_spl.html#a240e09f399e00aa997cfbcabcd986129"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="TestOfSpl\\testExtensionOf\lCommonSplClasses",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_spl.html#a0377c3669d62dda517749517192e0cfa"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="TestOfInterfaceMocksWith\lConstruct\\TODO_testBasicConstruct\lOfAnInterface",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_interface_mocks_with_construct.html#a9d12734c495f01f6adc92589ebd2c53e"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="TestOfSampleInterfaceWith\lClone\\testCanMockWithoutErrors",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_sample_interface_with_clone.html#ae805ed9b68273104226ada85ceaa1085"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="TestOfInterfaceMocksWith\lHintInSignature\\testBasicConstruct\lOfAnInterfaceWithHintInSignature",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_interface_mocks_with_hint_in_signature.html#a9c7071b927c7ccf6bf8b54ba94b47e7c"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="TestOfPHP4StyleSuperClass\lConstruct\\testBasicConstruct",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_p_h_p4_style_super_class_construct.html#ac2d866bedb199bc64000879549575e10"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="TestOfPHP5StaticMethodMocking\l\\testCanCreateAMockObjectWithStatic\lMethodsWithoutError",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_p_h_p5_static_method_mocking.html#a8d282ff43369a91ebdb2a538b5af8bc0"];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="TestOfPHP5AbstractMethod\lMocking\\testCanCreateAMockObject\lFromAnAbstractWithProperFunctionDeclarations",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_p_h_p5_abstract_method_mocking.html#a0c0cafbc0e21694da3d728b59043f3f6"];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="TestOfPHP5AbstractMethod\lMocking\\testMethodsDefinedAs\lAbstractInParentShouldHaveFullSignature",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_p_h_p5_abstract_method_mocking.html#af0619e73474e1812fd5ec01fde45038a"];
+}

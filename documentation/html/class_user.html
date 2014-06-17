@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>sleepyMUSTACHE: User Class Reference</title>
+<title>Sleepy Mustache: User Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">sleepyMUSTACHE
+   <div id="projectname">Sleepy Mustache
    </div>
   </td>
  </tr>
@@ -205,24 +205,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="class_8user_8php_source.html#l00034">34</a> of file <a class="el" href="class_8user_8php_source.html">class.user.php</a>.</p>
-<div class="fragment"><div class="line">                                                                          {</div>
-<div class="line">                                             $pass = crypt($pass, $this-&gt;salt);</div>
-<div class="line"></div>
-<div class="line">                                             $query = $this-&gt;db-&gt;prepare(<span class="stringliteral">&quot;SELECT * FROM users WHERE email=:email AND password=:pass&quot;</span>);</div>
-<div class="line">                                             $query-&gt;execute(array(</div>
-<div class="line">                                                            <span class="stringliteral">&#39;:email&#39;</span> =&gt; $email,</div>
-<div class="line">                                                            <span class="stringliteral">&#39;:pass&#39;</span> =&gt; $pass</div>
-<div class="line">                                             ));</div>
-<div class="line">                                             $query-&gt;setFetchMode(PDO::FETCH_ASSOC);</div>
-<div class="line"></div>
-<div class="line">                                             <span class="keywordflow">if</span> ($row = $query-&gt;fetch()) {</div>
-<div class="line">                                                            $this-&gt;<a class="code" href="class_user.html#a7160b09d9d37ede69811a66dc9e4f272">load</a>($row[<span class="stringliteral">&#39;id&#39;</span>]);</div>
-<div class="line">                                                            <span class="keywordflow">return</span> $row[<span class="stringliteral">&#39;id&#39;</span>];</div>
-<div class="line">                                             } <span class="keywordflow">else</span> {</div>
-<div class="line">                                                            <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;Invalid user or password.&quot;</span>);</div>
-<div class="line">                                             }</div>
-<div class="line">                              }</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a class="anchor" id="a610dd05d53d99e1ddc05596468eb4914"></a>
@@ -240,10 +223,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="class_8user_8php_source.html#l00052">52</a> of file <a class="el" href="class_8user_8php_source.html">class.user.php</a>.</p>
-<div class="fragment"><div class="line">                                                                  {</div>
-<div class="line">                                             <span class="keywordflow">return</span> $this-&gt;role-&gt;getPermission($key);</div>
-<div class="line">                              }</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a class="anchor" id="a0b2e7098f1c48a7439a42bada5b69689"></a>
@@ -260,10 +240,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="class_8user_8php_source.html#l00146">146</a> of file <a class="el" href="class_8user_8php_source.html">class.user.php</a>.</p>
-<div class="fragment"><div class="line">                                                        {</div>
-<div class="line">                                             <span class="keywordflow">return</span> $this-&gt;role-&gt;columns[<span class="stringliteral">&#39;name&#39;</span>];</div>
-<div class="line">                              }</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a class="anchor" id="ab62d4b3c3a14ab592768235dad6deb63"></a>
@@ -281,16 +258,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="class_8user_8php_source.html#l00056">56</a> of file <a class="el" href="class_8user_8php_source.html">class.user.php</a>.</p>
-<div class="fragment"><div class="line">                                                                {</div>
-<div class="line">                                             <span class="keywordflow">if</span> (isset($this-&gt;columns[$key])) {</div>
-<div class="line">                                                            <span class="keywordflow">return</span> $this-&gt;columns[$key];</div>
-<div class="line">                                             } <span class="keywordflow">else</span> {</div>
-<div class="line">                                                            <span class="keywordflow">if</span> (isset($this-&gt;metadata[$key])) {</div>
-<div class="line">                                                                           <span class="keywordflow">return</span> $this-&gt;metadata[$key];</div>
-<div class="line">                                                            }</div>
-<div class="line">                                             }</div>
-<div class="line">                              }</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a class="anchor" id="aabf23b66cd362adaa508de5bfb22706a"></a>
@@ -307,22 +275,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="class_8user_8php_source.html#l00130">130</a> of file <a class="el" href="class_8user_8php_source.html">class.user.php</a>.</p>
-<div class="fragment"><div class="line">                                                        {</div>
-<div class="line">                                             <span class="keywordflow">if</span> (!$uid = $this-&gt;<a class="code" href="class_user.html#a33bdd79e5da367ebddd4cfbdbbfc7cff">isLoggedIn</a>()) {</div>
-<div class="line">                                                            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">                                             }</div>
-<div class="line"></div>
-<div class="line">                                             <span class="keywordflow">if</span> (!$this-&gt;<a class="code" href="class_user.html#a2f27c20674620565aa8b3433bffe305d">isLoaded</a>()) {</div>
-<div class="line">                                                            $this-&gt;<a class="code" href="class_user.html#a7160b09d9d37ede69811a66dc9e4f272">load</a>($uid);</div>
-<div class="line">                                             }</div>
-<div class="line"></div>
-<div class="line">                                             <span class="keywordflow">if</span> ($this-&gt;columns[<span class="stringliteral">&#39;role_id&#39;</span>] == 1) {</div>
-<div class="line">                                                            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">                                             } <span class="keywordflow">else</span> {</div>
-<div class="line">                                                            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">                                             }</div>
-<div class="line">                              }</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a class="anchor" id="a2f27c20674620565aa8b3433bffe305d"></a>
@@ -339,12 +292,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="class_8user_8php_source.html#l00116">116</a> of file <a class="el" href="class_8user_8php_source.html">class.user.php</a>.</p>
-<div class="fragment"><div class="line">                                                         {</div>
-<div class="line">                                             <span class="keywordflow">if</span> (isset($this-&gt;columns[<span class="stringliteral">&#39;id&#39;</span>])) {</div>
-<div class="line">                                                            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">                                             }</div>
-<div class="line">                              }</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a class="anchor" id="a33bdd79e5da367ebddd4cfbdbbfc7cff"></a>
@@ -361,14 +309,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="class_8user_8php_source.html#l00122">122</a> of file <a class="el" href="class_8user_8php_source.html">class.user.php</a>.</p>
-<div class="fragment"><div class="line">                                                           {</div>
-<div class="line">                                             <span class="keywordflow">if</span> (isset($_SESSION[<span class="stringliteral">&#39;uid&#39;</span>])) {</div>
-<div class="line">                                                            <span class="keywordflow">return</span> $_SESSION[<span class="stringliteral">&#39;uid&#39;</span>];</div>
-<div class="line">                                             } <span class="keywordflow">else</span> {</div>
-<div class="line">                                                            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">                                             }</div>
-<div class="line">                              }</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a class="anchor" id="a7160b09d9d37ede69811a66dc9e4f272"></a>
@@ -386,25 +327,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="class_8user_8php_source.html#l00066">66</a> of file <a class="el" href="class_8user_8php_source.html">class.user.php</a>.</p>
-<div class="fragment"><div class="line">                                                          {</div>
-<div class="line">                                             parent::load($id);</div>
-<div class="line"></div>
-<div class="line">                                             <span class="comment">// Load usermeta data</span></div>
-<div class="line">                                             $query = $this-&gt;db-&gt;query(<span class="stringliteral">&quot;SELECT * FROM usermeta where user_id={$this-&gt;columns[&#39;id&#39;]}&quot;</span>);</div>
-<div class="line">                                             $query-&gt;setFetchMode(PDO::FETCH_ASSOC);</div>
-<div class="line">                                             $query-&gt;execute();</div>
-<div class="line"></div>
-<div class="line">                                             <a class="code" href="class_user.html#ae7fc3682b173ad9d4b1892bdc04d18d9">$metadata</a> = $query-&gt;fetchAll();</div>
-<div class="line"></div>
-<div class="line">                                             <span class="keywordflow">foreach</span> (<a class="code" href="class_user.html#ae7fc3682b173ad9d4b1892bdc04d18d9">$metadata</a> as $data) {</div>
-<div class="line">                                                            $temp = <span class="keyword">new</span> <a class="code" href="class_user_meta.html">UserMeta</a>($data[<span class="stringliteral">&#39;id&#39;</span>]);</div>
-<div class="line">                                                            $this-&gt;metadata[$temp-&gt;columns[<span class="stringliteral">&#39;key&#39;</span>]] = $temp-&gt;columns[<span class="stringliteral">&#39;value&#39;</span>];</div>
-<div class="line">                                             }</div>
-<div class="line"></div>
-<div class="line">                                             <span class="comment">// Load the Role</span></div>
-<div class="line">                                             $this-&gt;role = <span class="keyword">new</span> <a class="code" href="class_role.html">Role</a>($this-&gt;columns[<span class="stringliteral">&#39;role_id&#39;</span>]);</div>
-<div class="line">                              }</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a class="anchor" id="a8cdc6b049e470fac0e97101e4f353a05"></a>
@@ -422,10 +345,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="class_8user_8php_source.html#l00100">100</a> of file <a class="el" href="class_8user_8php_source.html">class.user.php</a>.</p>
-<div class="fragment"><div class="line">                                                                  {</div>
-<div class="line">                                             <span class="keywordflow">return</span> crypt($pass, $this-&gt;salt);</div>
-<div class="line">                              }</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a class="anchor" id="afc8a3c62679cf00ade9f15fb2a6d6132"></a>
@@ -442,18 +362,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="class_8user_8php_source.html#l00104">104</a> of file <a class="el" href="class_8user_8php_source.html">class.user.php</a>.</p>
-<div class="fragment"><div class="line">                                                     {</div>
-<div class="line">                                             $query = $this-&gt;db-&gt;prepare(<span class="stringliteral">&quot;SELECT * from users where email=:email&quot;</span>);</div>
-<div class="line">                                             $query-&gt;setFetchMode(PDO::FETCH_ASSOC);</div>
-<div class="line">                                             $query-&gt;execute(array(<span class="stringliteral">&#39;:email&#39;</span> =&gt; $this-&gt;columns[<span class="stringliteral">&#39;email&#39;</span>]));</div>
-<div class="line"></div>
-<div class="line">                                             <span class="keywordflow">if</span> ($query-&gt;fetch()) {</div>
-<div class="line">                                                            <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&#39;The user already exists.&#39;</span>);</div>
-<div class="line">                                             } <span class="keywordflow">else</span> {</div>
-<div class="line">                                                            parent::save();</div>
-<div class="line">                                             }</div>
-<div class="line">                              }</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a class="anchor" id="a96f600de7f4fe416bf8565d9d0eebee4"></a>
@@ -481,21 +390,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="class_8user_8php_source.html#l00085">85</a> of file <a class="el" href="class_8user_8php_source.html">class.user.php</a>.</p>
-<div class="fragment"><div class="line">                                                                        {</div>
-<div class="line">                                             <span class="keywordflow">if</span> (isset($this-&gt;columns[$key])) {</div>
-<div class="line">                                                            $this-&gt;columns[$key] = $value;</div>
-<div class="line">                                             } <span class="keywordflow">else</span> {</div>
-<div class="line">                                                            <span class="keywordflow">if</span> (isset($this-&gt;metadata[$key])) {</div>
-<div class="line">                                                                           $this-&gt;metadata[$key] = $value;</div>
-<div class="line">                                                            } <span class="keywordflow">else</span> {</div>
-<div class="line">                                                                           $temp = <span class="keyword">new</span> <a class="code" href="class_user_meta.html">UserMeta</a>();</div>
-<div class="line">                                                                           $temp-&gt;columns[<span class="stringliteral">&#39;key&#39;</span>] = $key;</div>
-<div class="line">                                                                           $temp-&gt;columns[<span class="stringliteral">&#39;value&#39;</span>] = $value;</div>
-<div class="line">                                                                           $temp-&gt;save();</div>
-<div class="line">                                                            }</div>
-<div class="line">                                             }</div>
-<div class="line">                              }</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -536,7 +431,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_user.html">User</a></li>
-    <li class="footer">Generated on Fri Jan 3 2014 13:11:20 for sleepyMUSTACHE by
+    <li class="footer">Generated on Mon Jun 16 2014 18:08:24 for Sleepy Mustache by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

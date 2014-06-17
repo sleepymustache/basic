@@ -1,0 +1,13 @@
+digraph "createTag"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="createTag",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="keysToLowerCase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_tag_builder.html#a357fe6f8cb610f50273f9184a9e7121e"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="createSelectionTag",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_tag_builder.html#a2c9326ea02f41003e438d7a593bf8669"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="createInputTag",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_tag_builder.html#a000547dfe9aed547382cbfacdd5e0cb7"];
+}

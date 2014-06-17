@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>sleepyMUSTACHE: Hook Class</title>
+<title>Sleepy Mustache: Hook Class</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">sleepyMUSTACHE
+   <div id="projectname">Sleepy Mustache
    </div>
   </td>
  </tr>
@@ -100,34 +100,39 @@ $(document).ready(function(){initNavTree('hooks1.html','');});
 <div class="textblock"><p>Adds Hooks and Filters</p>
 <p>Adds Hooks and filters into your project. You attach modules to those hooks and filters by adding php files into the "/modules/" director.</p>
 <h1><a class="anchor" id="usage"></a>
-Usage:</h1>
+Usage</h1>
 <div class="fragment"><div class="line"><span class="comment">// add a hook point</span></div>
-<div class="line">$content = <a class="code" href="class_hook.html#a6489ed6b12329279b9e7cae26afc4dd6">Hook::addFilter</a>(<span class="stringliteral">&#39;update_content&#39;</span>, $_POST[<span class="stringliteral">&#39;content&#39;</span>]);</div>
+<div class="line">$content = <a class="code" href="class_hook.html#a79d30e5023bd9d77404dc844dbd2e67a">Hook::addFilter</a>(<span class="stringliteral">&#39;update_content&#39;</span>, $_POST[<span class="stringliteral">&#39;content&#39;</span>]);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Add a module to the hook point--in /modules/&lt;moduleName.php&gt;</span></div>
 <div class="line"><span class="keyword">function</span> clean_html ($html) {</div>
-<div class="line">               $c = htmlentities(trim($html), ENT_NOQUOTES, <span class="stringliteral">&quot;UTF-8&quot;</span>, <span class="keyword">false</span>);</div>
-<div class="line">               <span class="keywordflow">return</span> $c;</div>
+<div class="line">    $c = htmlentities(trim($html), ENT_NOQUOTES, <span class="stringliteral">&quot;UTF-8&quot;</span>, <span class="keyword">false</span>);</div>
+<div class="line">    <span class="keywordflow">return</span> $c;</div>
 <div class="line">}</div>
 <div class="line"></div>
-<div class="line"><a class="code" href="class_hook.html#aae875eca0ec73f226ce615840f06d161">Hook::applyFilter</a>(<span class="stringliteral">&quot;update_content&quot;</span>, <span class="stringliteral">&quot;clean_html&quot;</span>);</div>
+<div class="line"><a class="code" href="class_hook.html#abbc6b8e613d39304af45ffe38a2fa61b">Hook::applyFilter</a>(<span class="stringliteral">&quot;update_content&quot;</span>, <span class="stringliteral">&quot;clean_html&quot;</span>);</div>
 </div><!-- fragment --><h1><a class="anchor" id="changelog"></a>
 Changelog</h1>
-<p>Version 1.0</p>
+<h2>Version 1.1</h2>
+<ul>
+<li>Added the date section to the documentation</li>
+</ul>
+<h2>Version 1.0</h2>
 <ul>
 <li>static class pattern fixes</li>
 <li>multiple module directories</li>
 <li>crawls subdirectories of module directories</li>
 </ul>
+<dl class="section date"><dt>Date</dt><dd>June 16, 2014 </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Jaime A. Rodriguez <a href="#" onclick="location.href='mai'+'lto:'+'hi.'+'i.'+'am.'+'ja'+'ime'+'@g'+'mai'+'l.'+'com'; return false;">hi.i.<span style="display: none;">.nosp@m.</span>am.j<span style="display: none;">.nosp@m.</span>aime@<span style="display: none;">.nosp@m.</span>gmai<span style="display: none;">.nosp@m.</span>l.com</a> </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.1 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>GPL 3 <a href="http://cuttingedgecode.com">http://cuttingedgecode.com</a> </dd></dl>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Jan 3 2014 13:11:20 for sleepyMUSTACHE by
+    <li class="footer">Generated on Mon Jun 16 2014 18:08:24 for Sleepy Mustache by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

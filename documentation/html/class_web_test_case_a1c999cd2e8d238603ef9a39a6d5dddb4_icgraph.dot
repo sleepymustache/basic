@@ -1,0 +1,35 @@
+digraph "getCookie"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="getCookie",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="TestOfLiveCookies\\testCookie\lSettingAndAssertions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_live_cookies.html#a8ce7e06a54c6ca83cddacd3587e25427"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="assertCookie",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_web_test_case.html#a7d42ff2a3e323b636714e26cf9fcc205"];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="TestOfLiveCookies\\testCookie\lReading",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_live_cookies.html#ab1cf6d1d40446997d473791bef8487e5"];
+  Node3 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="TestOfLiveCookies\\testCookie\lPatternAssertions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_live_cookies.html#a6137d0ab9bab0c2461dc307a1e0d0fa7"];
+  Node3 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="TestOfLiveCookies\\testTemporary\lCookieExpiry",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_live_cookies.html#ae52f1ca49f6ad37916789e37ac0f9dd7"];
+  Node3 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="TestOfLiveCookies\\testTimed\lCookieExpiryWith100SecondMargin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_live_cookies.html#a76824fac4338d47e5ab585190fddd310"];
+  Node3 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="TestOfLiveCookies\\testNo\lClockUnderDriftBy100Seconds",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_live_cookies.html#a2595c904a63785aa06a2e590f3d15955"];
+  Node3 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="TestOfLiveCookies\\testCookiePath",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_live_cookies.html#a33363f3974de0c69fe8e41c9b1ae14d8"];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="assertNoCookie",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_web_test_case.html#a4f51d1fa42de88f6f17e2cb1c5dfdeae"];
+  Node10 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="TestOfLiveCookies\\testNo\lCookie",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_live_cookies.html#a2bcca8c3d3a6dfdedac2acc43150c1c0"];
+  Node10 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="TestOfLiveCookies\\testNo\lCookieReadingWhenCookiesDisabled",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_live_cookies.html#a965548fc6ade9cf3a1c7fbe625978e17"];
+  Node10 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="TestOfLiveCookies\\testNo\lClockOverDriftBy100Seconds",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_live_cookies.html#a4b9a82933de5ed02d8cc0df166efb20a"];
+  Node10 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

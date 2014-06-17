@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>sleepyMUSTACHE: Record Class Reference</title>
+<title>Sleepy Mustache: Record Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">sleepyMUSTACHE
+   <div id="projectname">Sleepy Mustache
    </div>
   </td>
  </tr>
@@ -153,7 +153,7 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="class_8record_8php_source.html#l00050">50</a> of file <a class="el" href="class_8record_8php_source.html">class.record.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8record_8php_source.html#l00056">56</a> of file <a class="el" href="class_8record_8php_source.html">class.record.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a4e176c3a661053094339903c5cfc7942"></a>
 <div class="memitem">
@@ -176,24 +176,8 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="class_8record_8php_source.html#l00081">81</a> of file <a class="el" href="class_8record_8php_source.html">class.record.php</a>.</p>
-<div class="fragment"><div class="line">                                                  {</div>
-<div class="line">                              $this-&gt;db = <a class="code" href="class_d_b.html#ac93fbec81f07e5d15f80db907e63dc10">DB::getInstance</a>();</div>
-<div class="line"></div>
-<div class="line">                              $select = $this-&gt;db-&gt;query(<span class="stringliteral">&quot;SELECT * FROM `{$this-&gt;table}` LIMIT 1&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">for</span> ($i = 0; $i &lt;= $select-&gt;columnCount(); $i ++) {</div>
-<div class="line">                                             <a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a> = $select-&gt;getColumnMeta($i);</div>
-<div class="line">                                             <span class="keywordflow">if</span> (isset(<a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>[<span class="stringliteral">&#39;name&#39;</span>])) {</div>
-<div class="line">                                                            $this-&gt;meta[<a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>[<span class="stringliteral">&#39;name&#39;</span>]] = <a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>;</div>
-<div class="line">                                             }</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">if</span> ($id) {</div>
-<div class="line">                                             $this-&gt;<a class="code" href="class_record.html#a7160b09d9d37ede69811a66dc9e4f272">load</a>($id);</div>
-<div class="line">                              }</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8record_8php_source.html#l00087">87</a> of file <a class="el" href="class_8record_8php_source.html">class.record.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -212,20 +196,8 @@ Protected Attributes</h2></td></tr>
 <p>Deletes this record from the database</p>
 <dl class="section return"><dt>Returns</dt><dd>bool True if delete is successful </dd></dl>
 
-<p>Definition at line <a class="el" href="class_8record_8php_source.html#l00177">177</a> of file <a class="el" href="class_8record_8php_source.html">class.record.php</a>.</p>
-<div class="fragment"><div class="line">                                        {</div>
-<div class="line">                              <a class="code" href="class_hook.html#afff7a7869d2dd304043b69a3fff24655">Hook::addAction</a>(<span class="stringliteral">&#39;recordBeforeDelete&#39;</span>);</div>
-<div class="line">                              $query = $this-&gt;db-&gt;prepare(<span class="stringliteral">&#39;DELETE FROM &#39;</span> . $this-&gt;table . <span class="stringliteral">&#39; WHERE {$this-&gt;primaryKey}=:{$this-&gt;primaryKey}&#39;</span>);</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">if</span> ($query-&gt;execute(array(<span class="stringliteral">&quot;:{$this-&gt;primaryKey}&quot;</span> =&gt; $this-&gt;{$this-&gt;primaryKey}))) {</div>
-<div class="line">                                             <a class="code" href="class_hook.html#afff7a7869d2dd304043b69a3fff24655">Hook::addAction</a>(<span class="stringliteral">&#39;recordDeleteSucessful&#39;</span>);</div>
-<div class="line">                                             <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">                              } <span class="keywordflow">else</span> {</div>
-<div class="line">                                             <a class="code" href="class_hook.html#afff7a7869d2dd304043b69a3fff24655">Hook::addAction</a>(<span class="stringliteral">&#39;recordDeleteError&#39;</span>);</div>
-<div class="line">                                             <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;{$this-&gt;table}: Record was not deleted.&quot;</span>);</div>
-<div class="line">                              }</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8record_8php_source.html#l00183">183</a> of file <a class="el" href="class_8record_8php_source.html">class.record.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a93614c4fd6ba6715b5d339e6b4720d34"></a>
@@ -268,170 +240,8 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void returns nothing </dd></dl>
 
-<p>Definition at line <a class="el" href="class_8record_8php_source.html#l00198">198</a> of file <a class="el" href="class_8record_8php_source.html">class.record.php</a>.</p>
-<div class="fragment"><div class="line">                                                                                       {</div>
-<div class="line">                              <span class="comment">// Legend defaults to the table name</span></div>
-<div class="line">                              <span class="keywordflow">if</span> ($legend == <span class="stringliteral">&#39;table_name&#39;</span>) {</div>
-<div class="line">                                             $legend = <a class="code" href="class_record.html#ae8876a14058f368335baccf35af4a22b">$this-&gt;table</a>;</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              <span class="comment">// If there are no fields sent, load all fields in the table.</span></div>
-<div class="line">                              <span class="keywordflow">if</span> (empty($fields)) {</div>
-<div class="line">                                             <span class="keywordflow">foreach</span> ($this-&gt;meta as <a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>) {</div>
-<div class="line">                                                            $fields[$meta[<span class="stringliteral">&#39;name&#39;</span>]] = $meta[<span class="stringliteral">&#39;name&#39;</span>];</div>
-<div class="line">                                             }</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              ?&gt;</div>
-<div class="line">                              &lt;fieldset&gt;</div>
-<div class="line">                                             &lt;legend&gt;&lt;?php echo $legend;?&gt;&lt;/legend&gt;</div>
-<div class="line">                                             &lt;ul&gt;</div>
-<div class="line">                                             &lt;?php</div>
-<div class="line">                                                            <span class="comment">// Display each field</span></div>
-<div class="line">                                                            <span class="keywordflow">foreach</span> ($fields as $field =&gt; $label) {</div>
-<div class="line">                                                                           $class = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">                                                                           $buffer = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">                                                                           <a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a> = $this-&gt;meta[$field];</div>
-<div class="line"></div>
-<div class="line">                                                                           <span class="comment">// If the field is not in the database, then add a</span></div>
-<div class="line">                                                                           <span class="comment">// &quot;fake&quot; field instead</span></div>
-<div class="line">                                                                           <span class="keywordflow">if</span> (!is_array(<a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>)) {</div>
-<div class="line">                                                                                          <a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>[<span class="stringliteral">&#39;name&#39;</span>] = $field;</div>
-<div class="line">                                                                                          <a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>[<span class="stringliteral">&#39;flags&#39;</span>] = Array();</div>
-<div class="line">                                                                                          <a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>[<span class="stringliteral">&#39;native_type&#39;</span>] = <span class="stringliteral">&#39;VAR_STRING&#39;</span>;</div>
-<div class="line">                                                                                          $class .= <span class="stringliteral">&#39;not-binded &#39;</span>;</div>
-<div class="line">                                                                           }</div>
-<div class="line"></div>
-<div class="line">                                                                           <span class="comment">// Add classes for field flags</span></div>
-<div class="line">                                                                           <span class="keywordflow">foreach</span> (<a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>[<span class="stringliteral">&#39;flags&#39;</span>] as $flag) {</div>
-<div class="line">                                                                                          <span class="keywordflow">if</span> ($flag == <span class="stringliteral">&#39;not_null&#39;</span>) {</div>
-<div class="line">                                                                                                         $class .= <span class="stringliteral">&#39;required &#39;</span>;</div>
-<div class="line">                                                                                          }</div>
-<div class="line"></div>
-<div class="line">                                                                                          <span class="keywordflow">if</span> ($flag == <span class="stringliteral">&#39;primary_key&#39;</span>) {</div>
-<div class="line">                                                                                                         $class .= <span class="stringliteral">&#39;primary-key &#39;</span>;</div>
-<div class="line">                                                                                          }</div>
-<div class="line">                                                                           }</div>
-<div class="line"></div>
-<div class="line">                                                                           $label = <a class="code" href="class_hook.html#a6489ed6b12329279b9e7cae26afc4dd6">Hook::addFilter</a>(<span class="stringliteral">&#39;dbForm_label&#39;</span>, $label);</div>
-<div class="line"></div>
-<div class="line">                                                                           ?&gt;</div>
-<div class="line">                                                                           &lt;li&gt;</div>
-<div class="line">                                                                                          &lt;?php</div>
-<div class="line">                                                                                                         <span class="comment">// fix for tinyint so it works correctly. Damn PDO!</span></div>
-<div class="line">                                                                                                         <span class="keywordflow">if</span> (!isset(<a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>[<span class="stringliteral">&#39;native_type&#39;</span>])) {</div>
-<div class="line">                                                                                                                        <span class="keywordflow">if</span> (<a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>[<span class="stringliteral">&#39;len&#39;</span>] == 1) {</div>
-<div class="line">                                                                                                                                       <a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>[<span class="stringliteral">&#39;native_type&#39;</span>] = <span class="stringliteral">&#39;BOOL&#39;</span>;</div>
-<div class="line">                                                                                                                        }</div>
-<div class="line">                                                                                                         }</div>
-<div class="line"></div>
-<div class="line">                                                                                                         <span class="comment">// Is this a password field?</span></div>
-<div class="line">                                                                                                         <span class="keywordflow">if</span> (strpos(strtolower($label), <span class="stringliteral">&#39;password&#39;</span>) &gt; -1) {</div>
-<div class="line">                                                                                                                        <a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>[<span class="stringliteral">&#39;native_type&#39;</span>] = <span class="stringliteral">&#39;PASSWORD&#39;</span>;</div>
-<div class="line">                                                                                                         }</div>
-<div class="line"></div>
-<div class="line">                                                                                                         <span class="comment">// Is this an email field?</span></div>
-<div class="line">                                                                                                         <span class="keywordflow">if</span> (strpos(strtolower($label), <span class="stringliteral">&#39;email&#39;</span>) &gt; -1) {</div>
-<div class="line">                                                                                                                        $class = <span class="stringliteral">&quot;email &quot;</span>;</div>
-<div class="line">                                                                                                         }</div>
-<div class="line"></div>
-<div class="line">                                                                                                         $value = htmlspecialchars($this-&gt;columns[$field]);</div>
-<div class="line"></div>
-<div class="line">                                                                                                         <span class="keywordflow">switch</span> (<a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>[<span class="stringliteral">&#39;native_type&#39;</span>]) {</div>
-<div class="line">                                                                                                         <span class="keywordflow">case</span> <span class="stringliteral">&#39;LONG&#39;</span>:</div>
-<div class="line">                                                                                                         <span class="keywordflow">case</span> <span class="stringliteral">&#39;FLOAT&#39;</span>:</div>
-<div class="line">                                                                                                                        $class .= <span class="stringliteral">&quot;digits &quot;</span>;</div>
-<div class="line">                                                                                                                        $inputId = <span class="stringliteral">&quot;txt_&quot;</span> . <a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>[<span class="stringliteral">&#39;name&#39;</span>];</div>
-<div class="line"></div>
-<div class="line">                                                                                                                        $buffer .= <span class="stringliteral">&quot;&lt;label class=\&quot;{$class}\&quot; for=\&quot;{$inputId}\&quot;&gt;{$label}&lt;/label&gt;&quot;</span>;</div>
-<div class="line">                                                                                                                        $buffer .= <span class="stringliteral">&quot;&lt;input class=\&quot;{$class}\&quot; type=\&quot;text\&quot; name=\&quot;{$inputId}\&quot; id=\&quot;{$inputId}\&quot; maxlength=\&quot;{$meta[&#39;len&#39;]}\&quot; value=\&quot;{$value}\&quot; /&gt;&quot;</span>;</div>
-<div class="line">                                                                                                                        <span class="keywordflow">break</span>;</div>
-<div class="line">                                                                                                         <span class="keywordflow">case</span> <span class="stringliteral">&#39;STRING&#39;</span>:</div>
-<div class="line">                                                                                                         <span class="keywordflow">case</span> <span class="stringliteral">&#39;VAR_STRING&#39;</span>:</div>
-<div class="line">                                                                                                                        $class .= <span class="stringliteral">&quot;string &quot;</span>;</div>
-<div class="line">                                                                                                                        $inputId = <span class="stringliteral">&quot;txt_&quot;</span> . <a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>[<span class="stringliteral">&#39;name&#39;</span>];</div>
-<div class="line">                                                                                                                        $buffer .= <span class="stringliteral">&quot;&lt;label class=\&quot;{$class}\&quot; for=\&quot;{$inputId}\&quot;&gt;{$label}&lt;/label&gt;&quot;</span>;</div>
-<div class="line">                                                                                                                        $buffer .= <span class="stringliteral">&quot;&lt;input class=\&quot;{$class}\&quot; type=\&quot;text\&quot; name=\&quot;{$inputId}\&quot; id=\&quot;{$inputId}\&quot; maxlength=\&quot;{$meta[&#39;len&#39;]}\&quot; value=\&quot;{$value}\&quot; /&gt;&quot;</span>;</div>
-<div class="line">                                                                                                                        <span class="keywordflow">break</span>;</div>
-<div class="line">                                                                                                         <span class="keywordflow">case</span> <span class="stringliteral">&#39;PASSWORD&#39;</span>:</div>
-<div class="line">                                                                                                                        $class .= <span class="stringliteral">&quot;password &quot;</span>;</div>
-<div class="line">                                                                                                                        $inputId = <span class="stringliteral">&quot;pwd_&quot;</span> . <a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>[<span class="stringliteral">&#39;name&#39;</span>];</div>
-<div class="line">                                                                                                                        $buffer .= <span class="stringliteral">&quot;&lt;label class=\&quot;{$class}\&quot; for=\&quot;{$inputId}\&quot;&gt;{$label}&lt;/label&gt;&quot;</span>;</div>
-<div class="line">                                                                                                                        $buffer .= <span class="stringliteral">&quot;&lt;input class=\&quot;{$class}\&quot; type=\&quot;password\&quot; name=\&quot;{$inputId}\&quot; id=\&quot;{$inputId}\&quot; maxlength=\&quot;{$meta[&#39;len&#39;]}\&quot; /&gt;&quot;</span>;</div>
-<div class="line">                                                                                                                        <span class="keywordflow">break</span>;</div>
-<div class="line">                                                                                                         <span class="keywordflow">case</span> <span class="stringliteral">&#39;DATETIME&#39;</span>:</div>
-<div class="line">                                                                                                                        $class .= <span class="stringliteral">&quot;datetime &quot;</span>;</div>
-<div class="line">                                                                                                                        $inputId = <span class="stringliteral">&quot;txt_&quot;</span> . <a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>[<span class="stringliteral">&#39;name&#39;</span>];</div>
-<div class="line">                                                                                                                        $buffer .= <span class="stringliteral">&quot;&lt;label class=\&quot;{$class}\&quot; for=\&quot;{$inputId}\&quot;&gt;{$label}&lt;/label&gt;&quot;</span>;</div>
-<div class="line">                                                                                                                        $buffer .= <span class="stringliteral">&quot;&lt;input class=\&quot;{$class}\&quot; type=\&quot;text\&quot; name=\&quot;{$inputId}\&quot; id=\&quot;{$inputId}\&quot; maxlength=\&quot;{$meta[&#39;len&#39;]}\&quot; value=\&quot;{$value}\&quot; /&gt;&quot;</span>;</div>
-<div class="line">                                                                                                                        <span class="keywordflow">break</span>;</div>
-<div class="line">                                                                                                         <span class="keywordflow">case</span> <span class="stringliteral">&#39;TIMESTAMP&#39;</span>:</div>
-<div class="line">                                                                                                                        $class .= <span class="stringliteral">&quot;timestamp &quot;</span>;</div>
-<div class="line">                                                                                                                        $inputId = <span class="stringliteral">&quot;txt_&quot;</span> . <a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>[<span class="stringliteral">&#39;name&#39;</span>];</div>
-<div class="line">                                                                                                                        $buffer .= <span class="stringliteral">&quot;&lt;label class=\&quot;{$class}\&quot; for=\&quot;{$inputId}\&quot;&gt;{$label}&lt;/label&gt;&quot;</span>;</div>
-<div class="line">                                                                                                                        $buffer .= <span class="stringliteral">&quot;&lt;input class=\&quot;{$class}\&quot; type=\&quot;text\&quot; name=\&quot;{$inputId}\&quot; id=\&quot;{$inputId}\&quot; maxlength=\&quot;{$meta[&#39;len&#39;]}\&quot; value=\&quot;{$value}\&quot; /&gt;&quot;</span>;</div>
-<div class="line">                                                                                                                        <span class="keywordflow">break</span>;</div>
-<div class="line">                                                                                                         <span class="keywordflow">case</span> <span class="stringliteral">&#39;NEWDECIMAL&#39;</span>:</div>
-<div class="line">                                                                                                                        $class .= <span class="stringliteral">&quot;decimal &quot;</span>;</div>
-<div class="line">                                                                                                                        $inputId = <span class="stringliteral">&quot;txt_&quot;</span> . <a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>[<span class="stringliteral">&#39;name&#39;</span>];</div>
-<div class="line">                                                                                                                        $buffer .= <span class="stringliteral">&quot;&lt;label class=\&quot;{$class}\&quot; for=\&quot;{$inputId}\&quot;&gt;{$label}&lt;/label&gt;&quot;</span>;</div>
-<div class="line">                                                                                                                        $buffer .= <span class="stringliteral">&quot;&lt;input class=\&quot;{$class}\&quot; type=\&quot;text\&quot; name=\&quot;{$inputId}\&quot; id=\&quot;{$inputId}\&quot; maxlength=\&quot;{$meta[&#39;len&#39;]}\&quot; value=\&quot;{$value}\&quot; /&gt;&quot;</span>;</div>
-<div class="line">                                                                                                                        <span class="keywordflow">break</span>;</div>
-<div class="line">                                                                                                         <span class="keywordflow">case</span> <span class="stringliteral">&#39;BOOL&#39;</span>:</div>
-<div class="line">                                                                                                                        $class .= <span class="stringliteral">&quot;bool &quot;</span>;</div>
-<div class="line">                                                                                                                        $inputId = <span class="stringliteral">&quot;chk_&quot;</span> . <a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>[<span class="stringliteral">&#39;name&#39;</span>];</div>
-<div class="line">                                                                                                                        <span class="keywordflow">if</span> ($value) {</div>
-<div class="line">                                                                                                                                       $checked = <span class="stringliteral">&quot;checked=\&quot;checked\&quot;&quot;</span>;</div>
-<div class="line">                                                                                                                        }</div>
-<div class="line">                                                                                                                        $buffer .= <span class="stringliteral">&quot;&lt;label class=\&quot;{$class}\&quot; for=\&quot;{$inputId}\&quot;&gt;{$label}&lt;/label&gt;&quot;</span>;</div>
-<div class="line">                                                                                                                        $buffer .= <span class="stringliteral">&quot;&lt;input class=\&quot;{$class}\&quot; type=\&quot;checkbox\&quot; name=\&quot;{$inputId}\&quot; id=\&quot;{$inputId}\&quot; value=\&quot;1\&quot; {$checked} /&gt;&quot;</span>;</div>
-<div class="line">                                                                                                                        <span class="keywordflow">break</span>;</div>
-<div class="line">                                                                                                         <span class="keywordflow">case</span> <span class="stringliteral">&#39;BLOB&#39;</span>:</div>
-<div class="line">                                                                                                                        $class .= <span class="stringliteral">&quot;string &quot;</span>;</div>
-<div class="line">                                                                                                                        $inputId = <span class="stringliteral">&quot;txt_&quot;</span> . <a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>[<span class="stringliteral">&#39;name&#39;</span>];</div>
-<div class="line">                                                                                                                        $buffer .= <span class="stringliteral">&quot;&lt;label class=\&quot;{$class}\&quot; for=\&quot;{$inputId}\&quot;&gt;{$label}&lt;/label&gt;&quot;</span>;</div>
-<div class="line">                                                                                                                        $buffer .= <span class="stringliteral">&quot;&lt;textarea class=\&quot;{$class}\&quot; type=\&quot;text\&quot; name=\&quot;{$inputId}\&quot; id=\&quot;{$inputId}\&quot; maxlength=\&quot;{$meta[&#39;len&#39;]}\&quot;&gt;{$value}&lt;/textarea&gt;&quot;</span>;</div>
-<div class="line">                                                                                                                        <span class="keywordflow">break</span>;</div>
-<div class="line">                                                                                                         <span class="keywordflow">default</span>:</div>
-<div class="line">                                                                                                                        $buffer .= <span class="stringliteral">&quot;No Handler for {$meta[&#39;native_type&#39;]} defined.&quot;</span>;</div>
-<div class="line">                                                                                                         }</div>
-<div class="line"></div>
-<div class="line">                                                                                                         <span class="comment">// Add Hook filters to the buffer</span></div>
-<div class="line">                                                                                                         <span class="keywordflow">foreach</span>(Array(</div>
-<div class="line">                                                                                                                        <span class="stringliteral">&#39;dbForm_list&#39;</span>,</div>
-<div class="line">                                                                                                                        $this-&gt;table . <span class="stringliteral">&quot;_dbForm_list&quot;</span></div>
-<div class="line">                                                                                                         ) as $filterName) {</div>
-<div class="line">                                                                                                                        $buffer = <a class="code" href="class_hook.html#a6489ed6b12329279b9e7cae26afc4dd6">Hook::addFilter</a>($filterName, Array(</div>
-<div class="line">                                                                                                                                       $buffer,</div>
-<div class="line">                                                                                                                                       <a class="code" href="class_record.html#a9e6fc1ae0498be7d1e682f8bcc9299df">$meta</a>[<span class="stringliteral">&#39;native_type&#39;</span>],</div>
-<div class="line">                                                                                                                                       $label,</div>
-<div class="line">                                                                                                                                       $value,</div>
-<div class="line">                                                                                                                                       $class,</div>
-<div class="line">                                                                                                                                       $inputId</div>
-<div class="line">                                                                                                                        ));</div>
-<div class="line">                                                                                                         }</div>
-<div class="line"></div>
-<div class="line">                                                                                                         echo $buffer;</div>
-<div class="line">                                                                                          ?&gt;</div>
-<div class="line">                                                                           &lt;/li&gt;</div>
-<div class="line">                                                                           &lt;?php</div>
-<div class="line">                                                            }</div>
-<div class="line">                                                            ?&gt;</div>
-<div class="line">                                             &lt;/ul&gt;</div>
-<div class="line">                              &lt;/fieldset&gt;</div>
-<div class="line">                              &lt;?php</div>
-<div class="line">                              <span class="keywordflow">if</span> ($submit) {</div>
-<div class="line">                                             ?&gt;</div>
-<div class="line">                                             &lt;fieldset <span class="keyword">class</span>=<span class="stringliteral">&quot;submit&quot;</span>&gt;</div>
-<div class="line">                                                            &lt;legend&gt;&lt;/legend&gt;</div>
-<div class="line">                                                            &lt;ul&gt;</div>
-<div class="line">                                                                           &lt;li&gt;&lt;input type=<span class="stringliteral">&quot;submit&quot;</span> value=<span class="stringliteral">&quot;Save&quot;</span>&gt;&lt;/li&gt;</div>
-<div class="line">                                                            &lt;/ul&gt;</div>
-<div class="line">                                             &lt;/fieldset&gt;</div>
-<div class="line">                                             &lt;?php</div>
-<div class="line">                              }</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8record_8php_source.html#l00204">204</a> of file <a class="el" href="class_8record_8php_source.html">class.record.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a7160b09d9d37ede69811a66dc9e4f272"></a>
@@ -456,23 +266,8 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>bool True if loaded correctly </dd></dl>
 
-<p>Definition at line <a class="el" href="class_8record_8php_source.html#l00104">104</a> of file <a class="el" href="class_8record_8php_source.html">class.record.php</a>.</p>
-<div class="fragment"><div class="line">                                           {</div>
-<div class="line">                              <span class="keywordflow">if</span> ($this-&gt;table == <span class="stringliteral">&#39;&#39;</span>) {</div>
-<div class="line">                                             <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&#39;$this-&gt;table is not set.&#39;</span>);</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              $query = $this-&gt;db-&gt;prepare(<span class="stringliteral">&quot;SELECT * FROM `{$this-&gt;table}` WHERE {$this-&gt;primaryKey}=:{$this-&gt;primaryKey}&quot;</span>);</div>
-<div class="line">                              $query-&gt;execute(array(<span class="stringliteral">&quot;:{$this-&gt;primaryKey}&quot;</span> =&gt; $id));</div>
-<div class="line">                              $query-&gt;setFetchMode(PDO::FETCH_ASSOC);</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">if</span> ($this-&gt;columns = $query-&gt;fetch()) {</div>
-<div class="line">                                             <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">                              } <span class="keywordflow">else</span> {</div>
-<div class="line">                                             <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;{$this-&gt;table}: Record does not exist.&quot;</span>);</div>
-<div class="line">                              }</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8record_8php_source.html#l00110">110</a> of file <a class="el" href="class_8record_8php_source.html">class.record.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="afc8a3c62679cf00ade9f15fb2a6d6132"></a>
@@ -490,54 +285,8 @@ Protected Attributes</h2></td></tr>
 <p>Saves the record to the database.</p>
 <dl class="section return"><dt>Returns</dt><dd>mixed Returns the Primary Key </dd></dl>
 
-<p>Definition at line <a class="el" href="class_8record_8php_source.html#l00125">125</a> of file <a class="el" href="class_8record_8php_source.html">class.record.php</a>.</p>
-<div class="fragment"><div class="line">                                      {</div>
-<div class="line">                              $sql = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">                              $col = array();</div>
-<div class="line"></div>
-<div class="line">                              <span class="comment">// If id is set, then update. Else, insert</span></div>
-<div class="line">                              <span class="keywordflow">if</span> ($new = !isset($this-&gt;columns[$this-&gt;primaryKey])) {</div>
-<div class="line">                                             $sql = <span class="stringliteral">&quot;INSERT INTO {$this-&gt;table} SET&quot;</span>;</div>
-<div class="line">                              } <span class="keywordflow">else</span> {</div>
-<div class="line">                                             $sql = <span class="stringliteral">&quot;UPDATE {$this-&gt;table} SET&quot;</span>;</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              <span class="comment">// set up insert statement, don&#39;t update id</span></div>
-<div class="line">                              <span class="keywordflow">foreach</span> ($this-&gt;columns as $key =&gt; $value) {</div>
-<div class="line">                                             <span class="keywordflow">if</span> ($key !== $this-&gt;primaryKey) {</div>
-<div class="line">                                                            $sql .= <span class="stringliteral">&quot; {$key}=:{$key},&quot;</span>;</div>
-<div class="line">                                                            $col[<span class="stringliteral">&quot;:{$key}&quot;</span>] = $value;</div>
-<div class="line">                                             } <span class="keywordflow">else</span> {</div>
-<div class="line">                                                            $col[<span class="stringliteral">&quot;:{$key}&quot;</span>] = $value;</div>
-<div class="line">                                             }</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              <span class="comment">// remove the trailing comma</span></div>
-<div class="line">                              $sql = substr($sql, 0, -1);</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">if</span> (!$new) {</div>
-<div class="line">                                             $sql = $sql . <span class="stringliteral">&quot; WHERE {$this-&gt;primaryKey}=:{$this-&gt;primaryKey}&quot;</span>;</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              $result = $this-&gt;db-&gt;prepare($sql);</div>
-<div class="line"></div>
-<div class="line">                              <span class="comment">// save</span></div>
-<div class="line">                              <a class="code" href="class_hook.html#afff7a7869d2dd304043b69a3fff24655">Hook::addAction</a>(<span class="stringliteral">&#39;recordBeforeSave&#39;</span>);</div>
-<div class="line">                              $result-&gt;execute($col);</div>
-<div class="line">                              <a class="code" href="class_hook.html#afff7a7869d2dd304043b69a3fff24655">Hook::addAction</a>(<span class="stringliteral">&#39;recordAfterSave&#39;</span>);</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">if</span> ($new) {</div>
-<div class="line">                                             <span class="keywordflow">if</span> ($result-&gt;rowCount()) {</div>
-<div class="line">                                                            $this-&gt;columns[<a class="code" href="class_record.html#a927b0256b942a3ee89485f2649af7981">$this-&gt;primaryKey</a>] = $this-&gt;db-&gt;lastInsertId();</div>
-<div class="line">                                                            <span class="keywordflow">return</span> $this-&gt;columns[<a class="code" href="class_record.html#a927b0256b942a3ee89485f2649af7981">$this-&gt;primaryKey</a>];</div>
-<div class="line">                                             } <span class="keywordflow">else</span> {</div>
-<div class="line">                                                            <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;{$this-&gt;table}: Record was not saved.&quot;</span>);</div>
-<div class="line">                                             }</div>
-<div class="line">                              } <span class="keywordflow">else</span> {</div>
-<div class="line">                                             <span class="keywordflow">return</span> $this-&gt;columns[<a class="code" href="class_record.html#a927b0256b942a3ee89485f2649af7981">$this-&gt;primaryKey</a>];</div>
-<div class="line">                              }</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8record_8php_source.html#l00131">131</a> of file <a class="el" href="class_8record_8php_source.html">class.record.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -552,7 +301,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>array The data of the record get loaded here </p>
 
-<p>Definition at line <a class="el" href="class_8record_8php_source.html#l00069">69</a> of file <a class="el" href="class_8record_8php_source.html">class.record.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8record_8php_source.html#l00075">75</a> of file <a class="el" href="class_8record_8php_source.html">class.record.php</a>.</p>
 
 </div>
 </div>
@@ -575,7 +324,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>PDO The PDO object </p>
 
-<p>Definition at line <a class="el" href="class_8record_8php_source.html#l00054">54</a> of file <a class="el" href="class_8record_8php_source.html">class.record.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8record_8php_source.html#l00060">60</a> of file <a class="el" href="class_8record_8php_source.html">class.record.php</a>.</p>
 
 </div>
 </div>
@@ -590,7 +339,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>stdObject The record meta data gets loaded here </p>
 
-<p>Definition at line <a class="el" href="class_8record_8php_source.html#l00074">74</a> of file <a class="el" href="class_8record_8php_source.html">class.record.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8record_8php_source.html#l00080">80</a> of file <a class="el" href="class_8record_8php_source.html">class.record.php</a>.</p>
 
 </div>
 </div>
@@ -613,7 +362,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>string The primary key of the table </p>
 
-<p>Definition at line <a class="el" href="class_8record_8php_source.html#l00064">64</a> of file <a class="el" href="class_8record_8php_source.html">class.record.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8record_8php_source.html#l00070">70</a> of file <a class="el" href="class_8record_8php_source.html">class.record.php</a>.</p>
 
 </div>
 </div>
@@ -636,7 +385,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>string The name of the table </p>
 
-<p>Definition at line <a class="el" href="class_8record_8php_source.html#l00059">59</a> of file <a class="el" href="class_8record_8php_source.html">class.record.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8record_8php_source.html#l00065">65</a> of file <a class="el" href="class_8record_8php_source.html">class.record.php</a>.</p>
 
 </div>
 </div>
@@ -649,7 +398,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_record.html">Record</a></li>
-    <li class="footer">Generated on Fri Jan 3 2014 13:11:20 for sleepyMUSTACHE by
+    <li class="footer">Generated on Mon Jun 16 2014 18:08:24 for Sleepy Mustache by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

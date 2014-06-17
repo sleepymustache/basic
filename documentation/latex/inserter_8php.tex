@@ -18,21 +18,5 @@
 )}}\label{inserter_8php_a5673e840df379e9b53c9c9fb4f249c2a}
 
 
-Definition at line 9 of file inserter.\-php.
+Definition at line 8 of file inserter.\-php.
 
-
-\begin{DoxyCode}
-                                   \{
-               $toInsert = \hyperlink{class_hook_a6489ed6b12329279b9e7cae26afc4dd6}{Hook::addFilter}(\textcolor{stringliteral}{'head\_inserter'}, \textcolor{stringliteral}{"\(\backslash\)n"}
-      );
-
-               $pos = strrpos($html, \textcolor{stringliteral}{'</head>'});
-
-               $html = ($pos !== -1) 
-                                             ? substr\_replace($html, $toInsert,
-       $pos, 0) 
-                                             : $html;
-
-               \textcolor{keywordflow}{return} $html;
-\}
-\end{DoxyCode}

@@ -1,0 +1,116 @@
+Class for building and validating forms
+
+This class allows for building forms using J\-S\-O\-N. Fields are automatically validated based on Rules allowing for easy server-\/side validation. The markup closely resembles jquery validation plugin so you can use one stylesheet for both client-\/ and server-\/side validation.\hypertarget{nav1_usage}{}\section{Usage}\label{nav1_usage}
+
+\begin{DoxyCode}
+$UserEdit = \textcolor{keyword}{new} \hyperlink{class_form_builder}{FormBuilder}(\textcolor{stringliteral}{'\{}
+\textcolor{stringliteral}{  "id": "user",}
+\textcolor{stringliteral}{  "action": "#",}
+\textcolor{stringliteral}{  "method": "POST",}
+\textcolor{stringliteral}{  "fieldsets": [}
+\textcolor{stringliteral}{    \{}
+\textcolor{stringliteral}{      "legend": "Update your user information:",}
+\textcolor{stringliteral}{      "fields": [}
+\textcolor{stringliteral}{        \{}
+\textcolor{stringliteral}{          "name": "txtName",}
+\textcolor{stringliteral}{          "label": "Name",}
+\textcolor{stringliteral}{          "dataMap": "name",}
+\textcolor{stringliteral}{          "type": "text",}
+\textcolor{stringliteral}{          "value": "Jaime Rodriguez",}
+\textcolor{stringliteral}{          "rules": \{}
+\textcolor{stringliteral}{            "required": true,}
+\textcolor{stringliteral}{            "lengthMax": 20}
+\textcolor{stringliteral}{          \}}
+\textcolor{stringliteral}{        \}, \{}
+\textcolor{stringliteral}{          "name": "txtEmail",}
+\textcolor{stringliteral}{          "label": "Email",}
+\textcolor{stringliteral}{          "dataMap": "email",}
+\textcolor{stringliteral}{          "type": "text",}
+\textcolor{stringliteral}{          "value": "hi.i.am.jaime@gmail.com",}
+\textcolor{stringliteral}{          "rules": \{}
+\textcolor{stringliteral}{            "required": true,}
+\textcolor{stringliteral}{            "email": true}
+\textcolor{stringliteral}{          \}}
+\textcolor{stringliteral}{        \}, \{}
+\textcolor{stringliteral}{          "name": "txtDate",}
+\textcolor{stringliteral}{          "label": "Date",}
+\textcolor{stringliteral}{          "dataMap": "date",}
+\textcolor{stringliteral}{          "type": "text",}
+\textcolor{stringliteral}{          "value": "04/11/1984",}
+\textcolor{stringliteral}{          "rules": \{}
+\textcolor{stringliteral}{            "required": true,}
+\textcolor{stringliteral}{            "date": true}
+\textcolor{stringliteral}{          \}}
+\textcolor{stringliteral}{        \}, \{}
+\textcolor{stringliteral}{          "name": "ddlRole",}
+\textcolor{stringliteral}{          "label": "Role",}
+\textcolor{stringliteral}{          "dataMap": "role",}
+\textcolor{stringliteral}{          "type": "select",}
+\textcolor{stringliteral}{          "values": [}
+\textcolor{stringliteral}{            \{}
+\textcolor{stringliteral}{              "name":  "Administrator",}
+\textcolor{stringliteral}{              "value": "admin"}
+\textcolor{stringliteral}{            \}, \{}
+\textcolor{stringliteral}{              "name":  "Subscriber",}
+\textcolor{stringliteral}{              "value": "subscriber"}
+\textcolor{stringliteral}{            \}, \{}
+\textcolor{stringliteral}{              "name":  "User",}
+\textcolor{stringliteral}{              "value": "user",}
+\textcolor{stringliteral}{              "selected": true}
+\textcolor{stringliteral}{            \}}
+\textcolor{stringliteral}{          ]}
+\textcolor{stringliteral}{        \}}
+\textcolor{stringliteral}{      ]}
+\textcolor{stringliteral}{    \}, \{}
+\textcolor{stringliteral}{      "class": "submit",}
+\textcolor{stringliteral}{      "fields": [}
+\textcolor{stringliteral}{        \{}
+\textcolor{stringliteral}{          "name": "btnSubmit",}
+\textcolor{stringliteral}{          "label": "",}
+\textcolor{stringliteral}{          "value": "Submit",}
+\textcolor{stringliteral}{          "type": "submit"}
+\textcolor{stringliteral}{        \}}
+\textcolor{stringliteral}{      ]}
+\textcolor{stringliteral}{    \}}
+\textcolor{stringliteral}{  ]}
+\textcolor{stringliteral}{\}'});
+
+\textcolor{comment}{// Simulate a record Object}
+\hyperlink{disabled_2users_2user_2login_2index_8php_ad9bcfd597eba04db946451e8368a1f05}{$u} = \textcolor{keyword}{new} stdClass();
+\hyperlink{disabled_2users_2user_2login_2index_8php_ad9bcfd597eba04db946451e8368a1f05}{$u}->columns = array();
+
+\textcolor{comment}{// Has the form been submitted?}
+\textcolor{keywordflow}{if} ($UserEdit->submitted()) \{
+  \textcolor{comment}{// Validate the form}
+  $passed = $UserEdit->validate();
+
+  \textcolor{keywordflow}{if} ($passed === \textcolor{keyword}{true}) \{
+    \textcolor{comment}{// put the values into the record Object}
+    \hyperlink{disabled_2users_2user_2login_2index_8php_ad9bcfd597eba04db946451e8368a1f05}{$u}->columns = array\_merge(\hyperlink{disabled_2users_2user_2login_2index_8php_ad9bcfd597eba04db946451e8368a1f05}{$u}->columns, $UserEdit->getDataMap());
+  \}
+\}
+
+\textcolor{comment}{// if Form::validate() was executed, it will render with errors and}
+\textcolor{comment}{// updated values, otherwise it'll render normally}
+echo $UserEdit->render();
+\end{DoxyCode}
+\hypertarget{nav1_changelog}{}\section{Changelog}\label{nav1_changelog}
+\subsection*{Version 1.\-1}
+
+
+\begin{DoxyItemize}
+\item Added the date and changelog sections to documentation
+\end{DoxyItemize}
+
+\begin{DoxyDate}{Date}
+June 16, 2014 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Jaime A. Rodriguez \href{mailto:hi.i.am.jaime@gmail.com}{\tt hi.\-i.\-am.\-jaime@gmail.\-com} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-1 
+\end{DoxyVersion}
+\begin{DoxyCopyright}{Copyright}
+G\-P\-L 3 \href{http://cuttingedgecode.com}{\tt http\-://cuttingedgecode.\-com} 
+\end{DoxyCopyright}

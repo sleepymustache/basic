@@ -23,7 +23,7 @@
 \subsection{Detailed Description}
 Filesystem Table 
 
-Definition at line 31 of file class.\-fsdb.\-php.
+Definition at line 37 of file class.\-fsdb.\-php.
 
 
 
@@ -44,29 +44,8 @@ mixed & {\em \$file} & The file to open for this table. \\
 \end{DoxyParams}
 
 
-Definition at line 70 of file class.\-fsdb.\-php.
+Definition at line 76 of file class.\-fsdb.\-php.
 
-
-\begin{DoxyCode}
-                                                  \{
-                              \textcolor{keywordflow}{if} (!file\_exists($file)) \{
-                                             $newFile = fopen($file, \textcolor{charliteral}{'w'});
-                                             fclose($newFile);
-                              \}
-
-                              $this->file = $file;
-
-                              $this->handle = fopen($this->file, \textcolor{stringliteral}{"a+"});
-
-                              \textcolor{keywordflow}{if} ($this->handle) \{
-                                             fseek($this->handle, 0);
-                                             $this->getLock($file);
-                              \} \textcolor{keywordflow}{else} \{
-                                             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception(\textcolor{stringliteral}{'FSTable:
-       Could not open file'});
-                              \}
-               \}
-\end{DoxyCode}
 \hypertarget{class_f_s_table_a421831a265621325e1fdd19aace0c758}{\index{F\-S\-Table@{F\-S\-Table}!\-\_\-\-\_\-destruct@{\-\_\-\-\_\-destruct}}
 \index{\-\_\-\-\_\-destruct@{\-\_\-\-\_\-destruct}!FSTable@{F\-S\-Table}}
 \subsubsection[{\-\_\-\-\_\-destruct}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-destruct (
@@ -76,22 +55,8 @@ Definition at line 70 of file class.\-fsdb.\-php.
 )}}\label{class_f_s_table_a421831a265621325e1fdd19aace0c758}
 \-\_\-\-\_\-destruct 
 
-Definition at line 92 of file class.\-fsdb.\-php.
+Definition at line 98 of file class.\-fsdb.\-php.
 
-
-\begin{DoxyCode}
-                                            \{
-                              \textcolor{keywordflow}{if} ($this->edited) \{
-                                             $this->save();
-                              \}
-                              \textcolor{keywordflow}{if} ($this->locked) \{
-                                             flock($this->handle, LOCK\_UN);
-                              \}
-                              \textcolor{keywordflow}{if} ($this->handle) \{
-                                             fclose($this->handle);
-                              \}
-               \}
-\end{DoxyCode}
 
 
 \subsection{Member Function Documentation}
@@ -117,28 +82,8 @@ int How many rows were deleted?
 \end{DoxyReturn}
 
 
-Definition at line 280 of file class.\-fsdb.\-php.
+Definition at line 286 of file class.\-fsdb.\-php.
 
-
-\begin{DoxyCode}
-                                                            \{
-                              $updated= 0;
-
-                              \textcolor{keywordflow}{foreach}($this->data as $key => $value) \{
-                                             \textcolor{keywordflow}{if} ($value->$column == $search) \{
-                                                            array\_splice(
-      $this->data, $key, 1);
-                                                            $updated++;
-                                             \}
-                              \}
-
-                              \textcolor{keywordflow}{if} ($updated) \{
-                                             $this->edited = \textcolor{keyword}{true};
-                              \}
-
-                              \textcolor{keywordflow}{return} $updated;
-               \}
-\end{DoxyCode}
 \hypertarget{class_f_s_table_a2e355627d2f4a96559f022c4ab82df3c}{\index{F\-S\-Table@{F\-S\-Table}!insert@{insert}}
 \index{insert@{insert}!FSTable@{F\-S\-Table}}
 \subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}insert (
@@ -158,17 +103,8 @@ bool Was the operation successful?
 \end{DoxyReturn}
 
 
-Definition at line 266 of file class.\-fsdb.\-php.
+Definition at line 272 of file class.\-fsdb.\-php.
 
-
-\begin{DoxyCode}
-                                             \{
-                              $data->id = $this->uuid();
-                              $this->data[] = $data;
-                              $this->edited = \textcolor{keyword}{true};
-                              \textcolor{keywordflow}{return} \textcolor{keyword}{true};
-               \}
-\end{DoxyCode}
 \hypertarget{class_f_s_table_ad3d3dc4c1d2448d7b9f229448b57586a}{\index{F\-S\-Table@{F\-S\-Table}!select@{select}}
 \index{select@{select}!FSTable@{F\-S\-Table}}
 \subsubsection[{select}]{\setlength{\rightskip}{0pt plus 5cm}select (
@@ -191,30 +127,8 @@ array An array of rows in the form of objects.
 \end{DoxyReturn}
 
 
-Definition at line 189 of file class.\-fsdb.\-php.
+Definition at line 195 of file class.\-fsdb.\-php.
 
-
-\begin{DoxyCode}
-                                                            \{
-                              $results = array();
-
-                              \textcolor{keywordflow}{if} ($column == \textcolor{stringliteral}{"*"}) \{
-                                             \textcolor{keywordflow}{return} $this->data;
-                              \}
-
-                              \textcolor{keywordflow}{if} (count($this->data) == 0) \{
-                                             \textcolor{keywordflow}{return} array();
-                              \}
-
-                              \textcolor{keywordflow}{foreach}($this->data as $row) \{
-                                             \textcolor{keywordflow}{if} ($row->$column == $search) \{
-                                                            $results[] = $row;
-                                             \}
-                              \}
-
-                              \textcolor{keywordflow}{return} $results;
-               \}
-\end{DoxyCode}
 \hypertarget{class_f_s_table_ac3122ca1565ee89b1e4a1cb220960593}{\index{F\-S\-Table@{F\-S\-Table}!select\-Range@{select\-Range}}
 \index{select\-Range@{select\-Range}!FSTable@{F\-S\-Table}}
 \subsubsection[{select\-Range}]{\setlength{\rightskip}{0pt plus 5cm}select\-Range (
@@ -240,23 +154,8 @@ array An array of rows in the form of objects.
 \end{DoxyReturn}
 
 
-Definition at line 217 of file class.\-fsdb.\-php.
+Definition at line 223 of file class.\-fsdb.\-php.
 
-
-\begin{DoxyCode}
-                                                                    \{
-                              $results = array();
-
-                              \textcolor{keywordflow}{foreach}($this->data as $row) \{
-                                             \textcolor{keywordflow}{if} ($row->$column > $lower && $row
-      ->column < $upper) \{
-                                                            $results[] = $row;
-                                             \}
-                              \}
-
-                              \textcolor{keywordflow}{return} $results;
-               \}
-\end{DoxyCode}
 \hypertarget{class_f_s_table_af8a4deeffdd08e76dce3d1083f729929}{\index{F\-S\-Table@{F\-S\-Table}!update@{update}}
 \index{update@{update}!FSTable@{F\-S\-Table}}
 \subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}update (
@@ -284,35 +183,8 @@ int How many rows were updated?
 \end{DoxyReturn}
 
 
-Definition at line 239 of file class.\-fsdb.\-php.
+Definition at line 245 of file class.\-fsdb.\-php.
 
-
-\begin{DoxyCode}
-                                                                             \{
-                              $updated = 0;
-
-                              \textcolor{keywordflow}{foreach}($this->data as $key => $value) \{
-                                             \textcolor{keywordflow}{if} ($this->data[$key]->$column == 
-      $search) \{
-                                                            \textcolor{keywordflow}{if} (is\_object($data
-      )) \{
-                                                                           
-      $this->data[$key] = (object) array\_merge((array) $this->data[$key], (array) $data);
-                                                            \} \textcolor{keywordflow}{else} \{
-                                                                           
-      $this->data[$key]->$column = $data;
-                                                            \}
-                                                            $updated++;
-                                             \}
-                              \}
-
-                              \textcolor{keywordflow}{if} ($updated) \{
-                                             $this->edited = \textcolor{keyword}{true};
-                              \}
-
-                              \textcolor{keywordflow}{return} $updated;
-               \}
-\end{DoxyCode}
 
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}

@@ -1,0 +1,9 @@
+digraph "tests/simpletest/extensions/testdox" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_c430215882862d5774672187fe7d6603 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="extensions" fontname="Helvetica", fontsize="10", URL="dir_c430215882862d5774672187fe7d6603.html"]
+  dir_2cc53939717cf7d97a50fa216d9d655d [shape=box, label="testdox", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_2cc53939717cf7d97a50fa216d9d655d.html"];
+  }
+}

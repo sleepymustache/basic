@@ -15,7 +15,7 @@
 \subsection{Detailed Description}
 
 
-Definition at line 31 of file class.\-ip2country.\-php.
+Definition at line 38 of file class.\-ip2country.\-php.
 
 
 
@@ -29,14 +29,8 @@ Definition at line 31 of file class.\-ip2country.\-php.
 )}}\label{class_i_p2_c_o_a095c5d389db211932136b53f25f39685}
 
 
-Definition at line 51 of file class.\-ip2country.\-php.
+Definition at line 58 of file class.\-ip2country.\-php.
 
-
-\begin{DoxyCode}
-                                             \{
-                              $this->db = \textcolor{keyword}{new} \hyperlink{class_f_s_d_b}{FSDB}(\textcolor{stringliteral}{'./ipData/'});
-               \}
-\end{DoxyCode}
 
 
 \subsection{Member Function Documentation}
@@ -49,25 +43,8 @@ Definition at line 51 of file class.\-ip2country.\-php.
 )}}\label{class_i_p2_c_o_a0aef1ce60812280445e63410f68f00a0}
 
 
-Definition at line 55 of file class.\-ip2country.\-php.
+Definition at line 62 of file class.\-ip2country.\-php.
 
-
-\begin{DoxyCode}
-                                                   \{
-                              $dec = ip2long($ip);
-                              $data = $this->db->select($this->\hyperlink{class_i_p2_c_o_a827810b3e6446a9dd09e79a0d03f040d}{getTable}
-      ($ip), \textcolor{stringliteral}{"*"});
-                              \textcolor{keywordflow}{foreach} ($data as $row) \{
-                                             \textcolor{keywordflow}{if} ($row->startIP <= $dec && $row
-      ->endIP >= $dec) \{
-                                                            \textcolor{keywordflow}{return} $row->
-      countryCode;
-                                             \}
-                              \}
-
-                              \textcolor{keywordflow}{return} \textcolor{keyword}{false};
-               \}
-\end{DoxyCode}
 \hypertarget{class_i_p2_c_o_a827810b3e6446a9dd09e79a0d03f040d}{\index{I\-P2\-C\-O@{I\-P2\-C\-O}!get\-Table@{get\-Table}}
 \index{get\-Table@{get\-Table}!IP2CO@{I\-P2\-C\-O}}
 \subsubsection[{get\-Table}]{\setlength{\rightskip}{0pt plus 5cm}get\-Table (
@@ -77,24 +54,8 @@ Definition at line 55 of file class.\-ip2country.\-php.
 )}}\label{class_i_p2_c_o_a827810b3e6446a9dd09e79a0d03f040d}
 
 
-Definition at line 67 of file class.\-ip2country.\-php.
+Definition at line 74 of file class.\-ip2country.\-php.
 
-
-\begin{DoxyCode}
-                                             \{
-                              $dec = ip2long($ip);
-
-                              \textcolor{keywordflow}{foreach} ($this->upperRange as $limit) \{
-                                             \textcolor{keywordflow}{if} ($dec >= $limit - 50000000 && 
-      $dec <= $limit) \{
-                                                            \textcolor{keywordflow}{return} (\textcolor{keywordtype}{string}) 
-      $limit;
-                                             \}
-                              \}
-
-                              \textcolor{keywordflow}{return} \textcolor{keyword}{false};
-               \}
-\end{DoxyCode}
 
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}

@@ -13,7 +13,7 @@
 \subsection{Detailed Description}
 
 
-Definition at line 16 of file class.\-css.\-php.
+Definition at line 31 of file class.\-css.\-php.
 
 
 
@@ -32,14 +32,8 @@ string & {\em \$file} & The name of the \hyperlink{class_c_s_s}{C\-S\-S} file \\
 \end{DoxyParams}
 
 
-Definition at line 29 of file class.\-css.\-php.
+Definition at line 44 of file class.\-css.\-php.
 
-
-\begin{DoxyCode}
-                                          \{
-                              array\_push($this->files, $file);
-               \}
-\end{DoxyCode}
 \hypertarget{class_c_s_s_a2b8e3779f5bd8c38f70307574859bd36}{\index{C\-S\-S@{C\-S\-S}!show@{show}}
 \index{show@{show}!CSS@{C\-S\-S}}
 \subsubsection[{show}]{\setlength{\rightskip}{0pt plus 5cm}show (
@@ -52,38 +46,8 @@ void nothing
 \end{DoxyReturn}
 
 
-Definition at line 37 of file class.\-css.\-php.
+Definition at line 52 of file class.\-css.\-php.
 
-
-\begin{DoxyCode}
-                                      \{
-                              $buffer = \textcolor{stringliteral}{""};
-
-                              \textcolor{comment}{// Load the files}
-                              \textcolor{keywordflow}{foreach} ($this->files as $file) \{
-                                             $buffer .= file\_get\_contents(
-      $\_SERVER[\textcolor{stringliteral}{'DOCUMENT\_ROOT'}] . $file);
-                              \}
-
-                              \textcolor{comment}{// Compress the files}
-                              $buffer = preg\_replace(\textcolor{stringliteral}{'!/\(\backslash\)*[^*]*\(\backslash\)*+([^/][^*]*\(\backslash\)*
-      +)*/!'}, \textcolor{stringliteral}{''}, $buffer); \textcolor{comment}{// comments}
-                              $buffer = str\_replace(\textcolor{stringliteral}{': '}, \textcolor{charliteral}{':'}, $buffer); \textcolor{comment}{//
-       space after colon}
-                              $buffer = str\_replace(array(\textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n"}, \textcolor{stringliteral}{"\(\backslash\)r"}, \textcolor{stringliteral}{"\(\backslash\)n"}, \textcolor{stringliteral}{"
-      \(\backslash\)t"}, \textcolor{stringliteral}{'  '}, \textcolor{stringliteral}{'    '}, \textcolor{stringliteral}{'    '}), \textcolor{stringliteral}{''}, $buffer); \textcolor{comment}{// whitespace}
-
-                              \textcolor{comment}{// Enable zip compression}
-                              ob\_start(\textcolor{stringliteral}{"ob\_gzhandler"});
-                              header(\textcolor{stringliteral}{'Cache-Control: public'});
-                              header(\textcolor{stringliteral}{'Expires: '} . gmdate(\textcolor{stringliteral}{'D, d M Y H:i:s'}, 
-      time() + 86400) . \textcolor{stringliteral}{' GMT'}); \textcolor{comment}{// 1 day}
-                              header(\textcolor{stringliteral}{"Content-type: text/css"});
-
-                              \textcolor{comment}{// Output to browser}
-                              echo($buffer);
-               \}
-\end{DoxyCode}
 
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}

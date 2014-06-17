@@ -1,0 +1,15 @@
+digraph "matchesTestCase"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="matchesTestCase",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="shouldRunTest",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_selective_reporter.html#a6456393b8c498bc8a662544dabc7a7cf"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="shouldInvoke",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_selective_reporter.html#adee89280914d9f99ef014aef44562a3f"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="paintGroupStart",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_selective_reporter.html#a783dcc4fa7085ab1c5a382de10cf7de0"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="paintGroupEnd",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_selective_reporter.html#a3159ea0f64c70c0e0eca4506ab08f000"];
+}

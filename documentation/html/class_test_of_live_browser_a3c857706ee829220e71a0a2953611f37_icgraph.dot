@@ -1,0 +1,23 @@
+digraph "samples"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="samples",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="testAbsoluteLinkFollowing",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_live_browser.html#a7cba4d2ddc7acbc7c8f3e968ff61963a"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="testRelativeEncodedLinkFollowing",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_live_browser.html#a126646e89a04d76ccfc4a035950794db"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="testRelativeLinkFollowing",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_live_browser.html#accb06c4cce3b9b7329e37407cdca1997"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="testUnifiedClickLinkClicking",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_live_browser.html#a6f3d8952e394105e47a1ee664144c863"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="testIdLinkFollowing",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_live_browser.html#a86b688ca3d4ee67863f939c127b7c0f5"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="testCookieReading",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_live_browser.html#ab1cf6d1d40446997d473791bef8487e5"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="testSimpleSubmit",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_live_browser.html#afbfa8ab088d428c90accb7fd0bcb39a3"];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="testUnifiedClickCanSubmit",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_live_browser.html#a0032452c812d0821cda9b71567a413b3"];
+}

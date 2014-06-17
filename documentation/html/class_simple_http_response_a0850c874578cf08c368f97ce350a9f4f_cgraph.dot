@@ -1,0 +1,16 @@
+digraph "__construct"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="__construct",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="readAll",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_http_response.html#ae1024ef909ac3ededd6288d0c9d3e979"];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="isLastPacket",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_http_response.html#a878d39f2ce275e2e5540fca306858fdf"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="SimpleStickyError\\setError",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_sticky_error.html#a0bc8cac7e04a83c9ca87a99690ef1194"];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="parse",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_http_response.html#ace0ae9351e37e2ca585ac26e29f00f49"];
+  Node5 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

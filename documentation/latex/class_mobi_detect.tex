@@ -27,20 +27,38 @@
 \subsection{Detailed Description}
 Detects if a device is a mobile device and which kind.
 
-Attribution\-: Regex taken from unknown source
+Attribution\-: Regex taken from unknown source\hypertarget{nav1_usage}{}\subsection{Usage}\label{nav1_usage}
 
+\begin{DoxyCode}
+$m = \textcolor{keyword}{new} \hyperlink{class_mobi_detect}{MobiDetect}();
+
+\textcolor{keywordflow}{if} ($m->isMobile()) \{
+  echo \textcolor{stringliteral}{"This is a mobile device"};
+\}
+\end{DoxyCode}
+\hypertarget{nav1_changelog}{}\subsection{Changelog}\label{nav1_changelog}
+\subsubsection*{Version 1.\-6}
+
+
+\begin{DoxyItemize}
+\item Fixed bug with B\-C\-C and C\-C
+\end{DoxyItemize}
+
+\begin{DoxyDate}{Date}
+June 16, 2014 
+\end{DoxyDate}
 \begin{DoxyAuthor}{Author}
 Jaime A. Rodriguez \href{mailto:hi.i.am.jaime@gmail.com}{\tt hi.\-i.\-am.\-jaime@gmail.\-com} 
 \end{DoxyAuthor}
 \begin{DoxyVersion}{Version}
-1.\-0 
+1.\-1 
 \end{DoxyVersion}
 \begin{DoxyCopyright}{Copyright}
 G\-P\-L 3 \href{http://cuttingedgecode.com}{\tt http\-://cuttingedgecode.\-com} 
 \end{DoxyCopyright}
 
 
-Definition at line 12 of file class.\-mobidetect.\-php.
+Definition at line 25 of file class.\-mobidetect.\-php.
 
 
 
@@ -54,14 +72,8 @@ Definition at line 12 of file class.\-mobidetect.\-php.
 )}}\label{class_mobi_detect_a095c5d389db211932136b53f25f39685}
 
 
-Definition at line 22 of file class.\-mobidetect.\-php.
+Definition at line 35 of file class.\-mobidetect.\-php.
 
-
-\begin{DoxyCode}
-                                             \{
-                              $this->detect();
-               \}
-\end{DoxyCode}
 
 
 \subsection{Member Function Documentation}
@@ -79,14 +91,8 @@ bool True if device is an Android.
 \end{DoxyReturn}
 
 
-Definition at line 113 of file class.\-mobidetect.\-php.
+Definition at line 126 of file class.\-mobidetect.\-php.
 
-
-\begin{DoxyCode}
-                                           \{
-                              \textcolor{keywordflow}{return} $this->android;
-               \}
-\end{DoxyCode}
 \hypertarget{class_mobi_detect_a5eea8483425fa1d463e9df4b9e6f955b}{\index{Mobi\-Detect@{Mobi\-Detect}!is\-Blackberry@{is\-Blackberry}}
 \index{is\-Blackberry@{is\-Blackberry}!MobiDetect@{Mobi\-Detect}}
 \subsubsection[{is\-Blackberry}]{\setlength{\rightskip}{0pt plus 5cm}is\-Blackberry (
@@ -101,14 +107,8 @@ bool True if device is a Blackberry.
 \end{DoxyReturn}
 
 
-Definition at line 135 of file class.\-mobidetect.\-php.
+Definition at line 148 of file class.\-mobidetect.\-php.
 
-
-\begin{DoxyCode}
-                                              \{
-                              \textcolor{keywordflow}{return} $this->blackberry;
-               \}
-\end{DoxyCode}
 \hypertarget{class_mobi_detect_a2d202f72c3038ed6852aebff550dc531}{\index{Mobi\-Detect@{Mobi\-Detect}!is\-Ipad@{is\-Ipad}}
 \index{is\-Ipad@{is\-Ipad}!MobiDetect@{Mobi\-Detect}}
 \subsubsection[{is\-Ipad}]{\setlength{\rightskip}{0pt plus 5cm}is\-Ipad (
@@ -123,14 +123,8 @@ bool True if device is an i\-Pad.
 \end{DoxyReturn}
 
 
-Definition at line 102 of file class.\-mobidetect.\-php.
+Definition at line 115 of file class.\-mobidetect.\-php.
 
-
-\begin{DoxyCode}
-                                        \{
-                              \textcolor{keywordflow}{return} $this->ipad;
-               \}
-\end{DoxyCode}
 \hypertarget{class_mobi_detect_abef4c1a6a8052c28a3c2dec49d3f9e9b}{\index{Mobi\-Detect@{Mobi\-Detect}!is\-Iphone@{is\-Iphone}}
 \index{is\-Iphone@{is\-Iphone}!MobiDetect@{Mobi\-Detect}}
 \subsubsection[{is\-Iphone}]{\setlength{\rightskip}{0pt plus 5cm}is\-Iphone (
@@ -145,14 +139,8 @@ bool True if device is an i\-Phone.
 \end{DoxyReturn}
 
 
-Definition at line 91 of file class.\-mobidetect.\-php.
+Definition at line 104 of file class.\-mobidetect.\-php.
 
-
-\begin{DoxyCode}
-                                          \{
-                              \textcolor{keywordflow}{return} $this->iphone;
-               \}
-\end{DoxyCode}
 \hypertarget{class_mobi_detect_aa03affe506ea70c6d04fab89fee473fc}{\index{Mobi\-Detect@{Mobi\-Detect}!is\-Mobile@{is\-Mobile}}
 \index{is\-Mobile@{is\-Mobile}!MobiDetect@{Mobi\-Detect}}
 \subsubsection[{is\-Mobile}]{\setlength{\rightskip}{0pt plus 5cm}is\-Mobile (
@@ -167,14 +155,8 @@ bool True if device is mobile.
 \end{DoxyReturn}
 
 
-Definition at line 80 of file class.\-mobidetect.\-php.
+Definition at line 93 of file class.\-mobidetect.\-php.
 
-
-\begin{DoxyCode}
-                                          \{
-                              \textcolor{keywordflow}{return} $this->mobileBrowser;
-               \}
-\end{DoxyCode}
 \hypertarget{class_mobi_detect_a8a2049e411c252249d5264f87f2a894c}{\index{Mobi\-Detect@{Mobi\-Detect}!is\-Opera@{is\-Opera}}
 \index{is\-Opera@{is\-Opera}!MobiDetect@{Mobi\-Detect}}
 \subsubsection[{is\-Opera}]{\setlength{\rightskip}{0pt plus 5cm}is\-Opera (
@@ -189,14 +171,8 @@ bool True if browser is Opera Mini
 \end{DoxyReturn}
 
 
-Definition at line 124 of file class.\-mobidetect.\-php.
+Definition at line 137 of file class.\-mobidetect.\-php.
 
-
-\begin{DoxyCode}
-                                         \{
-                              \textcolor{keywordflow}{return} $this->opera;
-               \}
-\end{DoxyCode}
 \hypertarget{class_mobi_detect_a1342be6bfbf8c34d00c89b8a880ac61e}{\index{Mobi\-Detect@{Mobi\-Detect}!is\-Palm@{is\-Palm}}
 \index{is\-Palm@{is\-Palm}!MobiDetect@{Mobi\-Detect}}
 \subsubsection[{is\-Palm}]{\setlength{\rightskip}{0pt plus 5cm}is\-Palm (
@@ -211,14 +187,8 @@ bool True if device is a Palm device.
 \end{DoxyReturn}
 
 
-Definition at line 146 of file class.\-mobidetect.\-php.
+Definition at line 159 of file class.\-mobidetect.\-php.
 
-
-\begin{DoxyCode}
-                                        \{
-                              \textcolor{keywordflow}{return} $this->palm;
-               \}
-\end{DoxyCode}
 \hypertarget{class_mobi_detect_abd0a3ffcb33cbef4d23adbede9e3fcd4}{\index{Mobi\-Detect@{Mobi\-Detect}!is\-Windows\-Phone@{is\-Windows\-Phone}}
 \index{is\-Windows\-Phone@{is\-Windows\-Phone}!MobiDetect@{Mobi\-Detect}}
 \subsubsection[{is\-Windows\-Phone}]{\setlength{\rightskip}{0pt plus 5cm}is\-Windows\-Phone (
@@ -233,14 +203,8 @@ bool True if device is a Windows Phone.
 \end{DoxyReturn}
 
 
-Definition at line 157 of file class.\-mobidetect.\-php.
+Definition at line 170 of file class.\-mobidetect.\-php.
 
-
-\begin{DoxyCode}
-                                                \{
-                              \textcolor{keywordflow}{return} $this->windowsPhone;
-               \}
-\end{DoxyCode}
 
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}

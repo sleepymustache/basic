@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>sleepyMUSTACHE: IP2CO Class</title>
+<title>Sleepy Mustache: IP2CO Class</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">sleepyMUSTACHE
+   <div id="projectname">Sleepy Mustache
    </div>
   </td>
  </tr>
@@ -100,29 +100,38 @@ $(document).ready(function(){initNavTree('ip2country.html','');});
 <div class="textblock"><p>A test I made for the <a class="el" href="class_f_s_d_b.html">FSDB</a> class.</p>
 <p>This class will lookup what country an IP is from using a flat-file-database.</p>
 <h1><a class="anchor" id="usage"></a>
-Usage:</h1>
+Usage</h1>
 <div class="fragment"><div class="line">$i = <span class="keyword">new</span> <a class="code" href="class_i_p2_c_o.html">IP2CO</a>();</div>
-<div class="line">               $countryCode = $i-&gt;getCountryCode($_SERVER[<span class="stringliteral">&#39;REMOTE_ADDR&#39;</span>]);</div>
+<div class="line">$countryCode = $i-&gt;getCountryCode($_SERVER[<span class="stringliteral">&#39;REMOTE_ADDR&#39;</span>]);</div>
 <div class="line"></div>
-<div class="line">               <span class="keywordflow">if</span> ($countryCode != <span class="keyword">false</span>) {</div>
-<div class="line">                              echo $countryCode;</div>
-<div class="line">               } <span class="keywordflow">else</span> {</div>
-<div class="line">                              echo $_SERVER[<span class="stringliteral">&#39;REMOTE_ADDR&#39;</span>] . <span class="stringliteral">&quot;(&quot;</span> . ip2long($_SERVER[<span class="stringliteral">&#39;REMOTE_ADDR&#39;</span>]) . <span class="stringliteral">&quot;) Not found in &quot;</span> . $i-&gt;getTable($_SERVER[<span class="stringliteral">&#39;REMOTE_ADDR&#39;</span>]) . <span class="stringliteral">&quot;.&quot;</span>;</div>
-<div class="line">               }</div>
-</div><!-- fragment --><h1><a class="anchor" id="dependencies"></a>
+<div class="line"><span class="keywordflow">if</span> ($countryCode != <span class="keyword">false</span>) {</div>
+<div class="line">  echo $countryCode;</div>
+<div class="line">} <span class="keywordflow">else</span> {</div>
+<div class="line">  echo $_SERVER[<span class="stringliteral">&#39;REMOTE_ADDR&#39;</span>] .</div>
+<div class="line">    <span class="stringliteral">&quot;(&quot;</span> . ip2long($_SERVER[<span class="stringliteral">&#39;REMOTE_ADDR&#39;</span>]) .</div>
+<div class="line">    <span class="stringliteral">&quot;) Not found in &quot;</span> . $i-&gt;getTable($_SERVER[<span class="stringliteral">&#39;REMOTE_ADDR&#39;</span>]) . <span class="stringliteral">&quot;.&quot;</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h1><a class="anchor" id="changelog"></a>
+Changelog</h1>
+<h2>Version 1.1</h2>
+<ul>
+<li>Added the date section to documentation</li>
+</ul>
+<h1><a class="anchor" id="dependencies"></a>
 Dependencies</h1>
 <ul>
 <li><a class="el" href="class_8fsdb_8php.html">class.fsdb.php</a></li>
 </ul>
+<dl class="section date"><dt>Date</dt><dd>June 16, 2014 </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Jaime A. Rodriguez <a href="#" onclick="location.href='mai'+'lto:'+'hi.'+'i.'+'am.'+'ja'+'ime'+'@g'+'mai'+'l.'+'com'; return false;">hi.i.<span style="display: none;">.nosp@m.</span>am.j<span style="display: none;">.nosp@m.</span>aime@<span style="display: none;">.nosp@m.</span>gmai<span style="display: none;">.nosp@m.</span>l.com</a> </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.1 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>GPL 3 <a href="http://cuttingedgecode.com">http://cuttingedgecode.com</a> </dd></dl>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Jan 3 2014 13:11:20 for sleepyMUSTACHE by
+    <li class="footer">Generated on Mon Jun 16 2014 18:08:24 for Sleepy Mustache by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

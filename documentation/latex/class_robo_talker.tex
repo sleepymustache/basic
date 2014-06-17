@@ -43,14 +43,6 @@ instance
 Definition at line 230 of file class.\-robotalker.\-php.
 
 
-\begin{DoxyCode}
-                                             \{
-                              $this->WebService = \textcolor{keyword}{new} SoapClient($this->wsdl, 
-      $this->soap\_options);
-                              $this->Login();
-               \}
-\end{DoxyCode}
-
 
 \subsection{Member Function Documentation}
 \hypertarget{class_robo_talker_ac0650c287190d98e1d85ff9ef10a7404}{\index{Robo\-Talker@{Robo\-Talker}!add@{add}}
@@ -77,28 +69,6 @@ int Campaign\-Id
 
 Definition at line 375 of file class.\-robotalker.\-php.
 
-
-\begin{DoxyCode}
-                                                 \{
-                              $r = \textcolor{keyword}{new} \hyperlink{class_message_recipient_of_int32}{MessageRecipientOfInt32}
-      ;
-                              $r->DialNumber = $phoneNumber;
-                              $r->Message = $this->messageId;
-
-                              $recipients = \textcolor{keyword}{new} \hyperlink{class_array_of_message_recipient_of_int32}{ArrayOfMessageRecipientOfInt32}
-      ;
-                              $recipients->MessageRecipientOfInt32[] = $r;
-
-                              \textcolor{keywordflow}{try} \{
-                                             $result = $this->ScheduleCalls(
-      $recipients);
-                                             \textcolor{keywordflow}{return} $result;
-                              \} \textcolor{keywordflow}{catch} (Exception $e) \{
-                                             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception($e->getMessage
-      ());
-                              \}
-               \}
-\end{DoxyCode}
 \hypertarget{class_robo_talker_a6c473c02f29af893f4ad6983ead3ddb8}{\index{Robo\-Talker@{Robo\-Talker}!delete@{delete}}
 \index{delete@{delete}!RoboTalker@{Robo\-Talker}}
 \subsubsection[{delete}]{\setlength{\rightskip}{0pt plus 5cm}delete (
@@ -123,62 +93,6 @@ array An Array of phone numbers deleted.
 
 Definition at line 397 of file class.\-robotalker.\-php.
 
-
-\begin{DoxyCode}
-                                                     \{
-
-                              $calls = $this->\hyperlink{class_robo_talker_acb6ab21469df29a582bee44e78f97edc}{GetScheduledCalls}
-      ();
-
-                              \textcolor{keywordflow}{if} (is\_array($calls->ScheduledCall)) \{
-                                             \textcolor{keywordflow}{foreach} ($calls->ScheduledCall as 
-      $call) \{
-                                                            $numbersToDelete = 
-      array();
-
-                                                            \textcolor{keywordflow}{if} ($call->
-      DialNumber == $phoneNumber) \{
-                                                                           
-      $numbersToDelete[] = $call->Id;
-
-                                                                           \textcolor{keywordflow}{try} 
-      \{
-                                                                                          
-      $deleted = $this->DeleteScheduledCalls($numbersToDelete);
-                                                                           \} \textcolor{keywordflow}{
-      catch} (Exception $e) \{
-                                                                                          \textcolor{keywordflow}{
-      throw} \textcolor{keyword}{new} Exception($e->getMessage());
-                                                                           \}
-                                                            \}
-                                             \}
-                              \} \textcolor{keywordflow}{else} \{
-                                             \textcolor{keywordflow}{if} (isset($calls->ScheduledCall)) 
-      \{
-                                                            $numbersToDelete = 
-      array();
-
-                                                            \textcolor{keywordflow}{if} ($calls->
-      ScheduledCall->DialNumber == $phoneNumber) \{
-                                                                           
-      $numbersToDelete[] = $calls->ScheduledCall->Id;
-
-                                                                           \textcolor{keywordflow}{try} 
-      \{
-                                                                                          
-      $deleted = $this->DeleteScheduledCalls($numbersToDelete);
-                                                                           \} \textcolor{keywordflow}{
-      catch} (Exception $e) \{
-                                                                                          \textcolor{keywordflow}{
-      throw} \textcolor{keyword}{new} Exception($e->getMessage());
-                                                                           \}
-                                                            \}
-                                             \}
-                              \}
-
-                              \textcolor{keywordflow}{return} \textcolor{keyword}{true};
-               \}
-\end{DoxyCode}
 \hypertarget{class_robo_talker_a7e73ba6712fb06fbcb1bbbc998ba5a0c}{\index{Robo\-Talker@{Robo\-Talker}!Get\-Campaign\-Stats@{Get\-Campaign\-Stats}}
 \index{Get\-Campaign\-Stats@{Get\-Campaign\-Stats}!RoboTalker@{Robo\-Talker}}
 \subsubsection[{Get\-Campaign\-Stats}]{\setlength{\rightskip}{0pt plus 5cm}Get\-Campaign\-Stats (
@@ -200,29 +114,6 @@ array Calls objects
 
 Definition at line 286 of file class.\-robotalker.\-php.
 
-
-\begin{DoxyCode}
-                                                     \{
-                              $r = \textcolor{keyword}{new} StdClass();
-                              $r->request = \textcolor{keyword}{new} \hyperlink{class_get_campaign_stats_request}{GetCampaignStatsRequest}
-      ();
-                              $r->request->SessionId = $this->SessionId;
-                              $r->request->IncludeDetails = \textcolor{keyword}{true};
-                              $r->request->CampaignId = $id;
-
-                              $result = $this->WebService->GetCampaignStats($r)
-      ;
-
-                              \textcolor{keywordflow}{if} ($result->GetCampaignStatsResult->Error <> \textcolor{stringliteral}{"
-      None"}) \{
-                                             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception($result->
-      GetCampaignStatsResult->Error);
-                              \} \textcolor{keywordflow}{else} \{
-                                             \textcolor{keywordflow}{return} $result->
-      GetCampaignStatsResult;
-                              \}
-               \}
-\end{DoxyCode}
 \hypertarget{class_robo_talker_acb6ab21469df29a582bee44e78f97edc}{\index{Robo\-Talker@{Robo\-Talker}!Get\-Scheduled\-Calls@{Get\-Scheduled\-Calls}}
 \index{Get\-Scheduled\-Calls@{Get\-Scheduled\-Calls}!RoboTalker@{Robo\-Talker}}
 \subsubsection[{Get\-Scheduled\-Calls}]{\setlength{\rightskip}{0pt plus 5cm}Get\-Scheduled\-Calls (
@@ -239,30 +130,6 @@ array Calls objects
 
 Definition at line 263 of file class.\-robotalker.\-php.
 
-
-\begin{DoxyCode}
-                                                   \{
-                              $r = \textcolor{keyword}{new} StdClass();
-                              $r->request = \textcolor{keyword}{new} getCallsRequest();
-                              $r->request->SessionId = $this->SessionId;
-                              $r->request->StartDate = date(DATE\_ATOM, mktime(
-      date(\textcolor{stringliteral}{"G"}), date(\textcolor{stringliteral}{"i"}), 0, date(\textcolor{stringliteral}{"m"}), date(\textcolor{stringliteral}{"d"}), date(\textcolor{stringliteral}{"Y"})));
-                              $r->request->EndDate = date(DATE\_ATOM, mktime(
-      date(\textcolor{stringliteral}{"G"}), date(\textcolor{stringliteral}{"i"}), 0, date(\textcolor{stringliteral}{"m"}), date(\textcolor{stringliteral}{"d"}), 2111));
-
-                              $result = $this->WebService->GetScheduledCalls($r
-      );
-
-                              \textcolor{keywordflow}{if} ($result->GetScheduledCallsResult->Error <> \textcolor{stringliteral}{"
-      None"}) \{
-                                             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception($result->
-      GetScheduledCallsResult->Error);
-                              \} \textcolor{keywordflow}{else} \{
-                                             \textcolor{keywordflow}{return} $result->
-      GetScheduledCallsResult->Calls;
-                              \}
-               \}
-\end{DoxyCode}
 \hypertarget{class_robo_talker_a96bef29f5a68282aac40e6b197e39d2b}{\index{Robo\-Talker@{Robo\-Talker}!send\-Voicemail@{send\-Voicemail}}
 \index{send\-Voicemail@{send\-Voicemail}!RoboTalker@{Robo\-Talker}}
 \subsubsection[{send\-Voicemail}]{\setlength{\rightskip}{0pt plus 5cm}send\-Voicemail (
@@ -277,12 +144,6 @@ nothing
 
 Definition at line 438 of file class.\-robotalker.\-php.
 
-
-\begin{DoxyCode}
-                                               \{
-                              $this->voicemail = \textcolor{keyword}{true};
-               \}
-\end{DoxyCode}
 
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}

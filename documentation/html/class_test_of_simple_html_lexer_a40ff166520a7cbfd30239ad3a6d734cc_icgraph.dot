@@ -1,0 +1,21 @@
+digraph "createParser"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="createParser",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="testNoContent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_simple_html_lexer.html#a8be45d5de7a595450aef909ffa33d654"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="testUninteresting",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_simple_html_lexer.html#a2ad6fb2916f42ceea8a8ef7ff75aec3a"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="testSkipCss",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_simple_html_lexer.html#a0c144619aeae47ceae0328cb631eca0f"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="testSkipJavaScript",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_simple_html_lexer.html#ab61943b185074ecc4babad7279c92b3b"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="testSkipHtmlComments",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_simple_html_lexer.html#aa882b8618d6668dfecc6311fa77c06c8"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="testTagWithNoAttributes",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_simple_html_lexer.html#a95ec416c38aaa7744d711261b54e5bc9"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="testTagWithAttributes",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_simple_html_lexer.html#a1ac894f50111e3fe055598e98b4dd603"];
+}

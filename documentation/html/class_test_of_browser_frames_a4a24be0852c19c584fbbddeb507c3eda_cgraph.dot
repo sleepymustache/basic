@@ -1,0 +1,25 @@
+digraph "testSimplePageHasNoFrames"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="testSimplePageHasNoFrames",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="createBrowser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_browser_frames.html#ab0d1b93dfb1bfcde50e2710dc1349743"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="createUserAgent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_browser_frames.html#a684e66a645fbf044ac13264555c264f8"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="UnitTestCase\\assertEqual",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_unit_test_case.html#a4dfd80fc987c7176bc85e680aeb98161"];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="SimpleTestCase\\assert",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_test_case.html#a9be3866087958c52771a4eb0921a80f8"];
+  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="SimpleTestCase\\pass",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_test_case.html#a413ec6a28c017c7f5c08af552930a023"];
+  Node6 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="SimpleTestCase\\getAssertionLine",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_test_case.html#a4389a897171547fc4545f56a75bf0c9f"];
+  Node5 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="SimpleTestCase\\fail",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_test_case.html#a74070e976d1372da2111be1c059c6ce3"];
+  Node8 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="UnitTestCase\\assertIdentical",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_unit_test_case.html#a3cff1cbfb5adaab99797d5fc5e91cebd"];
+  Node9 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

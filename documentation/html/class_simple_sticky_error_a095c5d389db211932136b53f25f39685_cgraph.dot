@@ -1,0 +1,11 @@
+digraph "__construct"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="__construct",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="clearError",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_sticky_error.html#a48f2aa731c843023dab9dbdbd3b2fb88"];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="setError",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_sticky_error.html#a0bc8cac7e04a83c9ca87a99690ef1194"];
+}

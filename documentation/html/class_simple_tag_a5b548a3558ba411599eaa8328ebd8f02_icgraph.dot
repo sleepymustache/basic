@@ -1,0 +1,9 @@
+digraph "addTag"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="addTag",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="addTags",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_tag.html#a2f5845d350febfc4aaca42fe1b0f64bc"];
+}

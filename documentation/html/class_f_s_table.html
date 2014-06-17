@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>sleepyMUSTACHE: FSTable Class Reference</title>
+<title>Sleepy Mustache: FSTable Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">sleepyMUSTACHE
+   <div id="projectname">Sleepy Mustache
    </div>
   </td>
  </tr>
@@ -128,7 +128,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Filesystem Table </p>
 
-<p>Definition at line <a class="el" href="class_8fsdb_8php_source.html#l00031">31</a> of file <a class="el" href="class_8fsdb_8php_source.html">class.fsdb.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8fsdb_8php_source.html#l00037">37</a> of file <a class="el" href="class_8fsdb_8php_source.html">class.fsdb.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a8ef77288a5f940c68ebc57fdf0102078"></a>
 <div class="memitem">
@@ -151,25 +151,8 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="class_8fsdb_8php_source.html#l00070">70</a> of file <a class="el" href="class_8fsdb_8php_source.html">class.fsdb.php</a>.</p>
-<div class="fragment"><div class="line">                                                  {</div>
-<div class="line">                              <span class="keywordflow">if</span> (!file_exists($file)) {</div>
-<div class="line">                                             $newFile = fopen($file, <span class="charliteral">&#39;w&#39;</span>);</div>
-<div class="line">                                             fclose($newFile);</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              $this-&gt;file = $file;</div>
-<div class="line"></div>
-<div class="line">                              $this-&gt;handle = fopen($this-&gt;file, <span class="stringliteral">&quot;a+&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">if</span> ($this-&gt;handle) {</div>
-<div class="line">                                             fseek($this-&gt;handle, 0);</div>
-<div class="line">                                             $this-&gt;getLock($file);</div>
-<div class="line">                              } <span class="keywordflow">else</span> {</div>
-<div class="line">                                             <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&#39;FSTable: Could not open file&#39;</span>);</div>
-<div class="line">                              }</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8fsdb_8php_source.html#l00076">76</a> of file <a class="el" href="class_8fsdb_8php_source.html">class.fsdb.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a421831a265621325e1fdd19aace0c758"></a>
@@ -186,19 +169,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>__destruct </p>
 
-<p>Definition at line <a class="el" href="class_8fsdb_8php_source.html#l00092">92</a> of file <a class="el" href="class_8fsdb_8php_source.html">class.fsdb.php</a>.</p>
-<div class="fragment"><div class="line">                                            {</div>
-<div class="line">                              <span class="keywordflow">if</span> ($this-&gt;edited) {</div>
-<div class="line">                                             $this-&gt;save();</div>
-<div class="line">                              }</div>
-<div class="line">                              <span class="keywordflow">if</span> ($this-&gt;locked) {</div>
-<div class="line">                                             flock($this-&gt;handle, LOCK_UN);</div>
-<div class="line">                              }</div>
-<div class="line">                              <span class="keywordflow">if</span> ($this-&gt;handle) {</div>
-<div class="line">                                             fclose($this-&gt;handle);</div>
-<div class="line">                              }</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8fsdb_8php_source.html#l00098">98</a> of file <a class="el" href="class_8fsdb_8php_source.html">class.fsdb.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -235,24 +207,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int How many rows were deleted? </dd></dl>
 
-<p>Definition at line <a class="el" href="class_8fsdb_8php_source.html#l00280">280</a> of file <a class="el" href="class_8fsdb_8php_source.html">class.fsdb.php</a>.</p>
-<div class="fragment"><div class="line">                                                            {</div>
-<div class="line">                              $updated= 0;</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">foreach</span>($this-&gt;data as $key =&gt; $value) {</div>
-<div class="line">                                             <span class="keywordflow">if</span> ($value-&gt;$column == $search) {</div>
-<div class="line">                                                            array_splice($this-&gt;data, $key, 1);</div>
-<div class="line">                                                            $updated++;</div>
-<div class="line">                                             }</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">if</span> ($updated) {</div>
-<div class="line">                                             $this-&gt;edited = <span class="keyword">true</span>;</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">return</span> $updated;</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8fsdb_8php_source.html#l00286">286</a> of file <a class="el" href="class_8fsdb_8php_source.html">class.fsdb.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a2e355627d2f4a96559f022c4ab82df3c"></a>
@@ -277,14 +233,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>bool Was the operation successful? </dd></dl>
 
-<p>Definition at line <a class="el" href="class_8fsdb_8php_source.html#l00266">266</a> of file <a class="el" href="class_8fsdb_8php_source.html">class.fsdb.php</a>.</p>
-<div class="fragment"><div class="line">                                             {</div>
-<div class="line">                              $data-&gt;id = $this-&gt;uuid();</div>
-<div class="line">                              $this-&gt;data[] = $data;</div>
-<div class="line">                              $this-&gt;edited = <span class="keyword">true</span>;</div>
-<div class="line">                              <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8fsdb_8php_source.html#l00272">272</a> of file <a class="el" href="class_8fsdb_8php_source.html">class.fsdb.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ad3d3dc4c1d2448d7b9f229448b57586a"></a>
@@ -320,27 +270,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>array An array of rows in the form of objects. </dd></dl>
 
-<p>Definition at line <a class="el" href="class_8fsdb_8php_source.html#l00189">189</a> of file <a class="el" href="class_8fsdb_8php_source.html">class.fsdb.php</a>.</p>
-<div class="fragment"><div class="line">                                                            {</div>
-<div class="line">                              $results = array();</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">if</span> ($column == <span class="stringliteral">&quot;*&quot;</span>) {</div>
-<div class="line">                                             <span class="keywordflow">return</span> $this-&gt;data;</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">if</span> (count($this-&gt;data) == 0) {</div>
-<div class="line">                                             <span class="keywordflow">return</span> array();</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">foreach</span>($this-&gt;data as $row) {</div>
-<div class="line">                                             <span class="keywordflow">if</span> ($row-&gt;$column == $search) {</div>
-<div class="line">                                                            $results[] = $row;</div>
-<div class="line">                                             }</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">return</span> $results;</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8fsdb_8php_source.html#l00195">195</a> of file <a class="el" href="class_8fsdb_8php_source.html">class.fsdb.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ac3122ca1565ee89b1e4a1cb220960593"></a>
@@ -383,19 +314,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>array An array of rows in the form of objects. </dd></dl>
 
-<p>Definition at line <a class="el" href="class_8fsdb_8php_source.html#l00217">217</a> of file <a class="el" href="class_8fsdb_8php_source.html">class.fsdb.php</a>.</p>
-<div class="fragment"><div class="line">                                                                    {</div>
-<div class="line">                              $results = array();</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">foreach</span>($this-&gt;data as $row) {</div>
-<div class="line">                                             <span class="keywordflow">if</span> ($row-&gt;$column &gt; $lower &amp;&amp; $row-&gt;column &lt; $upper) {</div>
-<div class="line">                                                            $results[] = $row;</div>
-<div class="line">                                             }</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">return</span> $results;</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8fsdb_8php_source.html#l00223">223</a> of file <a class="el" href="class_8fsdb_8php_source.html">class.fsdb.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="af8a4deeffdd08e76dce3d1083f729929"></a>
@@ -439,28 +359,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int How many rows were updated? </dd></dl>
 
-<p>Definition at line <a class="el" href="class_8fsdb_8php_source.html#l00239">239</a> of file <a class="el" href="class_8fsdb_8php_source.html">class.fsdb.php</a>.</p>
-<div class="fragment"><div class="line">                                                                             {</div>
-<div class="line">                              $updated = 0;</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">foreach</span>($this-&gt;data as $key =&gt; $value) {</div>
-<div class="line">                                             <span class="keywordflow">if</span> ($this-&gt;data[$key]-&gt;$column == $search) {</div>
-<div class="line">                                                            <span class="keywordflow">if</span> (is_object($data)) {</div>
-<div class="line">                                                                           $this-&gt;data[$key] = (object) array_merge((array) $this-&gt;data[$key], (array) $data);</div>
-<div class="line">                                                            } <span class="keywordflow">else</span> {</div>
-<div class="line">                                                                           $this-&gt;data[$key]-&gt;$column = $data;</div>
-<div class="line">                                                            }</div>
-<div class="line">                                                            $updated++;</div>
-<div class="line">                                             }</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">if</span> ($updated) {</div>
-<div class="line">                                             $this-&gt;edited = <span class="keyword">true</span>;</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">return</span> $updated;</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8fsdb_8php_source.html#l00245">245</a> of file <a class="el" href="class_8fsdb_8php_source.html">class.fsdb.php</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -472,7 +372,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_f_s_table.html">FSTable</a></li>
-    <li class="footer">Generated on Fri Jan 3 2014 13:11:20 for sleepyMUSTACHE by
+    <li class="footer">Generated on Mon Jun 16 2014 18:08:24 for Sleepy Mustache by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

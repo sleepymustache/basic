@@ -15,7 +15,7 @@
 \subsection{Detailed Description}
 
 
-Definition at line 45 of file class.\-navigation.\-php.
+Definition at line 50 of file class.\-navigation.\-php.
 
 
 
@@ -34,17 +34,8 @@ string & {\em \$json} & json data containing the \hyperlink{class_navigation}{Na
 \end{DoxyParams}
 
 
-Definition at line 61 of file class.\-navigation.\-php.
+Definition at line 66 of file class.\-navigation.\-php.
 
-
-\begin{DoxyCode}
-                                                     \{
-                              $json = \hyperlink{class_hook_a6489ed6b12329279b9e7cae26afc4dd6}{Hook::addFilter}(\textcolor{stringliteral}{'
-      navigation\_raw\_json'}, $json);
-                              $this->data = \hyperlink{class_hook_a6489ed6b12329279b9e7cae26afc4dd6}{Hook::addFilter}(\textcolor{stringliteral}{'
-      navigation\_rendered\_json'}, json\_decode($json));
-               \}
-\end{DoxyCode}
 
 
 \subsection{Member Function Documentation}
@@ -62,16 +53,8 @@ string & {\em \$string} & A string used to determine if a page is current \\
 \end{DoxyParams}
 
 
-Definition at line 142 of file class.\-navigation.\-php.
+Definition at line 147 of file class.\-navigation.\-php.
 
-
-\begin{DoxyCode}
-                                                   \{
-                              $this->current = str\_replace(\textcolor{stringliteral}{"
-      /iw-mount/default/main/MarketingSites/BSP/Xofigo/USA/Scientific/WORKAREA/htdocs"}, \textcolor{stringliteral}{""}, str\_replace(\textcolor{stringliteral}{"
-      index.php"}, \textcolor{stringliteral}{""}, $string));
-               \}
-\end{DoxyCode}
 \hypertarget{class_navigation_a8959f1f09ce2d2b6ee6f8d2f28eec323}{\index{Navigation@{Navigation}!show@{show}}
 \index{show@{show}!Navigation@{Navigation}}
 \subsubsection[{show}]{\setlength{\rightskip}{0pt plus 5cm}show (
@@ -84,15 +67,8 @@ string The rendered navigation
 \end{DoxyReturn}
 
 
-Definition at line 134 of file class.\-navigation.\-php.
+Definition at line 139 of file class.\-navigation.\-php.
 
-
-\begin{DoxyCode}
-                                               \{
-                              \textcolor{keywordflow}{return} $this->renderNav($this->data->pages, 
-      $class);
-               \}
-\end{DoxyCode}
 
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}

@@ -41,7 +41,7 @@ Inheritance diagram for Record\-:\begin{figure}[H]
 \subsection{Detailed Description}
 
 
-Definition at line 50 of file class.\-record.\-php.
+Definition at line 56 of file class.\-record.\-php.
 
 
 
@@ -62,31 +62,8 @@ string & {\em \$id} & The id to load automatically \\
 \end{DoxyParams}
 
 
-Definition at line 81 of file class.\-record.\-php.
+Definition at line 87 of file class.\-record.\-php.
 
-
-\begin{DoxyCode}
-                                                  \{
-                              $this->db = \hyperlink{class_d_b_ac93fbec81f07e5d15f80db907e63dc10}{DB::getInstance}();
-
-                              $select = $this->db->query(\textcolor{stringliteral}{"SELECT * FROM
-       `\{$this->table\}` LIMIT 1"});
-
-                              \textcolor{keywordflow}{for} ($i = 0; $i <= $select->columnCount(); $i ++)
-       \{
-                                             \hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta} = $select->
-      getColumnMeta($i);
-                                             \textcolor{keywordflow}{if} (isset(\hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta}[\textcolor{stringliteral}{'name'}])) \{
-                                                            $this->meta[\hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta}
-      [\textcolor{stringliteral}{'name'}]] = \hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta};
-                                             \}
-                              \}
-
-                              \textcolor{keywordflow}{if} ($id) \{
-                                             $this->\hyperlink{class_record_a7160b09d9d37ede69811a66dc9e4f272}{load}($id);
-                              \}
-               \}
-\end{DoxyCode}
 
 
 \subsection{Member Function Documentation}
@@ -104,29 +81,8 @@ bool True if delete is successful
 \end{DoxyReturn}
 
 
-Definition at line 177 of file class.\-record.\-php.
+Definition at line 183 of file class.\-record.\-php.
 
-
-\begin{DoxyCode}
-                                        \{
-                              \hyperlink{class_hook_afff7a7869d2dd304043b69a3fff24655}{Hook::addAction}(\textcolor{stringliteral}{'
-      recordBeforeDelete'});
-                              $query = $this->db->prepare(\textcolor{stringliteral}{'DELETE FROM '} . 
-      $this->table . \textcolor{stringliteral}{' WHERE \{$this->primaryKey\}=:\{$this->primaryKey\}'});
-
-                              \textcolor{keywordflow}{if} ($query->execute(array(\textcolor{stringliteral}{":\{$this->primaryKey\}"} 
-      => $this->\{$this->primaryKey\}))) \{
-                                             \hyperlink{class_hook_afff7a7869d2dd304043b69a3fff24655}{Hook::addAction}(\textcolor{stringliteral}{'
-      recordDeleteSucessful'});
-                                             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
-                              \} \textcolor{keywordflow}{else} \{
-                                             \hyperlink{class_hook_afff7a7869d2dd304043b69a3fff24655}{Hook::addAction}(\textcolor{stringliteral}{'
-      recordDeleteError'});
-                                             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception(\textcolor{stringliteral}{"
-      \{$this->table\}: Record was not deleted."});
-                              \}
-               \}
-\end{DoxyCode}
 \hypertarget{class_record_a93614c4fd6ba6715b5d339e6b4720d34}{\index{Record@{Record}!form@{form}}
 \index{form@{form}!Record@{Record}}
 \subsubsection[{form}]{\setlength{\rightskip}{0pt plus 5cm}form (
@@ -152,300 +108,8 @@ void returns nothing
 \end{DoxyReturn}
 
 
-Definition at line 198 of file class.\-record.\-php.
+Definition at line 204 of file class.\-record.\-php.
 
-
-\begin{DoxyCode}
-                                                                               
-              \{
-                              \textcolor{comment}{// Legend defaults to the table name}
-                              \textcolor{keywordflow}{if} ($legend == \textcolor{stringliteral}{'table\_name'}) \{
-                                             $legend = \hyperlink{class_record_ae8876a14058f368335baccf35af4a22b}{$this->table}
-      ;
-                              \}
-
-                              \textcolor{comment}{// If there are no fields sent, load all fields
-       in the table.}
-                              \textcolor{keywordflow}{if} (empty($fields)) \{
-                                             \textcolor{keywordflow}{foreach} ($this->meta as \hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta}
-      ) \{
-                                                            $fields[$meta[\textcolor{stringliteral}{'name
-      '}]] = $meta[\textcolor{stringliteral}{'name'}];
-                                             \}
-                              \}
-
-                              ?>
-                              <fieldset>
-                                             <legend><?php echo $legend;?></
-      legend>
-                                             <ul>
-                                             <?php
-                                                            \textcolor{comment}{// Display each
-       field}
-                                                            \textcolor{keywordflow}{foreach} ($fields as
-       $field => $label) \{
-                                                                           
-      $class = \textcolor{stringliteral}{""};
-                                                                           
-      $buffer = \textcolor{stringliteral}{""};
-                                                                           \hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{
-      $meta} = $this->meta[$field];
-
-                                                                           \textcolor{comment}{//
-       If the field is not in the database, then add a}
-                                                                           \textcolor{comment}{//
-       "fake" field instead}
-                                                                           \textcolor{keywordflow}{if} (
-      !is\_array(\hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta})) \{
-                                                                                          
-      \hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta}[\textcolor{stringliteral}{'name'}] = $field;
-                                                                                          
-      \hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta}[\textcolor{stringliteral}{'flags'}] = Array();
-                                                                                          
-      \hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta}[\textcolor{stringliteral}{'native\_type'}] = \textcolor{stringliteral}{'VAR\_STRING'};
-                                                                                          
-      $class .= \textcolor{stringliteral}{'not-binded '};
-                                                                           \}
-
-                                                                           \textcolor{comment}{//
-       Add classes for field flags}
-                                                                           \textcolor{keywordflow}{
-      foreach} (\hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta}[\textcolor{stringliteral}{'flags'}] as $flag) \{
-                                                                                          \textcolor{keywordflow}{
-      if} ($flag == \textcolor{stringliteral}{'not\_null'}) \{
-                                                                                                         
-      $class .= \textcolor{stringliteral}{'required '};
-                                                                                          
-      \}
-
-                                                                                          \textcolor{keywordflow}{
-      if} ($flag == \textcolor{stringliteral}{'primary\_key'}) \{
-                                                                                                         
-      $class .= \textcolor{stringliteral}{'primary-key '};
-                                                                                          
-      \}
-                                                                           \}
-
-                                                                           
-      $label = \hyperlink{class_hook_a6489ed6b12329279b9e7cae26afc4dd6}{Hook::addFilter}(\textcolor{stringliteral}{'dbForm\_label'}, $label);
-
-                                                                           ?>
-                                                                           <li>
-                                                                                          
-      <?php
-                                                                                                         \textcolor{comment}{
-      // fix for tinyint so it works correctly. Damn PDO!}
-                                                                                                         \textcolor{keywordflow}{
-      if} (!isset(\hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta}[\textcolor{stringliteral}{'native\_type'}])) \{
-                                                                                                                        \textcolor{keywordflow}{
-      if} (\hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta}[\textcolor{stringliteral}{'len'}] == 1) \{
-                                                                                                                                       
-      \hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta}[\textcolor{stringliteral}{'native\_type'}] = \textcolor{stringliteral}{'BOOL'};
-                                                                                                                        
-      \}
-                                                                                                         
-      \}
-
-                                                                                                         \textcolor{comment}{
-      // Is this a password field?}
-                                                                                                         \textcolor{keywordflow}{
-      if} (strpos(strtolower($label), \textcolor{stringliteral}{'password'}) > -1) \{
-                                                                                                                        
-      \hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta}[\textcolor{stringliteral}{'native\_type'}] = \textcolor{stringliteral}{'PASSWORD'};
-                                                                                                         
-      \}
-
-                                                                                                         \textcolor{comment}{
-      // Is this an email field?}
-                                                                                                         \textcolor{keywordflow}{
-      if} (strpos(strtolower($label), \textcolor{stringliteral}{'email'}) > -1) \{
-                                                                                                                        
-      $class = \textcolor{stringliteral}{"email "};
-                                                                                                         
-      \}
-
-                                                                                                         
-      $value = htmlspecialchars($this->columns[$field]);
-
-                                                                                                         \textcolor{keywordflow}{
-      switch} (\hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta}[\textcolor{stringliteral}{'native\_type'}]) \{
-                                                                                                         \textcolor{keywordflow}{
-      case} \textcolor{stringliteral}{'LONG'}:
-                                                                                                         \textcolor{keywordflow}{
-      case} \textcolor{stringliteral}{'FLOAT'}:
-                                                                                                                        
-      $class .= \textcolor{stringliteral}{"digits "};
-                                                                                                                        
-      $inputId = \textcolor{stringliteral}{"txt\_"} . \hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta}[\textcolor{stringliteral}{'name'}];
-
-                                                                                                                        
-      $buffer .= \textcolor{stringliteral}{"<label class=\(\backslash\)"\{$class\}\(\backslash\)" for=\(\backslash\)"\{$inputId\}\(\backslash\)">\{$label\}</label>"};
-                                                                                                                        
-      $buffer .= \textcolor{stringliteral}{"<input class=\(\backslash\)"\{$class\}\(\backslash\)" type=\(\backslash\)"text\(\backslash\)" name=\(\backslash\)"\{$inputId\}\(\backslash\)" id=\(\backslash\)"
-      \{$inputId\}\(\backslash\)" maxlength=\(\backslash\)"\{$meta['len']\}\(\backslash\)" value=\(\backslash\)"\{$value\}\(\backslash\)" />"};
-                                                                                                                        \textcolor{keywordflow}{
-      break};
-                                                                                                         \textcolor{keywordflow}{
-      case} \textcolor{stringliteral}{'STRING'}:
-                                                                                                         \textcolor{keywordflow}{
-      case} \textcolor{stringliteral}{'VAR\_STRING'}:
-                                                                                                                        
-      $class .= \textcolor{stringliteral}{"string "};
-                                                                                                                        
-      $inputId = \textcolor{stringliteral}{"txt\_"} . \hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta}[\textcolor{stringliteral}{'name'}];
-                                                                                                                        
-      $buffer .= \textcolor{stringliteral}{"<label class=\(\backslash\)"\{$class\}\(\backslash\)" for=\(\backslash\)"\{$inputId\}\(\backslash\)">\{$label\}</label>"};
-                                                                                                                        
-      $buffer .= \textcolor{stringliteral}{"<input class=\(\backslash\)"\{$class\}\(\backslash\)" type=\(\backslash\)"text\(\backslash\)" name=\(\backslash\)"\{$inputId\}\(\backslash\)" id=\(\backslash\)"
-      \{$inputId\}\(\backslash\)" maxlength=\(\backslash\)"\{$meta['len']\}\(\backslash\)" value=\(\backslash\)"\{$value\}\(\backslash\)" />"};
-                                                                                                                        \textcolor{keywordflow}{
-      break};
-                                                                                                         \textcolor{keywordflow}{
-      case} \textcolor{stringliteral}{'PASSWORD'}:
-                                                                                                                        
-      $class .= \textcolor{stringliteral}{"password "};
-                                                                                                                        
-      $inputId = \textcolor{stringliteral}{"pwd\_"} . \hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta}[\textcolor{stringliteral}{'name'}];
-                                                                                                                        
-      $buffer .= \textcolor{stringliteral}{"<label class=\(\backslash\)"\{$class\}\(\backslash\)" for=\(\backslash\)"\{$inputId\}\(\backslash\)">\{$label\}</label>"};
-                                                                                                                        
-      $buffer .= \textcolor{stringliteral}{"<input class=\(\backslash\)"\{$class\}\(\backslash\)" type=\(\backslash\)"password\(\backslash\)" name=\(\backslash\)"\{$inputId\}\(\backslash\)" id=
-      \(\backslash\)"\{$inputId\}\(\backslash\)" maxlength=\(\backslash\)"\{$meta['len']\}\(\backslash\)" />"};
-                                                                                                                        \textcolor{keywordflow}{
-      break};
-                                                                                                         \textcolor{keywordflow}{
-      case} \textcolor{stringliteral}{'DATETIME'}:
-                                                                                                                        
-      $class .= \textcolor{stringliteral}{"datetime "};
-                                                                                                                        
-      $inputId = \textcolor{stringliteral}{"txt\_"} . \hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta}[\textcolor{stringliteral}{'name'}];
-                                                                                                                        
-      $buffer .= \textcolor{stringliteral}{"<label class=\(\backslash\)"\{$class\}\(\backslash\)" for=\(\backslash\)"\{$inputId\}\(\backslash\)">\{$label\}</label>"};
-                                                                                                                        
-      $buffer .= \textcolor{stringliteral}{"<input class=\(\backslash\)"\{$class\}\(\backslash\)" type=\(\backslash\)"text\(\backslash\)" name=\(\backslash\)"\{$inputId\}\(\backslash\)" id=\(\backslash\)"
-      \{$inputId\}\(\backslash\)" maxlength=\(\backslash\)"\{$meta['len']\}\(\backslash\)" value=\(\backslash\)"\{$value\}\(\backslash\)" />"};
-                                                                                                                        \textcolor{keywordflow}{
-      break};
-                                                                                                         \textcolor{keywordflow}{
-      case} \textcolor{stringliteral}{'TIMESTAMP'}:
-                                                                                                                        
-      $class .= \textcolor{stringliteral}{"timestamp "};
-                                                                                                                        
-      $inputId = \textcolor{stringliteral}{"txt\_"} . \hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta}[\textcolor{stringliteral}{'name'}];
-                                                                                                                        
-      $buffer .= \textcolor{stringliteral}{"<label class=\(\backslash\)"\{$class\}\(\backslash\)" for=\(\backslash\)"\{$inputId\}\(\backslash\)">\{$label\}</label>"};
-                                                                                                                        
-      $buffer .= \textcolor{stringliteral}{"<input class=\(\backslash\)"\{$class\}\(\backslash\)" type=\(\backslash\)"text\(\backslash\)" name=\(\backslash\)"\{$inputId\}\(\backslash\)" id=\(\backslash\)"
-      \{$inputId\}\(\backslash\)" maxlength=\(\backslash\)"\{$meta['len']\}\(\backslash\)" value=\(\backslash\)"\{$value\}\(\backslash\)" />"};
-                                                                                                                        \textcolor{keywordflow}{
-      break};
-                                                                                                         \textcolor{keywordflow}{
-      case} \textcolor{stringliteral}{'NEWDECIMAL'}:
-                                                                                                                        
-      $class .= \textcolor{stringliteral}{"decimal "};
-                                                                                                                        
-      $inputId = \textcolor{stringliteral}{"txt\_"} . \hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta}[\textcolor{stringliteral}{'name'}];
-                                                                                                                        
-      $buffer .= \textcolor{stringliteral}{"<label class=\(\backslash\)"\{$class\}\(\backslash\)" for=\(\backslash\)"\{$inputId\}\(\backslash\)">\{$label\}</label>"};
-                                                                                                                        
-      $buffer .= \textcolor{stringliteral}{"<input class=\(\backslash\)"\{$class\}\(\backslash\)" type=\(\backslash\)"text\(\backslash\)" name=\(\backslash\)"\{$inputId\}\(\backslash\)" id=\(\backslash\)"
-      \{$inputId\}\(\backslash\)" maxlength=\(\backslash\)"\{$meta['len']\}\(\backslash\)" value=\(\backslash\)"\{$value\}\(\backslash\)" />"};
-                                                                                                                        \textcolor{keywordflow}{
-      break};
-                                                                                                         \textcolor{keywordflow}{
-      case} \textcolor{stringliteral}{'BOOL'}:
-                                                                                                                        
-      $class .= \textcolor{stringliteral}{"bool "};
-                                                                                                                        
-      $inputId = \textcolor{stringliteral}{"chk\_"} . \hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta}[\textcolor{stringliteral}{'name'}];
-                                                                                                                        \textcolor{keywordflow}{
-      if} ($value) \{
-                                                                                                                                       
-      $checked = \textcolor{stringliteral}{"checked=\(\backslash\)"checked\(\backslash\)""};
-                                                                                                                        
-      \}
-                                                                                                                        
-      $buffer .= \textcolor{stringliteral}{"<label class=\(\backslash\)"\{$class\}\(\backslash\)" for=\(\backslash\)"\{$inputId\}\(\backslash\)">\{$label\}</label>"};
-                                                                                                                        
-      $buffer .= \textcolor{stringliteral}{"<input class=\(\backslash\)"\{$class\}\(\backslash\)" type=\(\backslash\)"checkbox\(\backslash\)" name=\(\backslash\)"\{$inputId\}\(\backslash\)" id=
-      \(\backslash\)"\{$inputId\}\(\backslash\)" value=\(\backslash\)"1\(\backslash\)" \{$checked\} />"};
-                                                                                                                        \textcolor{keywordflow}{
-      break};
-                                                                                                         \textcolor{keywordflow}{
-      case} \textcolor{stringliteral}{'BLOB'}:
-                                                                                                                        
-      $class .= \textcolor{stringliteral}{"string "};
-                                                                                                                        
-      $inputId = \textcolor{stringliteral}{"txt\_"} . \hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta}[\textcolor{stringliteral}{'name'}];
-                                                                                                                        
-      $buffer .= \textcolor{stringliteral}{"<label class=\(\backslash\)"\{$class\}\(\backslash\)" for=\(\backslash\)"\{$inputId\}\(\backslash\)">\{$label\}</label>"};
-                                                                                                                        
-      $buffer .= \textcolor{stringliteral}{"<textarea class=\(\backslash\)"\{$class\}\(\backslash\)" type=\(\backslash\)"text\(\backslash\)" name=\(\backslash\)"\{$inputId\}\(\backslash\)" id=\(\backslash\)"
-      \{$inputId\}\(\backslash\)" maxlength=\(\backslash\)"\{$meta['len']\}\(\backslash\)">\{$value\}</textarea>"};
-                                                                                                                        \textcolor{keywordflow}{
-      break};
-                                                                                                         \textcolor{keywordflow}{
-      default}:
-                                                                                                                        
-      $buffer .= \textcolor{stringliteral}{"No Handler for \{$meta['native\_type']\} defined."};
-                                                                                                         
-      \}
-
-                                                                                                         \textcolor{comment}{
-      // Add Hook filters to the buffer}
-                                                                                                         \textcolor{keywordflow}{
-      foreach}(Array(
-                                                                                                                        \textcolor{stringliteral}{
-      'dbForm\_list'},
-                                                                                                                        
-      $this->table . \textcolor{stringliteral}{"\_dbForm\_list"}
-                                                                                                         
-      ) as $filterName) \{
-                                                                                                                        
-      $buffer = \hyperlink{class_hook_a6489ed6b12329279b9e7cae26afc4dd6}{Hook::addFilter}($filterName, Array(
-                                                                                                                                       
-      $buffer,
-                                                                                                                                       
-      \hyperlink{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{$meta}[\textcolor{stringliteral}{'native\_type'}],
-                                                                                                                                       
-      $label,
-                                                                                                                                       
-      $value,
-                                                                                                                                       
-      $class,
-                                                                                                                                       
-      $inputId
-                                                                                                                        
-      ));
-                                                                                                         
-      \}
-
-                                                                                                         
-      echo $buffer;
-                                                                                          
-      ?>
-                                                                           </li
-      >
-                                                                           <?
-      php
-                                                            \}
-                                                            ?>
-                                             </ul>
-                              </fieldset>
-                              <?php
-                              \textcolor{keywordflow}{if} ($submit) \{
-                                             ?>
-                                             <fieldset \textcolor{keyword}{class}=\textcolor{stringliteral}{"submit"}>
-                                                            <legend></legend>
-                                                            <ul>
-                                                                           <li>
-      <input type=\textcolor{stringliteral}{"submit"} value=\textcolor{stringliteral}{"Save"}></li>
-                                                            </ul>
-                                             </fieldset>
-                                             <?php
-                              \}
-               \}
-\end{DoxyCode}
 \hypertarget{class_record_a7160b09d9d37ede69811a66dc9e4f272}{\index{Record@{Record}!load@{load}}
 \index{load@{load}!Record@{Record}}
 \subsubsection[{load}]{\setlength{\rightskip}{0pt plus 5cm}load (
@@ -465,30 +129,8 @@ bool True if loaded correctly
 \end{DoxyReturn}
 
 
-Definition at line 104 of file class.\-record.\-php.
+Definition at line 110 of file class.\-record.\-php.
 
-
-\begin{DoxyCode}
-                                           \{
-                              \textcolor{keywordflow}{if} ($this->table == \textcolor{stringliteral}{''}) \{
-                                             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception(\textcolor{stringliteral}{'$this->table
-       is not set.'});
-                              \}
-
-                              $query = $this->db->prepare(\textcolor{stringliteral}{"SELECT * FROM
-       `\{$this->table\}` WHERE \{$this->primaryKey\}=:\{$this->primaryKey\}"});
-                              $query->execute(array(\textcolor{stringliteral}{":\{$this->primaryKey\}"} => 
-      $id));
-                              $query->setFetchMode(PDO::FETCH\_ASSOC);
-
-                              \textcolor{keywordflow}{if} ($this->columns = $query->fetch()) \{
-                                             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
-                              \} \textcolor{keywordflow}{else} \{
-                                             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception(\textcolor{stringliteral}{"
-      \{$this->table\}: Record does not exist."});
-                              \}
-               \}
-\end{DoxyCode}
 \hypertarget{class_record_afc8a3c62679cf00ade9f15fb2a6d6132}{\index{Record@{Record}!save@{save}}
 \index{save@{save}!Record@{Record}}
 \subsubsection[{save}]{\setlength{\rightskip}{0pt plus 5cm}save (
@@ -503,70 +145,8 @@ mixed Returns the Primary Key
 \end{DoxyReturn}
 
 
-Definition at line 125 of file class.\-record.\-php.
+Definition at line 131 of file class.\-record.\-php.
 
-
-\begin{DoxyCode}
-                                      \{
-                              $sql = \textcolor{stringliteral}{""};
-                              $col = array();
-
-                              \textcolor{comment}{// If id is set, then update. Else, insert}
-                              \textcolor{keywordflow}{if} ($new = !isset($this->columns[$this->
-      primaryKey])) \{
-                                             $sql = \textcolor{stringliteral}{"INSERT INTO \{$this->table\}
-       SET"};
-                              \} \textcolor{keywordflow}{else} \{
-                                             $sql = \textcolor{stringliteral}{"UPDATE \{$this->table\} SET"}
-      ;
-                              \}
-
-                              \textcolor{comment}{// set up insert statement, don't update id}
-                              \textcolor{keywordflow}{foreach} ($this->columns as $key => $value) \{
-                                             \textcolor{keywordflow}{if} ($key !== $this->primaryKey) \{
-                                                            $sql .= \textcolor{stringliteral}{"
-       \{$key\}=:\{$key\},"};
-                                                            $col[\textcolor{stringliteral}{":\{$key\}"}] = 
-      $value;
-                                             \} \textcolor{keywordflow}{else} \{
-                                                            $col[\textcolor{stringliteral}{":\{$key\}"}] = 
-      $value;
-                                             \}
-                              \}
-
-                              \textcolor{comment}{// remove the trailing comma}
-                              $sql = substr($sql, 0, -1);
-
-                              \textcolor{keywordflow}{if} (!$new) \{
-                                             $sql = $sql . \textcolor{stringliteral}{" WHERE
-       \{$this->primaryKey\}=:\{$this->primaryKey\}"};
-                              \}
-
-                              $result = $this->db->prepare($sql);
-
-                              \textcolor{comment}{// save}
-                              \hyperlink{class_hook_afff7a7869d2dd304043b69a3fff24655}{Hook::addAction}(\textcolor{stringliteral}{'recordBeforeSave'}
-      );
-                              $result->execute($col);
-                              \hyperlink{class_hook_afff7a7869d2dd304043b69a3fff24655}{Hook::addAction}(\textcolor{stringliteral}{'recordAfterSave'})
-      ;
-
-                              \textcolor{keywordflow}{if} ($new) \{
-                                             \textcolor{keywordflow}{if} ($result->rowCount()) \{
-                                                            $this->columns[
-      \hyperlink{class_record_a927b0256b942a3ee89485f2649af7981}{$this->primaryKey}] = $this->db->lastInsertId();
-                                                            \textcolor{keywordflow}{return} $this->
-      columns[\hyperlink{class_record_a927b0256b942a3ee89485f2649af7981}{$this->primaryKey}];
-                                             \} \textcolor{keywordflow}{else} \{
-                                                            \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception
-      (\textcolor{stringliteral}{"\{$this->table\}: Record was not saved."});
-                                             \}
-                              \} \textcolor{keywordflow}{else} \{
-                                             \textcolor{keywordflow}{return} $this->columns[
-      \hyperlink{class_record_a927b0256b942a3ee89485f2649af7981}{$this->primaryKey}];
-                              \}
-               \}
-\end{DoxyCode}
 
 
 \subsection{Field Documentation}
@@ -575,35 +155,35 @@ Definition at line 125 of file class.\-record.\-php.
 \subsubsection[{\$columns}]{\setlength{\rightskip}{0pt plus 5cm}\$columns}}\label{class_record_a19d2a3d21fe02053311fde465e6ae2e9}
 array The data of the record get loaded here 
 
-Definition at line 69 of file class.\-record.\-php.
+Definition at line 75 of file class.\-record.\-php.
 
 \hypertarget{class_record_a1fa3127fc82f96b1436d871ef02be319}{\index{Record@{Record}!\$db@{\$db}}
 \index{\$db@{\$db}!Record@{Record}}
 \subsubsection[{\$db}]{\setlength{\rightskip}{0pt plus 5cm}\$db\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_record_a1fa3127fc82f96b1436d871ef02be319}
 P\-D\-O The P\-D\-O object 
 
-Definition at line 54 of file class.\-record.\-php.
+Definition at line 60 of file class.\-record.\-php.
 
 \hypertarget{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}{\index{Record@{Record}!\$meta@{\$meta}}
 \index{\$meta@{\$meta}!Record@{Record}}
 \subsubsection[{\$meta}]{\setlength{\rightskip}{0pt plus 5cm}\$meta}}\label{class_record_a9e6fc1ae0498be7d1e682f8bcc9299df}
 std\-Object The record meta data gets loaded here 
 
-Definition at line 74 of file class.\-record.\-php.
+Definition at line 80 of file class.\-record.\-php.
 
 \hypertarget{class_record_a927b0256b942a3ee89485f2649af7981}{\index{Record@{Record}!\$primary\-Key@{\$primary\-Key}}
 \index{\$primary\-Key@{\$primary\-Key}!Record@{Record}}
 \subsubsection[{\$primary\-Key}]{\setlength{\rightskip}{0pt plus 5cm}\$primary\-Key = 'id'\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_record_a927b0256b942a3ee89485f2649af7981}
 string The primary key of the table 
 
-Definition at line 64 of file class.\-record.\-php.
+Definition at line 70 of file class.\-record.\-php.
 
 \hypertarget{class_record_ae8876a14058f368335baccf35af4a22b}{\index{Record@{Record}!\$table@{\$table}}
 \index{\$table@{\$table}!Record@{Record}}
 \subsubsection[{\$table}]{\setlength{\rightskip}{0pt plus 5cm}\$table\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_record_ae8876a14058f368335baccf35af4a22b}
 string The name of the table 
 
-Definition at line 59 of file class.\-record.\-php.
+Definition at line 65 of file class.\-record.\-php.
 
 
 

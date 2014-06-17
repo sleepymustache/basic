@@ -1,0 +1,20 @@
+digraph "createSuiteFromClasses"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="createSuiteFromClasses",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="SimpleTest\\ignoreParents\lIfIgnored",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_test.html#acee845308a88b8dfd7cb2557435ede7b"];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="SimpleTest\\getRegistry",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_test.html#a91320adbec8b564c37b40a29aa9df772"];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="SimpleTest\\getDefaults",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_test.html#a82efa1571705e561b8bae6b73060945d"];
+  Node2 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="SimpleTest\\isIgnored",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_test.html#ac7968d155ff53699b39d50b3433fb216"];
+  Node5 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="SimpleTest\\ignore",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_test.html#af9bf1ea85a923c8638fe1b43875091d2"];
+  Node6 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

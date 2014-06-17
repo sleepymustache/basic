@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>sleepyMUSTACHE: CSV Class Reference</title>
+<title>Sleepy Mustache: CSV Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">sleepyMUSTACHE
+   <div id="projectname">Sleepy Mustache
    </div>
   </td>
  </tr>
@@ -135,7 +135,7 @@ Data Fields</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="class_8csv_8php_source.html#l00026">26</a> of file <a class="el" href="class_8csv_8php_source.html">class.csv.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8csv_8php_source.html#l00033">33</a> of file <a class="el" href="class_8csv_8php_source.html">class.csv.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a14c84bb63122ad8fcb01df17afd63a1f"></a>
 <div class="memitem">
@@ -158,13 +158,8 @@ Data Fields</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="class_8csv_8php_source.html#l00050">50</a> of file <a class="el" href="class_8csv_8php_source.html">class.csv.php</a>.</p>
-<div class="fragment"><div class="line">                                                         {</div>
-<div class="line">                              <span class="keywordflow">if</span> (<a class="code" href="class_c_s_v.html#a0722441477f957078ee2437054556cbc">$filename</a> != <span class="stringliteral">&#39;&#39;</span>) {</div>
-<div class="line">                                             $this-&gt;<a class="code" href="class_c_s_v.html#ac3e60980a993f765445acea4e30bed73">load</a>(<a class="code" href="class_c_s_v.html#a0722441477f957078ee2437054556cbc">$filename</a>);</div>
-<div class="line">                              }</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8csv_8php_source.html#l00057">57</a> of file <a class="el" href="class_8csv_8php_source.html">class.csv.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -190,23 +185,8 @@ Data Fields</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>bool Returns true if successful. </dd></dl>
 
-<p>Definition at line <a class="el" href="class_8csv_8php_source.html#l00128">128</a> of file <a class="el" href="class_8csv_8php_source.html">class.csv.php</a>.</p>
-<div class="fragment"><div class="line">                                           {</div>
-<div class="line">                              <span class="keywordflow">if</span> (!is_array($array)) {</div>
-<div class="line">                                             <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&#39;CSV::add - Parameter must be an array.&#39;</span>);</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">if</span> (count($array) == count($array, COUNT_RECURSIVE)) {</div>
-<div class="line">                                             $this-&gt;data[] = $array;</div>
-<div class="line">                              } <span class="keywordflow">else</span> {</div>
-<div class="line">                                             <span class="keywordflow">foreach</span> ($array as $record) {</div>
-<div class="line">                                                            $this-&gt;data[] = $record;</div>
-<div class="line">                                             }</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8csv_8php_source.html#l00135">135</a> of file <a class="el" href="class_8csv_8php_source.html">class.csv.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ac3e60980a993f765445acea4e30bed73"></a>
@@ -231,31 +211,8 @@ Data Fields</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>bool Returns true if successful. </dd></dl>
 
-<p>Definition at line <a class="el" href="class_8csv_8php_source.html#l00065">65</a> of file <a class="el" href="class_8csv_8php_source.html">class.csv.php</a>.</p>
-<div class="fragment"><div class="line">                                                  {</div>
-<div class="line">                              <span class="keywordflow">if</span> (<a class="code" href="class_c_s_v.html#a0722441477f957078ee2437054556cbc">$filename</a> != <span class="stringliteral">&#39;&#39;</span>) {</div>
-<div class="line">                                             $this-&gt;filename = <a class="code" href="class_c_s_v.html#a0722441477f957078ee2437054556cbc">$filename</a>;</div>
-<div class="line">                              } <span class="keywordflow">else</span> {</div>
-<div class="line">                                             <span class="keywordflow">if</span> ($this-&gt;filename == <span class="stringliteral">&#39;&#39;</span>) {</div>
-<div class="line">                                                            <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&#39;CSV::load - Cannot save without a filename.&#39;</span>);</div>
-<div class="line">                                             }</div>
-<div class="line">                              }</div>
-<div class="line">                              <span class="keywordflow">if</span> (($handle = @fopen($this-&gt;filename, <span class="stringliteral">&quot;r&quot;</span>)) !== FALSE) {</div>
-<div class="line">                                             flock($handle, LOCK_EX);</div>
-<div class="line">                                             <span class="keywordflow">while</span> ((<a class="code" href="class_c_s_v.html#a6efc15b5a2314dd4b5aaa556a375c6d6">$data</a> = fgetcsv($handle, 0, $this-&gt;delimiter)) !== FALSE) {</div>
-<div class="line">                                                            $this-&gt;data[] = <a class="code" href="class_c_s_v.html#a6efc15b5a2314dd4b5aaa556a375c6d6">$data</a>;</div>
-<div class="line">                                                            $num = count(<a class="code" href="class_c_s_v.html#a6efc15b5a2314dd4b5aaa556a375c6d6">$data</a>);</div>
-<div class="line">                                             }</div>
-<div class="line">                                             flock($handle, LOCK_UN);</div>
-<div class="line">                                             fclose($handle);</div>
-<div class="line">                                             $numberOfFields = count(<a class="code" href="class_c_s_v.html#a6efc15b5a2314dd4b5aaa556a375c6d6">$data</a>);</div>
-<div class="line">                              } <span class="keywordflow">else</span> {</div>
-<div class="line">                                             <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&#39;CSV::load - Cannot open file for writing&#39;</span>);</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8csv_8php_source.html#l00072">72</a> of file <a class="el" href="class_8csv_8php_source.html">class.csv.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a11f0aa9afc724ac4074e3ca127e79a2a"></a>
@@ -280,16 +237,8 @@ Data Fields</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>bool Returns true if successful. </dd></dl>
 
-<p>Definition at line <a class="el" href="class_8csv_8php_source.html#l00152">152</a> of file <a class="el" href="class_8csv_8php_source.html">class.csv.php</a>.</p>
-<div class="fragment"><div class="line">                                           {</div>
-<div class="line">                              <span class="keywordflow">if</span> (isset($this-&gt;data[$id])) {</div>
-<div class="line">                                             unset($this-&gt;data[$id]);</div>
-<div class="line">                                             <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">                              } <span class="keywordflow">else</span> {</div>
-<div class="line">                                             <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&#39;CSV::remove - Row does not exist. Data not removed.&#39;</span>);</div>
-<div class="line">                              }</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8csv_8php_source.html#l00159">159</a> of file <a class="el" href="class_8csv_8php_source.html">class.csv.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a3a876f7e0ace40b48d9369e4855c498d"></a>
@@ -314,29 +263,8 @@ Data Fields</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>bool Returns true if successful. </dd></dl>
 
-<p>Definition at line <a class="el" href="class_8csv_8php_source.html#l00098">98</a> of file <a class="el" href="class_8csv_8php_source.html">class.csv.php</a>.</p>
-<div class="fragment"><div class="line">                                                  {</div>
-<div class="line">                              <span class="keywordflow">if</span> (<a class="code" href="class_c_s_v.html#a0722441477f957078ee2437054556cbc">$filename</a> != <span class="stringliteral">&#39;&#39;</span>) {</div>
-<div class="line">                                             $this-&gt;filename = <a class="code" href="class_c_s_v.html#a0722441477f957078ee2437054556cbc">$filename</a>;</div>
-<div class="line">                              } <span class="keywordflow">else</span> {</div>
-<div class="line">                                             <span class="keywordflow">if</span> ($this-&gt;filename == <span class="stringliteral">&#39;&#39;</span>) {</div>
-<div class="line">                                                            <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&#39;CSV::save - Cannot save without a filename.&#39;</span>);</div>
-<div class="line">                                             }</div>
-<div class="line">                              }</div>
-<div class="line">                              <span class="keywordflow">if</span> ($handle = @fopen($this-&gt;filename, <span class="stringliteral">&#39;r+&#39;</span>)) {</div>
-<div class="line">                                             flock($handle, LOCK_EX);</div>
-<div class="line">                                             <span class="keywordflow">foreach</span> ($this-&gt;data as $row) {</div>
-<div class="line">                                                            fputcsv($handle, $row);</div>
-<div class="line">                                             }</div>
-<div class="line">                                             flock($handle, LOCK_UN);</div>
-<div class="line">                                             fclose($handle);</div>
-<div class="line">                              } <span class="keywordflow">else</span> {</div>
-<div class="line">                                             <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&#39;CSV::save - Cannot open file for writing&#39;</span>);</div>
-<div class="line">                              }</div>
-<div class="line"></div>
-<div class="line">                              <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8csv_8php_source.html#l00105">105</a> of file <a class="el" href="class_8csv_8php_source.html">class.csv.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a2b8e3779f5bd8c38f70307574859bd36"></a>
@@ -353,30 +281,8 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Instead of saving the file, it outputs to default output with headers. </p>
 
-<p>Definition at line <a class="el" href="class_8csv_8php_source.html#l00164">164</a> of file <a class="el" href="class_8csv_8php_source.html">class.csv.php</a>.</p>
-<div class="fragment"><div class="line">                                      {</div>
-<div class="line">                              ob_end_clean();</div>
-<div class="line">                              </div>
-<div class="line">                              <span class="comment">// Name the file</span></div>
-<div class="line">                              <a class="code" href="class_c_s_v.html#a0722441477f957078ee2437054556cbc">$filename</a> = date(<span class="stringliteral">&#39;YmdHis&#39;</span>) . <span class="stringliteral">&quot;.csv&quot;</span>;</div>
-<div class="line"></div>
-<div class="line">                              <span class="comment">// Write the CSV headers</span></div>
-<div class="line">                              header_remove();</div>
-<div class="line">                              header(<span class="stringliteral">&quot;Pragma: public&quot;</span>);</div>
-<div class="line">                              header(<span class="stringliteral">&quot;Expires: 0&quot;</span>);</div>
-<div class="line">                              header(<span class="stringliteral">&quot;Cache-Control: must-revalidate, post-check=0, pre-check=0&quot;</span>);</div>
-<div class="line">                              header(<span class="stringliteral">&quot;Cache-Control: private&quot;</span>, <span class="keyword">false</span>);</div>
-<div class="line">                              header(<span class="stringliteral">&quot;Content-Type: application/octet-stream&quot;</span>);</div>
-<div class="line">                              header(<span class="stringliteral">&quot;Content-Disposition: attachment; filename=\&quot;$filename\&quot;;&quot;</span> );</div>
-<div class="line">                              header(<span class="stringliteral">&quot;Content-Transfer-Encoding: binary&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">                              <span class="comment">// output of csv to default output (screen) instead of a file</span></div>
-<div class="line">                              $this-&gt;filename = <span class="stringliteral">&quot;php://output&quot;</span>;</div>
-<div class="line"></div>
-<div class="line">                              $this-&gt;<a class="code" href="class_c_s_v.html#a3a876f7e0ace40b48d9369e4855c498d">save</a>();</div>
-<div class="line">                              </div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8csv_8php_source.html#l00171">171</a> of file <a class="el" href="class_8csv_8php_source.html">class.csv.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -391,7 +297,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>mixed The data gets stored here while "in utero" </p>
 
-<p>Definition at line <a class="el" href="class_8csv_8php_source.html#l00042">42</a> of file <a class="el" href="class_8csv_8php_source.html">class.csv.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8csv_8php_source.html#l00049">49</a> of file <a class="el" href="class_8csv_8php_source.html">class.csv.php</a>.</p>
 
 </div>
 </div>
@@ -406,7 +312,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>string Define what character to use as a delimiter </p>
 
-<p>Definition at line <a class="el" href="class_8csv_8php_source.html#l00036">36</a> of file <a class="el" href="class_8csv_8php_source.html">class.csv.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8csv_8php_source.html#l00043">43</a> of file <a class="el" href="class_8csv_8php_source.html">class.csv.php</a>.</p>
 
 </div>
 </div>
@@ -421,7 +327,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>string The filename of the <a class="el" href="class_c_s_v.html">CSV</a> file </p>
 
-<p>Definition at line <a class="el" href="class_8csv_8php_source.html#l00030">30</a> of file <a class="el" href="class_8csv_8php_source.html">class.csv.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8csv_8php_source.html#l00037">37</a> of file <a class="el" href="class_8csv_8php_source.html">class.csv.php</a>.</p>
 
 </div>
 </div>
@@ -434,7 +340,7 @@ Data Fields</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_c_s_v.html">CSV</a></li>
-    <li class="footer">Generated on Fri Jan 3 2014 13:11:20 for sleepyMUSTACHE by
+    <li class="footer">Generated on Mon Jun 16 2014 18:08:24 for Sleepy Mustache by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

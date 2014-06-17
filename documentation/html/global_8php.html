@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>sleepyMUSTACHE: include/global.php File Reference</title>
+<title>Sleepy Mustache: include/global.php File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">sleepyMUSTACHE
+   <div id="projectname">Sleepy Mustache
    </div>
   </td>
  </tr>
@@ -100,6 +100,7 @@ $(document).ready(function(){initNavTree('global_8php.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">global.php File Reference</div>  </div>
@@ -108,16 +109,19 @@ $(document).ready(function(){initNavTree('global_8php.html','');});
 
 <p><a href="global_8php_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aa708b5658547eba853300c5c0f5b97b9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8php.html#aa708b5658547eba853300c5c0f5b97b9">isENV</a> ($str)</td></tr>
+<tr class="separator:aa708b5658547eba853300c5c0f5b97b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ade7436eeb9a94e391a9d15a8a6865dd9"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8php.html#ade7436eeb9a94e391a9d15a8a6865dd9">LIVE_URL</a> '****CHANGE_URL****'</td></tr>
-<tr class="separator:ade7436eeb9a94e391a9d15a8a6865dd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa55bd7b507e10bb441ac76d99b4c1358"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8php.html#aa55bd7b507e10bb441ac76d99b4c1358">LIVE_URL</a> (!@include_once('Webkit/init.php')) '****CHANGE_URL****'</td></tr>
+<tr class="separator:aa55bd7b507e10bb441ac76d99b4c1358"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9de38c82260effe90ef1caa4d6026973"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8php.html#a9de38c82260effe90ef1caa4d6026973">STAGE_URL</a> '****CHANGE_URL****'</td></tr>
 <tr class="separator:a9de38c82260effe90ef1caa4d6026973"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44a5a7f896e2444d9c7b91deffff3b49"><td class="memItemLeft" align="right" valign="top">if(strpos($_SERVER['SERVER_NAME'], <br class="typebreak"/>
-<a class="el" href="global_8php.html#a9de38c82260effe90ef1caa4d6026973">STAGE_URL</a>)!==false) elseif(strpos($_SERVER['SERVER_NAME'], <br class="typebreak"/>
-<a class="el" href="global_8php.html#ade7436eeb9a94e391a9d15a8a6865dd9">LIVE_URL</a>))&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8php.html#a44a5a7f896e2444d9c7b91deffff3b49">else</a></td></tr>
-<tr class="separator:a44a5a7f896e2444d9c7b91deffff3b49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84d6f541e8b918d4d74fe5a02b30588e"><td class="memItemLeft" align="right" valign="top">if(<a class="el" href="global_8php.html#aa708b5658547eba853300c5c0f5b97b9">isENV</a>(<a class="el" href="global_8php.html#a9de38c82260effe90ef1caa4d6026973">STAGE_URL</a>)) elseif(<a class="el" href="global_8php.html#aa708b5658547eba853300c5c0f5b97b9">isENV</a>(<a class="el" href="global_8php.html#aa55bd7b507e10bb441ac76d99b4c1358">LIVE_URL</a>))&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8php.html#a84d6f541e8b918d4d74fe5a02b30588e">else</a></td></tr>
+<tr class="separator:a84d6f541e8b918d4d74fe5a02b30588e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a422353d788747ecd47fc7a656e4ebd92"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8php.html#a422353d788747ecd47fc7a656e4ebd92">URLBASE</a> &quot;/&quot;</td></tr>
 <tr class="separator:a422353d788747ecd47fc7a656e4ebd92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a504552fd43e46a0032aa3f2895349f22"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8php.html#a504552fd43e46a0032aa3f2895349f22">DIRBASE</a> $_SERVER['DOCUMENT_ROOT']</td></tr>
@@ -130,9 +134,9 @@ Variables</h2></td></tr>
 <tr class="separator:add7bef9fbed1ad1fa386dcb65fd5d813"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7d219badcc93cc3a13a604c769542bc"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8php.html#af7d219badcc93cc3a13a604c769542bc">DBNAME</a> $WHG_DB_REPLDB</td></tr>
 <tr class="separator:af7d219badcc93cc3a13a604c769542bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af97c5ff33b4f726b36d6db60e5b757eb"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8php.html#af97c5ff33b4f726b36d6db60e5b757eb">EMAIL_FROM</a> ''</td></tr>
+<tr class="memitem:af97c5ff33b4f726b36d6db60e5b757eb"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8php.html#af97c5ff33b4f726b36d6db60e5b757eb">EMAIL_FROM</a> 'from@mailinator.com'</td></tr>
 <tr class="separator:af97c5ff33b4f726b36d6db60e5b757eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf9a2b18bea582e3d0ca5892d2c274fc"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8php.html#adf9a2b18bea582e3d0ca5892d2c274fc">EMAIL_TO</a> ''</td></tr>
+<tr class="memitem:adf9a2b18bea582e3d0ca5892d2c274fc"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8php.html#adf9a2b18bea582e3d0ca5892d2c274fc">EMAIL_TO</a> 'jaime@mailinator.com'</td></tr>
 <tr class="separator:adf9a2b18bea582e3d0ca5892d2c274fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a437cf4a502c60e7174f5d5a97a8b0fb4"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8php.html#a437cf4a502c60e7174f5d5a97a8b0fb4">EMAIL_CC</a> ''</td></tr>
 <tr class="separator:a437cf4a502c60e7174f5d5a97a8b0fb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,6 +145,33 @@ Variables</h2></td></tr>
 <tr class="memitem:a63584e945f652ffb7392f41c4f013922"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global_8php.html#a63584e945f652ffb7392f41c4f013922">GA_ACCOUNT</a> ''</td></tr>
 <tr class="separator:a63584e945f652ffb7392f41c4f013922"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="aa708b5658547eba853300c5c0f5b97b9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">isENV </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks if the current site matches a URL </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$str</td><td>The URL to match with current site </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean true if there was a match </dd></dl>
+
+<p>Definition at line <a class="el" href="global_8php_source.html#l00020">20</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a class="anchor" id="a40edb9274f7711736cc3ee12d2e5ddba"></a>
 <div class="memitem">
@@ -152,7 +183,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="global_8php_source.html#l00071">71</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
+<p>Definition at line <a class="el" href="global_8php_source.html#l00084">84</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
 
 </div>
 </div>
@@ -166,7 +197,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="global_8php_source.html#l00074">74</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
+<p>Definition at line <a class="el" href="global_8php_source.html#l00087">87</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
 
 </div>
 </div>
@@ -180,7 +211,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="global_8php_source.html#l00073">73</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
+<p>Definition at line <a class="el" href="global_8php_source.html#l00086">86</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
 
 </div>
 </div>
@@ -194,7 +225,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="global_8php_source.html#l00072">72</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
+<p>Definition at line <a class="el" href="global_8php_source.html#l00085">85</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
 
 </div>
 </div>
@@ -208,23 +239,23 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="global_8php_source.html#l00068">68</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
+<p>Definition at line <a class="el" href="global_8php_source.html#l00081">81</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a44a5a7f896e2444d9c7b91deffff3b49"></a>
+<a class="anchor" id="a84d6f541e8b918d4d74fe5a02b30588e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">if (strpos($_SERVER['SERVER_NAME'], <a class="el" href="global_8php.html#a9de38c82260effe90ef1caa4d6026973">STAGE_URL</a>)!==false) elseif (strpos($_SERVER['SERVER_NAME'], <a class="el" href="global_8php.html#ade7436eeb9a94e391a9d15a8a6865dd9">LIVE_URL</a>)) else</td>
+          <td class="memname">if (<a class="el" href="global_8php.html#aa708b5658547eba853300c5c0f5b97b9">isENV</a>(<a class="el" href="global_8php.html#a9de38c82260effe90ef1caa4d6026973">STAGE_URL</a>)) elseif (<a class="el" href="global_8php.html#aa708b5658547eba853300c5c0f5b97b9">isENV</a>(<a class="el" href="global_8php.html#aa55bd7b507e10bb441ac76d99b4c1358">LIVE_URL</a>)) else</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">                              define(<span class="stringliteral">&quot;ENV&quot;</span>, <span class="stringliteral">&quot;DEV&quot;</span>)</div>
+<div class="line">        define(<span class="stringliteral">&quot;ENV&quot;</span>, <span class="stringliteral">&quot;DEV&quot;</span>)</div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="global_8php_source.html#l00063">63</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
+<p>Definition at line <a class="el" href="global_8php_source.html#l00076">76</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
 
 </div>
 </div>
@@ -238,7 +269,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="global_8php_source.html#l00080">80</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
+<p>Definition at line <a class="el" href="global_8php_source.html#l00093">93</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
 
 </div>
 </div>
@@ -252,7 +283,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="global_8php_source.html#l00079">79</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
+<p>Definition at line <a class="el" href="global_8php_source.html#l00092">92</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
 
 </div>
 </div>
@@ -261,12 +292,12 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const EMAIL_FROM ''</td>
+          <td class="memname">const EMAIL_FROM 'from@mailinator.com'</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="global_8php_source.html#l00077">77</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
+<p>Definition at line <a class="el" href="global_8php_source.html#l00090">90</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
 
 </div>
 </div>
@@ -275,12 +306,12 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const EMAIL_TO ''</td>
+          <td class="memname">const EMAIL_TO 'jaime@mailinator.com'</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="global_8php_source.html#l00078">78</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
+<p>Definition at line <a class="el" href="global_8php_source.html#l00091">91</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
 
 </div>
 </div>
@@ -294,21 +325,21 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="global_8php_source.html#l00083">83</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
+<p>Definition at line <a class="el" href="global_8php_source.html#l00096">96</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ade7436eeb9a94e391a9d15a8a6865dd9"></a>
+<a class="anchor" id="aa55bd7b507e10bb441ac76d99b4c1358"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const LIVE_URL '****CHANGE_URL****'</td>
+          <td class="memname">const LIVE_URL(!@include_once('Webkit/init.php')) '****CHANGE_URL****'</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="global_8php_source.html#l00017">17</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
+<p>Definition at line <a class="el" href="global_8php_source.html#l00012">12</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
 
 </div>
 </div>
@@ -322,7 +353,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="global_8php_source.html#l00018">18</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
+<p>Definition at line <a class="el" href="global_8php_source.html#l00013">13</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
 
 </div>
 </div>
@@ -336,7 +367,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="global_8php_source.html#l00067">67</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
+<p>Definition at line <a class="el" href="global_8php_source.html#l00080">80</a> of file <a class="el" href="global_8php_source.html">global.php</a>.</p>
 
 </div>
 </div>
@@ -346,7 +377,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="global_8php.html">global.php</a></li>
-    <li class="footer">Generated on Fri Jan 3 2014 13:11:20 for sleepyMUSTACHE by
+    <li class="footer">Generated on Mon Jun 16 2014 18:08:24 for Sleepy Mustache by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

@@ -1,0 +1,11 @@
+digraph "paintGroupStart"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="paintGroupStart",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="matchesTestCase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_selective_reporter.html#ab39a57be56ea1dbed9810e489e118537"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="on",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_selective_reporter.html#a1cbf019e98ce123a5d400bcc2baad28b"];
+}

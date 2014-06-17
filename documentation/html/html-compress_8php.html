@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>sleepyMUSTACHE: modules/enabled/html-compress/html-compress.php File Reference</title>
+<title>Sleepy Mustache: modules/disabled/html-compress/html-compress.php File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">sleepyMUSTACHE
+   <div id="projectname">Sleepy Mustache
    </div>
   </td>
  </tr>
@@ -132,10 +132,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="html-compress_8php_source.html#l00014">14</a> of file <a class="el" href="html-compress_8php_source.html">html-compress.php</a>.</p>
-<div class="fragment"><div class="line">                                           {</div>
-<div class="line">               ob_end_flush();</div>
-<div class="line">}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a class="anchor" id="ad92e8a635538094abc0019a51df21d32"></a>
@@ -154,12 +151,7 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 <p>Definition at line <a class="el" href="html-compress_8php_source.html#l00008">8</a> of file <a class="el" href="html-compress_8php_source.html">html-compress.php</a>.</p>
-<div class="fragment"><div class="line">                                          {</div>
-<div class="line">               ob_start(<span class="stringliteral">&#39;process_data_jmr1&#39;</span>);</div>
-<div class="line"></div>
-<div class="line">               ini_set(<span class="stringliteral">&quot;pcre.recursion_limit&quot;</span>, <span class="stringliteral">&quot;16777&quot;</span>);</div>
-<div class="line">}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a class="anchor" id="a19f136ad2f2bf69aabe3748bafc19505"></a>
@@ -177,35 +169,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="html-compress_8php_source.html#l00018">18</a> of file <a class="el" href="html-compress_8php_source.html">html-compress.php</a>.</p>
-<div class="fragment"><div class="line">                                  {</div>
-<div class="line">               $re = <span class="stringliteral">&#39;%# Collapse whitespace everywhere but in blacklisted elements.</span></div>
-<div class="line"><span class="stringliteral">                              (?&gt;             # Match all whitespans other than single space.</span></div>
-<div class="line"><span class="stringliteral">                                [^\S ]\s*     # Either one [\t\r\n\f\v] and zero or more ws,</span></div>
-<div class="line"><span class="stringliteral">                              | \s{2,}        # or two or more consecutive-any-whitespace.</span></div>
-<div class="line"><span class="stringliteral">                              ) # Note: The remaining regex consumes no text at all...</span></div>
-<div class="line"><span class="stringliteral">                              (?=             # Ensure we are not in a blacklist tag.</span></div>
-<div class="line"><span class="stringliteral">                                [^&lt;]*+        # Either zero or more non-&quot;&lt;&quot; {normal*}</span></div>
-<div class="line"><span class="stringliteral">                                (?:           # Begin {(special normal*)*} construct</span></div>
-<div class="line"><span class="stringliteral">                                  &lt;           # or a &lt; starting a non-blacklist tag.</span></div>
-<div class="line"><span class="stringliteral">                                  (?!/?(?:textarea|pre|script)\b)</span></div>
-<div class="line"><span class="stringliteral">                                  [^&lt;]*+      # more non-&quot;&lt;&quot; {normal*}</span></div>
-<div class="line"><span class="stringliteral">                                )*+           # Finish &quot;unrolling-the-loop&quot;</span></div>
-<div class="line"><span class="stringliteral">                                (?:           # Begin alternation group.</span></div>
-<div class="line"><span class="stringliteral">                                  &lt;           # Either a blacklist start tag.</span></div>
-<div class="line"><span class="stringliteral">                                  (?&gt;textarea|pre|script)\b</span></div>
-<div class="line"><span class="stringliteral">                                | \z          # or end of file.</span></div>
-<div class="line"><span class="stringliteral">                                )             # End alternation group.</span></div>
-<div class="line"><span class="stringliteral">                              )  # If we made it here, we are not in a blacklist tag.</span></div>
-<div class="line"><span class="stringliteral">                              %Six&#39;</span>;</div>
-<div class="line">               $text = preg_replace($re, <span class="stringliteral">&quot; &quot;</span>, $text);</div>
-<div class="line">               <span class="keywordflow">if</span> ($text === null) exit(<span class="stringliteral">&quot;PCRE Error! File too big.\n&quot;</span>);</div>
-<div class="line">               <span class="keywordflow">return</span> $text;</div>
-<div class="line">}</div>
-<div class="line"></div>
-<div class="line"><span class="keywordflow">if</span> (ENV === <span class="stringliteral">&quot;LIVE&quot;</span>) {</div>
-<div class="line">               <a class="code" href="class_hook.html#a044e40a84df383f73df2250624d13c42">Hook::doAction</a>(<span class="stringliteral">&#39;sleepy_preprocess&#39;</span>,  <span class="stringliteral">&#39;htmlcompress_sleepy_preprocess&#39;</span> );</div>
-<div class="line">               <a class="code" href="class_hook.html#a044e40a84df383f73df2250624d13c42">Hook::doAction</a>(<span class="stringliteral">&#39;sleepy_postprocess&#39;</span>, <span class="stringliteral">&#39;htmlcompress_sleepy_postprocess&#39;</span>);</div>
-<div class="line">}</div><!-- fragment -->
+
 </div>
 </div>
 </div><!-- contents -->
@@ -213,8 +177,8 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_e05d7e2b1ecd646af5bb94391405f3b5.html">modules</a></li><li class="navelem"><a class="el" href="dir_378ef3c682277ef2d15fb43e7be64692.html">enabled</a></li><li class="navelem"><a class="el" href="dir_f233293d7c57744011e46fe5421b5433.html">html-compress</a></li><li class="navelem"><a class="el" href="html-compress_8php.html">html-compress.php</a></li>
-    <li class="footer">Generated on Fri Jan 3 2014 13:11:20 for sleepyMUSTACHE by
+    <li class="navelem"><a class="el" href="dir_e05d7e2b1ecd646af5bb94391405f3b5.html">modules</a></li><li class="navelem"><a class="el" href="dir_963797e61b298ab29dc641f49fcfb6d7.html">disabled</a></li><li class="navelem"><a class="el" href="dir_7a05d427048ff7ce60cb7b345900a9cf.html">html-compress</a></li><li class="navelem"><a class="el" href="html-compress_8php.html">html-compress.php</a></li>
+    <li class="footer">Generated on Mon Jun 16 2014 18:08:24 for Sleepy Mustache by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

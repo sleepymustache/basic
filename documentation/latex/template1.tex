@@ -1,28 +1,37 @@
-Basic templating functionality\hypertarget{nav1_usage}{}\section{Usage\-:}\label{nav1_usage}
-index.\-php 
+Basic templating functionality\hypertarget{nav1_usage}{}\section{Usage}\label{nav1_usage}
+{\itshape index.\-php} 
 \begin{DoxyCode}
 require\_once(\textcolor{stringliteral}{'include/sleepy.php'});
 
-\hyperlink{index_8php_a0a44e6760141442bb439b1ab1395d8ff}{$page} = \textcolor{keyword}{new} \hyperlink{class_template}{Template}(\textcolor{stringliteral}{'templates/default.tpl'});
-\hyperlink{index_8php_a0a44e6760141442bb439b1ab1395d8ff}{$page}->bind(\textcolor{stringliteral}{'title'}, \textcolor{stringliteral}{'Sleepy Mustache'});
-\hyperlink{index_8php_a0a44e6760141442bb439b1ab1395d8ff}{$page}->bind(\textcolor{stringliteral}{'header'}, \textcolor{stringliteral}{'Hello world!'});
-\hyperlink{index_8php_a0a44e6760141442bb439b1ab1395d8ff}{$page}->show();
+\hyperlink{disabled_2users_2user_2login_2index_8php_a0a44e6760141442bb439b1ab1395d8ff}{$page} = \textcolor{keyword}{new} \hyperlink{class_template}{Template}(\textcolor{stringliteral}{'templates/default.tpl'});
+\hyperlink{disabled_2users_2user_2login_2index_8php_a0a44e6760141442bb439b1ab1395d8ff}{$page}->bind(\textcolor{stringliteral}{'title'}, \textcolor{stringliteral}{'Sleepy Mustache'});
+\hyperlink{disabled_2users_2user_2login_2index_8php_a0a44e6760141442bb439b1ab1395d8ff}{$page}->bind(\textcolor{stringliteral}{'header'}, \textcolor{stringliteral}{'Hello world!'});
+\hyperlink{disabled_2users_2user_2login_2index_8php_a0a44e6760141442bb439b1ab1395d8ff}{$page}->show();
 \end{DoxyCode}
 
 
-default.\-tpl 
+{\itshape default.\-tpl} 
 \begin{DoxyCode}
    <html>
    <head>
-                  <title>\{\{ title \}\}</title>
+       <title>\{\{ title \}\}</title>
    </head>
    <body>
-                  <h1>\{\{ header \}\}</h1>
-                  <p>This page has been viewed \{\{ hits \}\} times.</p>
+       <h1>\{\{ header \}\}</h1>
+       <p>This page has been viewed \{\{ hits \}\} times.</p>
    </body>
 </html>
 \end{DoxyCode}
-\hypertarget{mailer1_changelog}{}\section{Changelog}\label{mailer1_changelog}
+\hypertarget{nav1_changelog}{}\section{Changelog}\label{nav1_changelog}
+\subsection*{Version 1.\-5}
+
+
+\begin{DoxyItemize}
+\item Updated documentation
+\end{DoxyItemize}
+
+\subsection*{Version 1.\-4}
+
 
 \begin{DoxyItemize}
 \item added bind\-Start() and bind\-Start() for capturing large amounts of H\-T\-M\-L
@@ -33,13 +42,13 @@ default.\-tpl
 
 
 \begin{DoxyDate}{Date}
-September 17, 2013 
+June 16, 2014 
 \end{DoxyDate}
 \begin{DoxyAuthor}{Author}
 Jaime A. Rodriguez \href{mailto:hi.i.am.jaime@gmail.com}{\tt hi.\-i.\-am.\-jaime@gmail.\-com} 
 \end{DoxyAuthor}
 \begin{DoxyVersion}{Version}
-1.\-4 
+1.\-5 
 \end{DoxyVersion}
 \begin{DoxyCopyright}{Copyright}
 G\-P\-L 3 \href{http://cuttingedgecode.com}{\tt http\-://cuttingedgecode.\-com} 

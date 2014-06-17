@@ -1,0 +1,29 @@
+digraph "createUserAgent"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="createUserAgent",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="testSimplePageHasNoFrames",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_browser_frames.html#a4a24be0852c19c584fbbddeb507c3eda"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="testFramesetWithSingleFrame",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_browser_frames.html#ab5d243fea46f367efe52a9604a673cef"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="testTitleTakenFromFramesetPage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_browser_frames.html#a65d3647a305c6e64404fa958c38e6eae"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="testFramesetWithSingleUnnamed\lFrame",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_browser_frames.html#a15b12fd54180d60de80efc37a16489b2"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="testFramesetWithMultiple\lFrames",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_browser_frames.html#aeae93beff005c8d296b0ad393405bc9e"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="testFrameFocusByName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_browser_frames.html#a74db22fa2d1595a8347dec48c4cc9630"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="testFramesetWithSomeNamed\lFrames",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_browser_frames.html#ad4a18d6bf82e462ec370eac42a6e284a"];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="testFrameFocusWithMixedNames\lAndIndexes",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_browser_frames.html#a011ad2828d801cfb1169da4e7b99ea88"];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="testNestedFrameset",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_browser_frames.html#a1df7dbde1c51c0c481112aebb5b77102"];
+  Node1 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="testCanNavigateToNestedFrame",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_browser_frames.html#a6944f251e2987b050967f0ec49acd7b6"];
+  Node1 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="testCanNavigateToNestedFrame\lByIndex",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_browser_frames.html#a93d91974c23cb0de5d15c86c38a1d619"];
+}

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>sleepyMUSTACHE: CSV Class</title>
+<title>Sleepy Mustache: CSV Class</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">sleepyMUSTACHE
+   <div id="projectname">Sleepy Mustache
    </div>
   </td>
  </tr>
@@ -99,29 +99,37 @@ $(document).ready(function(){initNavTree('csv1.html','');});
 <div class="contents">
 <div class="textblock"><p>Creates a Comma Separated Value file.</p>
 <h1><a class="anchor" id="usage"></a>
-Usage:</h1>
+Usage</h1>
 <div class="fragment"><div class="line"><span class="comment">// loads a existing CSV file</span></div>
 <div class="line">$c = <span class="keyword">new</span> <a class="code" href="class_c_s_v.html">CSV</a>(<span class="stringliteral">&#39;presidents.csv&#39;</span>);</div>
+<div class="line"></div>
 <div class="line">$c-&gt;add(array(</div>
-<div class="line">               <span class="stringliteral">&#39;George&#39;</span>,</div>
-<div class="line">               <span class="stringliteral">&#39;Washington&#39;</span></div>
+<div class="line">  <span class="stringliteral">&#39;George&#39;</span>,</div>
+<div class="line">  <span class="stringliteral">&#39;Washington&#39;</span></div>
 <div class="line">));</div>
+<div class="line"></div>
 <div class="line">$c-&gt;save();</div>
 </div><!-- fragment --><h1><a class="anchor" id="changelog"></a>
 Changelog</h1>
+<h2>Version 1.6</h2>
 <ul>
-<li>Can load from the object instantiation</li>
+<li>Updated documentation</li>
 </ul>
-<dl class="section date"><dt>Date</dt><dd>June 12, 2013 </dd></dl>
+<h2>Version 1.5</h2>
+<ul>
+<li>check if we can remove the header before doing it... teamsite issue.</li>
+<li>suppress flock warnings... teamsite issue</li>
+</ul>
+<dl class="section date"><dt>Date</dt><dd>June 15, 2014 </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Jaime A. Rodriguez <a href="#" onclick="location.href='mai'+'lto:'+'hi.'+'i.'+'am.'+'ja'+'ime'+'@g'+'mai'+'l.'+'com'; return false;">hi.i.<span style="display: none;">.nosp@m.</span>am.j<span style="display: none;">.nosp@m.</span>aime@<span style="display: none;">.nosp@m.</span>gmai<span style="display: none;">.nosp@m.</span>l.com</a> </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1.4 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.6 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>GPL 3 <a href="http://cuttingedgecode.com">http://cuttingedgecode.com</a> </dd></dl>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Jan 3 2014 13:11:20 for sleepyMUSTACHE by
+    <li class="footer">Generated on Mon Jun 16 2014 18:08:24 for Sleepy Mustache by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

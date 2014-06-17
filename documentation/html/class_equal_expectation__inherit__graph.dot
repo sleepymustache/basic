@@ -1,0 +1,20 @@
+digraph "EqualExpectation"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="EqualExpectation",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="SimpleExpectation",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_expectation.html"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="IdenticalExpectation",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_identical_expectation.html"];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="LikeExpectation",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_like_expectation.html"];
+  Node3 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="MemberExpectation",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_member_expectation.html"];
+  Node3 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="NotIdenticalExpectation",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_not_identical_expectation.html"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="NotEqualExpectation",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_not_equal_expectation.html"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="PathEqualExpectation",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_path_equal_expectation.html"];
+}

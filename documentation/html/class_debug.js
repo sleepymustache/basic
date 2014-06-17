@@ -1,7 +1,7 @@
 var class_debug =
 [
     [ "__destruct", "class_debug.html#a421831a265621325e1fdd19aace0c758", null ],
-    [ "disable", "class_debug.html#a545341e59cc9a0dafc4e265d60d4b5d6", null ],
+    [ "disable", "class_debug.html#a5471c4c9c443d5a497b7383a6fc63fcc", null ],
     [ "exceptionHandler", "class_debug.html#af17dfe92627c634e9450cf38eaef881b", null ],
     [ "out", "class_debug.html#aa7753ac7959d9c3b8c719d1724921afd", null ],
     [ "sendEmail", "class_debug.html#afab2003e3e8a5d673f58811a1dd27310", null ],

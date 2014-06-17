@@ -1,0 +1,23 @@
+digraph "__construct"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="__construct",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="createUserAgent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#ad15b969ce9ff886654b58acb7d23caab"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="SimpleTest\\getDefaultProxy",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_test.html#ad34de736f570ce031133144ef6fb5143"];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="SimpleTest\\getRegistry",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_test.html#a91320adbec8b564c37b40a29aa9df772"];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="SimpleTest\\getDefaults",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_test.html#a82efa1571705e561b8bae6b73060945d"];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="SimpleTest\\getDefaultProxy\lUsername",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_test.html#a8ffa76da97e210bf71db859a618af80b"];
+  Node6 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="SimpleTest\\getDefaultProxy\lPassword",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_test.html#a5d2d213cfe2078d9bdf5a65dc9b45d95"];
+  Node7 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="createHistory",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_browser.html#a816cebb2c4d844823e84dba95bc99621"];
+}

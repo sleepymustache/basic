@@ -1,0 +1,17 @@
+digraph "addAttributeTokens"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="addAttributeTokens",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="SimpleLexer\\mapHandler",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_lexer.html#a4225a016771148346e06f31c47602f3f"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="SimpleLexer\\addEntryPattern",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_lexer.html#a6296fbbff0b552be276fadc409a739b4"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="SimpleLexer\\addPattern",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_lexer.html#a5bcce5522b966aec43825517b3ba6ef6"];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="SimpleLexer\\addExitPattern",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_lexer.html#a32731653da49f9c58ccf23f9a454181e"];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="SimpleLexer\\addSpecialPattern",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_lexer.html#a6305365fdc9c803107f529c7aec7143e"];
+}

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>sleepyMUSTACHE: DB Class Reference</title>
+<title>Sleepy Mustache: DB Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">sleepyMUSTACHE
+   <div id="projectname">Sleepy Mustache
    </div>
   </td>
  </tr>
@@ -127,7 +127,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="class_8db_8php_source.html#l00023">23</a> of file <a class="el" href="class_8db_8php_source.html">class.db.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8db_8php_source.html#l00028">28</a> of file <a class="el" href="class_8db_8php_source.html">class.db.php</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="ac93fbec81f07e5d15f80db907e63dc10"></a>
 <div class="memitem">
@@ -152,15 +152,8 @@ Static Public Attributes</h2></td></tr>
 <p>Gets the <a class="el" href="class_d_b.html">DB</a> instance or creates an initial connection</p>
 <dl class="section return"><dt>Returns</dt><dd>object (PDO) </dd></dl>
 
-<p>Definition at line <a class="el" href="class_8db_8php_source.html#l00066">66</a> of file <a class="el" href="class_8db_8php_source.html">class.db.php</a>.</p>
-<div class="fragment"><div class="line">                                                    {</div>
-<div class="line">                              <span class="keywordflow">if</span> (!self::$instance) {</div>
-<div class="line">                                             self::$instance = <span class="keyword">new</span> PDO(<span class="stringliteral">&quot;mysql:host=&quot;</span> . self::$dbhost . <span class="stringliteral">&quot;;dbname=&quot;</span> . self::$dbname, self::$dbuser, self::$dbpass);</div>
-<div class="line">                                             self::$instance-&gt; setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);</div>
-<div class="line">                              }</div>
-<div class="line">                              <span class="keywordflow">return</span> self::$instance;</div>
-<div class="line">               }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="class_8db_8php_source.html#l00071">71</a> of file <a class="el" href="class_8db_8php_source.html">class.db.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -183,7 +176,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>string The database host </p>
 
-<p>Definition at line <a class="el" href="class_8db_8php_source.html#l00034">34</a> of file <a class="el" href="class_8db_8php_source.html">class.db.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8db_8php_source.html#l00039">39</a> of file <a class="el" href="class_8db_8php_source.html">class.db.php</a>.</p>
 
 </div>
 </div>
@@ -206,7 +199,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>string The database name </p>
 
-<p>Definition at line <a class="el" href="class_8db_8php_source.html#l00039">39</a> of file <a class="el" href="class_8db_8php_source.html">class.db.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8db_8php_source.html#l00044">44</a> of file <a class="el" href="class_8db_8php_source.html">class.db.php</a>.</p>
 
 </div>
 </div>
@@ -229,7 +222,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>string The database password </p>
 
-<p>Definition at line <a class="el" href="class_8db_8php_source.html#l00049">49</a> of file <a class="el" href="class_8db_8php_source.html">class.db.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8db_8php_source.html#l00054">54</a> of file <a class="el" href="class_8db_8php_source.html">class.db.php</a>.</p>
 
 </div>
 </div>
@@ -252,7 +245,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>string The database user </p>
 
-<p>Definition at line <a class="el" href="class_8db_8php_source.html#l00044">44</a> of file <a class="el" href="class_8db_8php_source.html">class.db.php</a>.</p>
+<p>Definition at line <a class="el" href="class_8db_8php_source.html#l00049">49</a> of file <a class="el" href="class_8db_8php_source.html">class.db.php</a>.</p>
 
 </div>
 </div>
@@ -265,7 +258,7 @@ Static Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_d_b.html">DB</a></li>
-    <li class="footer">Generated on Fri Jan 3 2014 13:11:20 for sleepyMUSTACHE by
+    <li class="footer">Generated on Mon Jun 16 2014 18:08:24 for Sleepy Mustache by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

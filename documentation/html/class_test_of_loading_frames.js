@@ -1,0 +1,26 @@
+var class_test_of_loading_frames =
+[
+    [ "setUp", "class_test_of_loading_frames.html#a0bc688732d2b3b162ffebaf7812e78da", null ],
+    [ "testClickingNormalLinkReplacesJustThatFrame", "class_test_of_loading_frames.html#a1d04799cf815f3aac8bc8022d623da00", null ],
+    [ "testFrameWithRelativeLinksRespectsBaseTagForThatPage", "class_test_of_loading_frames.html#ad5e52ff844abdae8b08969f6c75b92fb", null ],
+    [ "testJumpBackADirectoryLevelReplacesJustThatFrame", "class_test_of_loading_frames.html#af1d96f1caa3732aed8cffd9c7d0ca476", null ],
+    [ "testJumpToNamedPageReplacesJustThatFrame", "class_test_of_loading_frames.html#aca1d634834cdd55cd21d0f448cc841ee", null ],
+    [ "testJumpToUnnamedPageReplacesJustThatFrame", "class_test_of_loading_frames.html#a3c0c273508968fde9b83a2d555cef2a0", null ],
+    [ "testJumpToUnnamedPageWithBareParameterReplacesJustThatFrame", "class_test_of_loading_frames.html#aa85887b3b97e38cc2f904754325c292b", null ],
+    [ "testJumpToUnnamedPageWithEmptyLinkReplacesJustThatFrame", "class_test_of_loading_frames.html#af71adab92e3ab68c5573029d0e2f6017", null ],
+    [ "testJumpToUnnamedPageWithEmptyQueryReplacesJustThatFrame", "class_test_of_loading_frames.html#aee0c552ba83ab2f1e24f0ed464022bd4", null ],
+    [ "testLinkInOnePageCanLoadAnother", "class_test_of_loading_frames.html#abee9527e474435861e5145457414fd31", null ],
+    [ "testMessyFramesetResponsesByName", "class_test_of_loading_frames.html#a5a9a03e2d063d04d5be863f0edb7d7a7", null ],
+    [ "testNoFramesContentWhenFramesDisabled", "class_test_of_loading_frames.html#aa686a0bdd138f3ffa5ea64fd97b35334", null ],
+    [ "testPatternMatchCanReadTheOnlyFrame", "class_test_of_loading_frames.html#a610b9ab79ce0103c35318485272dae01", null ],
+    [ "testRelativeLinkInFrameIsNotAffectedByFramesetBaseTag", "class_test_of_loading_frames.html#a77f5f6cdcca81bc71c529f6a8d50e267", null ],
+    [ "testReloadingFramesetPage", "class_test_of_loading_frames.html#a981972d447d5b1a7d143c00441825aab", null ],
+    [ "testReloadingFrameWhenUnfocusedReloadsWholeFrameset", "class_test_of_loading_frames.html#a080bf6e8a07eb2610a81bd42a68b0029", null ],
+    [ "testReloadingSingleFrameWithCookieCounter", "class_test_of_loading_frames.html#a8db3c2107d2b660aff2899ea428204d9", null ],
+    [ "testSubmitBackADirectoryLevelReplacesJustThatFrame", "class_test_of_loading_frames.html#aa4f2a2486e1342ad6af6c7d0957e2049", null ],
+    [ "testSubmitToEmptyActionReplacesJustThatFrame", "class_test_of_loading_frames.html#a47030676973aad48fbc15c91fdd54846", null ],
+    [ "testSubmitToNamedPageReplacesJustThatFrame", "class_test_of_loading_frames.html#a37e308194ddc8a753c36c6b46d2df8ad", null ],
+    [ "testSubmitToNoActionReplacesJustThatFrame", "class_test_of_loading_frames.html#ae08f4e9d371e41856383c6b34c691948", null ],
+    [ "testSubmitToSameDirectoryReplacesJustThatFrame", "class_test_of_loading_frames.html#a8ae681dd06c4a110bdd51e8d373af1ca", null ],
+    [ "testTopLinkExitsFrameset", "class_test_of_loading_frames.html#a967cc0988ad7936b99216653e5491c5f", null ]
+];

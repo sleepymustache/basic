@@ -1,0 +1,29 @@
+digraph "getPublicNameFromIndex"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="getPublicNameFromIndex",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="getFrameFocus",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_frameset.html#a907414235901866e146986027b0ca872"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="getFrames",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_frameset.html#a3e66056e82f1a966cc1037678f3a38df"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="getUrl",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_frameset.html#accd14bda49a1044b4d8dd93f020f11ee"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="getUrlById",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_frameset.html#a6f4b53fe95c6045bb65d2f47c03c1f1f"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="tagUrlsWithFrame",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_frameset.html#a1af3086cf7a4536f2cf18bb997aa9e2a"];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="getUrlsByLabel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_frameset.html#a8e04fde2d709082a47ba7eb815b3fa6b"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="findFormInFrame",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_frameset.html#a4ce8c0ac334b9f24c83c16934cb02bf3"];
+  Node8 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="findForm",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_frameset.html#a3e3c9d2cc525472bbbb86d1833980b69"];
+  Node9 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="getFormBySubmit",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_frameset.html#a6426dba3de5f02f1d1a692f5f58c4965"];
+  Node9 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="getFormByImage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_frameset.html#ae25b8e64a208b1d2661591e4f2b4f4d3"];
+  Node9 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="getFormById",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_frameset.html#a7cd8ee2a43dd4cec65a0c4f828e1a772"];
+}

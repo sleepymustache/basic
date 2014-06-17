@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>sleepyMUSTACHE: DbGrid Class</title>
+<title>Sleepy Mustache: DbGrid Class</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">sleepyMUSTACHE
+   <div id="projectname">Sleepy Mustache
    </div>
   </td>
  </tr>
@@ -99,39 +99,46 @@ $(document).ready(function(){initNavTree('dbgrid1.html','');});
 <div class="contents">
 <div class="textblock"><p>Used to create a grid view of a sql statement</p>
 <h1><a class="anchor" id="usage"></a>
-Usage:</h1>
+Usage</h1>
 <div class="fragment"><div class="line">$dbg = <span class="keyword">new</span> <a class="code" href="class_db_grid.html">DbGrid</a>(<span class="stringliteral">&#39;users&#39;</span>, <span class="stringliteral">&#39;SELECT * FROM users&#39;</span>);</div>
 <div class="line"></div>
 <div class="line">$dbg-&gt;exclude(array(</div>
-<div class="line">               <span class="stringliteral">&#39;user_id&#39;</span>,</div>
-<div class="line">               <span class="stringliteral">&#39;password&#39;</span></div>
+<div class="line">  <span class="stringliteral">&#39;user_id&#39;</span>,</div>
+<div class="line">  <span class="stringliteral">&#39;password&#39;</span></div>
 <div class="line">));</div>
 <div class="line"></div>
 <div class="line">$dbg-&gt;mapFields(array(</div>
-<div class="line">               <span class="stringliteral">&#39;name&#39;</span> =&gt; <span class="stringliteral">&#39;user_id&#39;</span></div>
+<div class="line">  <span class="stringliteral">&#39;name&#39;</span> =&gt; <span class="stringliteral">&#39;user_id&#39;</span></div>
 <div class="line">));</div>
 <div class="line"></div>
 <div class="line">$dbg-&gt;sortable(array(</div>
-<div class="line">               <span class="stringliteral">&#39;name&#39;</span>,</div>
-<div class="line">               <span class="stringliteral">&#39;date&#39;</span></div>
+<div class="line">  <span class="stringliteral">&#39;name&#39;</span>,</div>
+<div class="line">  <span class="stringliteral">&#39;date&#39;</span></div>
 <div class="line">));</div>
 <div class="line"></div>
 <div class="line">$dbg-&gt;show();</div>
-</div><!-- fragment --><h1><a class="anchor" id="dependencies"></a>
+</div><!-- fragment --><h1><a class="anchor" id="changelog"></a>
+Changelog</h1>
+<h2>Version 1.1</h2>
+<ul>
+<li>Added the date section to documentation</li>
+</ul>
+<h1><a class="anchor" id="dependencies"></a>
 Dependencies</h1>
 <ul>
 <li><a class="el" href="class_8db_8php.html">class.db.php</a></li>
 <li><a class="el" href="class_8hooks_8php.html">class.hooks.php</a></li>
 </ul>
+<dl class="section date"><dt>Date</dt><dd>June 16, 2014 </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Jaime A. Rodriguez <a href="#" onclick="location.href='mai'+'lto:'+'hi.'+'i.'+'am.'+'ja'+'ime'+'@g'+'mai'+'l.'+'com'; return false;">hi.i.<span style="display: none;">.nosp@m.</span>am.j<span style="display: none;">.nosp@m.</span>aime@<span style="display: none;">.nosp@m.</span>gmai<span style="display: none;">.nosp@m.</span>l.com</a> </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.1 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>GPL 3 <a href="http://cuttingedgecode.com">http://cuttingedgecode.com</a> </dd></dl>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Jan 3 2014 13:11:20 for sleepyMUSTACHE by
+    <li class="footer">Generated on Mon Jun 16 2014 18:08:24 for Sleepy Mustache by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

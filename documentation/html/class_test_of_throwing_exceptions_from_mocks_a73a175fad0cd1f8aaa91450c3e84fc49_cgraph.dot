@@ -1,0 +1,13 @@
+digraph "testCanThrowOnParticularInvocation"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="testCanThrowOnParticular\lInvocation",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="UnitTestCase\\expectException",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_unit_test_case.html#ac1b6376748b4ad8ba19ad54c608a7650"];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="SimpleTest\\getContext",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_test.html#aa3fe42ba4c6ff4bf9fe17a836d6b593f"];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="SimpleTestCase\\getAssertionLine",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_test_case.html#a4389a897171547fc4545f56a75bf0c9f"];
+}

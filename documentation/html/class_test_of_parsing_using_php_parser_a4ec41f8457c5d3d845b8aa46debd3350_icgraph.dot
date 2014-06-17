@@ -1,0 +1,11 @@
+digraph "whenVisiting"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="whenVisiting",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="testNastyTitle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_parsing_using_php_parser.html#a9b7337759747f3b8d96f4eb76f8f337d"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="testLabelShouldStopAtClosing\lLabelTag",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_test_of_parsing_using_php_parser.html#a8f8cccfd61824eff944c580a4a0924c7"];
+}

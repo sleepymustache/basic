@@ -1,14 +1,34 @@
-A \hyperlink{class_c_s_s}{C\-S\-S} class that concatinates and compresses \hyperlink{class_c_s_s}{C\-S\-S}.\hypertarget{nav1_usage}{}\section{Usage\-:}\label{nav1_usage}
+A \hyperlink{class_c_s_s}{C\-S\-S} class that concatinates and compresses \hyperlink{class_c_s_s}{C\-S\-S}.\hypertarget{nav1_usage}{}\section{Usage}\label{nav1_usage}
 
 \begin{DoxyCode}
+require\_once(\textcolor{stringliteral}{'class.css.php'});
+
+$c = \textcolor{keyword}{new} \hyperlink{class_c_s_s}{CSS}();
+
+$files = explode(\textcolor{stringliteral}{"&"}, $\_GET[\textcolor{stringliteral}{'css'}]);
+
+\textcolor{keywordflow}{foreach} ($files as $file) \{
+  $c->add(\hyperlink{global_8php_a504552fd43e46a0032aa3f2895349f22}{DIRBASE} . \textcolor{stringliteral}{"/css/"} . $file . \textcolor{stringliteral}{".css"});
+\}
+
+$c->show();
 \end{DoxyCode}
+\hypertarget{nav1_changelog}{}\section{Changelog}\label{nav1_changelog}
+\subsection*{Version 1.\-1}
 
 
+\begin{DoxyItemize}
+\item Added the usage and date sections to documentation
+\end{DoxyItemize}
+
+\begin{DoxyDate}{Date}
+June 16, 2014 
+\end{DoxyDate}
 \begin{DoxyAuthor}{Author}
 Jaime A. Rodriguez \href{mailto:hi.i.am.jaime@gmail.com}{\tt hi.\-i.\-am.\-jaime@gmail.\-com} 
 \end{DoxyAuthor}
 \begin{DoxyVersion}{Version}
-1.\-0 
+1.\-1 
 \end{DoxyVersion}
 \begin{DoxyCopyright}{Copyright}
 G\-P\-L 3 \href{http://cuttingedgecode.com}{\tt http\-://cuttingedgecode.\-com} 

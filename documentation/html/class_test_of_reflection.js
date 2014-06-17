@@ -1,0 +1,25 @@
+var class_test_of_reflection =
+[
+    [ "testCanProperlyGenerateStaticMethodSignatures", "class_test_of_reflection.html#a1236789e1c1247453070579bddcbe5ac", null ],
+    [ "testCanSeparateInterfaceMethodsFromOthers", "class_test_of_reflection.html#a41da6033915663ed2528c6603dfddc2d", null ],
+    [ "testClassExistence", "class_test_of_reflection.html#aee9fdc9f14677d6b23f5a275c376ada0", null ],
+    [ "testClassNonExistence", "class_test_of_reflection.html#a3d82f03717dba24fcce9aafb891d8b56", null ],
+    [ "testCreatingSignatureForAbstractMethod", "class_test_of_reflection.html#a31b40bc7fe5ec8a2aff198cb437c67ab", null ],
+    [ "testDetectionOfAbstractClass", "class_test_of_reflection.html#a2534fc3944478aee0c88c0512b542ae8", null ],
+    [ "testDetectionOfFinalMethods", "class_test_of_reflection.html#a7ccb6c2f039922a2c853a77beac2f1bf", null ],
+    [ "testFindingParentClass", "class_test_of_reflection.html#a44748bd4adcd07353ef9f74124e5a246", null ],
+    [ "testInterfaceExistence", "class_test_of_reflection.html#ae19a44ffe80c5d916668fcef31cf321a", null ],
+    [ "testInterfaceHasOnlyItselfToImplement", "class_test_of_reflection.html#a4090018bc37368563590bc2c83324ef0", null ],
+    [ "testInterfacesListedForClass", "class_test_of_reflection.html#a078d2d14cc12be24d7bd35f5ba7bedb7", null ],
+    [ "testInterfacesListedForSubclass", "class_test_of_reflection.html#a4eff6de461a503956808df090273fac8", null ],
+    [ "testIssetFunctionSignature", "class_test_of_reflection.html#a6816799df6322cdef640620477d534ea", null ],
+    [ "testMethodsComeFromDescendentInterfacesASWell", "class_test_of_reflection.html#ad4c00e476c79bf6c674836432177f71c", null ],
+    [ "testMethodsComeFromDescendentInterfacesInAbstractClass", "class_test_of_reflection.html#ad47b8d6258d3ac780df4a12c9a760085", null ],
+    [ "testMethodsListFromClass", "class_test_of_reflection.html#a3e7f0f587dd7bc265dae84a79621f3d5", null ],
+    [ "testMethodsListFromInterface", "class_test_of_reflection.html#a91ea97f675ed0fddb6c45b1cc40c9516", null ],
+    [ "testNoParameterCreationWhenNoInterface", "class_test_of_reflection.html#a824e9756710e514a106903d99c8e7128", null ],
+    [ "testParameterCreationForTypeHinting", "class_test_of_reflection.html#af11be81edfc5bb0ae99ebadcea188f9b", null ],
+    [ "testParameterCreationWithoutTypeHinting", "class_test_of_reflection.html#a087ee4a22c03f230662305e9a20c3dc2", null ],
+    [ "testProperlyReflectsTheFinalInterfaceWhenObjectImplementsAnExtendedInterface", "class_test_of_reflection.html#a286157f2f10f8f4a280e52e130fa60a3", null ],
+    [ "testUnsetFunctionSignature", "class_test_of_reflection.html#a6f25b1b99bc7c37a2c6eeaa5eb8e39c2", null ]
+];

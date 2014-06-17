@@ -1,0 +1,11 @@
+digraph "isLastPacket"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="isLastPacket",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="readAll",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_http_response.html#ae1024ef909ac3ededd6288d0c9d3e979"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="__construct",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_simple_http_response.html#a0850c874578cf08c368f97ce350a9f4f"];
+}
