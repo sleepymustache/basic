@@ -6,23 +6,29 @@
  *
  * @section usage Usage
  * @code
- * 	// loads a existing CSV file
- * 	$c = new CSV('presidents.csv');
- * 	$c->add(array(
- * 		'George',
- * 		'Washington'
- * 	));
- * 	$c->save();
+ *   // loads a existing CSV file
+ *   $c = new CSV('presidents.csv');
+ *
+ *   $c->add(array(
+ *     'George',
+ *     'Washington'
+ *   ));
+ *
+ *   $c->save();
  * @endcode
  *
  * @section changelog Changelog
+ * ##Version 1.6
+ * * Updated documentation
+ *
+ * ##Version 1.5
  * * check if we can remove the header before doing it... teamsite issue.
  * * suppress flock warnings... teamsite issue
- * 
- * @date		March 26, 2014
- * @author		Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version		1.5
- * @copyright	GPL 3 http://cuttingedgecode.com
+ *
+ * @date June 15, 2014
+ * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
+ * @version 1.6
+ * @copyright GPL 3 http://cuttingedgecode.com
  */
 class CSV {
 	/**
@@ -164,7 +170,7 @@ class CSV {
 	 */
 	public function show() {
 		ob_end_clean();
-		
+
 		// Name the file
 		$filename = date('YmdHis') . ".csv";
 

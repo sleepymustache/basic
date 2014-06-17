@@ -19,9 +19,15 @@
  *   $data = $db->select('fruit', 'name', 'Banana');
  * @endcode
  *
+ * @section changelog Changelog
+ *   ## Version 0.8
+ *   * Added the date and changelog sections to documentation
+ *
  * @todo select with =, >, <, !=, >=, <=
+ *
+ * @date June 16, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version 0.7
+ * @version 0.8
  * @copyright  GPL 3 http://cuttingedgecode.com
  */
 

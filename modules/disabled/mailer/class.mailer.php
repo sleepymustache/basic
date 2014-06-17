@@ -8,15 +8,16 @@
  *
  * @section usage Usage
  * @code
- * $m = new Mailer();
- * $m->addTo("test@test.com");
- * $m->addFrom("from.me@test.com");
- * $m->addSubject("This is a test, don't panic.");
- * $m->fetchHTML("http://test.com/template.php");
- * $m->send();
+ *   $m = new Mailer();
+ *   $m->addTo("test@test.com");
+ *   $m->addFrom("from.me@test.com");
+ *   $m->addSubject("This is a test, don't panic.");
+ *   $m->fetchHTML("http://test.com/template.php");
+ *   $m->send();
  * @endcode
  *
  * @section changelog Changelog
+ * ## Version 1.6
  * * Fixed bug with BCC and CC
  *
  * @date	May 30, 2013
@@ -37,7 +38,7 @@ class Mailer {
 		$this->to;
 		$this->cc;
 		$this->bcc;
-		
+
 		$this->addSubject();
 		$this->html = false;
 	}

@@ -11,39 +11,45 @@ require_once(DIRBASE . 'include/class.hooks.php');
  * save(), and delete() methods are immediately available. Update the data by
  * changing the value of the columns like this:
  *
- * @section examples Examples
+ * @section usage Usage
  *
  * @code
- * 	// load a record with id= 5 from a table called 'user'
- * 	class user extends record {
- * 		public $table = 'user';
- * 	}
- * 	$u = new user();
- * 	$u->load(5);
- * 	$u->columns['first_name'] = 'Joe';
+ *   // load a record with id= 5 from a table called 'user'
+ *   class user extends record {
+ *     public $table = 'user';
+ *   }
+ *
+ *   $u = new user();
+ *   $u->load(5);
+ *   $u->columns['first_name'] = 'Joe';
  * @endcode
  *
  * You can then save the new information by calling the save method:
  *
  * @code
- * 	$u->save();
+ *   $u->save();
  * @endcode
  *
  * You can also show a nice form to edit or add new records like this
  * @code
- *  $u->form(array(
- *  	'first_name' => 'First Name: ',
- *  	'last_name' => 'Last Name: ',
- *  	'phone' => '(800) 555-5555'
- *  ));
+ *   $u->form(array(
+ *     'first_name' => 'First Name: ',
+ *     'last_name' => 'Last Name: ',
+ *     'phone' => '(800) 555-5555'
+ *   ));
  * @endcode
+ *
+ * @section changelog Changelog
+ * ## Version 1.1
+ * * Added the date section to the documentation
  *
  * @section dependencies Dependencies
  * * class.hooks.php
  * * class.db.php
  *
+ * @date June 16, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version  1.0
+ * @version  1.1
  * @copyright  GPL 3 http://cuttingedgecode.com
  **/
 

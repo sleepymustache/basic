@@ -8,7 +8,7 @@ require_once('class.hooks.php');
  *
  * @section usage Usage
  *
- * index.php
+ * *index.php*
  * @code
  *	require_once('include/sleepy.php');
  *
@@ -18,7 +18,7 @@ require_once('class.hooks.php');
  *	$page->show();
  * @endcode
  *
- * default.tpl
+ * *default.tpl*
  * @code
  * 	<html>
  *		<head>
@@ -32,14 +32,18 @@ require_once('class.hooks.php');
  * @endcode
  *
  * @section changelog Changelog
+ * ## Version 1.5
+ * * Updated documentation
+ *
+ * ## Version 1.4
  * * added bindStart() and bindStart() for capturing large amounts of HTML
  *
  * @todo add #if
  *
- * @date		September 17, 2013
- * @author		Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version		1.4
- * @copyright	GPL 3 http://cuttingedgecode.com
+ * @date June 16, 2014
+ * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
+ * @version 1.5
+ * @copyright GPL 3 http://cuttingedgecode.com
  */
 
 class Template {
@@ -195,7 +199,7 @@ class Template {
 				$this->assignArrayByPath($data, $key)
 			);
 
-			$arguments = array_merge($arguments, explode(" ", $matches[2][$index]));	
+			$arguments = array_merge($arguments, explode(" ", $matches[2][$index]));
 
 			$template = str_replace($placeholder, Hook::addFilter('render_placeholder_' . strtolower($key), $arguments), $template);
 		}
@@ -230,7 +234,7 @@ class Template {
 	}
 
 	/**
-	 * Starts a buffer that will bind data to the template placeholders. The 
+	 * Starts a buffer that will bind data to the template placeholders. The
 	 * buffer will capture anything you output until $this->bindStop()
 	 */
 	public function bindStart() {
@@ -244,7 +248,7 @@ class Template {
 	public function bindStop($placeholder) {
 		$content = ob_get_contents();
 		ob_end_clean();
-		
+
 		if (!is_array($content)) {
 			$content = Hook::addFilter('bind_placeholder_' . $placeholder, $content);
 		}

@@ -8,9 +8,24 @@
  * of your code with little overhead. For email and database logging, don't
  * forget to setup the public properties.
  *
+ * @section usage Usage
+ * @code
+ *   // Turn debugging to screen on
+ *   Debug::$enable_show = true;
+ *   Debug::out("This will goto the screen because $enable_show == true");
+ *
+ *   // Turn off debugging to screen
+ *   Debug::$enable_show = false;
+ * @endcode
+ *
  * @section changelog Changelog
+ * ## Version 1.7
+ * * Added the date section to the documentation
+ *
+ * ## Version 1.6
  * * Updated defaults to coinside with globals
  *
+ * @date June 16, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version 1.6
  * @copyright  GPL 3 http://cuttingedgecode.com
@@ -288,7 +303,7 @@ class Debug {
 		if (!self::$enable_send) {
 			return false;
 		}
-		
+
 		$headers = array();
 		$headers[] = 'From: ' . self::$emailFrom;
 		$headers[] = "MIME-Version: 1.0";

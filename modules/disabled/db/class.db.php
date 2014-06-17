@@ -7,17 +7,22 @@
  * This abstract class is to ensure that only one PDO instance is used. You get
  * a instance of the database with:
  *
- * @section usage Usage:
+ * @section usage Usage
  * @code
- * 	DB::$dbhost = 'localhost';
- * 	DB::$dbname = 'db';
- * 	DB::$dbuser = 'username';
- * 	DB::$dbpass = 'itsmeopenup';
- * 	$db = DB::getInstance();
+ *   DB::$dbhost = 'localhost';
+ *   DB::$dbname = 'db';
+ *   DB::$dbuser = 'username';
+ *   DB::$dbpass = 'itsmeopenup';
+ *   $db = DB::getInstance();
  * @endcode
  *
+ * @section changelog Changelog
+ * ## Version 1.1
+ * * Added the date section to the documentation
+ *
+ * @date June 16, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version 1.0
+ * @version 1.1
  * @copyright  GPL 3 http://cuttingedgecode.com
  */
 abstract class DB {

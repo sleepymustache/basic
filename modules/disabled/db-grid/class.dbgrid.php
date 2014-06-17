@@ -6,31 +6,36 @@
  *
  * @section usage Usage
  * @code
- * $dbg = new DbGrid('users', 'SELECT * FROM users');
+ *   $dbg = new DbGrid('users', 'SELECT * FROM users');
  *
- * $dbg->exclude(array(
- * 	'user_id',
- * 	'password'
- * ));
+ *   $dbg->exclude(array(
+ *     'user_id',
+ *     'password'
+ *   ));
  *
- * $dbg->mapFields(array(
- * 	'name' => 'user_id'
- * ));
+ *   $dbg->mapFields(array(
+ *     'name' => 'user_id'
+ *   ));
  *
- * $dbg->sortable(array(
- * 	'name',
- * 	'date'
- * ));
+ *   $dbg->sortable(array(
+ *     'name',
+ *     'date'
+ *   ));
  *
- * $dbg->show();
+ *   $dbg->show();
  * @endcode
+ *
+ * @section changelog Changelog
+ *   ## Version 1.1
+ *   * Added the date section to documentation
  *
  * @section dependencies Dependencies
  * * class.db.php
  * * class.hooks.php
  *
+ * @date June 16, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version 1.0
+ * @version 1.1
  * @copyright  GPL 3 http://cuttingedgecode.com
  */
 

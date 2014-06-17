@@ -10,21 +10,28 @@ require_once(DIRBASE . 'modules/enabled/file-system-database/class.fsdb.php');
  *
  * @section usage Usage
  * @code
- * $i = new IP2CO();
- * 	$countryCode = $i->getCountryCode($_SERVER['REMOTE_ADDR']);
+ *   $i = new IP2CO();
+ *   $countryCode = $i->getCountryCode($_SERVER['REMOTE_ADDR']);
  *
- * 	if ($countryCode != false) {
- * 		echo $countryCode;
- * 	} else {
- * 		echo $_SERVER['REMOTE_ADDR'] . "(" . ip2long($_SERVER['REMOTE_ADDR']) . ") Not found in " . $i->getTable($_SERVER['REMOTE_ADDR']) . ".";
- * 	}
+ *   if ($countryCode != false) {
+ *     echo $countryCode;
+ *   } else {
+ *     echo $_SERVER['REMOTE_ADDR'] .
+ *       "(" . ip2long($_SERVER['REMOTE_ADDR']) .
+ *       ") Not found in " . $i->getTable($_SERVER['REMOTE_ADDR']) . ".";
+ *   }
  * @endcode
+ *
+ * @section changelog Changelog
+ *   ## Version 1.1
+ *   * Added the date section to documentation
  *
  * @section dependencies Dependencies
  * * class.fsdb.php
  *
+ * @date June 16, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version 1.0
+ * @version 1.1
  * @copyright  GPL 3 http://cuttingedgecode.com
  */
 

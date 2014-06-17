@@ -4,112 +4,118 @@
  *
  * Class for building and validating forms
  *
- * This class allows for building forms using JSON. Fields are automatically 
+ * This class allows for building forms using JSON. Fields are automatically
  * validated based on Rules allowing for easy server-side validation. The markup
- * closely resembles jquery validation plugin so you can use one stylesheet for 
+ * closely resembles jquery validation plugin so you can use one stylesheet for
  * both client- and server-side validation.
  *
- * @section usage Usage:
+ * @section usage Usage
  * @code
- *	$UserEdit = new FormBuilder('{
- *		"id": "user",
- *		"action": "#",
- *		"method": "POST",
- *		"fieldsets": [
- *			{
- *				"legend": "Update your user information:",
- *				"fields": [
- *					{
- *						"name": "txtName",
- *						"label": "Name",
- *						"dataMap": "name",
- *						"type": "text",
- *						"value": "Jaime Rodriguez",
- *						"rules": {
- *							"required": true,
- *							"lengthMax": 20
- *						}
- *					}, {
- *						"name": "txtEmail",
- *						"label": "Email",
- *						"dataMap": "email",
- *						"type": "text",
- *						"value": "hi.i.am.jaime@gmail.com",
- *						"rules": {
- *							"required": true,
- *							"email": true
- *						}
- *					}, {
- *						"name": "txtDate",
- *						"label": "Date",
- *						"dataMap": "date",
- *						"type": "text",
- *						"value": "04/11/1984",
- *						"rules": {
- *							"required": true,
- *							"date": true
- *						}
- *					}, {
- *						"name": "ddlRole",
- *						"label": "Role",
- *						"dataMap": "role",
- *						"type": "select",
- *						"values": [
- *							{
- *								"name":  "Administrator",
- *								"value": "admin"
- *							}, {
- *								"name":  "Subscriber",
- *								"value": "subscriber"
- *							}, {
- *								"name":  "User",
- *								"value": "user",
- *								"selected": true
- *							}
- *						]
- *					}
- *				]
- *			}, {
- *				"class": "submit",
- *				"fields": [
- *					{
- *						"name": "btnSubmit",
- *						"label": "",
- *						"value": "Submit",
- *						"type": "submit"
- *					}
- *				]
- *			}
- *		]
- *	}');
+ *   $UserEdit = new FormBuilder('{
+ *     "id": "user",
+ *     "action": "#",
+ *     "method": "POST",
+ *     "fieldsets": [
+ *       {
+ *         "legend": "Update your user information:",
+ *         "fields": [
+ *           {
+ *             "name": "txtName",
+ *             "label": "Name",
+ *             "dataMap": "name",
+ *             "type": "text",
+ *             "value": "Jaime Rodriguez",
+ *             "rules": {
+ *               "required": true,
+ *               "lengthMax": 20
+ *             }
+ *           }, {
+ *             "name": "txtEmail",
+ *             "label": "Email",
+ *             "dataMap": "email",
+ *             "type": "text",
+ *             "value": "hi.i.am.jaime@gmail.com",
+ *             "rules": {
+ *               "required": true,
+ *               "email": true
+ *             }
+ *           }, {
+ *             "name": "txtDate",
+ *             "label": "Date",
+ *             "dataMap": "date",
+ *             "type": "text",
+ *             "value": "04/11/1984",
+ *             "rules": {
+ *               "required": true,
+ *               "date": true
+ *             }
+ *           }, {
+ *             "name": "ddlRole",
+ *             "label": "Role",
+ *             "dataMap": "role",
+ *             "type": "select",
+ *             "values": [
+ *               {
+ *                 "name":  "Administrator",
+ *                 "value": "admin"
+ *               }, {
+ *                 "name":  "Subscriber",
+ *                 "value": "subscriber"
+ *               }, {
+ *                 "name":  "User",
+ *                 "value": "user",
+ *                 "selected": true
+ *               }
+ *             ]
+ *           }
+ *         ]
+ *       }, {
+ *         "class": "submit",
+ *         "fields": [
+ *           {
+ *             "name": "btnSubmit",
+ *             "label": "",
+ *             "value": "Submit",
+ *             "type": "submit"
+ *           }
+ *         ]
+ *       }
+ *     ]
+ *   }');
  *
- *	// Simulate a record Object
- *	$u = new stdClass();
- *	$u->columns = array();
+ *   // Simulate a record Object
+ *   $u = new stdClass();
+ *   $u->columns = array();
  *
- *	// Has the form been submitted?
- *	if ($UserEdit->submitted()) {
- *		// Validate the form
- *		$passed = $UserEdit->validate();
+ *   // Has the form been submitted?
+ *   if ($UserEdit->submitted()) {
+ *     // Validate the form
+ *     $passed = $UserEdit->validate();
  *
- *		if ($passed === true) {
- *			// put the values into the record Object
- *			$u->columns = array_merge($u->columns, $UserEdit->getDataMap());
- *		}
- *	}
+ *     if ($passed === true) {
+ *       // put the values into the record Object
+ *       $u->columns = array_merge($u->columns, $UserEdit->getDataMap());
+ *     }
+ *   }
  *
- *	// if Form::validate() was executed, it will render with errors and updated values, otherwise it'll render normally
- *	echo $UserEdit->render();
+ *   // if Form::validate() was executed, it will render with errors and
+ *   // updated values, otherwise it'll render normally
+ *   echo $UserEdit->render();
  * @endcode
  *
+ * @section changelog Changelog
+ *   ## Version 1.1
+ *   * Added the date and changelog sections to documentation
+ *
+ * @date June 16, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version 1.0
+ * @version 1.1
  * @copyright  GPL 3 http://cuttingedgecode.com
  */
 
 class FormBuilderField {
 	// Manditory properties
-	
+
 	/**
 	 * The name of the field
 	 * @var string
@@ -269,20 +275,20 @@ class FormBuilderField {
 			break;
 		case 'select':
 			$buffer[] = "<select {$disabled} {$autofocus} id=\"{$this->name}\" name=\"{$this->name}\" class=\"{$this->class}\">";
-			
+
 			foreach($this->values as $option) {
 				$disabledField = "";
 				$selected = "";
 
 				if (isset($option->disabled)) {
-					$disabledField = ($option->disabled) ? "disabled" : "";		
+					$disabledField = ($option->disabled) ? "disabled" : "";
 				}
-				
+
 				if (isset($option->selected)) {
-					$selected = ($option->selected) ? "selected" : "";		
+					$selected = ($option->selected) ? "selected" : "";
 				}
-				
-				$buffer[] = "<option {$disabledField} {$selected} value=\"{$option->value}\">{$option->name}</option>";	
+
+				$buffer[] = "<option {$disabledField} {$selected} value=\"{$option->value}\">{$option->name}</option>";
 			}
 
 			$buffer[] = "</select>";
@@ -341,7 +347,7 @@ class FormBuilderField {
 						if (isset($this->values[0])) {
 							if (strlen($this->values[0]) >= $value) {
 								$errors[] = "'{$this->label}' should be a maximum of {$value} characters.";
-							}	
+							}
 						}
 					}
 					break;
@@ -374,7 +380,7 @@ class FormBuilderField {
 					if (count($this->values) == 0) {
 						$this->values[0] = NULL;
 					}
-					
+
 					if (!$this->validateDate($this->values[0], 'm/d/Y')) {
         				$errors[] = "'{$this->label}' is not a valid date (mm/dd/yyyy).";
         			}
@@ -455,11 +461,11 @@ class FormBuilderFieldset {
 	 */
 	public function __construct($object) {
 		if (isset($object->class)) {
-			$this->class = $object->class;	
+			$this->class = $object->class;
 		}
 
 		if (isset($object->legend)) {
-			$this->legend = $object->legend;	
+			$this->legend = $object->legend;
 		}
 
 
@@ -582,7 +588,7 @@ class FormBuilder {
 		$this->method = $data->method;
 
 		if (isset($data->id)) {
-			$this->id = $data->id;	
+			$this->id = $data->id;
 		}
 
 		if (isset($data->class)) {
@@ -593,8 +599,8 @@ class FormBuilder {
 			$this->validate = $data->validate;
 		}
 
-		
-		
+
+
 		foreach ($data->fieldsets as $fieldset) {
 			$this->fieldsets[] = new FormBuilderFieldset($fieldset);
 		}
@@ -610,7 +616,7 @@ class FormBuilder {
 		} else {
 			return false;
 		}
-	} 
+	}
 
 	/**
 	 * Validates the form
@@ -637,13 +643,13 @@ class FormBuilder {
 		$validate = (!$this->validate) ? "novalidate" : "";
 		$buffer = array();
 		$buffer[] = "<form class=\"{$this->class}\" action=\"{$this->action}\" method=\"{$this->method}\" {$validate}>";
-		
+
 		foreach($this->fieldsets as $fieldset) {
 			$buffer[] = $fieldset->render($this->validate && $this->submitted());
 		}
 
 		$buffer[] = "</form>";
-		
+
 		return implode(" ", $buffer);
 	}
 

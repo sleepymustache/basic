@@ -7,38 +7,43 @@
  * This class uses JSON to structure navigation pages and attributes. It can
  * detect what page is active and assign classes to them for special treatment.
  *
- * @section usage Usage:
+ * @section usage Usage
  * @code
- * $topNavData = '{
- *		"pages": [
- *			{
- *				"title": "Nav 1",
- *				"link": "/nav1/"
- *			}, {
- *				"title": "Nav 2",
- *				"link": "/nav2/",
- *				"pages": [
- *					{
- *						"title": "Subnav 1",
- *						"link": "/downloads/fpo.pdf",
- *						"target": "_blank"
- *					}
- *				]
- *			}
- *		]
- *	}';
+ *  $topNavData = '{
+ *    "pages": [
+ *      {
+ *        "title": "Nav 1",
+ *        "link": "/nav1/"
+ *      }, {
+ *        "title": "Nav 2",
+ *        "link": "/nav2/",
+ *        "pages": [
+ *          {
+ *            "title": "Subnav 1",
+ *            "link": "/downloads/fpo.pdf",
+ *            "target": "_blank"
+ *          }
+ *        ]
+ *      }
+ *    ]
+ *  }';
  *
- *	$topNav = new Navigation($topNavData);
- *	$topNav->setCurrent($_SERVER['SCRIPT_NAME']);
+ *  $topNav = new Navigation($topNavData);
+ *  $topNav->setCurrent($_SERVER['SCRIPT_NAME']);
  *
- * // In body somewhere...
- * <nav class="top">
- *		<?php echo $topNav->show(); ?>
- *	</nav>
+ *  // In body somewhere...
+ *  <nav class="top">
+ *    <?php echo $topNav->show(); ?>
+ *  </nav>
  * @endcode
  *
+ * @section changelog Changelog
+ *   ## Version 1.1
+ *   * Added the date and changelog sections to documentation
+ *
+ * @date June 16, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version 1.0
+ * @version 1.1
  * @copyright  GPL 3 http://cuttingedgecode.com
  */
 

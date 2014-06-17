@@ -6,17 +6,32 @@
  *
  * @section usage Usage:
  * @code
+ *   require_once('class.css.php');
  *
+ *   $c = new CSS();
+ *
+ *   $files = explode("&", $_GET['css']);
+ *
+ *   foreach ($files as $file) {
+ *     $c->add(DIRBASE . "/css/" . $file . ".css");
+ *   }
+ *
+ *   $c->show();
  * @endcode
  *
+ * @section changelog Changelog
+ *  ## Version 1.1
+ *  * Added the usage and date sections to documentation
+ *
+ * @date June 16, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version 1.0
+ * @version 1.1
  * @copyright  GPL 3 http://cuttingedgecode.com
  */
 class CSS {
 	/**
 	 * An array of CSS files
-	 * 
+	 *
 	 * @private
 	 * @var array
 	 */

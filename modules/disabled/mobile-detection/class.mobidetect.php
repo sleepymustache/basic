@@ -4,8 +4,22 @@
  *
  * Attribution: Regex taken from unknown source
  *
- * @author   Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version 1.0
+ * @section usage Usage
+ * @code
+ *   $m = new MobiDetect();
+ *
+ *   if ($m->isMobile()) {
+ *     echo "This is a mobile device";
+ *   }
+ * @endcode
+ *
+ * @section changelog Changelog
+ * ## Version 1.6
+ * * Fixed bug with BCC and CC
+ *
+ * @date June 16, 2014
+ * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
+ * @version 1.1
  * @copyright  GPL 3 http://cuttingedgecode.com
  */
 class MobiDetect {
