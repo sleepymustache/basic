@@ -31,11 +31,11 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <p><a></a></p>
+        <p></p>
 
 <p>Doxygen <a href="http://www.sleepymustache.com/documentation/html/index.html">Documentation</a> is available.</p>
 
-<p>Sleepy mustache is a PHP framework that comes with solutions for everyday php
+<p>sleepyMUSTACHE is a PHP framework that comes with solutions for everyday php
 challenges.  Most of the functionality is optional and tries to be as minimalist
 as possible.</p>
 
@@ -56,15 +56,23 @@ process. This module is responsible for handling almost all functionality.</p></
 <li><p><strong>Benchmarking</strong>
 Lets you time the speed of functions</p></li>
 <li><p><strong>Templating</strong> -
-Basic templating functionality lets you separate business logic for the
-view. It replaces placeholders like "{{ title }}" with data</p></li>
+Basic templating functionality lets you separate business logic from the
+view. It replaces placeholders like "{{ title }}" with data.</p></li>
 </ul><h3>
 <a name="default-modules" class="anchor" href="#default-modules"><span class="octicon octicon-link"></span></a>Default Modules</h3>
 
 <p>Some modules are enabled by default. To disable the modules move them from the
-"enabled" folder and put them into the "disabled" folder</p>
+"enabled" folder and put them into the "disabled" folder.</p>
 
 <ul>
+<li><p><strong>HTML Compress</strong> -
+Compresses the output HTML if the ENV variable is set to "LIVE"</p></li>
+<li><p><strong>CSS Compress</strong> -
+Compressed the output CSS if the ENV variable is set to "LIVE"</p></li>
+<li><p><strong>Head Inserter - Joey Bomber</strong> -
+Allows you to insert HTML to the bottom of the HEAD tag</p></li>
+<li><p><strong>Robots Dev Hide - Joey Bomber</strong> -
+If the site is not live, add the meta robots tag to omit from Google search</p></li>
 <li><p><strong>Navigation</strong> -
 Creates a UL that can be used for a navigation</p></li>
 <li><p><strong>URL Class</strong> -
@@ -78,24 +86,24 @@ to the body that says "user-jaime-index". Additionally /user would be
 into the "disabled" folder into "enabled" folder</p>
 
 <ul>
-<li><p><strong>CRUD</strong> -
-Create, Read, Update, Delete functionality using PDO</p></li>
-<li><p><strong>File System Database</strong> -
-A basic database that uses flat files and JSON documents</p></li>
-<li><p><strong>IP 2 Country detection</strong> -
-Uses the IP address to detect the country of origin.</p></li>
-<li><p><strong>Mobile device detection</strong> -
-Can detect mobile and tablet devices</p></li>
-<li><p><strong>CSV creation</strong> -
-CRUD class for CSV files</p></li>
-<li><p><strong>Emailing</strong> -
-Basic email functionality with RFC email validation</p></li>
-<li><p><strong>Robo Caller SOAP API (class.robotalker.php)</strong> -
-Class for interacting with the robotalker API</p></li>
-<li><p><strong>SQL Select to DB Grid (class.dbgrid.php)</strong> -
+<li><p><strong>CSV</strong> -
+CRUD class for CSV files.</p></li>
+<li><p><strong>DB</strong> -
+Create, Read, Update, Delete (CRUD) functionality using PDO and mySQL.</p></li>
+<li><p><strong>DB Grid</strong> -
 Turns a SQL Select statement into a table with hook points</p></li>
+<li><p><strong>File System Database</strong> -
+A basic database that uses flat files and JSON documents.</p></li>
+<li><p><strong>IP 2 Country</strong> -
+Uses the IP address to detect the country of origin.</p></li>
+<li><p><strong>Mailer</strong> -
+Provides basic email functionality with RFC email validation.</p></li>
 <li><p><strong>Memcache</strong> -
 Improve performance by implementing memcaching of pages (10 second default)</p></li>
+<li><p><strong>Mobile detection</strong> -
+Can detect mobile and tablet devices</p></li>
+<li><p><strong>Robotalker</strong> -
+Class for interacting with the robotalker API</p></li>
 <li><p><strong>Users</strong> -
 Basic user and roles functionality includes auth, roles, and permissions</p></li>
 </ul><h3>
@@ -105,13 +113,39 @@ Basic user and roles functionality includes auth, roles, and permissions</p></li
 simple modules with hook points.</p>
 
 <ul>
-<li>
-<strong>Timer</strong> -
+<li><p><strong>Timer</strong> -
 A module that replaces the {{ timer }} with the time it took the framework
-to generate the page.</li>
-<li>
-<strong>Wizard Title</strong> -
-This module prepends an ASCII wizard to the title of the page.</li>
+to generate the page.</p></li>
+<li><p><strong>Wizard Title</strong> -
+This module prepends an ASCII wizard to the title of the page.</p></li>
+</ul><h3>
+<a name="constants" class="anchor" href="#constants"><span class="octicon octicon-link"></span></a>Constants</h3>
+
+<ul>
+<li><p><strong>ENV</strong>
+What is the current environment. Values: DEV, STAGE, LIVE</p></li>
+<li><p><strong>URLBASE</strong>
+The base URL to the sleepyMUSTACHE base directory</p></li>
+<li><p><strong>DIRBASE</strong>
+the base directory to the sleepyMUSTACHE base directory</p></li>
+<li><p><strong>DBHOST</strong>
+the mysql host URL</p></li>
+<li><p><strong>DBUSER</strong>
+the mysql username</p></li>
+<li><p><strong>DBPASS</strong>
+the mysql password</p></li>
+<li><p><strong>DBNAME</strong>
+the mysql database name</p></li>
+<li><p><strong>EMAIL_FROM</strong>
+the email address to use for the "from" field</p></li>
+<li><p><strong>EMAIL_TO</strong>
+the email address to use for the "to" field</p></li>
+<li><p><strong>EMAIL_CC</strong>
+the email address to use for the "cc" field</p></li>
+<li><p><strong>EMAIL_BCC</strong>
+the email address to use for the "bcc" field</p></li>
+<li><p><strong>GA_ACCOUNT</strong>
+the Google Analytics GA Account ID</p></li>
 </ul><h2>
 <a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
 
@@ -120,9 +154,9 @@ This module prepends an ASCII wizard to the title of the page.</li>
 <ul>
 <li>Setup debugging</li>
 <li>Set Live site URL</li>
-<li>Set DB credentials for live/stage</li>
-<li>Set Emailing info for live/stage</li>
-<li>Setup GA Account for live/state</li>
+<li>Set DB credentials for live/stage/dev</li>
+<li>Set Emailing info for live/stage/dev</li>
+<li>Setup GA Account for live/state/dev</li>
 </ul><h2>
 <a name="sample-code" class="anchor" href="#sample-code"><span class="octicon octicon-link"></span></a>Sample Code</h2>
 
@@ -192,7 +226,7 @@ method.</p>
 <pre><code>require_once('include/sleepy.php');
 
 $page = new Template('default');
-$page-&gt;bind('title', 'Sleepy Mustache');
+$page-&gt;bind('title', 'sleepyMUSTACHE');
 $page-&gt;bind('header', 'Hello world!');
 $page-&gt;show();
 </code></pre>
@@ -320,7 +354,7 @@ Debug::out($db);
 
 <p>Sometimes using a database is overkill.  A simple solution is to use the <em>FSDB</em>.
 It is very simple and does not allow complex queries, however it is fast, easy
-to use and requires no setup, except checking that proper permissions are set.</p>
+to use, and requires no setup, except checking that proper permissions are set.</p>
 
 <pre><code>$fruit = new stdClass();
 
@@ -332,7 +366,7 @@ $fruit-&gt;price = 0.50;
 $db = new FSDB();
 
 $db-&gt;insert('fruit', $fruit);
-$data = $db-&gt;select('fruit', 'name', 'Banana');
+$data = $db-&gt;select('fruit', 'name', 'Apple');
 </code></pre>
 
 <h3>
@@ -373,7 +407,7 @@ list with some classes added for the current active page.</p>
 <pre><code>// Add a placeholder in your template
 {{ TopNav }}
 
-// Create a php file in */modules/*
+// Create a php file in */modules/enabled/*
 require_once('include/class.navigation.php');
 
 // create a function to add to the *hook filter*
