@@ -1,7 +1,8 @@
 <?php
-require_once(DIRBASE . '/modules/enabled/db/class.db.php');
-require_once(DIRBASE . 'include/class.hooks.php');
+namespace DB;
 
+require_once(dirname(__FILE__) . '/class.db.php');
+require_once(dirname(__FILE__) . '/../../../include/class.debug.php');
 /**
  * @page record1 Record Class
  * Base class that represents a record in a table.
@@ -40,6 +41,8 @@ require_once(DIRBASE . 'include/class.hooks.php');
  * @endcode
  *
  * @section changelog Changelog
+ * ## Version 1.2
+ * * Added namespacing
  * ## Version 1.1
  * * Added the date section to the documentation
  *
@@ -109,17 +112,17 @@ class Record {
 	 */
 	public function load($id=0) {
 		if ($this->table == '') {
-			throw new Exception('$this->table is not set.');
+			throw new \Exception('$this->table is not set.');
 		}
 
 		$query = $this->db->prepare("SELECT * FROM `{$this->table}` WHERE {$this->primaryKey}=:{$this->primaryKey}");
 		$query->execute(array(":{$this->primaryKey}" => $id));
-		$query->setFetchMode(PDO::FETCH_ASSOC);
+		$query->setFetchMode(\PDO::FETCH_ASSOC);
 
 		if ($this->columns = $query->fetch()) {
 			return true;
 		} else {
-			throw new Exception("{$this->table}: Record does not exist.");
+			throw new \Exception("{$this->table}: Record does not exist.");
 		}
 	}
 
@@ -159,9 +162,9 @@ class Record {
 		$result = $this->db->prepare($sql);
 
 		// save
-		Hook::addAction('recordBeforeSave');
+		\Sleepy\Hook::addAction('recordBeforeSave');
 		$result->execute($col);
-		Hook::addAction('recordAfterSave');
+		\Sleepy\Hook::addAction('recordAfterSave');
 
 		if ($new) {
 			if ($result->rowCount()) {
@@ -181,15 +184,15 @@ class Record {
 	 * @return bool True if delete is successful
 	 */
 	public function delete() {
-		Hook::addAction('recordBeforeDelete');
-		$query = $this->db->prepare('DELETE FROM ' . $this->table . ' WHERE {$this->primaryKey}=:{$this->primaryKey}');
-
-		if ($query->execute(array(":{$this->primaryKey}" => $this->{$this->primaryKey}))) {
-			Hook::addAction('recordDeleteSucessful');
+		\Sleepy\Hook::addAction('recordBeforeDelete');
+		$query = $this->db->prepare('DELETE FROM ' . $this->table . " WHERE {$this->primaryKey}=:{$this->primaryKey}");
+		//\Sleepy\Debug::out($query->debugDumpParams());
+		if ($query->execute(array(":{$this->primaryKey}" => $this->columns[$this->primaryKey]))) {
+			\Sleepy\Hook::addAction('recordDeleteSucessful');
 			return true;
 		} else {
-			Hook::addAction('recordDeleteError');
-			throw new Exception("{$this->table}: Record was not deleted.");
+			\Sleepy\Hook::addAction('recordDeleteError');
+			throw new \Exception("{$this->table}: Record was not deleted.");
 		}
 	}
 
@@ -245,7 +248,7 @@ class Record {
 						}
 					}
 
-					$label = Hook::addFilter('dbForm_label', $label);
+					$label = \Sleepy\Hook::addFilter('dbForm_label', $label);
 
 					?>
 					<li>
@@ -333,7 +336,7 @@ class Record {
 								'dbForm_list',
 								$this->table . "_dbForm_list"
 							) as $filterName) {
-								$buffer = Hook::addFilter($filterName, Array(
+								$buffer = \Sleepy\Hook::addFilter($filterName, Array(
 									$buffer,
 									$meta['native_type'],
 									$label,
