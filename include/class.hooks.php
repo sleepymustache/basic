@@ -1,4 +1,6 @@
 <?php
+namespace Sleepy;
+
 /**
  * @page hooks1 Hook Class
  * Adds Hooks and Filters
@@ -45,6 +47,7 @@
  * @param string $name name of the filter
  * @return object
  */
+
 class Filter {
 	// This is the name of the filter
 	public $name;
@@ -148,7 +151,11 @@ class Hook {
 
 			if (is_array($files)) {
 				foreach($files as $file) {
-					require_once($file);
+					if (strpos($file, '_test.php') !== false) {
+						// This is a test file
+					} else {
+						require_once($file);
+					}
 				}
 			}
 		}
@@ -208,8 +215,8 @@ class Hook {
 		}
 
 		// Memory profiling
-		//Debug::$enable_send = true;
-		//Debug::out($name . " " . memory_get_usage());
+		//\Sleepy\Debug::$enable_send = true;
+		//\Sleepy\Debug::out($name . " " . memory_get_usage());
 
 		return $returned;
 	}
