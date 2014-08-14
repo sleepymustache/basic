@@ -1,4 +1,6 @@
 <?php
+namespace DB;
+
 /**
  * @page db1 DB Class
  *
@@ -17,13 +19,13 @@
  * @endcode
  *
  * @section changelog Changelog
- * ## Version 1.1
+ * ## Version 1.12
  * * Added the date section to the documentation
  *
- * @date June 16, 2014
+ * @date August 13, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version 1.1
- * @copyright  GPL 3 http://cuttingedgecode.com
+ * @version 1.2
+ * @copyright  GPL 3 http://rodriguez-jr.com
  */
 abstract class DB {
 
@@ -70,8 +72,8 @@ abstract class DB {
 	*/
 	public static function getInstance() {
 		if (!self::$instance) {
-			self::$instance = new PDO("mysql:host=" . self::$dbhost . ";dbname=" . self::$dbname, self::$dbuser, self::$dbpass);
-			self::$instance-> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			self::$instance = new \PDO("mysql:host=" . self::$dbhost . ";dbname=" . self::$dbname, self::$dbuser, self::$dbpass);
+			self::$instance-> setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 		}
 		return self::$instance;
 	}
