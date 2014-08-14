@@ -1,6 +1,6 @@
 		</section>
 		<footer>
-			<p>&copy; 2013 Jaime Rodriguez. Execution time {{ timer }}</p>
+			<p>&copy; <?php echo date('Y', time()) ?> Jaime Rodriguez.</p>
 		</footer>
 	</div>
 </body>
