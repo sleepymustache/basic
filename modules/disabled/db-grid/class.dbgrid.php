@@ -1,4 +1,6 @@
 <?php
+namespace DB;
+
 /**
  * @page dbgrid1 DbGrid Class
  *
@@ -26,6 +28,8 @@
  * @endcode
  *
  * @section changelog Changelog
+ *   ## Version 1.2
+ *   * Added namespacing
  *   ## Version 1.1
  *   * Added the date section to documentation
  *
@@ -33,13 +37,13 @@
  * * class.db.php
  * * class.hooks.php
  *
- * @date June 16, 2014
+ * @date August 13, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version 1.1
- * @copyright  GPL 3 http://cuttingedgecode.com
+ * @version 1.2
+ * @copyright  GPL 3 http://rodriguez-jr.com
  */
 
-class DbGrid {
+class Grid {
 	/**
 	 * DB The DB object
 	 */
@@ -106,7 +110,7 @@ class DbGrid {
 	 * @param string $sql  What SQL to run?
 	 */
 	public function __construct($name, $sql) {
-		$this->db = DB::getInstance();
+		$this->db = \DB\DB::getInstance();
 		$this->sql = $sql;
 		$this->name = $name;
 	}
@@ -209,7 +213,7 @@ class DbGrid {
 
 		$query = $this->db->prepare($sql);
 		$query->execute();
-		$query->setFetchMode(PDO::FETCH_OBJ);
+		$query->setFetchMode(\PDO::FETCH_OBJ);
 
 		// Get column data
 		for ($i = 0; $i <= $query->columnCount(); $i ++) {
@@ -222,22 +226,22 @@ class DbGrid {
 		/**
 		 * @ingroup hooks
 		 */
-		Hook::addAction($this->name . "_beforeTable");
+		\Sleepy\Hook::addAction($this->name . "_beforeTable");
 		/**
 		 * @ingroup hooks
 		 */
-		Hook::addAction("dbGrid_beforeTable");
+		\Sleepy\Hook::addAction("dbGrid_beforeTable");
 		echo "<table id='{$this->name}_dbgrid' cellpadding='0' cellspacing='0'>\n<tr>";
 
 		foreach ($this->meta as $meta) {
 			/**
 			 * @ingroup hooks
 			 */
-			$metaName = Hook::addFilter($this->name . "_tableHeader", $meta['name']);
+			$metaName = \Sleepy\Hook::addFilter($this->name . "_tableHeader", $meta['name']);
 			/**
 			 * @ingroup hooks
 			 */
-			$metaName = Hook::addFilter("dbgrid_tableHeader", $metaName);
+			$metaName = \Sleepy\Hook::addFilter("dbgrid_tableHeader", $metaName);
 			if (!$this->isExcluded($meta['name'])) {
 				if ($this->sortBy == $meta['name']) {
 					if ($this->asc) {
@@ -295,7 +299,7 @@ class DbGrid {
 				/**
 				 * @ingroup hooks
 				 */
-				$value = Hook::addFilter($this->name . "_tableColumn", array(
+				$value = \Sleepy\Hook::addFilter($this->name . "_tableColumn", array(
 					$value,
 					$key,
 					$id
@@ -304,7 +308,7 @@ class DbGrid {
 				/**
 				 * @ingroup hooks
 				 */
-				$value = Hook::addFilter("dbgrid_tableColumn", array(
+				$value = \Sleepy\Hook::addFilter("dbgrid_tableColumn", array(
 					$value,
 					$key,
 					$id
@@ -318,8 +322,8 @@ class DbGrid {
 		}
 
 		echo "</table>";
-		Hook::addAction($this->name . "_afterTable");
-		Hook::addAction("dbGrid_afterTable");
+		\Sleepy\Hook::addAction($this->name . "_afterTable");
+		\Sleepy\Hook::addAction("dbGrid_afterTable");
 
 		if (isset($labels[$meta['name']])) {
 			$label = $labels[$meta['name']];
