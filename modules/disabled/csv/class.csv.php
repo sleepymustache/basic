@@ -1,4 +1,6 @@
 <?php
+namespace CSV;
+
 /**
  * @page csv1 CSV Class
  *
@@ -7,7 +9,7 @@
  * @section usage Usage
  * @code
  *   // loads a existing CSV file
- *   $c = new CSV('presidents.csv');
+ *   $c = new \CSV\Document('presidents.csv');
  *
  *   $c->add(array(
  *     'George',
@@ -18,19 +20,20 @@
  * @endcode
  *
  * @section changelog Changelog
+ * ##Version 1.8
+ * * Added namespacing
  * ##Version 1.6
  * * Updated documentation
- *
  * ##Version 1.5
  * * check if we can remove the header before doing it... teamsite issue.
  * * suppress flock warnings... teamsite issue
  *
- * @date June 15, 2014
+ * @date August 13, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version 1.6
+ * @version 1.8
  * @copyright GPL 3 http://cuttingedgecode.com
  */
-class CSV {
+class Document {
 	/**
 	 * string The filename of the CSV file
 	 */
@@ -74,10 +77,18 @@ class CSV {
 			$this->filename = $filename;
 		} else {
 			if ($this->filename == '') {
-				throw new Exception('CSV::load - Cannot save without a filename.');
+				throw new \Exception('CSV::load - Cannot save without a filename.');
 			}
 		}
-		if (($handle = @fopen($this->filename, "r")) !== FALSE) {
+
+		$this->data = array();
+
+		// If the file does not exist, create it.
+		if (!file_exists($this->filename)) {
+			file_put_contents($this->filename, '');
+		}
+
+		if (($handle = @fopen($this->filename, "r+")) !== FALSE) {
 			flock($handle, LOCK_EX);
 			while (($data = fgetcsv($handle, 0, $this->delimiter)) !== FALSE) {
 				$this->data[] = $data;
@@ -87,7 +98,7 @@ class CSV {
 			fclose($handle);
 			$numberOfFields = count($data);
 		} else {
-			throw new Exception('CSV::load - Cannot open file for writing');
+			throw new \Exception('CSV::load - Cannot open file for writing');
 		}
 
 		return true;
@@ -107,9 +118,15 @@ class CSV {
 			$this->filename = $filename;
 		} else {
 			if ($this->filename == '') {
-				throw new Exception('CSV::save - Cannot save without a filename.');
+				throw new \Exception('CSV::save - Cannot save without a filename.');
 			}
 		}
+
+		// make the file if it doesn't exist.
+		if (!file_exists($this->filename)) {
+			file_put_contents($this->filename, '');
+		}
+
 		if ($handle = @fopen($this->filename, 'r+')) {
 			@flock($handle, LOCK_EX);
 			foreach ($this->data as $row) {
@@ -118,7 +135,7 @@ class CSV {
 			@flock($handle, LOCK_UN);
 			fclose($handle);
 		} else {
-			throw new Exception('CSV::save - Cannot open file for writing');
+			throw new \Exception("CSV::save - Cannot open file ({$filename}) for writing");
 		}
 
 		return true;
@@ -134,7 +151,7 @@ class CSV {
 	 */
 	public function add($array) {
 		if (!is_array($array)) {
-			throw new Exception('CSV::add - Parameter must be an array.');
+			throw new \Exception('CSV::add - Parameter must be an array.');
 		}
 
 		if (count($array) == count($array, COUNT_RECURSIVE)) {
@@ -149,20 +166,59 @@ class CSV {
 	}
 
 	/**
-	 * Removes a line from the CSV file
+	 * Deletes a line from the CSV file
 	 *
 	 * @param int $id
 	 *   The array key to remove from $this->data.
 	 * @return bool
 	 *   Returns true if successful.
 	 */
-	public function remove($id) {
+	public function delete($id) {
 		if (isset($this->data[$id])) {
 			unset($this->data[$id]);
 			return true;
 		} else {
-			throw new Exception('CSV::remove - Row does not exist. Data not removed.');
+			throw new \Exception('CSV::delete - Row does not exist. Data not removed.');
 		}
+	}
+
+	/**
+	 * Search through the CSV for a string and return an associative array of
+	 * array_index => array()
+	 *
+	 * @param  string  $string        The string to search for
+	 * @param  boolean $partial       If true, return partial matches
+	 * @param  boolean $caseSensitive If true, search is case sensitive
+	 * @return array                  An array of matching data
+	 */
+	public function search($string, $partial=false, $caseSensitive=true) {
+		$matches = array();
+
+		if (!$caseSensitive) {
+			$string = strtolower($value);
+		}
+
+		foreach ($this->data as $id => $row) {
+			foreach ($row as $value) {
+				if (!$caseSensitive) {
+					$value = strtolower($value);
+				}
+
+				$match = strpos($value, $string);
+
+				if (!$partial) {
+					if ($match === 0) {
+						$matches[$id] = $row;
+					}
+				} else {
+					if ($match !== false) {
+						$matches[$id] = $row;
+					}
+				}
+			}
+		}
+
+		return $matches;
 	}
 
 	/**
