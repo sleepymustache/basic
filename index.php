@@ -1,7 +1,7 @@
 <?php
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/include/sleepy.php');
 
-	$page = new Template('homepage');
+	$page = new \Sleepy\Template('homepage');
 
 	// SEO
 	$page->bind('title', 'Sleepy Mustache');
@@ -12,48 +12,33 @@
 	$page->bind('header', 'sleepy<span>MUSTACHE</span>');
 	$page->bind('teasers', array(
 		array(
-			"title" => "Memcache module",
-			"link" => 'memcache.php',
+			"title" => "Getting Started",
+			"link" => 'http://www.sleepymustache.com/',
 			"author" => "Jaime A. Rodriguez",
-			"date" => "07/16/2013",
+			"date" => date('m/d/Y', time()),
 			"description" => "
-				Under the bed. Stare at ceiling stick butt in face. Stick butt
-				in face under the bed swat at dog for hopped up on goofballs,
-				shake treat bag. Behind the couch. Why must they do that chew
-				iPad power cord and shake treat bag nap all day attack feet.
-				Chew foot hunt anything that moves, yet stick butt in face but
-				hunt anything that moves or intently stare at the same spot, sun
-				bathe yet chew iPad power cord. Chew foot. Shake treat bag
-				hopped up on goofballs, claw drapes for chase mice burrow under
-				covers. Play time intrigued by the shower chew iPad power cord
-				sun bathe.",
+				Congratulations! sleepyMUSTACHE is up and running. To learn more
+				about what you can do with sleepyMUSTACHE visit the
+				documentation at <a href=\"http://www.sleepymustache.com\">
+				http://www.sleepymustache.com</a>",
 			"tags" => array(
 				array(
-					'name' => "modules",
-					'link' => "http://google.com"
-				),
-				array(
-					'name' => "caching",
-					'link' => "http://google.com"
+					'name' => "Configuration",
+					'link' => "http://www.sleepymustache.com/documentation/html/index.html"
 				)
 			)
 		), array(
-			"title" => "Template fix",
-			"link" => "template.php",
+			"title" => "Sample Modules",
+			"link" => "#",
 			"author" => "Jaime A. Rodriguez",
-			"date" => "07/16/2013",
+			"date" => "08/05/2013",
 			"description" => "
-				Collaboratively administrate empowered markets via plug-and-play
-				networks. Dynamically procrastinate B2C users after installed
-				base benefits. Dramatically visualize customer directed
-				convergence without revolutionary ROI.",
+				By default there are 2 sample modules included with the
+				framework. These modules demonstrate how to create your own
+				modules. You may safely delete them.",
 			"tags" => array(
 				array(
 					'name' => "modules",
-					'link' => "http://google.com"
-				),
-				array(
-					'name' => "changelog",
 					'link' => "http://google.com"
 				),
 				array(
