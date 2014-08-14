@@ -14,7 +14,7 @@
 	{{ css normalize style }}
 
 	<!-- JAVASCRIPT -->
-	<script data-main="<?php echo URLBASE; ?>js/main" src="<?php echo URLBASE; ?>js/require.js" ></script>
+	<script async data-main="<?php echo URLBASE; ?>js/main" src="<?php echo URLBASE; ?>js/require.js" ></script>
 
 	<!-- FAVICON -->
 	<link rel="apple-touch-icon" href="<?php echo URLBASE; ?>favicon.png">
@@ -31,7 +31,7 @@
 <body>
 	<div class="wrapper">
 		<header>
-			<hgroup><h1>{{ header }}</h1></hgroup>
+			<h1>{{ header }}</h1>
 
 			<!-- A sample menu -->
 			<nav class="top">
