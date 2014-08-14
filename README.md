@@ -1,73 +1,63 @@
 [] (\mainpage <|:{)
 
 sleepyMUSTACHE
-================================================================================
+===============================================================================
 
 Doxygen [Documentation] (http://www.sleepymustache.com/documentation/html/index.html) is available.
 
-sleepyMUSTACHE is a PHP framework that comes with solutions for everyday php
-challenges.  Most of the functionality is optional and tries to be as minimalist
-as possible.
+sleepyMUSTACHE is a PHP micro framework that has solutions for everyday PHP
+challenges. Most of the functionality is optional and tries to be as 
+minimalist as possible.
+
+Getting Started
+-------------------------------------------------------------------------------
+Setup will be performed automatically the first time the site is accessed. After installation is complete, it is good practice to delete the */setup/* folder.
 
 Functionality
---------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 ### Core Functionality
 
-The core is the basic functions that modules build off of
+The core is the basic functions that are used to build modules. They cannot be disabled.
 
 * **Debugging** -
-    Easily send debug information via the browser, email, or database
+    Easily send debug information via the browser, email, or database.
 
 * **Hooks** -
-    Assign functions to run at specific hook points throughout the loading
-    process. This module is responsible for handling almost all functionality.
-
-* **Benchmarking**
-    Lets you time the speed of functions
+    Hooks allow you to run a function at certain spots in your code. We call these spots *hook points*. 
 
 * **Templating** -
     Basic templating functionality lets you separate business logic from the
     view. It replaces placeholders like "{{ title }}" with data.
 
-### Default Modules
+### The Module System
 
-Some modules are enabled by default. To disable the modules move them from the
-"enabled" folder and put them into the "disabled" folder.
-
-* **HTML Compress** -
-    Compresses the output HTML if the ENV variable is set to "LIVE"
-
-* **CSS Compress** -
-    Compressed the output CSS if the ENV variable is set to "LIVE"
-
-* **Head Inserter - Joey Bomber** -
-    Allows you to insert HTML to the bottom of the HEAD tag
-
-* **Robots Dev Hide - Joey Bomber** -
-    If the site is not live, add the meta robots tag to omit from Google search
-
-* **Navigation** -
-    Creates a UL that can be used for a navigation
-
-* **URL Class** -
-    Adds a class based on the current page. /user/jaime will have a class added
-    to the body that says "user-jaime-index". Additionally /user would be
-    "user-index"
+The modules system is simply organized. There is a */module/** folder that contains 2 subdirectories called */*module/enabled* and */module/disabled*. To enable a module move them to the /module/enabled folder. Conversely, you can disable a module by moving it to the /module/disabled folder.
 
 ### Available Modules
 
-Most modules are disabled by default. To enable the modules move them from the
-into the "disabled" folder into "enabled" folder
+Most modules are enabled by default. To disable the modules move them from the
+"enabled" folder and put them into the */modules/disabled* folder. To enable a module move the whole folder from the */modules/disabled* folder into the */modules/enabled* folder.
+
+Modules use *hook points* to inject functionality into your app.
+
+* **CSS Compress** -
+    Compressed the output CSS only if the app is in the "LIVE" environment.
+
+* **Navigation** -
+    Creates a UL that can be used for a navigation.
+
+* **URL Class** -
+    Adds a class based on the current page. For example if your app is currently on the */user/jaime/index.php* page, the class *user-jaime-index* will be added to the body. Additionally, if you are omitting *index.php* from your URLs, e.g. */user/admin*, the class would be *user-admin-index*.
 
 * **CSV** -
-    CRUD class for CSV files.
+    Create, Read, Update, Delete (CRUD) class for CSV files. Now with very basic search capabilities.
 
 * **DB** -
-    Create, Read, Update, Delete (CRUD) functionality using PDO and mySQL.
+    Create, Read, Update, Delete (CRUD) class using PDO and mySQL.
 
 * **DB Grid** -
-    Turns a SQL Select statement into a table with hook points
+    Turns a SQL Select statement into a table. The table information can be transformed using hook points, making this a powerful module for visualizing and organizing data.
 
 * **File System Database** -
     A basic database that uses flat files and JSON documents.
@@ -79,13 +69,19 @@ into the "disabled" folder into "enabled" folder
     Provides basic email functionality with RFC email validation.
 
 * **Memcache** -
-    Improve performance by implementing memcaching of pages (10 second default)
+    Improve performance by implementing memcaching of pages (10 second cache expiration by default)
 
 * **Mobile detection** -
-    Can detect mobile and tablet devices
+    Can detect mobile and tablet devices on the server-side.
 
-* **Robotalker** -
-    Class for interacting with the robotalker API
+* **HTML Compress** -
+    Compresses the output HTML if we are in the *live* environment.
+
+* **Head Inserter - Joey Bomber** -
+    Allows you to insert HTML to the bottom of the HEAD tag
+
+* **Robots Dev Hide - Joey Bomber** -
+    If the site is not live, add the meta robots tag to omit the site from Google indexing.
 
 * **Users** -
     Basic user and roles functionality includes auth, roles, and permissions
@@ -95,12 +91,10 @@ into the "disabled" folder into "enabled" folder
 These module have little-to-no practical use, but help demonstrate how to build
 simple modules with hook points.
 
-* **Timer** -
-    A module that replaces the {{ timer }} with the time it took the framework
-    to generate the page.
-    
 * **Wizard Title** -
     This module prepends an ASCII wizard to the title of the page.
+* **Sample Navigation** -
+    Demonstrates how to use the navigation module to build dynamic menus.
     
 ### Constants
 
@@ -140,17 +134,6 @@ simple modules with hook points.
 * **GA_ACCOUNT**
 	the Google Analytics GA Account ID
 
-
-Getting Started
---------------------------------------------------------------------------------
-There are a few globals you will want to set in the include/globals.php file.
-
-* Setup debugging
-* Set Live site URL
-* Set DB credentials for live/stage/dev
-* Set Emailing info for live/stage/dev
-* Setup GA Account for live/state/dev
-
 Sample Code
 --------------------------------------------------------------------------------
 ### Hooks
@@ -165,14 +148,14 @@ the DB update.
 	$db->save();
 
 	// add a hook action
-	Hook::addAction('record_saved');
+	\Sleepy\Hook::addAction('record_saved');
 
 	// Add a function to the hook action
 	function send_email() {
 		// send an email saying a record was updated
 	}
 
-	Hook::doAction(
+	\Sleepy\Hook::doAction(
 		'record_saved',
 		'send_email'
 	);
@@ -182,7 +165,7 @@ parameters to the functions that get assigned to the hook. After manipulating
 this data you should return the edited data back to the program.
 
 	// add a hook filter
-	$content = Hook::addFilter('update_content', $_POST['content']);
+	$content = \Sleepy\Hook::addFilter('update_content', $_POST['content']);
 
 	// Add a function to the hook filter
 	function clean_html ($html) {
@@ -190,7 +173,7 @@ this data you should return the edited data back to the program.
 		return $c;
 	}
 
-	Hook::applyFilter(
+	\Sleepy\Hook::applyFilter(
 		'update_content',
 		'clean_html'
 	);
@@ -214,7 +197,7 @@ method.
 
 	require_once('include/sleepy.php');
 
-	$page = new Template('default');
+	$page = new \Sleepy\Template('default');
 	$page->bind('title', 'sleepyMUSTACHE');
 	$page->bind('header', 'Hello world!');
 	$page->show();
@@ -242,12 +225,12 @@ We can add that functionality using Hooks.
 		return $hits->getTotal();
 	}
 
-	Hook::applyFilter(
+	\Sleepy\Hook::applyFilter(
 		'render_placeholder_hits',
 		'hook_render_placeholder_hits'
 	);
 
-The first parameter of *Hook:applyFilter*, the hook filter, ends in 'hits' which
+The first parameter of *\Sleepy\Hook:applyFilter*, the hook filter, ends in 'hits' which
 correlates to the name of the placeholder. This hook filter is defined in
 '*class.template.php*'. The second parameter is the name of the function to run
 when we render the placeholder.
@@ -278,7 +261,7 @@ to use based on the current URL.
 
 To get a database instance, use:
 
-	$db = DB::getInstance();
+	$db = \DB\DB::getInstance();
 
 The DB class is static and will automatically handle suppressing multiple
 instances.
@@ -289,7 +272,7 @@ The Mailer class simplifies sending emails by generating headers for you
 and using an easy to use object to clearly define your email. The Mailer can
 send emails using an HTML template or text.
 
-	$m = new Mailer();
+	$m = new \Mailer\Message();
 	$m->addTo("test@test.com");
 	$m->addFrom("from.me@test.com");
 	$m->addSubject("This is a test, don't panic.");
@@ -303,7 +286,7 @@ send emails using an HTML template or text.
 The CSV class ensures that all records are properly escaped and allows you to
 easily manipulate data inside of a CSV file.
 
-	$c = new CSV();
+	$c = new \CSV\Document();
 	$data = array(
 		'George',
 		'Washington'
@@ -324,8 +307,8 @@ easily manipulate data inside of a CSV file.
 The *Debug* static class allows you to debug on-screen, via email, or by logging
 to a database.
 
-	$db = DB::getInstance();
-	Debug::out($db);
+	$db = \DB\DB::getInstance();
+	\Sleepy\Debug::out($db);
 
 ### File System Database (class.fsdb.php)
 
@@ -340,7 +323,7 @@ to use, and requires no setup, except checking that proper permissions are set.
 	$fruit->texture = "Crispy";
 	$fruit->price = 0.50;
 
-	$db = new FSDB();
+	$db = new \FSDB\Connection();
 
 	$db->insert('fruit', $fruit);
 	$data = $db->select('fruit', 'name', 'Apple');
@@ -349,7 +332,7 @@ to use, and requires no setup, except checking that proper permissions are set.
 
 *Country detection* uses the *FSDB* to do a quick lookup of the current country.
 
-	$i = new IP2CO();
+	$i = new IP2Country\Converter();
 
 	$countryCode = $i->getCountryCode($_SERVER['REMOTE_ADDR']);
 
@@ -364,7 +347,7 @@ to use, and requires no setup, except checking that proper permissions are set.
 Mobile detection is done by comparing the UA (user-agent) to a list of currently
 available mobile and tablet UA.
 
-	$md = new MobiDetect();
+	$md = new MobiDetect\Detector();
 
 	if ($md->isMobile()) {
 		// goto mobile site
@@ -404,13 +387,13 @@ list with some classes added for the current active page.
 			]
 		}';
 
-		$topNav = new Navigation($topNavData);
+		$topNav = new \Navigation\Builder($topNavData);
 		$topNav->setCurrent($_SERVER['SCRIPT_NAME']);
 
 		return $topNav->show();
 	}
 
-	Hook::applyFilter(
+	\Sleepy\Hook::applyFilter(
 		'render_placeholder_TopNav',
 		'hook_render_placeholder_TopNav'
 	);
