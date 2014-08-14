@@ -8,21 +8,21 @@
 		// make sure placeholders are case insensitive
 		// trim whitespace
 		function testBind() {
-			$t = new template();
-			$t->directory = "./";
-			$t->setTemplate('templates/bind');
+			$t = new \Sleepy\Template();
+			$t->directory = "./templates/";
+			$t->setTemplate('bind');
 			$t->bind('   naMe ', 'Sleepy Mustache!');
 			ob_start();
 			$t->show();
 			$name = ob_get_clean();
 			$this->assertEqual($name, 'Sleepy Mustache!');
 		}
-		
+
 		// bind large chunks w/ bindStart/bindEnd
 		function testBindChunk() {
-			$t = new template();
-			$t->directory = "./";
-			$t->setTemplate('templates/bind');
+			$t = new \Sleepy\Template();
+			$t->directory = "./templates/";
+			$t->setTemplate('bind');
 			$t->bindStart();
 			?>
 			Sleepy Mustache!
@@ -40,12 +40,12 @@
 				return $x . "!";
 			}
 
-			Hook::applyFilter('render_placeholder_name', 'render_placeholder_filter');
+			\Sleepy\Hook::applyFilter('render_placeholder_name', 'render_placeholder_filter');
 
-			// lets capture what the template
-			$t = new template();
-			$t->directory = "./";
-			$t->setTemplate('templates/bind');
+			// lets capture what the \Sleepy\Template
+			$t = new \Sleepy\Template();
+			$t->directory = "./templates/";
+			$t->setTemplate('bind');
 			$t->bind('   naMe ', 'Sleepy Mustache!');
 			ob_start();
 			$t->show();
@@ -54,7 +54,7 @@
 			// test if the extra bang was added
 			$this->assertEqual($name, 'Sleepy Mustache!!');
 		}
-		
+
 		// Test placeholder hooks w/ parameters
 		function testPlaceholderHookParameters() {
 			// function to run if filter works
@@ -75,12 +75,12 @@
 				return implode($colors, " ");
 			}
 
-			Hook::applyFilter('render_placeholder_colorof', 'render_placeholder_parameter');
+			\Sleepy\Hook::applyFilter('render_placeholder_colorof', 'render_placeholder_parameter');
 
-			// lets capture what the template
-			$t = new template();
-			$t->directory = "./";
-			$t->setTemplate('templates/parameters');
+			// lets capture what the \Sleepy\Template
+			$t = new \Sleepy\Template();
+			$t->directory = "./templates/";
+			$t->setTemplate('parameters');
 			ob_start();
 			$t->show();
 			$color = ob_get_clean();
@@ -88,12 +88,12 @@
 			// test if the extra bang was added
 			$this->assertEqual($color, 'Yellow Red');
 		}
-		
+
 		// Test #each placeholder
 		function testEach() {
-			$t = new template();
-			$t->directory = "./";
-			$t->setTemplate('templates/each');
+			$t = new \Sleepy\Template();
+			$t->directory = "./templates/";
+			$t->setTemplate('each');
 			$t->bind('poem', array(
 				array(
 					'number' => 1,
@@ -116,9 +116,9 @@
 		}
 
 		// Test #include placeholder
-		// Test hooks inside of included templates
+		// Test hooks inside of included \Sleepy\Templates
 		function testInclude() {
-			$t = new template();
+			$t = new \Sleepy\Template();
 			$t->directory = "./templates/";
 			$t->setTemplate('include');
 			$t->bind('   naMe ', 'Sleepy Mustache!');
@@ -131,9 +131,9 @@
 
 		// Test inline placeholders
 		function testTwoInline() {
-			$t = new template();
-			$t->directory = "./";
-			$t->setTemplate('templates/two-inline');
+			$t = new \Sleepy\Template();
+			$t->directory = "./templates/";
+			$t->setTemplate('two-inline');
 			$t->bind('firstname', 'Jaime');
 			$t->bind('lastname', 'Rodriguez');
 			ob_start();
@@ -143,21 +143,21 @@
 			$this->assertEqual(trim($name), 'Jaime Rodriguez');
 		}
 
-		// Test if template doesn't exist
+		// Test if \Sleepy\Template doesn't exist
 		function testTemplateMissing() {
 			$this->expectException(new Exception("Template ./templates/missing.tpl doesn't exist."));
-			$t = new template();
-			$t->directory = "./";
-			$t->setTemplate('templates/missing');
+			$t = new \Sleepy\Template();
+			$t->directory = "./templates/";
+			$t->setTemplate('missing');
 			$t->show();
 		}
-		
+
 		// Test in #include doesn't exist
 		function testIncludeMissing() {
-			$this->expectException(new Exception("./binding.tpl doesn't exist. Cannot include file."));
-			$t = new template();
-			$t->directory = "./";
-			$t->setTemplate('templates/include-missing');
+			$this->expectException(new Exception("Template ./templates/binding.tpl doesn't exist."));
+			$t = new \Sleepy\Template();
+			$t->directory = "./templates/";
+			$t->setTemplate('binding');
 			$t->show();
 		}
 	}

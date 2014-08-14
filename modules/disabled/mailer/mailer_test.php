@@ -1,13 +1,10 @@
 <?php
-	if (file_exists('../modules/disabled/mailer/class.mailer.php')) {
-		require_once('../modules/disabled/mailer/class.mailer.php');
-	} else {
-		require_once('../modules/enabled/mailer/class.mailer.php');
-	}
+	require_once(dirname(__FILE__) . '/../../../include/class.debug.php');
+	require_once(dirname(__FILE__) . '/class.mailer.php');
 
 	class TestOfMailer extends UnitTestCase {
 		function setUp() {
-			$this->mail = new Mailer();
+			$this->mail = new \Mailer\Message();
 		}
 
 		// add From field
@@ -44,20 +41,17 @@
 		}
 		// add external html file
 		function testExternalHTML() {
-			//$this->mail->addFrom('hi.i.am.jaime@gmail.com');
-			//$this->mail->addTo('hi.i.am.jaime@gmail.com');
 			$this->mail->fetchHTML('./test.html');
 			ob_start();
-			Debug::out($this->mail);
+			\Sleepy\Debug::out($this->mail);
 			$object = ob_get_clean();
 			$this->assertPattern('/Heading 1/', $object);
-			//$this->mail->send();
 		}
 		// add html text to body
 		function testTextBody() {
 			$this->mail->msgText('Testing, testing, 123.');
 			ob_start();
-			Debug::out($this->mail);
+			\Sleepy\Debug::out($this->mail);
 			$object = ob_get_clean();
 			$this->assertPattern('/Testing, testing, 123./', $object);
 		}

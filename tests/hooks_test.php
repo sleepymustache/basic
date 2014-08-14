@@ -8,13 +8,13 @@
 				echo "YES!";
 			}
 
-			Hook::doAction('TestHook', 'action');
+			\Sleepy\Hook::doAction('TestHook', 'action');
 
 			// lets capture what the action does
 			ob_start();
-			Hook::addAction('TestHook');
+			\Sleepy\Hook::addAction('TestHook');
 			$passed = ob_get_clean();
-			
+
 			// Did the action do anything?
 			if (strlen($passed) > 0) {
 				$this->pass();
@@ -28,11 +28,11 @@
 			function filter($arg) {
 				return $arg . " Smith";
 			}
-			
-			Hook::applyFilter('TestFilter', 'filter');
-			
+
+			\Sleepy\Hook::applyFilter('TestFilter', 'filter');
+
 			// Did the filter do anything?
-			if (Hook::addFilter('TestFilter', "John") === "John Smith") {
+			if (\Sleepy\Hook::addFilter('TestFilter', "John") === "John Smith") {
 				$this->pass();
 			} else {
 				$this->fail();
