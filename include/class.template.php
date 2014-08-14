@@ -1,4 +1,6 @@
 <?php
+namespace Sleepy;
+
 require_once('class.hooks.php');
 
 /**
@@ -77,7 +79,7 @@ class Template {
 	 */
 	private function checkTemplate($file) {
 		if (!file_exists($this->directory . $file . $this->extension)) {
-			throw new Exception("Template " . $this->directory . $this->_file . $this->extension . " doesn't exist.");
+			throw new \Exception("Template " . $this->directory . $this->_file . $this->extension . " doesn't exist.");
 		}
 
 		return true;
@@ -101,14 +103,6 @@ class Template {
 	}
 
 	/**
-	 * Sets the template to use.
-	 * @param [type] $file [description]
-	 */
-	public function setTemplate($file) {
-		$this->_file = $file;
-	}
-
-	/**
 	 * Renders the template
 	 * @param  string $template The template to render
 	 * @param  array $data      The data bound to the template
@@ -124,7 +118,7 @@ class Template {
 				include($this->directory . str_replace('#include ', '', $index) . $this->extension);
 			} else {
 				ob_clean(); // clear buffer in $this->show();
-				throw new Exception($this->directory . str_replace('#include ', '', $index) . $this->extension . " doesn't exist. Cannot include file.");
+				throw new \Exception($this->directory . str_replace('#include ', '', $index) . $this->extension . " doesn't exist. Cannot include file.");
 			}
 			$template = str_replace($include[0], $this->render(ob_get_contents(), $data), $template);
 			ob_end_clean();
@@ -153,15 +147,15 @@ class Template {
 				if (is_array($in[0])) {
 
 					// Allow hooks to edit the data
-					$in = Hook::addFilter('template_each_array', array($in));
+					$in = \Sleepy\Hook::addFilter('template_each_array', array($in));
 
 					$iterator = 0;
 
 					foreach ($in as $new_data) {
 						$iterator++;
 
-						$new_data = Hook::addFilter('template_each', array($new_data));
-						$new_data = Hook::addFilter('template_each_' + $forin['for'], array($new_data));
+						$new_data = \Sleepy\Hook::addFilter('template_each', array($new_data));
+						$new_data = \Sleepy\Hook::addFilter('template_each_' + $forin['for'], array($new_data));
 
 						$new_data['iterator'] = $iterator;
 						$new_data['zebra'] = ($iterator % 2) ? 'odd' : 'even';
@@ -186,7 +180,7 @@ class Template {
 			}
 		}
 
-		$template = Hook::addFilter('prerender_template', $template);
+		$template = \Sleepy\Hook::addFilter('prerender_template', $template);
 
 		// Find all the single placeholders
 		preg_match_all('/{{\s?(.*?)(\s.*?)?\s?}}/', $template, $matches);
@@ -201,7 +195,7 @@ class Template {
 
 			$arguments = array_merge($arguments, explode(" ", $matches[2][$index]));
 
-			$template = str_replace($placeholder, Hook::addFilter('render_placeholder_' . strtolower($key), $arguments), $template);
+			$template = str_replace($placeholder, \Sleepy\Hook::addFilter('render_placeholder_' . strtolower($key), $arguments), $template);
 		}
 
 		return $template;
@@ -212,12 +206,23 @@ class Template {
 	 * @param string $template The name of the template
 	 */
 	public function __construct($template='') {
-		Hook::addAction('template_start');
+		\Sleepy\Hook::addAction('template_start');
 		$this->directory = DIRBASE . "/templates/";
 
 		if (!empty($template)) {
+			if (!file_exists($this->directory . $template . $this->extension)) {
+				throw new \Exception("Template '" . $this->directory . $template . "' doesn't exist.");
+			}
 			$this->setTemplate($template);
 		}
+	}
+
+	/**
+	 * Sets the template to use.
+	 * @param [type] $file [description]
+	 */
+	public function setTemplate($file) {
+		$this->_file = $file;
 	}
 
 	/**
@@ -227,7 +232,7 @@ class Template {
 	 */
 	public function bind($placeholder, $value) {
 		if (!is_array($value)) {
-			$value = Hook::addFilter('bind_placeholder_' . $placeholder, $value);
+			$value = \Sleepy\Hook::addFilter('bind_placeholder_' . $placeholder, $value);
 		}
 
 		$this->_data[trim(strtolower($placeholder))] = $value;
@@ -250,7 +255,7 @@ class Template {
 		ob_end_clean();
 
 		if (!is_array($content)) {
-			$content = Hook::addFilter('bind_placeholder_' . $placeholder, $content);
+			$content = \Sleepy\Hook::addFilter('bind_placeholder_' . $placeholder, $content);
 		}
 
 		$this->_data[trim(strtolower($placeholder))] = $content;
@@ -262,7 +267,7 @@ class Template {
 	 * @return mixed               The data stored in the placeholder
 	 */
 	public function get($key) {
-		return Hook::addFilter('template_get_' . $key, $this->_data[$key]);
+		return \Sleepy\Hook::addFilter('template_get_' . $key, $this->_data[$key]);
 	}
 
 	/**
@@ -278,7 +283,23 @@ class Template {
 		$template = $this->render(ob_get_contents(), $this->_data);
 		ob_end_clean();
 
-		$template = Hook::addFilter('render_template_' . $this->_file, $template);
-		echo Hook::addFilter('render_template', $template);
+		$template = \Sleepy\Hook::addFilter('render_template_' . $this->_file, $template);
+		echo \Sleepy\Hook::addFilter('render_template', $template);
+	}
+
+	/**
+	 * Shows the rendered template
+	 */
+	public function retrieve() {
+		// Check if template is ok
+		$this->checkTemplate($this->_file);
+
+		// Render template file
+		ob_start();
+		include($this->directory . $this->_file . $this->extension);
+		$template = $this->render(ob_get_contents(), $this->_data);
+		ob_end_clean();
+
+		return \Sleepy\Hook::addFilter('render_template_' . $this->_file, $template);
 	}
 }
