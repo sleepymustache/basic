@@ -5,8 +5,8 @@ requirejs.config({
 	enforceDefine: true,
 	paths: {
 		jquery: [
-			'//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min',
-			'jquery-1.10.2.min'
+			'//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min',
+			'jquery-1.11.0.min'
 		]
 	}
 });
