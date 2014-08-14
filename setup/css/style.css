@@ -1,0 +1,163 @@
+/* Fix box model */
+*, *:before, *:after {-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+
+/* Persistant scrollbar and mobile text sizing fix */
+html {overflow-y: scroll;-moz-text-size-adjust:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;}
+
+/* Micro clearfix */
+.cf:before,.cf:after{content:" ";display:table;}.cf:after{clear:both;}.cf {*zoom: 1;}
+
+/* Custom text-selection colors ----------------->#??????*/
+::-moz-selection{	color:#fff;       background:darkred;text-shadow:none;}
+::selection {		color:#fff;       background:darkred;text-shadow:none;}
+ins {				color:#fff; background-color:darkred;}
+mark {				color:#fff; background-color:darkred;font-style:italic;font-weight:bold;}
+a:link {			 -webkit-tap-highlight-color:darkred;}
+
+.wrapper {
+	position: relative;
+	max-width: 960px;
+	min-width: 320px;
+	margin: 0 auto;
+	padding: 12px;
+}
+
+/* Form Styling */
+fieldset {
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+fieldset legend {
+	padding: 0;
+	margin-bottom: 16px;
+	text-transform: capitalize;
+	font-weight: bold;
+	font-size: 24px;
+}
+fieldset ul {
+	padding-left: 0;
+}
+fieldset li {
+	margin-left: 0;
+	clear: both;
+	list-style: none;
+}
+fieldset li label {
+	font-weight: bold;
+	float: left;
+	display: block;
+	width: 150px;
+}
+fieldset li label.error {
+	width: auto;
+	font-size: 10px;
+	line-height: 26px;
+	margin-left: 10px;
+	color: red;
+	font-weight: normal;
+}
+fieldset li input {
+	float: left;
+	margin: 0 0 12px 0;
+}
+fieldset li select {
+	float: left;
+	margin: 0 0 12px 0;
+	width: 150px;
+}
+fieldset li ul {
+	position: relative;
+	padding-left: 0;
+	top: -15px;
+	clear: both;
+}
+fieldset li ul label {
+	float: left;
+}
+fieldset li ul input {
+	margin: 0 12px 12px 150px;
+	float: left;
+	clear: right;
+}
+fieldset.submit {
+	margin-top: -30px;
+	margin-left: 150px;
+	border: 0;
+}
+
+/* Navigation Styling */
+nav ul {
+	padding: 0;
+	list-style: none;
+	border-left: 1px solid #000;
+}
+nav ul ul {
+	display: none;
+	position: absolute;
+	margin: 0 0 0 -1px;
+}
+nav ul ul ul {
+	left: 100%;
+	top: -1px;
+}
+nav ul li {
+	display: inline-block;
+}
+nav ul li a {
+	display: block;
+	color: #000;
+	background: #fff;
+	text-align: center;
+	width: 150px;
+	padding: 8px 24px;
+	border: 1px solid #000;
+	border-left: none;
+	text-decoration: none;
+}
+nav ul ul li {
+	float: left;
+	clear: both;
+}
+nav ul ul li a {
+	min-width: 304px;
+	margin-top: -1px;
+	text-align: left;
+}
+nav > ul li:hover > ul {
+	display: block;
+}
+
+/* Delete styles below this comment */
+.wrapper{padding-bottom:0}
+.wrapper > header{margin-top: -12px;}
+header h1{font-family:'Arial Black','Arial Bold',sans-serif;font-weight:800;color:#444;font-size:105px;line-height:68px;letter-spacing:-8px;margin:0;overflow:hidden;height:134px;}
+header h1 span{position:relative;top:21px;z-index:-1;}
+nav{margin-top:-26px;}
+nav ul{border:0;}
+nav ul li{width:33.3333%;}
+nav ul li a{font-family:sans-serif;width:100%;background:#2b9884;color:#222;border:0;border-right:1px solid black;}
+nav ul li a:hover{background:#268573;color:#fff;}
+nav ul ul{margin:0}
+nav ul ul li a{border:0;border-bottom: 1px solid #000;}
+.content{margin-top:48px}
+.content a{color:#ee7147}
+.content em{color:#2b9884}
+.content header{border-bottom:8px solid #2b9884;display:inline-block;margin-bottom:30px}
+.content footer p{text-align:right;font-size:20px;color:#666;font-style:italic;margin-bottom: 9px}
+.content input {padding: 18px 12px 11px;border: 2px solid #444;color: #444;margin: -17px 0 0 -2px;}
+.content fieldset{margin-top:18px}
+.content fieldset ul {margin:0}
+.content fieldset ul li {position:relative;float:left;clear:none}
+.content label.error {position:absolute;bottom: -5px; right: 3px}
+}
+.content legend {margin: 0 0 4px 0;font-weight: normal;font-size: 14px;width: 100%}
+.content label {font-weight: normal;font-size: 12px;float: none;padding-left: 2px}
+.content h1,.content h2,.content legend,.content label{font-family:sans-serif;color:#444}
+.content h1,.content h1 a{text-decoration:none;letter-spacing:-1px;font-size:36px;line-height:1;margin:-1px 0 28px;font-weight:normal}
+.content h1 a:hover{text-decoration:underline}
+.content h2{font-size:24px;line-height:30px}
+.content p{color:#444;font-size:20px;line-height:33px;font-family:georgia,serif;margin:0 0 13px;text-align:justify}
+
+.content input[type=submit] {background:#ee7147;color:#fff;}
+.wrapper > footer p{color:#777;font-family:georgia,serif;font-size:18px;margin:0}
