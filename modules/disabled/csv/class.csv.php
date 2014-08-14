@@ -22,6 +22,8 @@ namespace CSV;
  * @section changelog Changelog
  * ##Version 1.8
  * * Added namespacing
+ * * Renamed remove method to delete
+ * * Added a search method
  * ##Version 1.6
  * * Updated documentation
  * ##Version 1.5

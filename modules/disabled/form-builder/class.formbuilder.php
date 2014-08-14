@@ -1,4 +1,6 @@
 <?php
+namespace FormBuilder;
+
 /**
  * @page fb1 FormBuilder Class
  *
@@ -6,12 +8,12 @@
  *
  * This class allows for building forms using JSON. Fields are automatically
  * validated based on Rules allowing for easy server-side validation. The markup
- * closely resembles jquery validation plugin so you can use one stylesheet for
+ * closely resembles jQuery validation plugin so you can use one stylesheet for
  * both client- and server-side validation.
  *
  * @section usage Usage
  * @code
- *   $UserEdit = new FormBuilder('{
+ *   $UserEdit = new FormBuilder\Form('{
  *     "id": "user",
  *     "action": "#",
  *     "method": "POST",
@@ -104,13 +106,17 @@
  * @endcode
  *
  * @section changelog Changelog
+ *   ## Version 1.2
+ *   * Added placeholder for inputs
+ *   * Added namespacing
+ *   * Fixed error class bug
  *   ## Version 1.1
  *   * Added the date and changelog sections to documentation
  *
- * @date June 16, 2014
+ * @date August 13, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version 1.1
- * @copyright  GPL 3 http://cuttingedgecode.com
+ * @version 1.2
+ * @copyright  GPL 3 http://rodriguez-j.rcom
  */
 
 class FormBuilderField {
@@ -184,15 +190,15 @@ class FormBuilderField {
 	 */
 	public function __construct($object) {
 		if (!isset($object->name)) {
-			throw new Exception('FormBuilderField: Name is manditory.');
+			throw new \Exception('FormBuilderField: Name is manditory.');
 		}
 
 		if (!isset($object->label)) {
-			throw new Exception('FormBuilderField: Label is manditory.');
+			throw new \Exception('FormBuilderField: Label is manditory.');
 		}
 
 		if (!isset($object->type)) {
-			throw new Exception('FormBuilderField: Type is manditory.');
+			throw new \Exception('FormBuilderField: Type is manditory.');
 		}
 
 		$this->name = $object->name;
@@ -243,7 +249,7 @@ class FormBuilderField {
 	 * @private
 	 */
 	private function validateDate($date, $format = 'Y-m-d H:i:s') {
-		$d = DateTime::createFromFormat($format, $date);
+		$d = \DateTime::createFromFormat($format, $date);
 		return $d && $d->format($format) == $date;
 	}
 
@@ -255,8 +261,9 @@ class FormBuilderField {
 		$disabled = ($this->disabled) ? "disabled" : "";
 		$autofocus = ($this->autofocus) ? "autofocus" : "";
 		$errors = ($validate) ? $this->validate() : "";
+		$placeholder = ($this->placeholder) ? "placeholder='{$this->placeholder}'" : "";
 
-		if (is_array($errors)) {
+		if (count($errors) > 0) {
 			$this->class = $this->class . " error";
 		}
 
@@ -294,7 +301,7 @@ class FormBuilderField {
 			$buffer[] = "</select>";
 			break;
 		default:
-			$buffer[] = "<input type=\"{$this->type}\" {$disabled} {$autofocus} id=\"{$this->name}\" name=\"{$this->name}\" class=\"{$this->class}\" value=\"{$this->values[0]}\">";
+			$buffer[] = "<input type=\"{$this->type}\" {$disabled} {$autofocus} id=\"{$this->name}\" name=\"{$this->name}\" class=\"{$this->class}\" {$placeholder} value=\"{$this->values[0]}\">";
 		}
 
 		if (is_array($errors)) {
@@ -369,10 +376,10 @@ class FormBuilderField {
 					if ($value != false) {
 						if (count($this->values) == 0) {
 							$this->values[0] = NULL;
-						}
-
-						if (!filter_var($this->values[0], FILTER_VALIDATE_EMAIL)) {
-							$errors[] = "'{$this->label}' is not a valid email address.";
+						} else {
+							if (!filter_var($this->values[0], FILTER_VALIDATE_EMAIL)) {
+								$errors[] = "'{$this->label}' is not a valid email address.";
+							}
 						}
 					}
 					break;
@@ -532,7 +539,7 @@ class FormBuilderFieldset {
 /**
  * Build a form using a JSON fle
  */
-class FormBuilder {
+class Form {
 	/**
 	 * The ID of the form
 	 * @var string
@@ -574,14 +581,14 @@ class FormBuilder {
 	 * @param string $json
 	 */
 	public function __construct($json) {
-		$data = json_decode($json);
+		$data = json_decode(str_replace('\\', '\\\\', $json));
 
 		if (!isset($data->action)) {
-			throw new Exception('FormBuilder: Action is manditory.');
+			throw new \Exception('FormBuilder: Action is manditory.');
 		}
 
 		if (!isset($data->method)) {
-			throw new Exception('FormBuilder: Method is manditory.');
+			throw new \Exception('FormBuilder: Method is manditory.');
 		}
 
 		$this->action = $data->action;
@@ -599,23 +606,29 @@ class FormBuilder {
 			$this->validate = $data->validate;
 		}
 
-
-
 		foreach ($data->fieldsets as $fieldset) {
 			$this->fieldsets[] = new FormBuilderFieldset($fieldset);
 		}
 	}
 
 	/**
-	 * Checks if the form been submitted?
+	 * Checks if the form has been submitted?
 	 * @return boolean
 	 */
 	public function submitted() {
 		if ($_SERVER['REQUEST_METHOD'] == $this->method) {
-			return true;
-		} else {
-			return false;
+			if (strtoupper($this->method) === "POST") {
+				$id = $_POST['frmID'];
+			} else {
+				$id = $_GET['frmID'];
+			}
+
+			if ($id == $this->id) {
+				return true;
+			}
 		}
+
+		return false;
 	}
 
 	/**
@@ -643,6 +656,7 @@ class FormBuilder {
 		$validate = (!$this->validate) ? "novalidate" : "";
 		$buffer = array();
 		$buffer[] = "<form class=\"{$this->class}\" action=\"{$this->action}\" method=\"{$this->method}\" {$validate}>";
+		$buffer[] = "<input type=\"hidden\" name=\"frmID\" id=\"frmID\" value=\"{$this->id}\">";
 
 		foreach($this->fieldsets as $fieldset) {
 			$buffer[] = $fieldset->render($this->validate && $this->submitted());

@@ -1,9 +1,24 @@
 <?php
+namespace sampleNavigation;
+
 /**
- * Sample Navigation 
+ * Sample Navigation
+ *
+ * The sample module uses the Navigation class to generate a unordered list with
+ * using JSON. The *applyFilter* Method of the *Hook* Class takes two
+ * parameters. The first is the hook point.
+ *
+ * All placeholders have hook points. They all follow the following pattern:
+ *
+ * * render_placeholder_[placeholder name]
+ *
+ * The second parameter is the name of the function to execute. Don't forget to
+ * add the correct namespace.
+ *
  * @return string The rendered navigation
  */
-function hook_render_placeholder_topNav() {
+
+function render() {
 	$topNavData = '{
 		"pages": [
 			{
@@ -49,10 +64,10 @@ function hook_render_placeholder_topNav() {
 		]
 	}';
 
-	$topNav = new Navigation($topNavData);
+	$topNav = new \Navigation\Builder($topNavData);
 	$topNav->setCurrent($_SERVER['SCRIPT_NAME']);
 
 	return $topNav->show();
 }
 
-Hook::applyFilter('render_placeholder_topnav', 'hook_render_placeholder_topNav');
+\Sleepy\Hook::applyFilter('render_placeholder_topnav', '\sampleNavigation\render');

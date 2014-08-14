@@ -1,4 +1,6 @@
 <?php
+namespace FSDB;
+
 /**
  * @page fsdb File System Database Class
  * A mock database that can be used when a real DB is overkill.
@@ -14,18 +16,20 @@
  *   $fruit->texture = "Crispy";
  *   $fruit->price = 0.50;
  *
- *   $db = new FSDB();
+ *   $db = new FSDB\Connection();
  *   $db->insert('fruit', $fruit);
  *   $data = $db->select('fruit', 'name', 'Banana');
  * @endcode
  *
  * @section changelog Changelog
+ *   ## Version 1.0
+ *   * Added namespacing
  *   ## Version 0.8
  *   * Added the date and changelog sections to documentation
  *
  * @todo select with =, >, <, !=, >=, <=
  *
- * @date June 16, 2014
+ * @date August 13, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version 0.8
  * @copyright  GPL 3 http://cuttingedgecode.com
@@ -34,7 +38,7 @@
 /**
  * Filesystem Table
  */
-class FSTable {
+class Table {
 	/**
 	 * bool This flag gets set when the Database needs to be saved
 	 * @private
@@ -87,7 +91,7 @@ class FSTable {
 			fseek($this->handle, 0);
 			$this->getLock($file);
 		} else {
-			throw new Exception('FSTable: Could not open file');
+			throw new \Exception('\FSDB\Table: Could not open file');
 		}
 	}
 
@@ -132,7 +136,7 @@ class FSTable {
 				if ($timeout < 10) {
 					$this->getLock($timeout++);
 				} else {
-					throw new Exception('FSTable: Could not lock file');
+					throw new \Exception('\FSDB\Table: Could not lock file');
 				}
 			}
 		}
@@ -146,7 +150,7 @@ class FSTable {
 	 */
 	private function load() {
 		if ($this->locked == false) {
-			throw new Exception('FSTable: File in not locked yet');
+			throw new \Exception('\FSDB\Table: File in not locked yet');
 		}
 
 		$data = "";
@@ -156,7 +160,7 @@ class FSTable {
 		}
 
 		if (!feof($this->handle)) {
-			throw new Exception('FSTable: unexpected fgets() fail');
+			throw new \Exception('\FSDB\Table: unexpected fgets() fail');
 		}
 
 		$this->data = json_decode($data, false);
@@ -178,10 +182,10 @@ class FSTable {
 			if (fwrite($this->handle, json_encode($this->data))) {
 				return true;
 			} else {
-				throw new Exception("FSDB: Cannot write data to:" . $this->file);
+				throw new \Exception("\FSDB\Connection: Cannot write data to:" . $this->file);
 			}
 		} else {
-			throw new Exception('FSDB: File is not opened, can not save.');
+			throw new \Exception('\FSDB\Connection\: File is not opened, can not save.');
 		}
 	}
 
@@ -284,16 +288,16 @@ class FSTable {
 	 * @return int How many rows were deleted?
 	 */
 	public function delete($column, $search = 0) {
-		$updated= 0;
+		$updated = 0;
 
 		foreach($this->data as $key => $value) {
 			if ($value->$column == $search) {
-				array_splice($this->data, $key, 1);
+				unset($this->data[$key]);
 				$updated++;
 			}
 		}
 
-		if ($updated) {
+		if ($updated > 0) {
 			$this->edited = true;
 		}
 
@@ -305,11 +309,11 @@ class FSTable {
  * Filesystem Database
  *
  * @section dependencies Dependencies
- * class.FSTables.php
+ * \FSDB\Tables
  *
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  */
-class FSDB {
+class Connection {
 	/**
 	 * string The directory where the data is stored
 	 * @private
@@ -339,7 +343,7 @@ class FSDB {
 			if (@mkdir($directory, 0777)) {
 				$this->directory = $directory;
 			} else {
-				throw new Exception("FSDB: Cannot create data directory at:" . $directory);
+				throw new \Exception("FSDB: Cannot create data directory at:" . $directory);
 			}
 			umask($oldumask);
 		}
@@ -348,19 +352,19 @@ class FSDB {
 	/**
 	 * __call
 	 *
-	 * Handles method calls, if the method exists in FSTable, use that one.
+	 * Handles method calls, if the method exists in \FSDB\Table, use that one.
 	 *
 	 * @param string $method Method called
 	 * @param array $args   Arguments passed
 	 * @return mixed Value.
 	 */
 	public function __call($method, $args) {
-		if (method_exists("FSTable", $method)) {
+		if (method_exists("\FSDB\Table", $method)) {
 			$tableName = $args[0];
 			$filename = $args[0] . ".json";
 
 			if (!isset($this->tables[$tableName])) {
-				$this->tables[$tableName] = new FSTable($this->directory . $filename);
+				$this->tables[$tableName] = new Table($this->directory . $filename);
 			}
 
 			array_shift($args);
@@ -368,7 +372,7 @@ class FSDB {
 			return call_user_func_array(array($this->tables[$tableName], $method), $args);
 
 		} else {
-			throw new Exception("FSDB: Method does not exist: $method");
+			throw new \Exception("FSDB: Method does not exist: $method");
 		}
 	}
 }

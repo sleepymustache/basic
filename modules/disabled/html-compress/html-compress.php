@@ -1,17 +1,18 @@
 <?php
+namespace HTMLCompress;
 
 /**
  * Hooks into the preprocess and postprocess hooks to buffer and compress HTML
- * 
+ *
  * @return void
  */
-function htmlcompress_sleepy_preprocess() {
-	ob_start('process_data_jmr1');
+function preprocess() {
+	ob_start('\HTMLCompress\process_data_jmr1');
 
 	ini_set("pcre.recursion_limit", "16777");
 }
 
-function htmlcompress_sleepy_postprocess() {
+function postprocess() {
 	ob_end_flush();
 }
 
@@ -41,6 +42,6 @@ function process_data_jmr1($text) {
 }
 
 if (ENV === "LIVE") {
-	Hook::doAction('sleepy_preprocess',  'htmlcompress_sleepy_preprocess' );
-	Hook::doAction('sleepy_postprocess', 'htmlcompress_sleepy_postprocess');
+	\Sleepy\Hook::doAction('sleepy_preprocess',  '\HTMLCompress\preprocess' );
+	\Sleepy\Hook::doAction('sleepy_postprocess', '\HTMLCompress\postprocess');
 }

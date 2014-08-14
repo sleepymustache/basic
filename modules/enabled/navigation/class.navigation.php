@@ -1,4 +1,6 @@
 <?php
+namespace Navigation;
+
 /**
  * @page nav1 Navigation Class
  *
@@ -28,7 +30,7 @@
  *    ]
  *  }';
  *
- *  $topNav = new Navigation($topNavData);
+ *  $topNav = new \Navigation\Builder($topNavData);
  *  $topNav->setCurrent($_SERVER['SCRIPT_NAME']);
  *
  *  // In body somewhere...
@@ -46,8 +48,7 @@
  * @version 1.1
  * @copyright  GPL 3 http://cuttingedgecode.com
  */
-
-class Navigation {
+class Builder {
 	/**
 	 * string Use this string to determine currently active page
 	 * @private
@@ -64,8 +65,8 @@ class Navigation {
 	 * @param string $json json data containing the Navigation data
 	 */
 	public function __construct($json='') {
-		$json = Hook::addFilter('navigation_raw_json', $json);
-		$this->data = Hook::addFilter('navigation_rendered_json', json_decode($json));
+		$json = \Sleepy\Hook::addFilter('navigation_raw_json', $json);
+		$this->data = \Sleepy\Hook::addFilter('navigation_rendered_json', json_decode($json));
 	}
 
 	/**
@@ -86,7 +87,7 @@ class Navigation {
 
 		// can we find a match?
 		if (substr($page->link, strlen($page->link) * -1) === $this->current) {
-			Hook::addAction('navigation_has_active');
+			\Sleepy\Hook::addAction('navigation_has_active');
 			return true;
 		}
 
@@ -100,7 +101,9 @@ class Navigation {
 	 * @return string        The string containing the unordered list
 	 */
 	private function renderNav($pages, $class="") {
+		$class = trim($class);
 		$buffer = array();
+
 
 		if (strlen($class) > 1) {
 			$buffer[] = "<ul class=\"{$class}\">";
@@ -109,22 +112,36 @@ class Navigation {
 		}
 
 		foreach ($pages as $page) {
-			$buffer[] = "<li class='";
-			if ($this->hasActive($page)) {
-				$buffer[] = "active ";
+			$active = ($this->hasActive($page)) ? true : false;
+			$classy = (!empty($page->class)) ? true : false;
+
+			$buffer[] = "<li";
+
+			if ($active || $classy) {
+				$buffer[] = " class='";
+
+				if ($active) {
+					$page->class = "active ";
+				}
+
+				$buffer[] = trim($page->class);
+
+				$buffer[] = "'";
 			}
-			if (!empty($page->class)){
-				$buffer[] = $page->class . " ";
-			}
-			$buffer[] = "'>";
+
+			$buffer[] = ">";
+
 			if (isset($page->target)) {
+				$page->target = trim($page->target);
 				$buffer[] = "<a href='{$page->link}' target='{$page->target}'>{$page->title}</a>";
 			} else {
 				$buffer[] = "<a href='{$page->link}'>{$page->title}</a>";
 			}
+
 			if (isset($page->pages)) {
 				$buffer[] = $this->renderNav($page->pages);
 			}
+
 			$buffer[] = "</li>";
 		}
 		$buffer[] = "</ul>";

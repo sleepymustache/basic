@@ -1,9 +1,9 @@
 <?php
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/include/sleepy.php');
 
-	$page = new Template('profile');
+	$page = new \Sleepy\Template('profile');
 
-	$u = new User();
+	$u = new \Authentication\User();
 
 	if ($u->isLoggedIn()) {
 		$u->load($_SESSION['uid']);

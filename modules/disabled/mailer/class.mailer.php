@@ -1,6 +1,8 @@
 <?php
+namespace Mailer;
+
 /**
- * @page mailer1 Mailer Class
+ * @page mailer1 Mailer\Mailer Class
  * Simplifies sending emails.
  *
  * Simplifies sending emails by automatically verifying email addresses and
@@ -8,7 +10,7 @@
  *
  * @section usage Usage
  * @code
- *   $m = new Mailer();
+ *   $m = new \Mailer\Message();
  *   $m->addTo("test@test.com");
  *   $m->addFrom("from.me@test.com");
  *   $m->addSubject("This is a test, don't panic.");
@@ -17,15 +19,17 @@
  * @endcode
  *
  * @section changelog Changelog
+ * ## Version 1.8
+ * * Added namespacing
  * ## Version 1.6
  * * Fixed bug with BCC and CC
  *
- * @date	May 30, 2013
+ * @date	August 13, 2014
  * @author	Jaime Rodriguez, hi.i.am.jaime@gmail.com
- * @version	1.6
- * @copyright  GPL 3 http://cuttingedgecode.com
+ * @version	1.8
+ * @copyright  GPL 3 http://rodriguez-jr.com
  */
-class Mailer {
+class Message {
 	private $to;
 	private $cc;
 	private $bcc;
@@ -52,15 +56,15 @@ class Mailer {
 		$headers = "";
 
 		if (count($this->from) < 1) {
-			throw new Exception('You forgot to addFrom();');
+			throw new \Exception('You forgot to addFrom();');
 		}
 
 		if (count($this->to) < 1) {
-			throw new Exception("You forgot to addTo();");
+			throw new \Exception("You forgot to addTo();");
 		}
 
 		if (strlen($this->body) < 1) {
-			throw new Exception("You forgot to add content.");
+			throw new \Exception("You forgot to add content.");
 		}
 
 		if (!isset($this->subject)) {
@@ -88,7 +92,7 @@ class Mailer {
 
 		// Mail it
 		if (!mail(implode(",", $this->to), $this->subject, $this->body, $headers)) {
-			throw new Exception("Mail was not sent.");
+			throw new \Exception("Mail was not sent.");
 		} else {
 			return true;
 		}
@@ -107,7 +111,7 @@ class Mailer {
 			if ($this->rfcCheck($e)) {
 				$this->to[] = $e;
 			} else {
-				throw new Exception("The \$email parameter has a non RFC 2822 compliant addresses: {$e}");
+				throw new \Exception("The \$email parameter has a non RFC 2822 compliant addresses: {$e}");
 			}
 		}
 
@@ -126,7 +130,7 @@ class Mailer {
 			if ($this->rfcCheck($e)) {
 				$this->cc[] = $e;
 			} else {
-				throw new Exception("The \$email parameter has a non RFC 2822 compliant addresses: {$e}");
+				throw new \Exception("The \$email parameter has a non RFC 2822 compliant addresses: {$e}");
 			}
 		}
 
@@ -145,7 +149,7 @@ class Mailer {
 			if ($this->rfcCheck($e)) {
 				$this->bcc[] = $e;
 			} else {
-				throw new Exception("The \$email parameter has a non RFC 2822 compliant addresses: {$e}");
+				throw new \Exception("The \$email parameter has a non RFC 2822 compliant addresses: {$e}");
 			}
 		}
 
@@ -162,7 +166,7 @@ class Mailer {
 			$this->from = $email;
 			return true;
 		} else {
-			throw new Exception("The \$email parameter has no RFC 2822 compliant addresses.");
+			throw new \Exception("The \$email parameter has no RFC 2822 compliant addresses.");
 		}
 	}
 
@@ -178,7 +182,7 @@ class Mailer {
 			$this->html = true;
 			$this->body = $tempHtml;
 		} else {
-			throw new Exception("Failed to capture data from " . $url);
+			throw new \Exception("Failed to capture data from " . $url);
 		}
 	}
 
@@ -199,7 +203,7 @@ class Mailer {
 	 */
 	public function addSubject($subject='') {
 		if (strlen($subject) > 78) {
-			throw new Exception('The subject cannot be longer than 78 characters.');
+			throw new \Exception('The subject cannot be longer than 78 characters.');
 		}
 
 		if ($subject == '') {

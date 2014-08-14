@@ -1,4 +1,6 @@
 <?php
+namespace MobiDetect;
+
 /**
  * Detects if a device is a mobile device and which kind.
  *
@@ -6,7 +8,7 @@
  *
  * @section usage Usage
  * @code
- *   $m = new MobiDetect();
+ *   $m = new MobiDetect\Detector();
  *
  *   if ($m->isMobile()) {
  *     echo "This is a mobile device";
@@ -22,7 +24,7 @@
  * @version 1.1
  * @copyright  GPL 3 http://cuttingedgecode.com
  */
-class MobiDetect {
+class Detector {
 	private $iphone = false;
 	private $ipad = false;
 	private $android = false;

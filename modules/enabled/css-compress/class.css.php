@@ -1,4 +1,6 @@
 <?php
+namespace CSS;
+
 /**
  * @page css1 CSS Class
  *
@@ -8,7 +10,7 @@
  * @code
  *   require_once('class.css.php');
  *
- *   $c = new CSS();
+ *   $c = new \CSS\Compress();
  *
  *   $files = explode("&", $_GET['css']);
  *
@@ -20,6 +22,8 @@
  * @endcode
  *
  * @section changelog Changelog
+ *  ## Version 1.2
+ *  * Added namespacing
  *  ## Version 1.1
  *  * Added the usage and date sections to documentation
  *
@@ -28,7 +32,8 @@
  * @version 1.1
  * @copyright  GPL 3 http://cuttingedgecode.com
  */
-class CSS {
+
+class Compress {
 	/**
 	 * An array of CSS files
 	 *
