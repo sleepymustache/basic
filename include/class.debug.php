@@ -1,4 +1,6 @@
 <?php
+namespace Sleepy;
+
 /**
  * Class for custom debugging functions.
  *
@@ -19,17 +21,20 @@
  * @endcode
  *
  * @section changelog Changelog
+ * ## Version 1.8
+ * * Added namespacing
  * ## Version 1.7
  * * Added the date section to the documentation
  *
  * ## Version 1.6
  * * Updated defaults to coinside with globals
  *
- * @date June 16, 2014
+ * @date August 13, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version 1.6
+ * @version 1.8
  * @copyright  GPL 3 http://cuttingedgecode.com
  */
+
 class Debug {
 	/**
 	 * object Debug The single instance is stored here.
@@ -118,9 +123,9 @@ class Debug {
 		// Setup email defaults
 		Debug::$emailBuffer = array();
 		Debug::$emailBuffer[] = "Date: " . date(DATE_ATOM, mktime(date("G"), date("i"), 0, date("m"), date("d"), date("Y")));
-		Debug::$emailBuffer[] = "Server IP: " . $_SERVER['SERVER_ADDR'];
-		Debug::$emailBuffer[] = "Client IP: " . $_SERVER['REMOTE_ADDR'];
-		Debug::$emailBuffer[] = "Filename: " . $_SERVER["SCRIPT_FILENAME"];
+		Debug::$emailBuffer[] = "Server IP: " . @$_SERVER['SERVER_ADDR'];
+		Debug::$emailBuffer[] = "Client IP: " . @$_SERVER['REMOTE_ADDR'];
+		Debug::$emailBuffer[] = "Filename: " . @$_SERVER["SCRIPT_FILENAME"];
 		Debug::$emailBuffer[] = "---";
 		Debug::$emailTo = EMAIL_TO;
 		Debug::$emailFrom = EMAIL_FROM;
@@ -196,14 +201,14 @@ class Debug {
 		try {
 			// MySQL with PDO_MYSQL
 			if (!is_object(self::$dbPDO)) {
-				self::$dbPDO = new PDO("mysql:host=" . self::$dbHost . ";dbname=" . self::$dbName, self::$dbUser, self::$dbPass);
-				self::$dbPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				self::$dbPDO = new \PDO("mysql:host=" . self::$dbHost . ";dbname=" . self::$dbName, self::$dbUser, self::$dbPass);
+				self::$dbPDO->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 			}
 			$query = self::$dbPDO->prepare("INSERT INTO " . self::$dbTable . " (datetime, message) values (:datetime, :message)");
 			$query->bindParam(':datetime', date(DATE_ATOM, mktime(date("G"), date("i"), 0, date("m"), date("d"), date("Y"))));
 			$query->bindParam(':message', $buffer);
 			$query->execute();
-		} catch(PDOException $e) {
+		} catch(\PDOException $e) {
 			self::show($e->getMessage());
 			return false;
 		}
