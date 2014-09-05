@@ -1,8 +1,8 @@
 <?php
 	session_start();
 
-	define('DIRBASE', $_SERVER['DOCUMENT_ROOT'] . '/setup/');
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/include/class.template.php');
+	define('DIRBASE', $_SERVER['DOCUMENT_ROOT'] . '/app/setup/');
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/app/include/class.template.php');
 
 	// We're in the last step, render the global.php file
 	$c = new \Sleepy\Template('configuration');

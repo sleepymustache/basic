@@ -1,10 +1,11 @@
 <?php
+
 // Enable sessions
 session_start();
 
 // If we are not setup yet, forward the user to the setup page
 if (!@include_once('global.php')) {
-	header('Location: /setup/');
+	header('Location: /app/setup/');
 	die();
 }
 

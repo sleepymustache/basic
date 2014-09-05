@@ -17,7 +17,7 @@ define([], function () {
 		},
 
 		is_touch_device: function () {
-			return !!('ontouchstart' in window) ? 1 : 0;
+			return ('ontouchstart' in window) ? 1 : 0;
 		},
 
 		'loadCSS': function (files, callback) {
@@ -45,7 +45,7 @@ define([], function () {
 					oLink.href = url;
 					oLink.rel = "stylesheet";
 					oLink.type = "text/css";
-					
+
 					oLink.onload = oLink.onload = function () {
 						decrementAndCallGlobalCallback();
 					};

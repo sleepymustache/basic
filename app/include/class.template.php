@@ -1,6 +1,5 @@
 <?php
 namespace Sleepy;
-
 require_once('class.hooks.php');
 
 /**

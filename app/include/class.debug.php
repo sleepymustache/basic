@@ -205,7 +205,8 @@ class Debug {
 				self::$dbPDO->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 			}
 			$query = self::$dbPDO->prepare("INSERT INTO " . self::$dbTable . " (datetime, message) values (:datetime, :message)");
-			$query->bindParam(':datetime', date(DATE_ATOM, mktime(date("G"), date("i"), 0, date("m"), date("d"), date("Y"))));
+			$datetime = date(DATE_ATOM, mktime(date("G"), date("i"), 0, date("m"), date("d"), date("Y")));
+			$query->bindParam(':datetime', $datetime);
 			$query->bindParam(':message', $buffer);
 			$query->execute();
 		} catch(\PDOException $e) {
@@ -270,13 +271,13 @@ class Debug {
 		self::initialize();
 
 		if (self::$enable_send) {
-			$result = $result && self::send($var);
+			$result = $result && self::$instance->send($var);
 		}
 		if (self::$enable_log) {
-			$result = $result && self::log($var);
+			$result = $result && self::$instance->log($var);
 		}
 		if (self::$enable_show) {
-			$result = $result && self::show($var);
+			$result = $result && self::$instance->show($var);
 		}
 
 		if (!self::$enable_show &&

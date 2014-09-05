@@ -1,10 +1,10 @@
 <?php
 	session_start();
 
-	define('DIRBASE', $_SERVER['DOCUMENT_ROOT'] . '/setup/');
+	define('DIRBASE', $_SERVER['DOCUMENT_ROOT'] . '/app/setup/');
 
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/include/class.template.php');
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/modules/disabled/form-builder/class.formbuilder.php');
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/app/include/class.template.php');
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/app/modules/disabled/form-builder/class.formbuilder.php');
 
 	// What step are we on?
 	if (!isset($_GET['step'])) {
@@ -37,7 +37,7 @@
 						"name": "txtDomain",
 						"label": "Domain*",
 						"type": "text",
-						"value": "' . $_SERVER["HTTP_HOST"] . '",
+						"value": "",
 						"rules": {
 							"required": true
 						}
@@ -53,7 +53,7 @@
 						"name": "txtPath",
 						"label": "Base Directory*",
 						"type": "text",
-						"value": "' . $_SERVER['DOCUMENT_ROOT'] . '",
+						"value": "' . $_SERVER['DOCUMENT_ROOT'] . '\\app\\",
 						"rules": {
 							"required": true
 						}
@@ -151,7 +151,7 @@
 			$step = $step + 1;
 
 			if ($step == 4) {
-				header('Location: /setup/verify/');
+				header('Location: /app/setup/verify/');
 				die();
 				var_dump($_SESSION['steps']);
 
@@ -163,7 +163,7 @@
 				die();
 				// We filled out all 3 forms
 			} else {
-				header("Location: /setup/data-collection/?step={$step}");
+				header("Location: /app/setup/data-collection/?step={$step}");
 			}
 		}
 	}

@@ -114,6 +114,7 @@ class Builder {
 		foreach ($pages as $page) {
 			$active = ($this->hasActive($page)) ? true : false;
 			$classy = (!empty($page->class)) ? true : false;
+			$track = (!empty($page->track) ? "data-track=\"{$page->track}\"" : "");
 
 			$buffer[] = "<li";
 
@@ -133,9 +134,9 @@ class Builder {
 
 			if (isset($page->target)) {
 				$page->target = trim($page->target);
-				$buffer[] = "<a href='{$page->link}' target='{$page->target}'>{$page->title}</a>";
+				$buffer[] = "<a{$track} href='{$page->link}' target='{$page->target}'>{$page->title}</a>";
 			} else {
-				$buffer[] = "<a href='{$page->link}'>{$page->title}</a>";
+				$buffer[] = "<a{$track} href='{$page->link}'>{$page->title}</a>";
 			}
 
 			if (isset($page->pages)) {

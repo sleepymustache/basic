@@ -1,9 +1,9 @@
 <?php
 	session_start();
 
-	define('DIRBASE', $_SERVER['DOCUMENT_ROOT'] . '/setup/');
+	define('DIRBASE', $_SERVER['DOCUMENT_ROOT'] . '/app/setup/');
 
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/include/class.template.php');
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/app/include/class.template.php');
 
 	$page = new \Sleepy\Template('setup');
 

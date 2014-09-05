@@ -7,7 +7,7 @@
 	 */
 
 	if (!include_once('../include/global.php')) {
-		header('Location: /setup/');
+		header('Location: setup/');
 		die();
 	}
 

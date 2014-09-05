@@ -106,6 +106,13 @@ namespace FormBuilder;
  * @endcode
  *
  * @section changelog Changelog
+ *   ## Version 1.6
+ *   * Added track attribute for google data tracking
+ *   ## Version 1.5
+ *   * Throws an exception when you make a JSON error
+ *   ## Version 1.4
+ *   * Added ability to overwrite errors
+ *   * Fixed equalTo rule validation bug
  *   ## Version 1.2
  *   * Added placeholder for inputs
  *   * Added namespacing
@@ -113,9 +120,9 @@ namespace FormBuilder;
  *   ## Version 1.1
  *   * Added the date and changelog sections to documentation
  *
- * @date August 13, 2014
+ * @date September 3, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version 1.2
+ * @version 1.6
  * @copyright  GPL 3 http://rodriguez-j.rcom
  */
 
@@ -161,6 +168,12 @@ class FormBuilderField {
 	public $placeholder;
 
 	/**
+	 * The google event tracking for the field
+	 * @var string
+	 */
+	public $track;
+
+	/**
 	 * Should we autofocus on this field?
 	 * @var boolean
 	 */
@@ -189,20 +202,17 @@ class FormBuilderField {
 	 * @param object $object
 	 */
 	public function __construct($object) {
+		if (!isset($object->type)) {
+			$object->type = "text";
+		}
+
 		if (!isset($object->name)) {
 			throw new \Exception('FormBuilderField: Name is manditory.');
 		}
 
-		if (!isset($object->label)) {
-			throw new \Exception('FormBuilderField: Label is manditory.');
-		}
-
-		if (!isset($object->type)) {
-			throw new \Exception('FormBuilderField: Type is manditory.');
-		}
-
 		$this->name = $object->name;
-		$this->label = $object->label;
+		$this->track = @$object->track;
+		$this->label = @$object->label;
 		$this->type = $object->type;
 
 		if (isset($object->label)) {
@@ -233,6 +243,10 @@ class FormBuilderField {
 			$this->rules = $object->rules;
 		}
 
+		if (isset($object->errors)) {
+			$this->errors = $object->errors;
+		}
+
 		// These two have to be redone
 		if (isset($object->values)) {
 			$this->values = $object->values;
@@ -258,12 +272,27 @@ class FormBuilderField {
 	 * @return string
 	 */
 	public function render($validate) {
-		$disabled = ($this->disabled) ? "disabled" : "";
-		$autofocus = ($this->autofocus) ? "autofocus" : "";
+		// Get any errors
 		$errors = ($validate) ? $this->validate() : "";
-		$placeholder = ($this->placeholder) ? "placeholder='{$this->placeholder}'" : "";
 
-		if (count($errors) > 0) {
+		$disabled = ($this->disabled) ? "disabled " : "";
+		$track = (@isset($this->track)) ? "data-track=\"{$this->track}\" " : "";
+		$autofocus = ($this->autofocus) ? "autofocus " : "";
+		$placeholder = ($this->placeholder) ? "placeholder='{$this->placeholder}' " : "";
+
+		// Setup rules for client-side processing
+		$required =  (@$this->rules->required) ? "required " : "";
+		$equalTo =   (@isset($this->rules->equalTo)) ? "equalTo='#{$this->rules->equalTo}' " : "";
+		$minLength = (@isset($this->rules->minLength)) ? "minlength='{$this->rules->minLength}'' " : "";
+		$maxLength = (@isset($this->rules->maxLength)) ? "maxlength='{$this->rules->maxLength}'' " : "";
+		$digits =    (@$this->rules->digits) ? "digits " : "";
+		$email =     (@$this->rules->email) ? "email " : "";
+		$date =      (@$this->rules->date) ? "date " : "";
+
+		// Add all the rules to one string for brevity
+		$rules = "{$track}{$required}{$minLength}{$maxLength}{$equalTo}{$disabled}{$autofocus}{$placeholder}{$digits}{$email}{$date}";
+
+		if (is_array($errors)) {
 			$this->class = $this->class . " error";
 		}
 
@@ -272,16 +301,30 @@ class FormBuilderField {
 		}
 
 		$buffer = array();
-		$buffer[] = "<label for=\"{$this->name}\">{$this->label}</label>";
 
 		switch ($this->type) {
+		case 'copy':
+			if (isset($this->label)) {
+				$buffer[] = "<label for=\"{$this->name}\">{$this->label}</label>";
+			}
+
+			$buffer[] = $this->values[0];
+			break;
 		case 'textbox':
-			$buffer[] = "<textbox {$disabled} {$autofocus} id=\"{$this->name}\" name=\"{$this->name}\" class=\"{$this->class}\">";
+			if (isset($this->label)) {
+				$buffer[] = "<label for=\"{$this->name}\">{$this->label}</label>";
+			}
+
+			$buffer[] = "<textbox {$rules} id=\"{$this->name}\" name=\"{$this->name}\" class=\"{$this->class}\">";
 			$buffer[] = "{$this->values[0]}";
 			$buffer[] = "</textbox>";
 			break;
 		case 'select':
-			$buffer[] = "<select {$disabled} {$autofocus} id=\"{$this->name}\" name=\"{$this->name}\" class=\"{$this->class}\">";
+			if (isset($this->label)) {
+				$buffer[] = "<label for=\"{$this->name}\">{$this->label}</label>";
+			}
+
+			$buffer[] = "<select {$rules} id=\"{$this->name}\" name=\"{$this->name}\" class=\"{$this->class}\">";
 
 			foreach($this->values as $option) {
 				$disabledField = "";
@@ -300,8 +343,56 @@ class FormBuilderField {
 
 			$buffer[] = "</select>";
 			break;
+		case 'radio':
+			if (isset($this->label)) {
+				$buffer[] = "<label for=\"{$this->name}\">{$this->label}</label>";
+			}
+
+			$buffer[] = "<ul class=\"radios {$this->class}\">";
+
+			foreach($this->values as $option) {
+				$track = (@isset($option->track)) ? "data-track=\"{$option->track}\" " : "";
+				$disabledField = "";
+				$selected = "";
+
+				if (isset($option->disabled)) {
+					$disabledField = ($option->disabled) ? "disabled " : "";
+				}
+
+				if (isset($option->selected)) {
+					$selected = ($option->selected) ? "checked " : "";
+				}
+
+				$buffer[] = "<li>";
+				$buffer[] = "<input {$track} {$rules} {$selected} type=\"radio\" id=\"{$option->id}\" name=\"{$this->name}\" class=\"{$this->class}\" value=\"{$option->value}\">";
+
+				if (isset($option->label)) {
+					$buffer[] = "<label for='{$option->id}'>{$option->label}</label>";
+				}
+
+				$buffer[] = "</li>";
+			}
+			$buffer[] = "</ul>";
+
+			break;
+		case 'checkbox':
+			$selected = "";
+
+			if (isset($this->selected)) {
+				$selected = ($this->selected) ? "checked " : "";
+			}
+
+			$buffer[] = "<input {$rules} {$selected} type=\"{$this->type}\" id=\"{$this->name}\" name=\"{$this->name}\" class=\"{$this->class}\" value=\"{$this->values[0]}\">";
+
+			if (isset($this->label)) {
+				$buffer[] = "<label for=\"{$this->name}\">{$this->label}</label>";
+			}
+			break;
 		default:
-			$buffer[] = "<input type=\"{$this->type}\" {$disabled} {$autofocus} id=\"{$this->name}\" name=\"{$this->name}\" class=\"{$this->class}\" {$placeholder} value=\"{$this->values[0]}\">";
+			if (isset($this->label)) {
+				$buffer[] = "<label for=\"{$this->name}\">{$this->label}</label>";
+			}
+			$buffer[] = "<input {$rules} type=\"{$this->type}\" id=\"{$this->name}\" name=\"{$this->name}\" class=\"{$this->class}\" value=\"{$this->values[0]}\">";
 		}
 
 		if (is_array($errors)) {
@@ -325,10 +416,16 @@ class FormBuilderField {
 			case 'submit':
 				break;
 			case 'select':
+			case 'radio':
 				if (!empty($_POST[$this->name])) {
 					foreach($this->values as $key => $object) {
 						$this->values[$key]->selected = ($_POST[$this->name] == $object->value) ? true : false;
 					}
+				}
+				break;
+			case 'checkbox':
+				if (!empty($_POST[$this->name])) {
+					$this->selected = ($_POST[$this->name] == $this->values[0]) ? true : false;
 				}
 				break;
 			default:
@@ -345,7 +442,11 @@ class FormBuilderField {
 				case 'required':
 					if ($value != false) {
 						if (count($this->values) == 0) {
-							$errors[] = "'{$this->label}' is a required field.";
+							if (isset($this->errors->$rule)) {
+								$errors[] = $this->errors->$rule;
+							} else {
+								$errors[] = "'{$this->label}' is a required field.";
+							}
 						}
 					}
 					break;
@@ -353,7 +454,11 @@ class FormBuilderField {
 					if ($value != false) {
 						if (isset($this->values[0])) {
 							if (strlen($this->values[0]) >= $value) {
-								$errors[] = "'{$this->label}' should be a maximum of {$value} characters.";
+								if (isset($this->errors->$rule)) {
+									$errors[] = $this->errors->$rule;
+								} else {
+									$errors[] = "'{$this->label}' should be a maximum of {$value} characters.";
+								}
 							}
 						}
 					}
@@ -361,14 +466,22 @@ class FormBuilderField {
 				case 'lengthMin':
 					if ($value != false) {
 						if (strlen($this->values[0]) <= $value) {
-							$errors[] = "'{$this->label}' should be a minimum of {$value} characters.";
+							if (isset($this->errors->$rule)) {
+								$errors[] = $this->errors->$rule;
+							} else {
+								$errors[] = "'{$this->label}' should be a minimum of {$value} characters.";
+							}
 						}
 					}
 					break;
 				case 'digits':
 					if ($value != false) {
 						if (!filter_var($this->values[0], FILTER_VALIDATE_FLOAT)) {
-							$errors[] = "'{$this->label}' is not a valid number.";
+							if (isset($this->errors->$rule)) {
+								$errors[] = $this->errors->$rule;
+							} else {
+								$errors[] = "'{$this->label}' is not a valid number.";
+							}
 						}
 					}
 					break;
@@ -378,7 +491,11 @@ class FormBuilderField {
 							$this->values[0] = NULL;
 						} else {
 							if (!filter_var($this->values[0], FILTER_VALIDATE_EMAIL)) {
-								$errors[] = "'{$this->label}' is not a valid email address.";
+								if (isset($this->errors->$rule)) {
+									$errors[] = $this->errors->$rule;
+								} else {
+									$errors[] = "'{$this->label}' is not a valid email address.";
+								}
 							}
 						}
 					}
@@ -389,18 +506,26 @@ class FormBuilderField {
 					}
 
 					if (!$this->validateDate($this->values[0], 'm/d/Y')) {
-        				$errors[] = "'{$this->label}' is not a valid date (mm/dd/yyyy).";
-        			}
-        			break;
-        		case 'equal':
-        		case 'equalTo':
-        			if ($value != false) {
+						if (isset($this->errors->$rule)) {
+								$errors[] = $this->errors->$rule;
+						} else {
+							$errors[] = "'{$this->label}' is not a valid date (mm/dd/yyyy).";
+						}
+					}
+					break;
+				case 'equal':
+				case 'equalTo':
+					if ($value != false) {
 						if (count($this->values) == 0) {
 							$this->values[0] = NULL;
 						}
 
-						if ($this->values[0] == $_POST[$value]) {
-							$errors[] = "'{$this->label}' does not match '{$value}'.";
+						if ($this->values[0] != $_POST[$value]) {
+							if (isset($this->errors->$rule)) {
+								$errors[] = $this->errors->$rule;
+							} else {
+								$errors[] = "'{$this->label}' does not match '{$value}'.";
+							}
 						}
 					}
 					break;
@@ -489,7 +614,11 @@ class FormBuilderFieldset {
 	public function render($validate) {
 		$buffer = array();
 		$buffer[] = "<fieldset class=\"{$this->class}\">";
-		$buffer[] = "<legend>{$this->legend}</legend>";
+
+		if (isset($this->legend)) {
+			$buffer[] = "<legend>{$this->legend}</legend>";
+		}
+
 		$buffer[] = "<ul>";
 
 		foreach($this->fields as $field) {
@@ -581,14 +710,19 @@ class Form {
 	 * @param string $json
 	 */
 	public function __construct($json) {
-		$data = json_decode(str_replace('\\', '\\\\', $json));
+		$data = \json_decode(str_replace('\\', '\\\\', $json));
+
+		if (!is_object($data)) {
+			var_dump($json);
+			throw new \Exception('There is an error in your JSON. Cannot continue.');
+		}
 
 		if (!isset($data->action)) {
-			throw new \Exception('FormBuilder: Action is manditory.');
+			$data->action = "#";
 		}
 
 		if (!isset($data->method)) {
-			throw new \Exception('FormBuilder: Method is manditory.');
+			$data->method = "POST";
 		}
 
 		$this->action = $data->action;
@@ -655,7 +789,7 @@ class Form {
 	public function render() {
 		$validate = (!$this->validate) ? "novalidate" : "";
 		$buffer = array();
-		$buffer[] = "<form class=\"{$this->class}\" action=\"{$this->action}\" method=\"{$this->method}\" {$validate}>";
+		$buffer[] = "<form id=\"{$this->id}\" class=\"{$this->class}\" action=\"{$this->action}\" method=\"{$this->method}\" {$validate}>";
 		$buffer[] = "<input type=\"hidden\" name=\"frmID\" id=\"frmID\" value=\"{$this->id}\">";
 
 		foreach($this->fieldsets as $fieldset) {
@@ -681,5 +815,171 @@ class Form {
 		}
 
 		return $formData;
+	}
+}
+
+class States {
+	function jsonArray($placeholder="State") {
+		return '[
+			{
+				"name": "' . $placeholder . '",
+				"disabled": true,
+				"selected": true,
+				"value": ""
+			}, {
+				"name" : "AL",
+				"value": "Alabama"
+			}, {
+				"name" : "AK",
+				"value": "Alaska"
+			}, {
+				"name" : "AZ",
+				"value": "Arizona"
+			}, {
+				"name" : "AR",
+				"value": "Arkansas"
+			}, {
+				"name" : "CA",
+				"value": "California"
+			}, {
+				"name" : "CO",
+				"value": "Colorado"
+			}, {
+				"name" : "CT",
+				"value": "Connecticut"
+			}, {
+				"name" : "DE",
+				"value": "Delaware"
+			}, {
+				"name" : "DC",
+				"value": "District Of Columbia"
+			}, {
+				"name" : "FL",
+				"value": "Florida"
+			}, {
+				"name" : "GA",
+				"value": "Georgia"
+			}, {
+				"name" : "HI",
+				"value": "Hawaii"
+			}, {
+				"name" : "ID",
+				"value": "Idaho"
+			}, {
+				"name" : "IL",
+				"value": "Illinois"
+			}, {
+				"name" : "IN",
+				"value": "Indiana"
+			}, {
+				"name" : "IA",
+				"value": "Iowa"
+			}, {
+				"name" : "KS",
+				"value": "Kansas"
+			}, {
+				"name" : "KY",
+				"value": "Kentucky"
+			}, {
+				"name" : "LA",
+				"value": "Louisiana"
+			}, {
+				"name" : "ME",
+				"value": "Maine"
+			}, {
+				"name" : "MD",
+				"value": "Maryland"
+			}, {
+				"name" : "MA",
+				"value": "Massachusetts"
+			}, {
+				"name" : "MI",
+				"value": "Michigan"
+			}, {
+				"name" : "MN",
+				"value": "Minnesota"
+			}, {
+				"name" : "MS",
+				"value": "Mississippi"
+			}, {
+				"name" : "MO",
+				"value": "Missouri"
+			}, {
+				"name" : "MT",
+				"value": "Montana"
+			}, {
+				"name" : "NE",
+				"value": "Nebraska"
+			}, {
+				"name" : "NV",
+				"value": "Nevada"
+			}, {
+				"name" : "NH",
+				"value": "New Hampshire"
+			}, {
+				"name" : "NJ",
+				"value": "New Jersey"
+			}, {
+				"name" : "NM",
+				"value": "New Mexico"
+			}, {
+				"name" : "NY",
+				"value": "New York"
+			}, {
+				"name" : "NC",
+				"value": "North Carolina"
+			}, {
+				"name" : "ND",
+				"value": "North Dakota"
+			}, {
+				"name" : "OH",
+				"value": "Ohio"
+			}, {
+				"name" : "OK",
+				"value": "Oklahoma"
+			}, {
+				"name" : "OR",
+				"value": "Oregon"
+			}, {
+				"name" : "PA",
+				"value": "Pennsylvania"
+			}, {
+				"name" : "RI",
+				"value": "Rhode Island"
+			}, {
+				"name" : "SC",
+				"value": "South Carolina"
+			}, {
+				"name" : "SD",
+				"value": "South Dakota"
+			}, {
+				"name" : "TN",
+				"value": "Tennessee"
+			}, {
+				"name" : "TX",
+				"value": "Texas"
+			}, {
+				"name" : "UT",
+				"value": "Utah"
+			}, {
+				"name" : "VT",
+				"value": "Vermont"
+			}, {
+				"name" : "VA",
+				"value": "Virginia"
+			}, {
+				"name" : "WA",
+				"value": "Washington"
+			}, {
+				"name" : "WV",
+				"value": "West Virginia"
+			}, {
+				"name" : "WI",
+				"value": "Wisconsin"
+			}, {
+				"name" : "WY",
+				"value": "Wyomin"
+			}
+		]';
 	}
 }

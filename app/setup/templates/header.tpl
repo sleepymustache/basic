@@ -11,8 +11,8 @@
 	<title>{{ title }}</title>
 
 	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="/setup/css/normalize.css">
-	<link rel="stylesheet" type="text/css" href="/setup/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/app/setup/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="/app/setup/css/style.css">
 
 	<!-- FAVICON -->
 	<link rel="apple-touch-icon" href="<?php echo URLBASE; ?>favicon.png">
