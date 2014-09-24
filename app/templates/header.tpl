@@ -14,18 +14,18 @@
 	{{ css normalize style }}
 
 	<!-- JAVASCRIPT -->
-	<script async data-main="<?php echo URLBASE; ?>js/main" src="<?php echo URLBASE; ?>js/require.js" ></script>
+	<script async data-main="{{ URLBASE; }}js/main" src="{{ URLBASE; }}js/require.js" ></script>
 
 	<!-- FAVICON -->
-	<link rel="apple-touch-icon" href="<?php echo URLBASE; ?>favicon.png">
-	<link rel="icon" href="<?php echo URLBASE; ?>favicon.png">
-	<!--[if IE]><link rel="shortcut icon" href="<?php echo URLBASE; ?>favicon.ico"><![endif]-->
+	<link rel="apple-touch-icon" href="{{ URLBASE; }}favicon.png">
+	<link rel="icon" href="{{ URLBASE; }}favicon.png">
+	<!--[if IE]><link rel="shortcut icon" href="{{ URLBASE; }}favicon.ico"><![endif]-->
 	<meta name="msapplication-TileColor" content="#ffffff">
-	<meta name="msapplication-TileImage" content="<?php echo URLBASE; ?>favicon.png">
+	<meta name="msapplication-TileImage" content="{{ URLBASE; }}favicon.png">
 
 	<!-- SHIV -->
 	<!--[if lt IE 9]>
-		<script src="<?php echo URLBASE; ?>js/html5shiv.js"></script>
+		<script src="{{ URLBASE; }}js/html5shiv.js"></script>
 	<![endif]-->
 </head>
 <body>
