@@ -145,7 +145,7 @@
 
 		// Test if \Sleepy\Template doesn't exist
 		function testTemplateMissing() {
-			$this->expectException(new Exception("Template ./templates/missing.tpl doesn't exist."));
+			$this->expectException(new Exception("Template './templates/missing.tpl' does not exist."));
 			$t = new \Sleepy\Template();
 			$t->directory = "./templates/";
 			$t->setTemplate('missing');
@@ -154,7 +154,7 @@
 
 		// Test in #include doesn't exist
 		function testIncludeMissing() {
-			$this->expectException(new Exception("Template ./templates/binding.tpl doesn't exist."));
+			$this->expectException(new Exception("Template './templates/binding.tpl' does not exist."));
 			$t = new \Sleepy\Template();
 			$t->directory = "./templates/";
 			$t->setTemplate('binding');
