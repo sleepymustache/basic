@@ -49,7 +49,9 @@ namespace Sleepy;
  */
 
 class Filter {
-	// This is the name of the filter
+	/**
+	 * The name of the filter
+	 */
 	public $name;
 
 	/**
