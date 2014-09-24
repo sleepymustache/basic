@@ -215,3 +215,4 @@ pip-log.txt
 .mr.developer.cfg
 
 aspnet_client
+app/include/global.php
