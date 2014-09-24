@@ -40,8 +40,8 @@ namespace Navigation;
  * @endcode
  *
  * @section changelog Changelog
- *   ## Version 1.1
- *   * Added the date and changelog sections to documentation
+ *   ## Version 1.2
+ *   * Added a track parameter
  *
  * @date June 16, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
@@ -65,8 +65,17 @@ class Builder {
 	 * @param string $json json data containing the Navigation data
 	 */
 	public function __construct($json='') {
-		$json = \Sleepy\Hook::addFilter('navigation_raw_json', $json);
-		$this->data = \Sleepy\Hook::addFilter('navigation_rendered_json', json_decode($json));
+		if (class_exists('\Sleepy\Hook')) {
+			$json = \Sleepy\Hook::addFilter('navigation_raw_json', $json);
+		}
+
+		$json = json_decode($json);
+
+		if (class_exists('\Sleepy\Hook')) {
+			$json = \Sleepy\Hook::addFilter('navigation_rendered_json', $json);
+		}
+
+		$this->data = $json;
 	}
 
 	/**
@@ -87,7 +96,10 @@ class Builder {
 
 		// can we find a match?
 		if (substr($page->link, strlen($page->link) * -1) === $this->current) {
-			\Sleepy\Hook::addAction('navigation_has_active');
+			if (class_exists('\Sleepy\Hook')) {
+				\Sleepy\Hook::addAction('navigation_has_active');
+			}
+
 			return true;
 		}
 
@@ -104,7 +116,6 @@ class Builder {
 		$class = trim($class);
 		$buffer = array();
 
-
 		if (strlen($class) > 1) {
 			$buffer[] = "<ul class=\"{$class}\">";
 		} else {
@@ -114,7 +125,7 @@ class Builder {
 		foreach ($pages as $page) {
 			$active = ($this->hasActive($page)) ? true : false;
 			$classy = (!empty($page->class)) ? true : false;
-			$track = (!empty($page->track) ? "data-track=\"{$page->track}\"" : "");
+			$track = (!empty($page->track) ? "data-track=\"{$page->track}\" " : "");
 
 			$buffer[] = "<li";
 
@@ -134,9 +145,9 @@ class Builder {
 
 			if (isset($page->target)) {
 				$page->target = trim($page->target);
-				$buffer[] = "<a{$track} href='{$page->link}' target='{$page->target}'>{$page->title}</a>";
+				$buffer[] = "<a " . $track . "href='{$page->link}' target='{$page->target}'>{$page->title}</a>";
 			} else {
-				$buffer[] = "<a{$track} href='{$page->link}'>{$page->title}</a>";
+				$buffer[] = "<a " . $track . "href='{$page->link}'>{$page->title}</a>";
 			}
 
 			if (isset($page->pages)) {
@@ -163,6 +174,6 @@ class Builder {
 	 * @param string $string A string used to determine if a page is current
 	 */
 	public function setCurrent($string) {
-		$this->current = str_replace(URLBASE, "/", str_replace("index.php", "", $string));
+		$this->current = str_replace(@URLBASE, "/", str_replace("index.php", "", $string));
 	}
 }
