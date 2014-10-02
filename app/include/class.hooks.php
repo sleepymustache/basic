@@ -34,7 +34,7 @@ namespace Sleepy;
  * @date June 16, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version 1.1
- * @copyright  GPL 3 http://cuttingedgecode.com
+ * @license  MIT
  */
 
 /**

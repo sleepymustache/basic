@@ -123,7 +123,7 @@ namespace FormBuilder;
  * @date September 3, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version 1.6
- * @copyright  GPL 3 http://rodriguez-j.rcom
+ * @license  MIT
  */
 
 class FormBuilderField {

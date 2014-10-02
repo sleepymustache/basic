@@ -32,7 +32,7 @@ namespace Sleepy;
  * @date August 13, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version 1.8
- * @copyright  GPL 3 http://cuttingedgecode.com
+ * @license  MIT
  */
 
 class Debug {
@@ -121,15 +121,20 @@ class Debug {
 
 	private function __construct() {
 		// Setup email defaults
+		$server_ip = (isset($_SERVER['SERVER_ADDR'])) ? $_SERVER['SERVER_ADDR'] : "";
+		$user_ip = (isset($_SERVER['REMOTE_ADDR'])) ? $_SERVER['REMOTE_ADDR'] : "";
+		$filename = (isset($_SERVER['SCRIPT_FILENAME'])) ? $_SERVER['SCRIPT_FILENAME'] : "";
+		$date = date(DATE_ATOM, mktime(date("G"), date("i"), 0, date("m"), date("d"), date("Y")));
+
 		Debug::$emailBuffer = array();
-		Debug::$emailBuffer[] = "Date: " . date(DATE_ATOM, mktime(date("G"), date("i"), 0, date("m"), date("d"), date("Y")));
-		Debug::$emailBuffer[] = "Server IP: " . @$_SERVER['SERVER_ADDR'];
-		Debug::$emailBuffer[] = "Client IP: " . @$_SERVER['REMOTE_ADDR'];
-		Debug::$emailBuffer[] = "Filename: " . @$_SERVER["SCRIPT_FILENAME"];
+		Debug::$emailBuffer[] = "Date: {$date}";
+		Debug::$emailBuffer[] = "Server IP: {$server_ip}";
+		Debug::$emailBuffer[] = "Client IP: {$user_ip}";
+		Debug::$emailBuffer[] = "Filename: {$filename}";
 		Debug::$emailBuffer[] = "---";
 		Debug::$emailTo = EMAIL_TO;
 		Debug::$emailFrom = EMAIL_FROM;
-		Debug::$emailSubject = date(DATE_ATOM, mktime(date("G"), date("i"), 0, date("m"), date("d"), date("Y")));
+		Debug::$emailSubject = $date;
 		Debug::$emailCC = EMAIL_CC;
 		Debug::$emailBCC = EMAIL_BCC;
 

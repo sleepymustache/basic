@@ -25,7 +25,7 @@ namespace DB;
  * @date August 13, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version 1.2
- * @copyright  GPL 3 http://rodriguez-jr.com
+ * @license  MIT
  */
 abstract class DB {
 
