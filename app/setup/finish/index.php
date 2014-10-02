@@ -1,7 +1,10 @@
 <?php
 	session_start();
 
-	define('DIRBASE', $_SERVER['DOCUMENT_ROOT'] . '/app/setup/');
+	define('URLBASE', '/app/setup/');
+	define('DIRBASE', $_SERVER['DOCUMENT_ROOT'] . URLBASE);
+
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/app/include/class.hooks.php');
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/app/include/class.template.php');
 
 	// We're in the last step, render the global.php file

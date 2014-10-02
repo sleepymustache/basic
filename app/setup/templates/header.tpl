@@ -11,15 +11,15 @@
 	<title>{{ title }}</title>
 
 	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="/app/setup/css/normalize.css">
-	<link rel="stylesheet" type="text/css" href="/app/setup/css/style.css">
+	<link rel="stylesheet" type="text/css" href="<?= URLBASE ?>css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="<?= URLBASE ?>css/style.css">
 
 	<!-- FAVICON -->
-	<link rel="apple-touch-icon" href="<?php echo URLBASE; ?>favicon.png">
-	<link rel="icon" href="<?php echo URLBASE; ?>favicon.png">
-	<!--[if IE]><link rel="shortcut icon" href="<?php echo URLBASE; ?>favicon.ico"><![endif]-->
+	<link rel="apple-touch-icon" href="/favicon.png">
+	<link rel="icon" href="/favicon.png">
+	<!--[if IE]><link rel="shortcut icon" href="/favicon.ico"><![endif]-->
 	<meta name="msapplication-TileColor" content="#ffffff">
-	<meta name="msapplication-TileImage" content="<?php echo URLBASE; ?>favicon.png">
+	<meta name="msapplication-TileImage" content="/favicon.png">
 </head>
 <body>
 	<div class="wrapper">
