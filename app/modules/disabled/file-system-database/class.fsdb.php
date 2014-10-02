@@ -32,7 +32,7 @@ namespace FSDB;
  * @date August 13, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version 0.8
- * @copyright  GPL 3 http://cuttingedgecode.com
+ * @license  MIT
  */
 
 /**

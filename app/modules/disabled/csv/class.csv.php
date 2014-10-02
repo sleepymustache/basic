@@ -33,7 +33,7 @@ namespace CSV;
  * @date August 13, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version 1.8
- * @copyright GPL 3 http://cuttingedgecode.com
+ * @license  MIT
  */
 class Document {
 	/**
