@@ -8,6 +8,7 @@ require_once('class.css.php');
  * @return string The CSS tags to embed in the head
  */
 function render() {
+	$buffer = "";
 	$args = func_get_args();
 	$args = \Sleepy\Hook::addFilter("csscompress_files", array($args));
 
