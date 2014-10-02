@@ -128,27 +128,26 @@ nav > ul li:hover > ul {
 }
 
 /* Delete styles below this comment */
-html{background:#2b2b2b}
-.wrapper{padding-bottom:0}
-.wrapper > header{margin-top:-12px}
-header h1{font-family:'Arial Black','Arial Bold',sans-serif;font-weight: 800;color:#d0d3d2;font-size:105px;line-height:27px;letter-spacing:-8px;margin-top: 20px;overflow:visible}
-header h1 span{position:relative;top:21px;z-index:-1;}
+html{background:#fff;color:#555;font-family: 'Courier', monospace;}
+.wrapper > header h1{font-weight: 400;font-size:113px;line-height:2px;overflow:visible;margin-top:25px;letter-spacing:-3.8px;}
+header h1 span{position:relative;top:21px;z-index:-1;letter-spacing:-3.7px;font-size:122px;}
 nav{margin-top:-26px;}
 nav ul{border:0;}
-nav ul li{width:33.3333%;}
-nav ul li a{font-family:sans-serif;width:100%;background:#2b9884;color:#222;border:0;border-right:1px solid black;}
+nav > ul > li{width:33.3333%;}
+nav ul li a{width:100%;margin:0;background:#2b9884;color:#fff;border:0;border-right:1px solid #fff;}
 nav ul li a:hover{background:#268573;color:#fff;}
-nav ul ul{margin:0}
-nav ul ul li a{border:0;border-bottom: 1px solid #000;}
+nav ul ul{width: 33.3333%;margin:0;}
+nav ul ul li {width:100%;}
+nav ul ul a {min-width:0;}
 .content{margin-top:48px}
 .content a{color:#ee7147}
 .content em{color:#2b9884}
-.content header{border-bottom:8px solid #2b9884;display:inline-block;margin-bottom:30px}
-.content footer p{text-align:right;font-size:20px;color:#666;font-style:italic;margin-bottom: 9px}
-.content article{float:left;clear:both;padding-bottom: 3px}
-.content h1,.content h1 a{font-family:sans-serif;text-decoration:none;letter-spacing:-1px;color:#bcdad4;font-size:36px;line-height:1;margin:-1px 0 28px;font-weight:normal}
+.content header{border-bottom:8px solid #2b9884;}
+.content footer p{font-size:20px;color:#666;font-style:italic;text-align:right;}
+.content article{margin-bottom: 24px}
+.content h1,.content h1 a{text-decoration:none;font-size:32px;margin:-1px 0 28px;font-weight:normal}
 .content h1 a:hover{text-decoration:underline}
 .content h2{font-size:24px;line-height:30px}
-.content p{color:#cbcccd;font-size:20px;line-height:33px;font-family:georgia,serif;margin:0 0 13px;text-align:justify;}
-.content p.metadata{font-style:italic;margin-top:-33px;color:#777;font-size:15px;margin-bottom:-5px;text-align:right}
-.wrapper > footer p{color:#777;font-family:georgia,serif;font-size:18px;margin:0}
+.content p{font-size:20px;line-height:33px;}
+.content p.metadata{font-style:italic;margin-top:-36px;color:#777;font-size:15px;margin-bottom:-5px;text-align:right;}
+.wrapper > footer p{color:#777;font-size:18px;margin:0}

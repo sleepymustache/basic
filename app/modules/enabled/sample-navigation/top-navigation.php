@@ -35,7 +35,7 @@ function render() {
 							"title": "DbGrid Class",
 							"link": "http://www.sleepymustache.com/documentation/html/dbgrid1.html"
 						}, {
-							"title": "File System Database Class",
+							"title": "File System DB Class",
 							"link": "http://www.sleepymustache.com/documentation/html/fsdb.html"
 						}, {
 							"title": "Hook Class",
