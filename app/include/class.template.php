@@ -231,10 +231,16 @@ class Template {
 
 			$arguments = array_merge($arguments, explode(" ", $matches[2][$index]));
 
-			$boundData = $arguments[0];
+			$boundData = $arguments;
 
 			if (class_exists("\Sleepy\Hook")) {
 				$boundData = \Sleepy\Hook::addFilter('render_placeholder_' . strtolower($key), $boundData);
+			}
+
+			// Some filters might take arrays and return only a single value, if
+			// hooks are disabled, lets return only this single value
+			if (is_array($boundData)) {
+				$boundData = $boundData[0];
 			}
 
 			$template = str_replace($placeholder, $boundData, $template);
