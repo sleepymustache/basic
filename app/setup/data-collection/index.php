@@ -1,12 +1,9 @@
 <?php
-	session_start();
-
 	define('URLBASE', '/app/setup/');
 	define('DIRBASE', $_SERVER['DOCUMENT_ROOT'] . URLBASE);
 
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/app/include/class.hooks.php');
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/app/include/class.template.php');
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/app/modules/disabled/form-builder/class.formbuilder.php');
+	require_once(DIRBASE . '../include/class.template.php');
+	require_once(DIRBASE . '../modules/disabled/form-builder/class.formbuilder.php');
 
 	// What step are we on?
 	if (!isset($_GET['step'])) {
@@ -171,14 +168,8 @@
 	}
 
 	$page = new \Sleepy\Template('setup');
-
-	// SEO
-	$page->bind('title', 'Sleepy Mustache');
-	$page->bind('description', 'This is the description');
-	$page->bind('keywords', 'blog, sleepy mustache, framework');
-
-	// Content
-	$page->bind('header', 'sleepy<span>MUSTACHE</span>');
+	$page->bind('title', 'sleepyMUSTACHE - Setup');
+	$page->bind('header', 'Setup');
 	$page->bind('heading', $environment . ' Setup - Step ' . $step . ' of 3');
 	$page->bindStart();
 ?>

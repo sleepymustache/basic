@@ -129,10 +129,8 @@ nav > ul li:hover > ul {
 }
 
 /* Delete styles below this comment */
-.wrapper{padding-bottom:0}
-.wrapper > header{margin-top: -12px;}
-header h1{font-family:'Arial Black','Arial Bold',sans-serif;font-weight:800;color:#444;font-size:105px;line-height:68px;letter-spacing:-8px;margin:0;overflow:hidden;height:134px;}
-header h1 span{position:relative;top:21px;z-index:-1;}
+html {font-family:sans-serif;color:#444;}
+h1 {font-size: 72px;}
 nav{margin-top:-26px;}
 nav ul{border:0;}
 nav ul li{width:33.3333%;}
@@ -150,7 +148,6 @@ nav ul ul li a{border:0;border-bottom: 1px solid #000;}
 .content fieldset ul {margin:0}
 .content fieldset ul li {position:relative;float:left;clear:none}
 .content label.error {position:absolute;bottom: -5px; right: 3px}
-}
 .content legend {margin: 0 0 4px 0;font-weight: normal;font-size: 14px;width: 100%}
 .content label {font-weight: normal;font-size: 12px;float: none;padding-left: 2px}
 .content h1,.content h2,.content legend,.content label{font-family:sans-serif;color:#444}
@@ -159,5 +156,5 @@ nav ul ul li a{border:0;border-bottom: 1px solid #000;}
 .content h2{font-size:24px;line-height:30px}
 .content p{color:#444;font-size:20px;line-height:33px;font-family:georgia,serif;margin:0 0 13px;text-align:justify}
 
-.content input[type=submit] {background:#ee7147;color:#fff;}
+.content input[type=submit] {background:#ee7147;color:#fff;margin: 24px 0 42px;}
 .wrapper > footer p{color:#777;font-family:georgia,serif;font-size:18px;margin:0}
