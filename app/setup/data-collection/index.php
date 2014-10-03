@@ -1,6 +1,4 @@
 <?php
-	session_start();
-
 	define('URLBASE', '/app/setup/');
 	define('DIRBASE', $_SERVER['DOCUMENT_ROOT'] . URLBASE);
 
