@@ -1,26 +1,27 @@
 <?php
-namespace Download;
+namespace Module\Download;
 
 /**
- * @page download Download Class
+ * Forces a download of a file
  *
- * Used to force a download of a file
+ * ### Usage
  *
- * @section usage Usage
- * @code
+ * <code>
  *   $d= new Download/Forces()
  *
  *   $d->getAnchor('ISI', 'isi.pdf');
- * @endcode
+ * </code>
  *
- * @section changelog Changelog
- *   ## Version 1.2
- *   * Added namespacing
+ * ### Changelog
+ *
+ * ## Version 1.2
+ * * Added namespacing
  *
  * @date August 13, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version 1.2
- * @license  MIT
+ * @license  http://opensource.org/licenses/MIT
+ * @internal
  */
 
 class Forces {

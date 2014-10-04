@@ -6,6 +6,9 @@
 	 * testing suite.
 	 */
 
+	include_once('../include/class.debug.php');
+	include_once('../include/class.sm.php');
+
 	if (!include_once('../include/global.php')) {
 		header('Location: ../setup/');
 		die();
@@ -15,9 +18,6 @@
 
 	class AllTests extends TestSuite {
 		function __construct() {
-			//parent::__construct();
-			$this->TestSuite('All Tests');
-
 			$directories = array(
 				'./',
 				'../include',

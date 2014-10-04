@@ -2,10 +2,22 @@
 require_once('class.db.php');
 require_once('class.record.php');
 
-class Log extends \DB\Record {
+/**
+ * Tests the \Module\DB\Record() class
+ *
+ * @internal
+ * @date August 13, 2014
+ * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
+ * @version 1.8
+ * @license  http://opensource.org/licenses/MIT
+ */
+class Log extends Module\DB\Record {
 	public $table = 'log';
 }
 
+/**
+ * @internal
+ */
 class TestOfDB extends UnitTestCase {
 	function setup() {
 		$this->log = new Log();
@@ -19,7 +31,7 @@ class TestOfDB extends UnitTestCase {
 	// Check singleton pattern
 	function testSingleton() {
 		// Assert that the class is abstract
-		$abstractClass = new ReflectionClass('\DB\DB');
+		$abstractClass = new ReflectionClass('\Module\DB\DB');
 		$this->assertTrue($abstractClass->isAbstract());
 	}
 

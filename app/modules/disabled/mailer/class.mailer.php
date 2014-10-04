@@ -1,33 +1,35 @@
 <?php
-namespace Mailer;
+namespace Module\Mailer;
 
 /**
- * @page mailer1 Mailer\Mailer Class
  * Simplifies sending emails.
  *
  * Simplifies sending emails by automatically verifying email addresses and
  * fetching HTML.
  *
- * @section usage Usage
- * @code
+ * ### Usage
+ *
+ * <code>
  *   $m = new \Mailer\Message();
  *   $m->addTo("test@test.com");
  *   $m->addFrom("from.me@test.com");
  *   $m->addSubject("This is a test, don't panic.");
  *   $m->fetchHTML("http://test.com/template.php");
  *   $m->send();
- * @endcode
+ * </code>
  *
- * @section changelog Changelog
+ * ### Changelog
+ *
  * ## Version 1.8
  * * Added namespacing
+ *
  * ## Version 1.6
  * * Fixed bug with BCC and CC
  *
  * @date	August 13, 2014
  * @author	Jaime Rodriguez, hi.i.am.jaime@gmail.com
  * @version	1.8
- * @license  MIT
+ * @license  http://opensource.org/licenses/MIT
  */
 class Message {
 	private $to;

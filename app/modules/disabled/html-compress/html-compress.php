@@ -1,21 +1,33 @@
 <?php
-namespace HTMLCompress;
+namespace Module\HTMLCompress;
 
 /**
  * Hooks into the preprocess and postprocess hooks to buffer and compress HTML
  *
  * @return void
+ * @internal
  */
 function preprocess() {
-	ob_start('\HTMLCompress\process_data_jmr1');
+	ob_start('\Module\HTMLCompress\process_data_jmr1');
 
 	ini_set("pcre.recursion_limit", "16777");
 }
 
+/**
+ * Flushes all compressed data
+ * @return void
+ * @internal
+ */
 function postprocess() {
 	ob_end_flush();
 }
 
+/**
+ * Regex to safely compress HTML
+ * @param  string $text uncompressed HTML
+ * @return string       compressed HTML
+ * @internal
+ */
 function process_data_jmr1($text) {
 	$re = '%# Collapse whitespace everywhere but in blacklisted elements.
 		(?>             # Match all whitespans other than single space.
@@ -42,6 +54,6 @@ function process_data_jmr1($text) {
 }
 
 if (ENV === "LIVE") {
-	\Sleepy\Hook::doAction('sleepy_preprocess',  '\HTMLCompress\preprocess' );
-	\Sleepy\Hook::doAction('sleepy_postprocess', '\HTMLCompress\postprocess');
+	\Sleepy\Hook::doAction('sleepy_preprocess',  '\Module\HTMLCompress\preprocess' );
+	\Sleepy\Hook::doAction('sleepy_postprocess', '\Module\HTMLCompress\postprocess');
 }

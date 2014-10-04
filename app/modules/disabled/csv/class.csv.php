@@ -1,13 +1,12 @@
 <?php
-namespace CSV;
+namespace Module\CSV;
 
 /**
- * @page csv1 CSV Class
- *
  * Creates a Comma Separated Value file.
  *
- * @section usage Usage
- * @code
+ * ### Usage
+ *
+ * <code>
  *   // loads a existing CSV file
  *   $c = new \CSV\Document('presidents.csv');
  *
@@ -17,15 +16,18 @@ namespace CSV;
  *   ));
  *
  *   $c->save();
- * @endcode
+ * </code>
  *
- * @section changelog Changelog
+ * ### Changelog
+ *
  * ##Version 1.8
  * * Added namespacing
  * * Renamed remove method to delete
  * * Added a search method
+ *
  * ##Version 1.6
  * * Updated documentation
+ *
  * ##Version 1.5
  * * check if we can remove the header before doing it... teamsite issue.
  * * suppress flock warnings... teamsite issue
@@ -33,7 +35,7 @@ namespace CSV;
  * @date August 13, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version 1.8
- * @license  MIT
+ * @license  http://opensource.org/licenses/MIT
  */
 class Document {
 	/**

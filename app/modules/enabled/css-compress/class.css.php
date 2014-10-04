@@ -1,36 +1,36 @@
 <?php
-namespace CSS;
+namespace Module\CSS;
 
 /**
- * @page css1 CSS Class
+ * Concatinates and compresses CSS.
  *
- * A CSS class that concatinates and compresses CSS.
+ * ### Usage
  *
- * @section usage Usage:
- * @code
- *   require_once('class.css.php');
+ * <code>
+ *     require_once('class.css.php');
  *
- *   $c = new \CSS\Compress();
+ *     $c = new \Module\CSS\Compress();
+ *     $files = explode("&", $_GET['css']);
  *
- *   $files = explode("&", $_GET['css']);
+ *     foreach ($files as $file) {
+ *         $c->add(DIRBASE . "/css/" . $file . ".css");
+ *     }
  *
- *   foreach ($files as $file) {
- *     $c->add(DIRBASE . "/css/" . $file . ".css");
- *   }
+ *     $c->show();
+ * </code>
  *
- *   $c->show();
- * @endcode
+ * ### Changelog
+ * ## Version 1.2
+ * * Added namespacing
  *
- * @section changelog Changelog
- *  ## Version 1.2
- *  * Added namespacing
- *  ## Version 1.1
- *  * Added the usage and date sections to documentation
+ * ## Version 1.1
+ * * Added the usage and date sections to documentation
  *
  * @date June 16, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version 1.1
- * @license  MIT
+ * @license  http://opensource.org/licenses/MIT
+ * @internal
  */
 
 class Compress {

@@ -1,9 +1,18 @@
 <?php
 require_once('class.fsdb.php');
 
+/**
+ * Tests the \Module\FSDB\Connection() class
+ *
+ * @internal
+ * @date August 13, 2014
+ * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
+ * @version 1.8
+ * @license  http://opensource.org/licenses/MIT
+ */
 class TestOfFSDB extends UnitTestCase {
 	function setup() {
-		$this->db = new \FSDB\Connection();
+		$this->db = new \Module\FSDB\Connection();
 	}
 
 	function tearDown() {

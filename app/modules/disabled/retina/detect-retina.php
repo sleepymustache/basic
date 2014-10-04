@@ -1,11 +1,12 @@
 <?php
-namespace Mobile;
+namespace Module\Mobile;
 
 /**
  * Because sessions use cookies, we can reset the session ID to check if it was
  * stored in a cookie or not. If cookies are not enabled, the session ID would
  * not carry over. The first page load will always return false :(
  * @return bool true if cookies are enabled
+ * @internal
  */
 function cookiesAreEnabled() {
 	session_start();
@@ -17,6 +18,10 @@ function cookiesAreEnabled() {
 	return $originalSessionID === session_id();
 }
 
+/**
+ * @internal
+ * @return void
+ */
 function detect() {
 ?>
 	<script>
@@ -31,5 +36,5 @@ function detect() {
 }
 
 if (!isset($_COOKIE['density'])) {
-	\Sleepy\Hook::doAction('sleepy_preprocess', '\Mobile\detect');
+	\Sleepy\Hook::doAction('sleepy_preprocess', '\Module\Mobile\detect');
 }

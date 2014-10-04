@@ -1,31 +1,31 @@
 <?php
-namespace DB;
+namespace Module\DB;
 
 /**
- * @page db1 DB Class
- *
- * Singleton database class
+ * Implements a singleton database class
  *
  * This abstract class is to ensure that only one PDO instance is used. You get
  * a instance of the database with:
  *
- * @section usage Usage
- * @code
+ * ### Usage
+ *
+ * <code>
  *   DB::$dbhost = 'localhost';
  *   DB::$dbname = 'db';
  *   DB::$dbuser = 'username';
  *   DB::$dbpass = 'itsmeopenup';
  *   $db = DB::getInstance();
- * @endcode
+ * </code>
  *
- * @section changelog Changelog
+ * ### Changelog
+ *
  * ## Version 1.12
  * * Added the date section to the documentation
  *
  * @date August 13, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version 1.2
- * @license  MIT
+ * @license  http://opensource.org/licenses/MIT
  */
 abstract class DB {
 

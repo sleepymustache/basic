@@ -1,6 +1,12 @@
 <?php
-namespace MemcacheModule;
+namespace Module\Memcache;
 
+/**
+ * Caches the page
+ * @param  string $page A unique identifier for a page
+ * @return string       A html page
+ * @internal
+ */
 function manage_cached_page($page) {
 	$port = 11211;
 	$cacheExpires = 10; //seconds
@@ -16,6 +22,11 @@ function manage_cached_page($page) {
 	return $page;
 }
 
+/**
+ * Show a cached page, if it exists
+ * @return void
+ * @internal
+ */
 function show_cached_page() {
 	$port = 11211;
 
@@ -30,6 +41,6 @@ function show_cached_page() {
 }
 
 if (ENV === "LIVE") {
-	\Sleepy\Hook::applyFilter('render_template', 'MemcacheModule\manage_cached_page');
-	\Sleepy\Hook::doAction('sleepy_preprocess', 'MemcacheModule\show_cached_page');
+	\Sleepy\Hook::applyFilter('render_template', '\Module\Memcache\manage_cached_page');
+	\Sleepy\Hook::doAction('sleepy_preprocess', '\Module\Memcache\show_cached_page');
 }

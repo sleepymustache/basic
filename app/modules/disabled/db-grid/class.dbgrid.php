@@ -1,13 +1,12 @@
 <?php
-namespace DB;
+namespace Module\DB;
 
 /**
- * @page dbgrid1 DbGrid Class
+ * Creates a grid view of a sql statement
  *
- * Used to create a grid view of a sql statement
+ * ### Usage
  *
- * @section usage Usage
- * @code
+ * <code>
  *   $dbg = new DbGrid('users', 'SELECT * FROM users');
  *
  *   $dbg->exclude(array(
@@ -25,22 +24,24 @@ namespace DB;
  *   ));
  *
  *   $dbg->show();
- * @endcode
+ * </code>
  *
- * @section changelog Changelog
- *   ## Version 1.2
- *   * Added namespacing
- *   ## Version 1.1
- *   * Added the date section to documentation
+ * ### Changelog
  *
- * @section dependencies Dependencies
+ * ## Version 1.2
+ * * Added namespacing
+ *
+ * ## Version 1.1
+ * * Added the date section to documentation
+ *
+ * ### Dependencies
  * * class.db.php
  * * class.hooks.php
  *
  * @date August 13, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version 1.2
- * @license  MIT
+ * @license  http://opensource.org/licenses/MIT
  */
 
 class Grid {
@@ -110,7 +111,7 @@ class Grid {
 	 * @param string $sql  What SQL to run?
 	 */
 	public function __construct($name, $sql) {
-		$this->db = \DB\DB::getInstance();
+		$this->db = \Module\DB\DB::getInstance();
 		$this->sql = $sql;
 		$this->name = $name;
 	}

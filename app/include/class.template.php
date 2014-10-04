@@ -2,36 +2,37 @@
 namespace Sleepy;
 
 /**
- * @page template1 Template Class
+ * Provides templating functionality
  *
- * Basic templating functionality
+ * ### Usage
  *
- * @section usage Usage
+ * ## PHP file: *index.php*
  *
- * *index.php*
- * @code
- *	require_once('include/sleepy.php');
+ * <code>
+ *     require_once('include/sleepy.php');
  *
- *	$page = new Template('templates/default.tpl');
- *	$page->bind('title', 'Sleepy Mustache');
- *	$page->bind('header', 'Hello world!');
- *	$page->show();
- * @endcode
+ *     $page = new Template('templates/default.tpl');
+ *     $page->bind('title', 'Sleepy Mustache');
+ *     $page->bind('header', 'Hello world!');
+ *     $page->show();
+ * </code>
  *
- * *default.tpl*
- * @code
- * 	<html>
- *		<head>
- *			<title>{{ title }}</title>
- *		</head>
- *		<body>
- *			<h1>{{ header }}</h1>
- *			<p>This page has been viewed {{ hits }} times.</p>
- *		</body>
- *	</html>
- * @endcode
+ * ## Template file: *\app\modules\templates\default.tpl*
  *
- * @section changelog Changelog
+ * <code>
+ *     <html>
+ *         <head>
+ *             <title>{{ title }}</title>
+ *         </head>
+ *         <body>
+ *             <h1>{{ header }}</h1>
+ *             <p>This page has been viewed {{ hits }} times.</p>
+ *         </body>
+ *     </html>
+ * </code>
+ *
+ * ### Changelog
+ *
  * ## Version 1.6
  * * No longer dependant on Hooks Module
  *
@@ -40,7 +41,7 @@ namespace Sleepy;
  * @date June 16, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version 1.6
- * @license  MIT
+ * @license  http://opensource.org/licenses/MIT
  */
 
 class Template {

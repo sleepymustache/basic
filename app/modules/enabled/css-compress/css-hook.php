@@ -1,19 +1,20 @@
 <?php
-namespace CSS;
+namespace Module\CSS;
 
 require_once('class.css.php');
 
 /**
  * Automatically compresses CSS files when the environment is live
  * @return string The CSS tags to embed in the head
+ * @internal
  */
 function render() {
 	$buffer = "";
 	$args = func_get_args();
 	$args = \Sleepy\Hook::addFilter("csscompress_files", array($args));
 
-	if (ENV === "LIVE") {
-		$c = new \CSS\Compress();
+	if (\Sleepy\SM::isLive()) {
+		$c = new Compress();
 
 		$files = "";
 
@@ -30,7 +31,7 @@ function render() {
 		}
 
 		$files = urlencode($files);
-		return "<link rel=\"stylesheet\" type=\"text/css\" href=\"" . URLBASE . "modules/enabled/css-compress/?c={$files}\">";
+		return "<link rel=\"stylesheet\" type=\"text/css\" href=\"" . URLBASE . "app/modules/enabled/css-compress/?c={$files}\">";
 	} else {
 		foreach ($args as $file) {
 			if (empty($file)) {
@@ -43,4 +44,4 @@ function render() {
 	}
 }
 
-\Sleepy\Hook::applyFilter('render_placeholder_css', '\CSS\render');
+\Sleepy\Hook::applyFilter('render_placeholder_css', '\Module\CSS\render');

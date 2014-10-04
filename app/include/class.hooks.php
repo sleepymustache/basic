@@ -2,14 +2,13 @@
 namespace Sleepy;
 
 /**
- * @page hooks1 Hook Class
  * Adds Hooks and Filters
  *
- * Adds Hooks and filters into your project. You attach modules to those
- * hooks and filters by adding php files into the "/modules/" director.
+ * You can create modules to hooks by adding php files into the
+ * *\app\modules\enabled* directory.
  *
- * @section usage Usage
- * @code
+ * ### Usage
+ * <code>
  * 	// add a hook point
  * 	$content = Hook::addFilter('update_content', $_POST['content']);
  *
@@ -20,9 +19,10 @@ namespace Sleepy;
  * 	}
  *
  * 	Hook::applyFilter("update_content", "clean_html");
- * @endcode
+ * </code>
  *
- * @section changelog Changelog
+ * ### Changelog
+ *
  * ## Version 1.1
  * * Added the date section to the documentation
  *
@@ -34,55 +34,7 @@ namespace Sleepy;
  * @date June 16, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version 1.1
- * @license  MIT
- */
-
-/**
- * This class stores the filters. it has properties to store the name of the
- * filter as well the functions that should run when the filters are stored.
- * the filters property is an array. The key is the name of the
- * function and value is the arguments. Currently we do not make any use of the
- * arguments.
- *
- * @param string $name name of the filter
- * @return object
- */
-
-class Filter {
-	/**
-	 * The name of the filter
-	 */
-	public $name;
-
-	/**
-	 * array a list of functions
-	 */
-	public $functions;
-
-	/**
-	 * Constructor
-	 * @param string $name The name of the filter
-	 */
-	public function __construct($name) {
-		$this->name = $name;
-	}
-
-	/**
-	 * Adds a function to this filter
-	 * @param string $function The function to call
-	 * @param array $args An array of parameters
-	 */
-	public function add($function, $args) {
-		$this->functions[$function] = $args;
-	}
-}
-
-/**
- * This class is the main hook class. Call it using class::method.
- * @code
- * Hook::addFilter('fitername', $variable);
- * @endcode
- * @return void
+ * @license  http://opensource.org/licenses/MIT
  */
 class Hook {
 
@@ -164,7 +116,7 @@ class Hook {
 	}
 
 	/**
-	 * Add a new filter to a filter-type hook point
+	 * Adds a new filter to a filter-type hook point
 	 *
 	 * @param  string $name     [description]
 	 * @param  string $function [description]
@@ -181,7 +133,7 @@ class Hook {
 		array_shift($args);
 
 		if (!isset(self::$filters[$name])) {
-			self::$filters[$name] = new Filter ($name);
+			self::$filters[$name] = new _Filter ($name);
 		}
 
 		// add the function to the filter
@@ -244,5 +196,56 @@ class Hook {
 	 */
 	public static function addAction($name) {
 		self::addFilter($name, '');
+	}
+}
+
+/**
+ * Private class used by the Hooks class
+ *
+ * The class stores the filters. It has properties to store the name of the
+ * filter as well the functions that should run when the filters are stored.
+ * The filters property is an array. The key is the name of the
+ * function and value is the arguments. Currently we do not make any use of the
+ * arguments.
+ *
+ * ### Usage
+ *
+ * This class is private and should not be used outside of the Hooks class
+ *
+ * @param string $name name of the filter
+ *
+ * @date September 31, 2014
+ * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
+ * @version 0.4
+ * @license  http://opensource.org/licenses/MIT
+ * @internal
+ */
+
+class _Filter {
+	/**
+	 * The name of the filter
+	 */
+	public $name;
+
+	/**
+	 * array a list of functions
+	 */
+	public $functions;
+
+	/**
+	 * Constructor
+	 * @param string $name The name of the filter
+	 */
+	public function __construct($name) {
+		$this->name = $name;
+	}
+
+	/**
+	 * Adds a function to this filter
+	 * @param string $function The function to call
+	 * @param array $args An array of parameters
+	 */
+	public function add($function, $args) {
+		$this->functions[$function] = $args;
 	}
 }

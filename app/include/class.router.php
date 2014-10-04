@@ -2,17 +2,21 @@
 namespace Sleepy;
 
 /**
- * @page router1 Router Class
- * Class for basic routing functions.
+ * Implements routing functionality based on a URI.
  *
- * @section usage Usage
- * @code
- *   \Sleepy\Router::route('/user/{{ id }}', function ($route) {
+ * ### Usage
+ *
+ * <code>
+ *   \Sleepy\Router::route('/user/{{ id }}/*', function ($route) {
+ *       echo "The route uses the pattern: ", $route->pattern;
+ *       echo "Route was matched using method: ", $route->method;
+ *       echo "The wildcard matched: ", $route->splat;
  *       echo "Showing user ", $route->params['id'], "</br>";
  *   });
- * @endcode
+ * </code>
  *
- * @section changelog Changelog
+ * ### Changelog
+ *
  * ## Version 0.4
  * * Simplified interface, thanks @cameff
  *
@@ -22,9 +26,8 @@ namespace Sleepy;
  * @date September 31, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version 0.4
- * @license  MIT
+ * @license  http://opensource.org/licenses/MIT
  */
-
 class Router {
 	/**
 	 * An array of routes
@@ -66,7 +69,7 @@ class Router {
 	}
 
 	/**
-	 * Get an array from a string based on Router::$delimeter
+	 * Gets an array from a string based on Router::$delimeter
 	 * @param  string $string a string to explode()
 	 * @return array          an exploded string
 	 */
@@ -85,7 +88,7 @@ class Router {
 	 * @return object            \Sleepy\Route()
 	 */
 	public static function route($pattern, $func) {
-		$route = new Route(md5($pattern));
+		$route = new _Route(md5($pattern));
 		array_push(self::$_routes, $route);
 		$route->add($pattern, $func);
 		return $route;
@@ -114,7 +117,28 @@ class Router {
 	}
 }
 
-class Route {
+/**
+ * Private class used by the Router class
+ *
+ * ### Usage
+ *
+ * This class is private and should not be instatiated outside of the Router
+ * class
+ *
+ * ### Changelog
+ *
+ * ## Version 0.4
+ * * Bug fixes
+ *
+ * @todo  Write tests for the class
+ *
+ * @date September 31, 2014
+ * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
+ * @version 0.4
+ * @license  http://opensource.org/licenses/MIT
+ * @internal
+ */
+class _Route {
 	/**
 	 * A list of (pattern ,callbacks)
 	 * @var array

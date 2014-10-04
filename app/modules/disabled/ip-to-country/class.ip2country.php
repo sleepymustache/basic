@@ -1,18 +1,15 @@
 <?php
-namespace IP2Country;
+namespace Module\IP2Country;
 
 require_once(DIRBASE . '/modules/enabled/file-system-database/class.fsdb.php');
 
 /**
- * @page ip2country IP2CO\Converter Class
+ * Cross-references countries with IP addresses using a flat-file-database.
  *
- * A test I made for the FSDB class.
+ * ### Usage
  *
- * This class will lookup what country an IP is from using a flat-file-database.
- *
- * @section usage Usage
- * @code
- *   $i = new IP2Country\Converter();
+ * <code>
+ *   $i = new \Module\IP2Country\Converter();
  *   $countryCode = $i->getCountryCode($_SERVER['REMOTE_ADDR']);
  *
  *   if ($countryCode != false) {
@@ -22,23 +19,24 @@ require_once(DIRBASE . '/modules/enabled/file-system-database/class.fsdb.php');
  *       "(" . ip2long($_SERVER['REMOTE_ADDR']) .
  *       ") Not found in " . $i->getTable($_SERVER['REMOTE_ADDR']) . ".";
  *   }
- * @endcode
+ * </code>
  *
- * @section changelog Changelog
- *   ## Version 1.2
- *   * Added namespacing
- *   ## Version 1.1
- *   * Added the date section to documentation
+ * ### Changelog
  *
- * @section dependencies Dependencies
+ * ## Version 1.2
+ * * Added namespacing
+ *
+ * ## Version 1.1
+ * * Added the date section to documentation
+ *
+ * ### Dependencies
  * * class.fsdb.php
  *
  * @date August 13, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version 1.2
- * @license  MIT
+ * @license  http://opensource.org/licenses/MIT
  */
-
 class Converter {
 	private $db;
 

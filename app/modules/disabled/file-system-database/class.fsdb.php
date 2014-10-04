@@ -1,15 +1,15 @@
 <?php
-namespace FSDB;
+namespace Module\FSDB;
 
 /**
- * @page fsdb File System Database Class
- * A mock database that can be used when a real DB is overkill.
+ * Implements a flat-file database that can be used when a real DB is overkill.
  *
  * A database that uses flat files for basic database functionality like select,
  * insert, update, and delete.
  *
- * @section usage Usage
- * @code
+ * ### Usage
+ *
+ * <code>
  *   $fruit = new stdClass();
  *   $fruit->name = "Apple";
  *   $fruit->color = "Red";
@@ -19,26 +19,97 @@ namespace FSDB;
  *   $db = new FSDB\Connection();
  *   $db->insert('fruit', $fruit);
  *   $data = $db->select('fruit', 'name', 'Banana');
- * @endcode
+ * </code>
  *
- * @section changelog Changelog
- *   ## Version 1.0
- *   * Added namespacing
- *   ## Version 0.8
- *   * Added the date and changelog sections to documentation
+ * ### Changelog
+ *
+ * ## Version 1.0
+ * * Added namespacing
+ *
+ * ## Version 0.8
+ * * Added the date and changelog sections to documentation
  *
  * @todo select with =, >, <, !=, >=, <=
  *
  * @date August 13, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version 0.8
- * @license  MIT
+ * @license  http://opensource.org/licenses/MIT
  */
+class Connection {
+	/**
+	 * string The directory where the data is stored
+	 * @private
+	 */
+	private $directory;
+
+
+	/**
+	 * array Tables currently loaded in memory
+	 * @private
+	 */
+	private $tables = array();
+
+	/**
+	 * __construct
+	 *
+	 * @param string $directory Directory where data is stored (optional)
+	 */
+	public function __construct($directory = '') {
+		if ($directory == '') {
+			$directory = getcwd() . "/data/";
+		}
+		if (is_dir($directory)) {
+			$this->directory = $directory;
+		} else {
+			$oldumask = umask(0);
+			if (@mkdir($directory, 0777)) {
+				$this->directory = $directory;
+			} else {
+				throw new \Exception("FSDB: Cannot create data directory at:" . $directory);
+			}
+			umask($oldumask);
+		}
+	}
+
+	/**
+	 * __call
+	 *
+	 * Handles method calls, if the method exists in \Module\FSDB\Table, use that one.
+	 *
+	 * @param string $method Method called
+	 * @param array $args   Arguments passed
+	 * @return mixed Value.
+	 */
+	public function __call($method, $args) {
+		if (method_exists("\Module\FSDB\_Table", $method)) {
+			$tableName = $args[0];
+			$filename = $args[0] . ".json";
+
+			if (!isset($this->tables[$tableName])) {
+				$this->tables[$tableName] = new _Table($this->directory . $filename);
+			}
+
+			array_shift($args);
+
+			return call_user_func_array(array($this->tables[$tableName], $method), $args);
+
+		} else {
+			throw new \Exception("FSDB: Method does not exist: $method");
+		}
+	}
+}
 
 /**
- * Filesystem Table
+ * Private class used by \Module\FSDB\Connection
+ *
+ * @date August 13, 2014
+ * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
+ * @version 0.8
+ * @license  http://opensource.org/licenses/MIT
+ * @internal
  */
-class Table {
+class _Table {
 	/**
 	 * bool This flag gets set when the Database needs to be saved
 	 * @private
@@ -302,77 +373,5 @@ class Table {
 		}
 
 		return $updated;
-	}
-}
-
-/**
- * Filesystem Database
- *
- * @section dependencies Dependencies
- * \FSDB\Tables
- *
- * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- */
-class Connection {
-	/**
-	 * string The directory where the data is stored
-	 * @private
-	 */
-	private $directory;
-
-
-	/**
-	 * array Tables currently loaded in memory
-	 * @private
-	 */
-	private $tables = array();
-
-	/**
-	 * __construct
-	 *
-	 * @param string $directory Directory where data is stored (optional)
-	 */
-	public function __construct($directory = '') {
-		if ($directory == '') {
-			$directory = getcwd() . "/data/";
-		}
-		if (is_dir($directory)) {
-			$this->directory = $directory;
-		} else {
-			$oldumask = umask(0);
-			if (@mkdir($directory, 0777)) {
-				$this->directory = $directory;
-			} else {
-				throw new \Exception("FSDB: Cannot create data directory at:" . $directory);
-			}
-			umask($oldumask);
-		}
-	}
-
-	/**
-	 * __call
-	 *
-	 * Handles method calls, if the method exists in \FSDB\Table, use that one.
-	 *
-	 * @param string $method Method called
-	 * @param array $args   Arguments passed
-	 * @return mixed Value.
-	 */
-	public function __call($method, $args) {
-		if (method_exists("\FSDB\Table", $method)) {
-			$tableName = $args[0];
-			$filename = $args[0] . ".json";
-
-			if (!isset($this->tables[$tableName])) {
-				$this->tables[$tableName] = new Table($this->directory . $filename);
-			}
-
-			array_shift($args);
-
-			return call_user_func_array(array($this->tables[$tableName], $method), $args);
-
-		} else {
-			throw new \Exception("FSDB: Method does not exist: $method");
-		}
 	}
 }

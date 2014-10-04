@@ -1,10 +1,19 @@
 <?php
 require_once('class.csv.php');
 
+/**
+ * Tests the \Module\CSV\Document() class
+ *
+ * @internal
+ * @date August 13, 2014
+ * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
+ * @version 1.8
+ * @license  http://opensource.org/licenses/MIT
+ */
 class TestOfCSV extends UnitTestCase {
 	function setUp() {
 		$this->filename = getcwd() . '/testing.csv';
-		$this->csv = new \CSV\Document($this->filename);
+		$this->csv = new \Module\CSV\Document($this->filename);
 	}
 
 	function tearDown() {

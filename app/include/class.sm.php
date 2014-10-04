@@ -2,15 +2,16 @@
 namespace Sleepy;
 
 /**
- * This class enables the pre and post-process hooks as well as some basic
- * framework functionality
+ * Provides sleepyMUSTACHE core bootstrap functionality
  *
- * @section usage Usage
- * @code
+ * ### Usage
+ *
+ * <code>
  *   \Sleepy\SM::initialize();
- * @endcode
+ * </code>
  *
- * @section changelog Changelog
+ * ### Changelog
+ *
  * ## Version 1.0
  * * Initial commit
  *
@@ -31,8 +32,16 @@ class SM {
 	 * and sleepy_postprocess hooks.
 	 */
 	private function __construct() {
+		require_once('class.debug.php');
+
 		// Enable sessions
 		session_start();
+
+		// If we are not setup yet, forward the user to the setup page
+		if (!@include_once('global.php')) {
+			header('Location: /app/setup/');
+			die();
+		}
 
 		require_once('class.hooks.php');
 		require_once('class.template.php');
@@ -79,5 +88,19 @@ class SM {
 	 */
 	public static function isDev() {
 		return (ENV != "LIVE" && ENV != "STAGE");
+	}
+
+	/**
+	 * Checks if the current site matches a URL
+	 * @param  string  $str The URL to match with current site
+	 * @return boolean      true if there was a match
+	 */
+	public static function isENV($str) {
+		foreach (explode("," , $str) as $url) {
+			if (strpos(strtolower($_SERVER['SERVER_NAME']), strtolower(trim($url))) !== false)
+				return true;
+		}
+
+		return false;
 	}
 }

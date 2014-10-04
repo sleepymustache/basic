@@ -1,5 +1,5 @@
 <?php
-namespace sampleNavigation;
+namespace Module\Navigation;
 
 /**
  * Sample Navigation
@@ -16,6 +16,7 @@ namespace sampleNavigation;
  * add the correct namespace.
  *
  * @return string The rendered navigation
+ * @internal
  */
 
 function render() {
@@ -64,10 +65,10 @@ function render() {
 		]
 	}';
 
-	$topNav = new \Navigation\Builder($topNavData);
+	$topNav = new Builder($topNavData);
 	$topNav->setCurrent($_SERVER['SCRIPT_NAME']);
 
 	return $topNav->show();
 }
 
-\Sleepy\Hook::applyFilter('render_placeholder_topnav', '\sampleNavigation\render');
+\Sleepy\Hook::applyFilter('render_placeholder_topnav', '\Module\Navigation\render');

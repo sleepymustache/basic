@@ -2,7 +2,7 @@
 namespace Sleepy;
 
 /**
- * Class for custom debugging functions.
+ * Provides custom debugging functions.
  *
  * This class can send emails, log to a database, or display on screen debug
  * information. You can set the enabled flags to enable the debug functions or
@@ -10,19 +10,22 @@ namespace Sleepy;
  * of your code with little overhead. For email and database logging, don't
  * forget to setup the public properties.
  *
- * @section usage Usage
- * @code
+ * ### Usage
+ *
+ * <code>
  *   // Turn debugging to screen on
  *   Debug::$enable_show = true;
  *   Debug::out("This will goto the screen because $enable_show == true");
  *
  *   // Turn off debugging to screen
  *   Debug::$enable_show = false;
- * @endcode
+ * </code>
  *
- * @section changelog Changelog
+ * ### Changelog
+ *
  * ## Version 1.8
  * * Added namespacing
+ *
  * ## Version 1.7
  * * Added the date section to the documentation
  *
@@ -32,7 +35,7 @@ namespace Sleepy;
  * @date August 13, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version 1.8
- * @license  MIT
+ * @license  http://opensource.org/licenses/MIT
  */
 
 class Debug {

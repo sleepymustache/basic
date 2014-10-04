@@ -1,5 +1,5 @@
 <?php
-namespace Mobile;
+namespace Module\Mobile;
 
 class Retina {
 	public function processDownsize($folders) {

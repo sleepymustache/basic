@@ -1,16 +1,15 @@
 <?php
-namespace Navigation;
+namespace Module\Navigation;
 
 /**
- * @page nav1 Navigation Class
+ * Creates a Navigation UL based on a JSON file
  *
- * A Navigation class that simplifies creating multi-lever navigations.
- *
- * This class uses JSON to structure navigation pages and attributes. It can
+ * Uses JSON to structure navigation pages and attributes. It can
  * detect what page is active and assign classes to them for special treatment.
  *
- * @section usage Usage
- * @code
+ * ### Usage
+ *
+ * <code>
  *  $topNavData = '{
  *    "pages": [
  *      {
@@ -37,16 +36,17 @@ namespace Navigation;
  *  <nav class="top">
  *    <?php echo $topNav->show(); ?>
  *  </nav>
- * @endcode
+ * </code>
  *
- * @section changelog Changelog
- *   ## Version 1.2
- *   * Added a track parameter
+ * ### Changelog
+ *
+ * ## Version 1.2
+ * * Added a track parameter
  *
  * @date June 16, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version 1.1
- * @license  MIT
+ * @license  http://opensource.org/licenses/MIT
  */
 class Builder {
 	/**

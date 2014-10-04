@@ -1,25 +1,24 @@
 <?php
-namespace FormBuilder;
+namespace Module\FormBuilder;
 
 /**
- * @page fb1 FormBuilder Class
- *
- * Class for building and validating forms
+ * Builds and valids forms
  *
  * This class allows for building forms using JSON. Fields are automatically
  * validated based on Rules allowing for easy server-side validation. The markup
  * closely resembles jQuery validation plugin so you can use one stylesheet for
  * both client- and server-side validation.
  *
- * @section usage Usage
- * @code
+ * ### Usage
+ *
+ * <code>
  *   $UserEdit = new FormBuilder\Form('{
  *     "id": "user",
  *     "action": "#",
  *     "method": "POST",
  *     "fieldsets": [
  *       {
- *         "legend": "Update your user information:",
+ *         "legend": "Update your user information:",Fnew
  *         "fields": [
  *           {
  *             "name": "txtName",
@@ -103,29 +102,187 @@ namespace FormBuilder;
  *   // if Form::validate() was executed, it will render with errors and
  *   // updated values, otherwise it'll render normally
  *   echo $UserEdit->render();
- * @endcode
+ * </code>
  *
- * @section changelog Changelog
- *   ## Version 1.6
- *   * Added track attribute for google data tracking
- *   ## Version 1.5
- *   * Throws an exception when you make a JSON error
- *   ## Version 1.4
- *   * Added ability to overwrite errors
- *   * Fixed equalTo rule validation bug
- *   ## Version 1.2
- *   * Added placeholder for inputs
- *   * Added namespacing
- *   * Fixed error class bug
- *   ## Version 1.1
- *   * Added the date and changelog sections to documentation
+ * ### Changelog
+ *
+ * ## Version 1.6
+ * * Added track attribute for google data tracking
+ *
+ * ## Version 1.5
+ * * Throws an exception when you make a JSON error
+ *
+ * ## Version 1.4
+ * * Added ability to overwrite errors
+ * * Fixed equalTo rule validation bug
+ *
+ * ## Version 1.2
+ * * Added placeholder for inputs
+ * * Added namespacing
+ * * Fixed error class bug
+ *
+ * ## Version 1.1
+ * * Added the date and changelog sections to documentation
  *
  * @date September 3, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version 1.6
- * @license  MIT
+ * @license  http://opensource.org/licenses/MIT
  */
+class Form {
+	/**
+	 * The ID of the form
+	 * @var string
+	 */
+	public $id;
 
+	/**
+	 * Class to apply to the field
+	 * @var string
+	 */
+	public $class;
+
+	/**
+	 * The action of the form
+	 * @var string
+	 */
+	public $action;
+
+	/**
+	 * The method of the form
+	 * @var string
+	 */
+	public $method;
+
+	/**
+	 * Should the form be validated?
+	 * @var boolean
+	 */
+	public $validate = true;
+
+	/**
+	 * An array of fieldsets
+	 * @var array of FormBuilderFieldset
+	 */
+	private $fieldsets;
+
+	/**
+	 * Creates a Form based on JSON
+	 * @param string $json
+	 */
+	public function __construct($json) {
+		$data = \json_decode(str_replace('\\', '\\\\', $json));
+
+		if (!is_object($data)) {
+			var_dump($json);
+			throw new \Exception('There is an error in your JSON. Cannot continue.');
+		}
+
+		if (!isset($data->action)) {
+			$data->action = "#";
+		}
+
+		if (!isset($data->method)) {
+			$data->method = "POST";
+		}
+
+		$this->action = $data->action;
+		$this->method = $data->method;
+
+		if (isset($data->id)) {
+			$this->id = $data->id;
+		}
+
+		if (isset($data->class)) {
+			$this->class = $data->class;
+		}
+
+		if (isset($data->validate)) {
+			$this->validate = $data->validate;
+		}
+
+		foreach ($data->fieldsets as $fieldset) {
+			$this->fieldsets[] = new FormBuilderFieldset($fieldset);
+		}
+	}
+
+	/**
+	 * Checks if the form has been submitted?
+	 * @return boolean
+	 */
+	public function submitted() {
+		if ($_SERVER['REQUEST_METHOD'] == $this->method) {
+			if (strtoupper($this->method) === "POST") {
+				$id = $_POST['frmID'];
+			} else {
+				$id = $_GET['frmID'];
+			}
+
+			if ($id == $this->id) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Validates the form
+	 * @return array
+	 */
+	public function validate() {
+		$errors = array();
+
+		foreach($this->fieldsets as $fieldset) {
+			$error = $fieldset->validate();
+			if (is_array($error)) {
+				$errors = array_merge($errors, $error);
+			}
+		}
+
+		return (count($errors) == 0) ? true : $errors;
+	}
+
+	/**
+	 * Renders a form
+	 * @return string
+	 */
+	public function render() {
+		$validate = (!$this->validate) ? "novalidate" : "";
+		$buffer = array();
+		$buffer[] = "<form id=\"{$this->id}\" class=\"{$this->class}\" action=\"{$this->action}\" method=\"{$this->method}\" {$validate}>";
+		$buffer[] = "<input type=\"hidden\" name=\"frmID\" id=\"frmID\" value=\"{$this->id}\">";
+
+		foreach($this->fieldsets as $fieldset) {
+			$buffer[] = $fieldset->render($this->validate && $this->submitted());
+		}
+
+		$buffer[] = "</form>";
+
+		return implode(" ", $buffer);
+	}
+
+	/**
+	 * Get the datamap for the form
+	 * @return array
+	 */
+	public function getDataMap() {
+		$formData = array();
+
+		foreach ($this->fieldsets as $fieldset) {
+			if (is_array($fieldset->getDataMap())) {
+				$formData = array_merge($formData, $fieldset->getDataMap());
+			}
+		}
+
+		return $formData;
+	}
+}
+
+/**
+ * Creates a Field
+ * @internal
+ */
 class FormBuilderField {
 	// Manditory properties
 
@@ -566,7 +723,8 @@ class FormBuilderField {
 }
 
 /**
- * A fieldset in a form
+ * Creates a Fieldset
+ * @internal
  */
 class FormBuilderFieldset {
 	/**
@@ -666,158 +824,8 @@ class FormBuilderFieldset {
 }
 
 /**
- * Build a form using a JSON fle
+ * Gets a list of states in JSON format to be used in select fields
  */
-class Form {
-	/**
-	 * The ID of the form
-	 * @var string
-	 */
-	public $id;
-
-	/**
-	 * Class to apply to the field
-	 * @var string
-	 */
-	public $class;
-
-	/**
-	 * The action of the form
-	 * @var string
-	 */
-	public $action;
-
-	/**
-	 * The method of the form
-	 * @var string
-	 */
-	public $method;
-
-	/**
-	 * Should the form be validated?
-	 * @var boolean
-	 */
-	public $validate = true;
-
-	/**
-	 * An array of fieldsets
-	 * @var array of FormBuilderFieldset
-	 */
-	private $fieldsets;
-
-	/**
-	 * Creates a Form based on JSON
-	 * @param string $json
-	 */
-	public function __construct($json) {
-		$data = \json_decode(str_replace('\\', '\\\\', $json));
-
-		if (!is_object($data)) {
-			var_dump($json);
-			throw new \Exception('There is an error in your JSON. Cannot continue.');
-		}
-
-		if (!isset($data->action)) {
-			$data->action = "#";
-		}
-
-		if (!isset($data->method)) {
-			$data->method = "POST";
-		}
-
-		$this->action = $data->action;
-		$this->method = $data->method;
-
-		if (isset($data->id)) {
-			$this->id = $data->id;
-		}
-
-		if (isset($data->class)) {
-			$this->class = $data->class;
-		}
-
-		if (isset($data->validate)) {
-			$this->validate = $data->validate;
-		}
-
-		foreach ($data->fieldsets as $fieldset) {
-			$this->fieldsets[] = new FormBuilderFieldset($fieldset);
-		}
-	}
-
-	/**
-	 * Checks if the form has been submitted?
-	 * @return boolean
-	 */
-	public function submitted() {
-		if ($_SERVER['REQUEST_METHOD'] == $this->method) {
-			if (strtoupper($this->method) === "POST") {
-				$id = $_POST['frmID'];
-			} else {
-				$id = $_GET['frmID'];
-			}
-
-			if ($id == $this->id) {
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	/**
-	 * Validates the form
-	 * @return array
-	 */
-	public function validate() {
-		$errors = array();
-
-		foreach($this->fieldsets as $fieldset) {
-			$error = $fieldset->validate();
-			if (is_array($error)) {
-				$errors = array_merge($errors, $error);
-			}
-		}
-
-		return (count($errors) == 0) ? true : $errors;
-	}
-
-	/**
-	 * Renders a form
-	 * @return string
-	 */
-	public function render() {
-		$validate = (!$this->validate) ? "novalidate" : "";
-		$buffer = array();
-		$buffer[] = "<form id=\"{$this->id}\" class=\"{$this->class}\" action=\"{$this->action}\" method=\"{$this->method}\" {$validate}>";
-		$buffer[] = "<input type=\"hidden\" name=\"frmID\" id=\"frmID\" value=\"{$this->id}\">";
-
-		foreach($this->fieldsets as $fieldset) {
-			$buffer[] = $fieldset->render($this->validate && $this->submitted());
-		}
-
-		$buffer[] = "</form>";
-
-		return implode(" ", $buffer);
-	}
-
-	/**
-	 * Get the datamap for the form
-	 * @return array
-	 */
-	public function getDataMap() {
-		$formData = array();
-
-		foreach ($this->fieldsets as $fieldset) {
-			if (is_array($fieldset->getDataMap())) {
-				$formData = array_merge($formData, $fieldset->getDataMap());
-			}
-		}
-
-		return $formData;
-	}
-}
-
 class States {
 	function jsonArray($placeholder="State") {
 		return '[

@@ -1,28 +1,29 @@
 <?php
-namespace MobiDetect;
+namespace Module\MobiDetect;
 
 /**
  * Detects if a device is a mobile device and which kind.
  *
  * Attribution: Regex taken from unknown source
  *
- * @section usage Usage
- * @code
- *   $m = new MobiDetect\Detector();
+ * ### Usage
+ * <code>
+ *   $m = new \Module\MobiDetect\Detector();
  *
  *   if ($m->isMobile()) {
  *     echo "This is a mobile device";
  *   }
- * @endcode
+ * </code>
  *
- * @section changelog Changelog
+ * ### Changelog
+ *
  * ## Version 1.6
  * * Fixed bug with BCC and CC
  *
  * @date June 16, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version 1.1
- * @license  MIT
+ * @license  http://opensource.org/licenses/MIT
  */
 class Detector {
 	private $iphone = false;
