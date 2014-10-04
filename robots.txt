@@ -14,7 +14,4 @@ Disallow: /meta/
 # Framework stuff
 Disallow: /css/
 Disallow: /js/
-Disallow: /include/
-Disallow: /modules/
-Disallow: /templates/
-Disallow: /tests/
+Disallow: /app/
