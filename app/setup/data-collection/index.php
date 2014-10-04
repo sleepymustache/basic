@@ -5,7 +5,10 @@
 	define('DIRBASE', $_SERVER['DOCUMENT_ROOT'] . URLBASE);
 
 	require_once(DIRBASE . '../include/class.template.php');
-	require_once(DIRBASE . '../modules/disabled/form-builder/class.formbuilder.php');
+
+	if (!@include_once(DIRBASE . '../modules/disabled/form-builder/class.formbuilder.php')) {
+		include_once(DIRBASE . '../modules/enabled/form-builder/class.formbuilder.php');
+	}
 
 	// What step are we on?
 	if (!isset($_GET['step'])) {
@@ -140,7 +143,7 @@
 		]
 	}';
 
-	$Form = new \FormBuilder\Form($json);
+	$Form = new \Module\FormBuilder\Form($json);
 
 	if ($Form->submitted()) {
 		// Validate the form

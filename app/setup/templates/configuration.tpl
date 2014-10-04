@@ -1,3 +1,4 @@
+
 /*******************************************************************************
  * Global settings
  ******************************************************************************/
@@ -6,22 +7,8 @@
 define('LIVE_URL',  '{{ liveURL }}');
 define('STAGE_URL', '{{ stageURL }}');
 
-/**
- * Checks if the current site matches a URL
- * @param  string  $str The URL to match with current site
- * @return boolean      true if there was a match
- */
-function isENV($str) {
-	foreach (explode("," , $str) as $url) {
-		if (strpos(strtolower($_SERVER['SERVER_NAME']), strtolower(trim($url))) !== false)
-			return true;
-	}
-
-	return false;
-}
-
 // Server dependant variables (Dev/Stage/Live)
-if (isENV(STAGE_URL)) {
+if (\Sleepy\SM::isENV(STAGE_URL)) {
 	define("ENV", "STAGE");
 
 	// Base Directory/URL
@@ -42,7 +29,7 @@ if (isENV(STAGE_URL)) {
 
 	// Analytics
 	define('GA_ACCOUNT', "{{ stageANALYTICS }}");
-} elseif (isENV(LIVE_URL)) {
+} elseif (\Sleepy\SM::isENV(LIVE_URL)) {
 	define("ENV", "LIVE");
 
 	// Base Directory/URL
@@ -85,8 +72,6 @@ if (isENV(STAGE_URL)) {
 	// Analytics
 	define('GA_ACCOUNT', "{{ stageANALYTICS }}");
 }
-
-require_once('class.debug.php');
 
 // Set Debugging
 \Sleepy\Debug::$enable_show = true;				// Show debug info on screen
