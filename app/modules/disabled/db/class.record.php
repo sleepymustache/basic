@@ -1,10 +1,9 @@
 <?php
-namespace DB;
+namespace Module\DB;
 
 require_once(dirname(__FILE__) . '/class.db.php');
 require_once(dirname(__FILE__) . '/../../../include/class.debug.php');
 /**
- * @page record1 Record Class
  * Base class that represents a record in a table.
  *
  * Extend this class and add a property $table that is equal to the table name
@@ -12,9 +11,9 @@ require_once(dirname(__FILE__) . '/../../../include/class.debug.php');
  * save(), and delete() methods are immediately available. Update the data by
  * changing the value of the columns like this:
  *
- * @section usage Usage
+ * ### Usage
  *
- * @code
+ * <code>
  *   // load a record with id= 5 from a table called 'user'
  *   class user extends record {
  *     public $table = 'user';
@@ -23,26 +22,29 @@ require_once(dirname(__FILE__) . '/../../../include/class.debug.php');
  *   $u = new user();
  *   $u->load(5);
  *   $u->columns['first_name'] = 'Joe';
- * @endcode
+ * </code>
  *
  * You can then save the new information by calling the save method:
  *
- * @code
+ * <code>
  *   $u->save();
- * @endcode
+ * </code>
  *
  * You can also show a nice form to edit or add new records like this
- * @code
+ *
+ * <code>
  *   $u->form(array(
  *     'first_name' => 'First Name: ',
  *     'last_name' => 'Last Name: ',
  *     'phone' => '(800) 555-5555'
  *   ));
- * @endcode
+ * </code>
  *
- * @section changelog Changelog
+ * ### Changelog
+ *
  * ## Version 1.2
  * * Added namespacing
+ *
  * ## Version 1.1
  * * Added the date section to the documentation
  *
@@ -53,7 +55,7 @@ require_once(dirname(__FILE__) . '/../../../include/class.debug.php');
  * @date June 16, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version  1.1
- * @license  MIT
+ * @license  http://opensource.org/licenses/MIT
  **/
 
 class Record {

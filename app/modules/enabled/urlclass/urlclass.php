@@ -1,5 +1,5 @@
 <?php
-namespace URLclass;
+namespace Module\URLclass;
 
 /**
  * Generates a class based on the URL.
@@ -11,6 +11,7 @@ namespace URLclass;
  * *user-login*.
  *
  * @return string The class name
+ * @internal
  */
 function render() {
 	// Get the current URL
@@ -51,4 +52,4 @@ function render() {
 	return $url;
 }
 
-\Sleepy\Hook::applyFilter('render_placeholder_urlclass', '\URLclass\render');
+\Sleepy\Hook::applyFilter('render_placeholder_urlclass', '\Module\URLclass\render');
