@@ -29,7 +29,7 @@ namespace Module\Navigation;
  *    ]
  *  }';
  *
- *  $topNav = new \Navigation\Builder($topNavData);
+ *  $topNav = new \Module\Navigation\Builder($topNavData);
  *  $topNav->setCurrent($_SERVER['SCRIPT_NAME']);
  *
  *  // In body somewhere...

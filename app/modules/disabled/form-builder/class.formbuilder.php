@@ -12,7 +12,7 @@ namespace Module\FormBuilder;
  * ### Usage
  *
  * <code>
- *   $UserEdit = new FormBuilder\Form('{
+ *   $UserEdit = new \Module\FormBuilder\Form('{
  *     "id": "user",
  *     "action": "#",
  *     "method": "POST",

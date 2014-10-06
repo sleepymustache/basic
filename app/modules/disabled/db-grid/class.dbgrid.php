@@ -7,7 +7,7 @@ namespace Module\DB;
  * ### Usage
  *
  * <code>
- *   $dbg = new DbGrid('users', 'SELECT * FROM users');
+ *   $dbg = new \Module\DB\Grid('users', 'SELECT * FROM users');
  *
  *   $dbg->exclude(array(
  *     'user_id',

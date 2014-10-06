@@ -10,7 +10,7 @@ namespace Module\Mailer;
  * ### Usage
  *
  * <code>
- *   $m = new \Mailer\Message();
+ *   $m = new \Module\Mailer\Message();
  *   $m->addTo("test@test.com");
  *   $m->addFrom("from.me@test.com");
  *   $m->addSubject("This is a test, don't panic.");

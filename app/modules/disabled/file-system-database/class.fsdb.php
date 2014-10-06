@@ -16,7 +16,7 @@ namespace Module\FSDB;
  *   $fruit->texture = "Crispy";
  *   $fruit->price = 0.50;
  *
- *   $db = new FSDB\Connection();
+ *   $db = new \Module\FSDB\Connection();
  *   $db->insert('fruit', $fruit);
  *   $data = $db->select('fruit', 'name', 'Banana');
  * </code>

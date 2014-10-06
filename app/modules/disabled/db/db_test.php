@@ -11,7 +11,7 @@ require_once('class.record.php');
  * @version 1.8
  * @license  http://opensource.org/licenses/MIT
  */
-class Log extends Module\DB\Record {
+class Log extends \Module\DB\Record {
 	public $table = 'log';
 }
 

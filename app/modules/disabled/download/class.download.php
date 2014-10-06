@@ -7,7 +7,7 @@ namespace Module\Download;
  * ### Usage
  *
  * <code>
- *   $d= new Download/Forces()
+ *   $d= new \Module\Download\Forces()
  *
  *   $d->getAnchor('ISI', 'isi.pdf');
  * </code>

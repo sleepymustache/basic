@@ -10,11 +10,11 @@ namespace Module\DB;
  * ### Usage
  *
  * <code>
- *   DB::$dbhost = 'localhost';
- *   DB::$dbname = 'db';
- *   DB::$dbuser = 'username';
- *   DB::$dbpass = 'itsmeopenup';
- *   $db = DB::getInstance();
+ *   \Module\DB\DB::$dbhost = 'localhost';
+ *   \Module\DB\DB::$dbname = 'db';
+ *   \Module\DB\DB::$dbuser = 'username';
+ *   \Module\DB\DB::$dbpass = 'itsmeopenup';
+ *   $db = \Module\DB\DB::getInstance();
  * </code>
  *
  * ### Changelog

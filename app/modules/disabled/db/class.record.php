@@ -15,7 +15,7 @@ require_once(dirname(__FILE__) . '/../../../include/class.debug.php');
  *
  * <code>
  *   // load a record with id= 5 from a table called 'user'
- *   class user extends record {
+ *   class user extends \Module\DB\Record {
  *     public $table = 'user';
  *   }
  *

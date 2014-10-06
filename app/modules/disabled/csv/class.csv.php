@@ -8,7 +8,7 @@ namespace Module\CSV;
  *
  * <code>
  *   // loads a existing CSV file
- *   $c = new \CSV\Document('presidents.csv');
+ *   $c = new \Module\CSV\Document('presidents.csv');
  *
  *   $c->add(array(
  *     'George',
