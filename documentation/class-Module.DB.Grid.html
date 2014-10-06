@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Module\DB\Grid</title>
+
+	<script type="text/javascript" src="resources/combined.js?2585304289"></script>
+	<script type="text/javascript" src="elementlist.js?2403706640"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Module.html">Module<span></span></a>
+						<ul>
+				<li><a href="namespace-Module.Authentication.html">Authentication</a>
+						</li>
+				<li><a href="namespace-Module.CSV.html">CSV</a>
+						</li>
+				<li class="active"><a href="namespace-Module.DB.html">DB</a>
+						</li>
+				<li><a href="namespace-Module.FormBuilder.html">FormBuilder</a>
+						</li>
+				<li><a href="namespace-Module.FSDB.html">FSDB</a>
+						</li>
+				<li><a href="namespace-Module.IP2Country.html">IP2Country</a>
+						</li>
+				<li><a href="namespace-Module.Mailer.html">Mailer</a>
+						</li>
+				<li><a href="namespace-Module.MobiDetect.html">MobiDetect</a>
+						</li>
+				<li><a href="namespace-Module.Mobile.html">Mobile</a>
+						</li>
+				<li><a href="namespace-Module.Navigation.html">Navigation</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Sleepy.html">Sleepy</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Module.DB.DB.html">DB</a></li>
+				<li class="active"><a href="class-Module.DB.Grid.html">Grid</a></li>
+				<li><a href="class-Module.DB.Record.html">Record</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Module.DB.html" title="Summary of Module\DB"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Grid</h1>
+
+
+	<div class="description">
+	
+<p>Creates a grid view of a sql statement</p>
+
+<h1>Usage</h1>
+
+<pre>
+<span class="php-var">$dbg</span> = <span
+class="php-keyword1">new</span> \Module\DB\Grid(<span
+class="php-quote">'users'</span>, <span
+class="php-quote">'SELECT * FROM users'</span>);
+
+<span
+class="php-var">$dbg</span>-&gt;exclude(<span
+class="php-keyword1">array</span>(
+  <span
+class="php-quote">'user_id'</span>,
+  <span
+class="php-quote">'password'</span>
+));
+
+<span
+class="php-var">$dbg</span>-&gt;mapFields(<span
+class="php-keyword1">array</span>(
+  <span
+class="php-quote">'name'</span> =&gt; <span
+class="php-quote">'user_id'</span>
+));
+
+<span
+class="php-var">$dbg</span>-&gt;sortable(<span
+class="php-keyword1">array</span>(
+  <span
+class="php-quote">'name'</span>,
+  <span
+class="php-quote">'date'</span>
+));
+
+<span
+class="php-var">$dbg</span>-&gt;show();
+</pre>
+
+<h1>Changelog</h1>
+
+<h2>Version 1.2</h2>
+
+<ul>
+	<li>Added namespacing</li>
+</ul>
+
+<h2>Version 1.1</h2>
+
+<ul>
+	<li>Added the date section to documentation</li>
+</ul>
+
+<h1>Dependencies</h1>
+
+<ul>
+	<li>class.db.php</li>
+
+	<li>class.hooks.php</li>
+</ul>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Module.html">Module</a>\<a href="namespace-Module.DB.html">DB</a><br />
+		
+
+				<b>License:</b>
+				<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a><br />
+				<b>Author:</b>
+				Jaime A. Rodriguez &lt;<a
+href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>&gt;<br />
+				<b>Version:</b>
+				1.2<br />
+				<b>Date:</b>
+				August 13, 2014<br />
+		<b>Located at</b> <a href="source-class-Module.DB.Grid.html#5-335" title="Go to source code">disabled/db-grid/class.dbgrid.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Module.DB.Grid.html#108-117" title="Go to source code">__construct</a>( <span>string <var>$name</var></span>, <span>string <var>$sql</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Constructor</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Constructor</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name Give our DBForm a name, used for hooks and id</dd>
+					<dt><var>$sql</var></dt>
+					<dd><code>string</code><br>$sql What SQL to run?</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="sortable" id="_sortable">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_sortable">#</a>
+		<code><a href="source-class-Module.DB.Grid.html#119-126" title="Go to source code">sortable</a>( <span>array <var>$array</var></span> )</code>
+
+		<div class="description short">
+			
+<p>What columns can be sorted?</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>What columns can be sorted?</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$array</var></dt>
+					<dd><code>array</code><br>$array fields that are sortable, used when rendering the table headers</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setQuerystring" id="_setQuerystring">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setQuerystring">#</a>
+		<code><a href="source-class-Module.DB.Grid.html#128-134" title="Go to source code">setQuerystring</a>( <span>string <var>$query</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Sets the Querystring to pass into the sorting links in the th</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the Querystring to pass into the sorting links in the th</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$query</var></dt>
+					<dd><code>string</code><br>$query the querystring</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="sort" id="_sort">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_sort">#</a>
+		<code><a href="source-class-Module.DB.Grid.html#136-144" title="Go to source code">sort</a>( <span>string <var>$column</var></span>, <span>boolean <var>$asc</var> = <span class="php-keyword1">true</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Sorts the table data</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sorts the table data</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$column</var></dt>
+					<dd><code>string</code><br>$column The column to sort by</dd>
+					<dt><var>$asc</var></dt>
+					<dd><code>boolean</code><br>$asc Sort ascending?</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="exclude" id="_exclude">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_exclude">#</a>
+		<code><a href="source-class-Module.DB.Grid.html#146-152" title="Go to source code">exclude</a>( <span>array <var>$array</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Which fields are excluded from the table</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Which fields are excluded from the table</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$array</var></dt>
+					<dd><code>array</code><br>$array a list of fields</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="mapFields" id="_mapFields">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_mapFields">#</a>
+		<code><a href="source-class-Module.DB.Grid.html#173-179" title="Go to source code">mapFields</a>( <span>array <var>$array</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Maps IDs to fields for processing later</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Maps IDs to fields for processing later</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$array</var></dt>
+					<dd><code>array</code><br>$array a list of fields =&gt; id that gets passed to the hooks</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="numberOfPages" id="_numberOfPages">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_numberOfPages">#</a>
+		<code><a href="source-class-Module.DB.Grid.html#181-194" title="Go to source code">numberOfPages</a>( )</code>
+
+		<div class="description short">
+			
+<p>Returns how many pages of results we have</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns how many pages of results we have</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>The number of pages in our resultset<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="show" id="_show">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_show">#</a>
+		<code><a href="source-class-Module.DB.Grid.html#196-334" title="Go to source code">show</a>( )</code>
+
+		<div class="description short">
+			
+<p>Shows an editable form</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Shows an editable form</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="db" id="$db">
+		<td class="attributes"><code>
+			protected  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.DB.Grid.html#48-51" title="Go to source code"><var>$db</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$db" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>DB The DB object</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>DB The DB object</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="name" id="$name">
+		<td class="attributes"><code>
+			protected  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.DB.Grid.html#53-56" title="Go to source code"><var>$name</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$name" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>string The name of our grid</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>string The name of our grid</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="sql" id="$sql">
+		<td class="attributes"><code>
+			protected  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.DB.Grid.html#58-61" title="Go to source code"><var>$sql</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$sql" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>string The SQL to run to make the grid</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>string The SQL to run to make the grid</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="sortBy" id="$sortBy">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.DB.Grid.html#63-66" title="Go to source code"><var>$sortBy</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">''</span></code></td>
+		<td class="description"><div>
+			<a href="#$sortBy" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>string The column to sort by</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>string The column to sort by</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="asc" id="$asc">
+		<td class="attributes"><code>
+			protected  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.DB.Grid.html#68-71" title="Go to source code"><var>$asc</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">true</span></code></td>
+		<td class="description"><div>
+			<a href="#$asc" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>string Ascending? or Descending?</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>string Ascending? or Descending?</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="maxRecords" id="$maxRecords">
+		<td class="attributes"><code>
+			public  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.DB.Grid.html#73-76" title="Go to source code"><var>$maxRecords</var></a>
+		</td>
+		<td class="value"><code><span class="php-num">10</span></code></td>
+		<td class="description"><div>
+			<a href="#$maxRecords" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>int How many records per page?</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>int How many records per page?</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="page" id="$page">
+		<td class="attributes"><code>
+			public  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.DB.Grid.html#78-81" title="Go to source code"><var>$page</var></a>
+		</td>
+		<td class="value"><code><span class="php-num">1</span></code></td>
+		<td class="description"><div>
+			<a href="#$page" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>int Which page are we on?</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>int Which page are we on?</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="meta" id="$meta">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.DB.Grid.html#83-86" title="Go to source code"><var>$meta</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$meta" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>object The meta data for the fields</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>object The meta data for the fields</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="canSortby" id="$canSortby">
+		<td class="attributes"><code>
+			protected  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.DB.Grid.html#88-91" title="Go to source code"><var>$canSortby</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$canSortby" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>array string fields that are sortable. Used when rendering column header
+links</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>array string fields that are sortable. Used when rendering column header
+links</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="excluded" id="$excluded">
+		<td class="attributes"><code>
+			protected  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.DB.Grid.html#93-96" title="Go to source code"><var>$excluded</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$excluded" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>array string Which fields to exclude from the table</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>array string Which fields to exclude from the table</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="map" id="$map">
+		<td class="attributes"><code>
+			protected  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.DB.Grid.html#98-101" title="Go to source code"><var>$map</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$map" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>array associative An array of fields =&gt; id that gets passed to the
+hooks</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>array associative An array of fields =&gt; id that gets passed to the
+hooks</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="querystring" id="$querystring">
+		<td class="attributes"><code>
+			protected  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.DB.Grid.html#103-106" title="Go to source code"><var>$querystring</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$querystring" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>string Querystring to pass into the sorting links in the th</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>string Querystring to pass into the sorting links in the th</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

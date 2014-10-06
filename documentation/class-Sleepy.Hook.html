@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Sleepy\Hook</title>
+
+	<script type="text/javascript" src="resources/combined.js?2585304289"></script>
+	<script type="text/javascript" src="elementlist.js?2403706640"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Module.html">Module<span></span></a>
+						<ul>
+				<li><a href="namespace-Module.Authentication.html">Authentication</a>
+						</li>
+				<li><a href="namespace-Module.CSV.html">CSV</a>
+						</li>
+				<li><a href="namespace-Module.DB.html">DB</a>
+						</li>
+				<li><a href="namespace-Module.FormBuilder.html">FormBuilder</a>
+						</li>
+				<li><a href="namespace-Module.FSDB.html">FSDB</a>
+						</li>
+				<li><a href="namespace-Module.IP2Country.html">IP2Country</a>
+						</li>
+				<li><a href="namespace-Module.Mailer.html">Mailer</a>
+						</li>
+				<li><a href="namespace-Module.MobiDetect.html">MobiDetect</a>
+						</li>
+				<li><a href="namespace-Module.Mobile.html">Mobile</a>
+						</li>
+				<li><a href="namespace-Module.Navigation.html">Navigation</a>
+						</li>
+							</ul></li>
+				<li class="active"><a href="namespace-Sleepy.html">Sleepy</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Sleepy.Debug.html">Debug</a></li>
+				<li class="active"><a href="class-Sleepy.Hook.html">Hook</a></li>
+				<li><a href="class-Sleepy.Router.html">Router</a></li>
+				<li><a href="class-Sleepy.SM.html">SM</a></li>
+				<li><a href="class-Sleepy.Template.html">Template</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Sleepy.html" title="Summary of Sleepy"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Hook</h1>
+
+
+	<div class="description">
+	
+<p>Adds Hooks and Filters</p>
+
+<p>You can create modules to hooks by adding php files into the
+<em>\app\modules\enabled</em> directory.</p>
+
+<h1>Usage</h1>
+
+<pre>
+<span class="php-comment">// add a hook point</span>
+<span
+class="php-var">$content</span> = Hook::addFilter(<span
+class="php-quote">'update_content'</span>, <span
+class="php-var">$_POST</span>[<span class="php-quote">'content'</span>]);
+
+<span
+class="php-comment">// Add a module to the hook point--in /modules/&lt;moduleName.php&gt;</span>
+<span
+class="php-keyword1">function</span> clean_html (<span
+class="php-var">$html</span>) {
+        <span class="php-var">$c</span> = <span
+class="php-keyword2">htmlentities</span>(<span
+class="php-keyword2">trim</span>(<span
+class="php-var">$html</span>), ENT_NOQUOTES, <span
+class="php-quote">&quot;UTF-8&quot;</span>, <span
+class="php-keyword1">false</span>);
+        <span
+class="php-keyword1">return</span> <span
+class="php-var">$c</span>;
+}
+
+Hook::applyFilter(<span
+class="php-quote">&quot;update_content&quot;</span>, <span
+class="php-quote">&quot;clean_html&quot;</span>);
+</pre>
+
+<h1>Changelog</h1>
+
+<h2>Version 1.1</h2>
+
+<ul>
+	<li>Added the date section to the documentation</li>
+</ul>
+
+<h2>Version 1.0</h2>
+
+<ul>
+	<li>static class pattern fixes</li>
+
+	<li>multiple module directories</li>
+
+	<li>crawls subdirectories of module directories</li>
+</ul>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Sleepy.html">Sleepy</a><br />
+		
+
+				<b>License:</b>
+				<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a><br />
+				<b>Author:</b>
+				Jaime A. Rodriguez &lt;<a
+href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>&gt;<br />
+				<b>Version:</b>
+				1.1<br />
+				<b>Date:</b>
+				June 16, 2014<br />
+		<b>Located at</b> <a href="source-class-Sleepy.Hook.html#4-200" title="Go to source code">class.hooks.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="applyFilter" id="_applyFilter">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_applyFilter">#</a>
+		<code><a href="source-class-Sleepy.Hook.html#118-141" title="Go to source code">applyFilter</a>( <span>string <var>$name</var></span>, <span>string <var>$function</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Adds a new filter to a filter-type hook point</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Adds a new filter to a filter-type hook point</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name [description]</dd>
+					<dt><var>$function</var></dt>
+					<dd><code>string</code><br>$function [description]</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addFilter" id="_addFilter">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addFilter">#</a>
+		<code><a href="source-class-Sleepy.Hook.html#143-176" title="Go to source code">addFilter</a>( <span>mixed <var>$name</var></span>, <span>string <var>$value</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Adds a new filter-type hook point</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Adds a new filter-type hook point</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>mixed</code><br>$name [description]</dd>
+					<dt><var>$value</var></dt>
+					<dd><code>string</code><br>$value [description]</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="doAction" id="_doAction">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_doAction">#</a>
+		<code><a href="source-class-Sleepy.Hook.html#178-188" title="Go to source code">doAction</a>( <span>string <var>$name</var></span>, <span>string <var>$function</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Adds a new function to a action-type hook point</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Adds a new function to a action-type hook point</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name Name of filter</dd>
+					<dt><var>$function</var></dt>
+					<dd><code>string</code><br>$function Function to call</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addAction" id="_addAction">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addAction">#</a>
+		<code><a href="source-class-Sleepy.Hook.html#190-199" title="Go to source code">addAction</a>( <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Adds a new action-type hook point</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Adds a new action-type hook point</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name [description]</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="directories" id="$directories">
+		<td class="attributes"><code>
+			public static 
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Sleepy.Hook.html#53-56" title="Go to source code"><var>$directories</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$directories" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>array string The directories where the modules are stored</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>array string The directories where the modules are stored</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

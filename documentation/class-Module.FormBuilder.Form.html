@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Module\FormBuilder\Form</title>
+
+	<script type="text/javascript" src="resources/combined.js?2585304289"></script>
+	<script type="text/javascript" src="elementlist.js?2403706640"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Module.html">Module<span></span></a>
+						<ul>
+				<li><a href="namespace-Module.Authentication.html">Authentication</a>
+						</li>
+				<li><a href="namespace-Module.CSV.html">CSV</a>
+						</li>
+				<li><a href="namespace-Module.DB.html">DB</a>
+						</li>
+				<li class="active"><a href="namespace-Module.FormBuilder.html">FormBuilder</a>
+						</li>
+				<li><a href="namespace-Module.FSDB.html">FSDB</a>
+						</li>
+				<li><a href="namespace-Module.IP2Country.html">IP2Country</a>
+						</li>
+				<li><a href="namespace-Module.Mailer.html">Mailer</a>
+						</li>
+				<li><a href="namespace-Module.MobiDetect.html">MobiDetect</a>
+						</li>
+				<li><a href="namespace-Module.Mobile.html">Mobile</a>
+						</li>
+				<li><a href="namespace-Module.Navigation.html">Navigation</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Sleepy.html">Sleepy</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Module.FormBuilder.Form.html">Form</a></li>
+				<li><a href="class-Module.FormBuilder.States.html">States</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Module.FormBuilder.html" title="Summary of Module\FormBuilder"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Form</h1>
+
+
+	<div class="description">
+	
+<p>Builds and valids forms</p>
+
+<p>This class allows for building forms using JSON. Fields are automatically
+validated based on Rules allowing for easy server-side validation. The markup
+closely resembles jQuery validation plugin so you can use one stylesheet for
+both client- and server-side validation.</p>
+
+<h1>Usage</h1>
+
+<pre>
+<span class="php-var">$UserEdit</span> = <span
+class="php-keyword1">new</span> \Module\FormBuilder\Form(<span
+class="php-quote">'{
+  &quot;id&quot;: &quot;user&quot;,
+  &quot;action&quot;: &quot;#&quot;,
+  &quot;method&quot;: &quot;POST&quot;,
+  &quot;fieldsets&quot;: [
+    {
+      &quot;legend&quot;: &quot;Update your user information:&quot;,Fnew
+      &quot;fields&quot;: [
+        {
+          &quot;name&quot;: &quot;txtName&quot;,
+          &quot;label&quot;: &quot;Name&quot;,
+          &quot;dataMap&quot;: &quot;name&quot;,
+          &quot;type&quot;: &quot;text&quot;,
+          &quot;value&quot;: &quot;Jaime Rodriguez&quot;,
+          &quot;rules&quot;: {
+            &quot;required&quot;: true,
+            &quot;lengthMax&quot;: 20
+          }
+        }, {
+          &quot;name&quot;: &quot;txtEmail&quot;,
+          &quot;label&quot;: &quot;Email&quot;,
+          &quot;dataMap&quot;: &quot;email&quot;,
+          &quot;type&quot;: &quot;text&quot;,
+          &quot;value&quot;: &quot;hi.i.am.jaime@gmail.com&quot;,
+          &quot;rules&quot;: {
+            &quot;required&quot;: true,
+            &quot;email&quot;: true
+          }
+        }, {
+          &quot;name&quot;: &quot;txtDate&quot;,
+          &quot;label&quot;: &quot;Date&quot;,
+          &quot;dataMap&quot;: &quot;date&quot;,
+          &quot;type&quot;: &quot;text&quot;,
+          &quot;value&quot;: &quot;04/11/1984&quot;,
+          &quot;rules&quot;: {
+            &quot;required&quot;: true,
+            &quot;date&quot;: true
+          }
+        }, {
+          &quot;name&quot;: &quot;ddlRole&quot;,
+          &quot;label&quot;: &quot;Role&quot;,
+          &quot;dataMap&quot;: &quot;role&quot;,
+          &quot;type&quot;: &quot;select&quot;,
+          &quot;values&quot;: [
+            {
+              &quot;name&quot;:  &quot;Administrator&quot;,
+              &quot;value&quot;: &quot;admin&quot;
+            }, {
+              &quot;name&quot;:  &quot;Subscriber&quot;,
+              &quot;value&quot;: &quot;subscriber&quot;
+            }, {
+              &quot;name&quot;:  &quot;User&quot;,
+              &quot;value&quot;: &quot;user&quot;,
+              &quot;selected&quot;: true
+            }
+          ]
+        }
+      ]
+    }, {
+      &quot;class&quot;: &quot;submit&quot;,
+      &quot;fields&quot;: [
+        {
+          &quot;name&quot;: &quot;btnSubmit&quot;,
+          &quot;label&quot;: &quot;&quot;,
+          &quot;value&quot;: &quot;Submit&quot;,
+          &quot;type&quot;: &quot;submit&quot;
+        }
+      ]
+    }
+  ]
+}'</span>);
+
+<span
+class="php-comment">// Simulate a record Object</span>
+<span
+class="php-var">$u</span> = <span
+class="php-keyword1">new</span> stdClass();
+<span
+class="php-var">$u</span>-&gt;columns = <span
+class="php-keyword1">array</span>();
+
+<span
+class="php-comment">// Has the form been submitted?</span>
+<span
+class="php-keyword1">if</span> (<span
+class="php-var">$UserEdit</span>-&gt;submitted()) {
+  <span
+class="php-comment">// Validate the form</span>
+  <span
+class="php-var">$passed</span> = <span
+class="php-var">$UserEdit</span>-&gt;validate();
+
+  <span
+class="php-keyword1">if</span> (<span class="php-var">$passed</span> === <span
+class="php-keyword1">true</span>) {
+    <span
+class="php-comment">// put the values into the record Object</span>
+    <span
+class="php-var">$u</span>-&gt;columns = <span
+class="php-keyword2">array_merge</span>(<span
+class="php-var">$u</span>-&gt;columns, <span
+class="php-var">$UserEdit</span>-&gt;getDataMap());
+  }
+}
+
+<span
+class="php-comment">// if Form::validate() was executed, it will render with errors and</span>
+<span
+class="php-comment">// updated values, otherwise it'll render normally</span>
+<span
+class="php-keyword1">echo</span> <span
+class="php-var">$UserEdit</span>-&gt;render();
+</pre>
+
+<h1>Changelog</h1>
+
+<h2>Version 1.6</h2>
+
+<ul>
+	<li>Added track attribute for google data tracking</li>
+</ul>
+
+<h2>Version 1.5</h2>
+
+<ul>
+	<li>Throws an exception when you make a JSON error</li>
+</ul>
+
+<h2>Version 1.4</h2>
+
+<ul>
+	<li>Added ability to overwrite errors</li>
+
+	<li>Fixed equalTo rule validation bug</li>
+</ul>
+
+<h2>Version 1.2</h2>
+
+<ul>
+	<li>Added placeholder for inputs</li>
+
+	<li>Added namespacing</li>
+
+	<li>Fixed error class bug</li>
+</ul>
+
+<h2>Version 1.1</h2>
+
+<ul>
+	<li>Added the date and changelog sections to documentation</li>
+</ul>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Module.html">Module</a>\<a href="namespace-Module.FormBuilder.html">FormBuilder</a><br />
+		
+
+				<b>License:</b>
+				<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a><br />
+				<b>Author:</b>
+				Jaime A. Rodriguez &lt;<a
+href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>&gt;<br />
+				<b>Version:</b>
+				1.6<br />
+				<b>Date:</b>
+				September 3, 2014<br />
+		<b>Located at</b> <a href="source-class-Module.FormBuilder.Form.html#4-280" title="Go to source code">disabled/form-builder/class.formbuilder.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Module.FormBuilder.Form.html#169-207" title="Go to source code">__construct</a>( <span>string <var>$json</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Creates a Form based on JSON</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Creates a Form based on JSON</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$json</var></dt>
+					<dd><code>string</code><br>$json</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="submitted" id="_submitted">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_submitted">#</a>
+		<code><a href="source-class-Module.FormBuilder.Form.html#209-227" title="Go to source code">submitted</a>( )</code>
+
+		<div class="description short">
+			
+<p>Checks if the form has been submitted?</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Checks if the form has been submitted?</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="validate" id="_validate">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_validate">#</a>
+		<code><a href="source-class-Module.FormBuilder.Form.html#229-244" title="Go to source code">validate</a>( )</code>
+
+		<div class="description short">
+			
+<p>Validates the form</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Validates the form</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="render" id="_render">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_render">#</a>
+		<code><a href="source-class-Module.FormBuilder.Form.html#246-263" title="Go to source code">render</a>( )</code>
+
+		<div class="description short">
+			
+<p>Renders a form</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Renders a form</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getDataMap" id="_getDataMap">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getDataMap">#</a>
+		<code><a href="source-class-Module.FormBuilder.Form.html#265-279" title="Go to source code">getDataMap</a>( )</code>
+
+		<div class="description short">
+			
+<p>Get the datamap for the form</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get the datamap for the form</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="id" id="$id">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.FormBuilder.Form.html#133-137" title="Go to source code"><var>$id</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$id" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The ID of the form</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The ID of the form</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="class" id="$class">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.FormBuilder.Form.html#139-143" title="Go to source code"><var>$class</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$class" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Class to apply to the field</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Class to apply to the field</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="action" id="$action">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.FormBuilder.Form.html#145-149" title="Go to source code"><var>$action</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$action" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The action of the form</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The action of the form</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="method" id="$method">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.FormBuilder.Form.html#151-155" title="Go to source code"><var>$method</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$method" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The method of the form</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The method of the form</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="validate" id="$validate">
+		<td class="attributes"><code>
+			public  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.FormBuilder.Form.html#157-161" title="Go to source code"><var>$validate</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">true</span></code></td>
+		<td class="description"><div>
+			<a href="#$validate" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Should the form be validated?</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Should the form be validated?</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

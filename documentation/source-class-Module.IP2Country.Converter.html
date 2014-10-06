@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta name="robots" content="noindex" />
+
+	<title>File disabled/ip-to-country/class.ip2country.php</title>
+
+	<script type="text/javascript" src="resources/combined.js?2585304289"></script>
+	<script type="text/javascript" src="elementlist.js?2403706640"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Module.html">Module<span></span></a>
+						<ul>
+				<li><a href="namespace-Module.Authentication.html">Authentication</a>
+						</li>
+				<li><a href="namespace-Module.CSV.html">CSV</a>
+						</li>
+				<li><a href="namespace-Module.DB.html">DB</a>
+						</li>
+				<li><a href="namespace-Module.FormBuilder.html">FormBuilder</a>
+						</li>
+				<li><a href="namespace-Module.FSDB.html">FSDB</a>
+						</li>
+				<li class="active"><a href="namespace-Module.IP2Country.html">IP2Country</a>
+						</li>
+				<li><a href="namespace-Module.Mailer.html">Mailer</a>
+						</li>
+				<li><a href="namespace-Module.MobiDetect.html">MobiDetect</a>
+						</li>
+				<li><a href="namespace-Module.Mobile.html">Mobile</a>
+						</li>
+				<li><a href="namespace-Module.Navigation.html">Navigation</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Sleepy.html">Sleepy</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Module.IP2Country.Converter.html">Converter</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Module.IP2Country.html" title="Summary of Module\IP2Country"><span>Namespace</span></a>
+			</li>
+			<li>
+				<a href="class-Module.IP2Country.Converter.html" title="Summary of Module\IP2Country\Converter"><span>Class</span></a>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<pre><code><span id="1" class="l"><a class="l" href="#1"> 1: </a><span class="xlang">&lt;?php</span>
+</span><span id="2" class="l"><a class="l" href="#2"> 2: </a><span class="php-keyword1">namespace</span> Module\IP2Country;
+</span><span id="3" class="l"><a class="l" href="#3"> 3: </a>
+</span><span id="4" class="l"><a class="l" href="#4"> 4: </a><span class="php-keyword1">require_once</span>(DIRBASE . <span class="php-quote">'/modules/enabled/file-system-database/class.fsdb.php'</span>);
+</span><span id="5" class="l"><a class="l" href="#5"> 5: </a>
+</span><span id="6" class="l"><a class="l" href="#6"> 6: </a><span class="php-comment">/**
+</span></span><span id="7" class="l"><a class="l" href="#7"> 7: </a><span class="php-comment"> * Cross-references countries with IP addresses using a flat-file-database.
+</span></span><span id="8" class="l"><a class="l" href="#8"> 8: </a><span class="php-comment"> *
+</span></span><span id="9" class="l"><a class="l" href="#9"> 9: </a><span class="php-comment"> * ### Usage
+</span></span><span id="10" class="l"><a class="l" href="#10">10: </a><span class="php-comment"> *
+</span></span><span id="11" class="l"><a class="l" href="#11">11: </a><span class="php-comment"> * &lt;code&gt;
+</span></span><span id="12" class="l"><a class="l" href="#12">12: </a><span class="php-comment"> *   $i = new \Module\IP2Country\Converter();
+</span></span><span id="13" class="l"><a class="l" href="#13">13: </a><span class="php-comment"> *   $countryCode = $i-&gt;getCountryCode($_SERVER['REMOTE_ADDR']);
+</span></span><span id="14" class="l"><a class="l" href="#14">14: </a><span class="php-comment"> *
+</span></span><span id="15" class="l"><a class="l" href="#15">15: </a><span class="php-comment"> *   if ($countryCode != false) {
+</span></span><span id="16" class="l"><a class="l" href="#16">16: </a><span class="php-comment"> *     echo $countryCode;
+</span></span><span id="17" class="l"><a class="l" href="#17">17: </a><span class="php-comment"> *   } else {
+</span></span><span id="18" class="l"><a class="l" href="#18">18: </a><span class="php-comment"> *     echo $_SERVER['REMOTE_ADDR'] .
+</span></span><span id="19" class="l"><a class="l" href="#19">19: </a><span class="php-comment"> *       &quot;(&quot; . ip2long($_SERVER['REMOTE_ADDR']) .
+</span></span><span id="20" class="l"><a class="l" href="#20">20: </a><span class="php-comment"> *       &quot;) Not found in &quot; . $i-&gt;getTable($_SERVER['REMOTE_ADDR']) . &quot;.&quot;;
+</span></span><span id="21" class="l"><a class="l" href="#21">21: </a><span class="php-comment"> *   }
+</span></span><span id="22" class="l"><a class="l" href="#22">22: </a><span class="php-comment"> * &lt;/code&gt;
+</span></span><span id="23" class="l"><a class="l" href="#23">23: </a><span class="php-comment"> *
+</span></span><span id="24" class="l"><a class="l" href="#24">24: </a><span class="php-comment"> * ### Changelog
+</span></span><span id="25" class="l"><a class="l" href="#25">25: </a><span class="php-comment"> *
+</span></span><span id="26" class="l"><a class="l" href="#26">26: </a><span class="php-comment"> * ## Version 1.2
+</span></span><span id="27" class="l"><a class="l" href="#27">27: </a><span class="php-comment"> * * Added namespacing
+</span></span><span id="28" class="l"><a class="l" href="#28">28: </a><span class="php-comment"> *
+</span></span><span id="29" class="l"><a class="l" href="#29">29: </a><span class="php-comment"> * ## Version 1.1
+</span></span><span id="30" class="l"><a class="l" href="#30">30: </a><span class="php-comment"> * * Added the date section to documentation
+</span></span><span id="31" class="l"><a class="l" href="#31">31: </a><span class="php-comment"> *
+</span></span><span id="32" class="l"><a class="l" href="#32">32: </a><span class="php-comment"> * ### Dependencies
+</span></span><span id="33" class="l"><a class="l" href="#33">33: </a><span class="php-comment"> * * class.fsdb.php
+</span></span><span id="34" class="l"><a class="l" href="#34">34: </a><span class="php-comment"> *
+</span></span><span id="35" class="l"><a class="l" href="#35">35: </a><span class="php-comment"> * @date August 13, 2014
+</span></span><span id="36" class="l"><a class="l" href="#36">36: </a><span class="php-comment"> * @author Jaime A. Rodriguez &lt;hi.i.am.jaime@gmail.com&gt;
+</span></span><span id="37" class="l"><a class="l" href="#37">37: </a><span class="php-comment"> * @version 1.2
+</span></span><span id="38" class="l"><a class="l" href="#38">38: </a><span class="php-comment"> * @license  http://opensource.org/licenses/MIT
+</span></span><span id="39" class="l"><a class="l" href="#39">39: </a><span class="php-comment"> */</span>
+</span><span id="40" class="l"><a class="l" href="#40">40: </a><span class="php-keyword1">class</span> <a id="Converter" href="#Converter">Converter</a> {
+</span><span id="41" class="l"><a class="l" href="#41">41: </a>    <span class="php-keyword1">private</span> <span class="php-var"><a id="$db" href="#$db">$db</a></span>;
+</span><span id="42" class="l"><a class="l" href="#42">42: </a>
+</span><span id="43" class="l"><a class="l" href="#43">43: </a>    <span class="php-keyword1">private</span> <span class="php-var"><a id="$upperRange" href="#$upperRange">$upperRange</a></span> = <span class="php-keyword1">array</span>(
+</span><span id="44" class="l"><a class="l" href="#44">44: </a>        <span class="php-num">50000000</span>,    <span class="php-num">100000000</span>,  <span class="php-num">150000000</span>,  <span class="php-num">200000000</span>,  <span class="php-num">250000000</span>,  <span class="php-num">300000000</span>,
+</span><span id="45" class="l"><a class="l" href="#45">45: </a>        <span class="php-num">350000000</span>,   <span class="php-num">400000000</span>,  <span class="php-num">450000000</span>,  <span class="php-num">500000000</span>,  <span class="php-num">550000000</span>,  <span class="php-num">600000000</span>,
+</span><span id="46" class="l"><a class="l" href="#46">46: </a>        <span class="php-num">650000000</span>,   <span class="php-num">700000000</span>,  <span class="php-num">750000000</span>,  <span class="php-num">800000000</span>,  <span class="php-num">850000000</span>,  <span class="php-num">900000000</span>,
+</span><span id="47" class="l"><a class="l" href="#47">47: </a>        <span class="php-num">950000000</span>,  <span class="php-num">1000000000</span>, <span class="php-num">1050000000</span>, <span class="php-num">1100000000</span>, <span class="php-num">1150000000</span>, <span class="php-num">1200000000</span>,
+</span><span id="48" class="l"><a class="l" href="#48">48: </a>        <span class="php-num">1250000000</span>, <span class="php-num">1300000000</span>, <span class="php-num">1350000000</span>, <span class="php-num">1400000000</span>, <span class="php-num">1450000000</span>, <span class="php-num">1500000000</span>,
+</span><span id="49" class="l"><a class="l" href="#49">49: </a>        <span class="php-num">1550000000</span>, <span class="php-num">1600000000</span>, <span class="php-num">1650000000</span>, <span class="php-num">1700000000</span>, <span class="php-num">1750000000</span>, <span class="php-num">1800000000</span>,
+</span><span id="50" class="l"><a class="l" href="#50">50: </a>        <span class="php-num">1850000000</span>, <span class="php-num">1900000000</span>, <span class="php-num">1950000000</span>, <span class="php-num">2000000000</span>, <span class="php-num">2050000000</span>, <span class="php-num">2100000000</span>,
+</span><span id="51" class="l"><a class="l" href="#51">51: </a>        <span class="php-num">2150000000</span>, <span class="php-num">2200000000</span>, <span class="php-num">2250000000</span>, <span class="php-num">2300000000</span>, <span class="php-num">2350000000</span>, <span class="php-num">2400000000</span>,
+</span><span id="52" class="l"><a class="l" href="#52">52: </a>        <span class="php-num">2450000000</span>, <span class="php-num">2500000000</span>, <span class="php-num">2550000000</span>, <span class="php-num">2600000000</span>, <span class="php-num">2650000000</span>, <span class="php-num">2700000000</span>,
+</span><span id="53" class="l"><a class="l" href="#53">53: </a>        <span class="php-num">2750000000</span>, <span class="php-num">2800000000</span>, <span class="php-num">2850000000</span>, <span class="php-num">2900000000</span>, <span class="php-num">2950000000</span>, <span class="php-num">3000000000</span>,
+</span><span id="54" class="l"><a class="l" href="#54">54: </a>        <span class="php-num">3050000000</span>, <span class="php-num">3100000000</span>, <span class="php-num">3150000000</span>, <span class="php-num">3200000000</span>, <span class="php-num">3250000000</span>, <span class="php-num">3300000000</span>,
+</span><span id="55" class="l"><a class="l" href="#55">55: </a>        <span class="php-num">3350000000</span>, <span class="php-num">3400000000</span>, <span class="php-num">3450000000</span>, <span class="php-num">3500000000</span>, <span class="php-num">3550000000</span>, <span class="php-num">3600000000</span>,
+</span><span id="56" class="l"><a class="l" href="#56">56: </a>        <span class="php-num">3650000000</span>, <span class="php-num">3700000000</span>, <span class="php-num">3750000000</span>, <span class="php-num">3800000000</span>, <span class="php-num">3850000000</span>, <span class="php-num">3900000000</span>,
+</span><span id="57" class="l"><a class="l" href="#57">57: </a>        <span class="php-num">3950000000</span>, <span class="php-num">4000000000</span>
+</span><span id="58" class="l"><a class="l" href="#58">58: </a>    );
+</span><span id="59" class="l"><a class="l" href="#59">59: </a>
+</span><span id="60" class="l"><a class="l" href="#60">60: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="___construct" href="#___construct">__construct</a>() {
+</span><span id="61" class="l"><a class="l" href="#61">61: </a>        <span class="php-var">$this</span>-&gt;db = <span class="php-keyword1">new</span> \FSDB\Connection(<span class="php-quote">'./ipData/'</span>);
+</span><span id="62" class="l"><a class="l" href="#62">62: </a>    }
+</span><span id="63" class="l"><a class="l" href="#63">63: </a>
+</span><span id="64" class="l"><a class="l" href="#64">64: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_getCountryCode" href="#_getCountryCode">getCountryCode</a>(<span class="php-var">$ip</span>) {
+</span><span id="65" class="l"><a class="l" href="#65">65: </a>        <span class="php-var">$dec</span> = <span class="php-keyword2">ip2long</span>(<span class="php-var">$ip</span>);
+</span><span id="66" class="l"><a class="l" href="#66">66: </a>        <span class="php-var">$data</span> = <span class="php-var">$this</span>-&gt;db-&gt;select(<span class="php-var">$this</span>-&gt;getTable(<span class="php-var">$ip</span>), <span class="php-quote">&quot;*&quot;</span>);
+</span><span id="67" class="l"><a class="l" href="#67">67: </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$data</span> <span class="php-keyword1">as</span> <span class="php-var">$row</span>) {
+</span><span id="68" class="l"><a class="l" href="#68">68: </a>            <span class="php-keyword1">if</span> (<span class="php-var">$row</span>-&gt;startIP &lt;= <span class="php-var">$dec</span> &amp;&amp; <span class="php-var">$row</span>-&gt;endIP &gt;= <span class="php-var">$dec</span>) {
+</span><span id="69" class="l"><a class="l" href="#69">69: </a>                <span class="php-keyword1">return</span> <span class="php-var">$row</span>-&gt;countryCode;
+</span><span id="70" class="l"><a class="l" href="#70">70: </a>            }
+</span><span id="71" class="l"><a class="l" href="#71">71: </a>        }
+</span><span id="72" class="l"><a class="l" href="#72">72: </a>
+</span><span id="73" class="l"><a class="l" href="#73">73: </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+</span><span id="74" class="l"><a class="l" href="#74">74: </a>    }
+</span><span id="75" class="l"><a class="l" href="#75">75: </a>
+</span><span id="76" class="l"><a class="l" href="#76">76: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_getTable" href="#_getTable">getTable</a>(<span class="php-var">$ip</span>) {
+</span><span id="77" class="l"><a class="l" href="#77">77: </a>        <span class="php-var">$dec</span> = <span class="php-keyword2">ip2long</span>(<span class="php-var">$ip</span>);
+</span><span id="78" class="l"><a class="l" href="#78">78: </a>
+</span><span id="79" class="l"><a class="l" href="#79">79: </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$this</span>-&gt;upperRange <span class="php-keyword1">as</span> <span class="php-var">$limit</span>) {
+</span><span id="80" class="l"><a class="l" href="#80">80: </a>            <span class="php-keyword1">if</span> (<span class="php-var">$dec</span> &gt;= <span class="php-var">$limit</span> - <span class="php-num">50000000</span> &amp;&amp; <span class="php-var">$dec</span> &lt;= <span class="php-var">$limit</span>) {
+</span><span id="81" class="l"><a class="l" href="#81">81: </a>                <span class="php-keyword1">return</span> (string) <span class="php-var">$limit</span>;
+</span><span id="82" class="l"><a class="l" href="#82">82: </a>            }
+</span><span id="83" class="l"><a class="l" href="#83">83: </a>        }
+</span><span id="84" class="l"><a class="l" href="#84">84: </a>
+</span><span id="85" class="l"><a class="l" href="#85">85: </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">false</span>;
+</span><span id="86" class="l"><a class="l" href="#86">86: </a>    }
+</span><span id="87" class="l"><a class="l" href="#87">87: </a></span>}</code></pre>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

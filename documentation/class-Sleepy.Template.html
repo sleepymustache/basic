@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Sleepy\Template</title>
+
+	<script type="text/javascript" src="resources/combined.js?2585304289"></script>
+	<script type="text/javascript" src="elementlist.js?2403706640"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Module.html">Module<span></span></a>
+						<ul>
+				<li><a href="namespace-Module.Authentication.html">Authentication</a>
+						</li>
+				<li><a href="namespace-Module.CSV.html">CSV</a>
+						</li>
+				<li><a href="namespace-Module.DB.html">DB</a>
+						</li>
+				<li><a href="namespace-Module.FormBuilder.html">FormBuilder</a>
+						</li>
+				<li><a href="namespace-Module.FSDB.html">FSDB</a>
+						</li>
+				<li><a href="namespace-Module.IP2Country.html">IP2Country</a>
+						</li>
+				<li><a href="namespace-Module.Mailer.html">Mailer</a>
+						</li>
+				<li><a href="namespace-Module.MobiDetect.html">MobiDetect</a>
+						</li>
+				<li><a href="namespace-Module.Mobile.html">Mobile</a>
+						</li>
+				<li><a href="namespace-Module.Navigation.html">Navigation</a>
+						</li>
+							</ul></li>
+				<li class="active"><a href="namespace-Sleepy.html">Sleepy</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Sleepy.Debug.html">Debug</a></li>
+				<li><a href="class-Sleepy.Hook.html">Hook</a></li>
+				<li><a href="class-Sleepy.Router.html">Router</a></li>
+				<li><a href="class-Sleepy.SM.html">SM</a></li>
+				<li class="active"><a href="class-Sleepy.Template.html">Template</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Sleepy.html" title="Summary of Sleepy"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Template</h1>
+
+
+	<div class="description">
+	
+<p>Provides templating functionality</p>
+
+<h1>Usage</h1>
+
+<h2>PHP file: <em>index.php</em></h2>
+
+<pre>
+<span class="php-keyword1">require_once</span>(<span
+class="php-quote">'include/sleepy.php'</span>);
+
+<span
+class="php-var">$page</span> = <span
+class="php-keyword1">new</span> Template(<span
+class="php-quote">'templates/default.tpl'</span>);
+<span
+class="php-var">$page</span>-&gt;bind(<span
+class="php-quote">'title'</span>, <span
+class="php-quote">'Sleepy Mustache'</span>);
+<span
+class="php-var">$page</span>-&gt;bind(<span
+class="php-quote">'header'</span>, <span
+class="php-quote">'Hello world!'</span>);
+<span
+class="php-var">$page</span>-&gt;show();
+</pre>
+
+<h2>Template file: <em>\app\modules\templates\default.tpl</em></h2>
+
+<pre>
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;{{ title }}&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;{{ <span
+class="php-keyword2">header</span> }}&lt;/h1&gt;
+        &lt;p&gt;This page has been viewed {{ hits }} times.&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h1>Changelog</h1>
+
+<h2>Version 1.6</h2>
+
+<ul>
+	<li>No longer dependant on Hooks Module</li>
+</ul>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Sleepy.html">Sleepy</a><br />
+		
+
+				<b>License:</b>
+				<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a><br />
+				<b>Author:</b>
+				Jaime A. Rodriguez &lt;<a
+href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>&gt;<br />
+				<b>Version:</b>
+				1.6<br />
+				<b>Date:</b>
+				June 16, 2014<br />
+		<b>Located at</b> <a href="source-class-Sleepy.Template.html#5-350" title="Go to source code">class.template.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Sleepy.Template.html#70-94" title="Go to source code">__construct</a>( <span>string <var>$template</var> = <span class="php-quote">''</span></span>, <span>string <var>$basedir</var> = <span class="php-quote">&quot;&quot;</span></span> )</code>
+
+		<div class="description short">
+			
+<p>The constructor</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>The constructor</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$template</var></dt>
+					<dd><code>string</code><br>$template The name of the template</dd>
+					<dt><var>$basedir</var></dt>
+					<dd><code>string</code><br>$basedir The base directory for template files</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setTemplate" id="_setTemplate">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setTemplate">#</a>
+		<code><a href="source-class-Sleepy.Template.html#274-282" title="Go to source code">setTemplate</a>( <span>[type] <var>$file</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Sets the template to use.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the template to use.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$file</var></dt>
+					<dd><code>[type]</code><br>$file [description]</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="bind" id="_bind">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_bind">#</a>
+		<code><a href="source-class-Sleepy.Template.html#284-297" title="Go to source code">bind</a>( <span>string <var>$placeholder</var></span>, <span>mixed <var>$value</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Binds data to the template placeholders</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Binds data to the template placeholders</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$placeholder</var></dt>
+					<dd><code>string</code><br>$placeholder The template placeholder</dd>
+					<dt><var>$value</var></dt>
+					<dd><code>mixed</code><br>$value The value that replaced the placeholder</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="bindStart" id="_bindStart">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_bindStart">#</a>
+		<code><a href="source-class-Sleepy.Template.html#299-305" title="Go to source code">bindStart</a>( )</code>
+
+		<div class="description short">
+			
+<p>Starts a buffer that will bind data to the template placeholders. The buffer
+will capture anything you output until $this-&gt;bindStop()</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Starts a buffer that will bind data to the template placeholders. The buffer
+will capture anything you output until $this-&gt;bindStop()</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="bindStop" id="_bindStop">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_bindStop">#</a>
+		<code><a href="source-class-Sleepy.Template.html#307-320" title="Go to source code">bindStop</a>( <span>string <var>$placeholder</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Stops the buffer that binds data to the template placeholders</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Stops the buffer that binds data to the template placeholders</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$placeholder</var></dt>
+					<dd><code>string</code><br>$placeholder The template placeholder</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="get" id="_get">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_get">#</a>
+		<code><a href="source-class-Sleepy.Template.html#322-335" title="Go to source code">get</a>( <span>string <var>$key</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Gets the data for a placeholder</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets the data for a placeholder</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd><code>string</code><br>$placeholder The placeholder</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>The data stored in the placeholder<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="show" id="_show">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_show">#</a>
+		<code><a href="source-class-Sleepy.Template.html#337-342" title="Go to source code">show</a>( )</code>
+
+		<div class="description short">
+			
+<p>Shows the rendered template</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Shows the rendered template</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="retrieve" id="_retrieve">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_retrieve">#</a>
+		<code><a href="source-class-Sleepy.Template.html#344-349" title="Go to source code">retrieve</a>( )</code>
+
+		<div class="description short">
+			
+<p>Retrieves the rendered template</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Retrieves the rendered template</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="extension" id="$extension">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Sleepy.Template.html#48-51" title="Go to source code"><var>$extension</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">&quot;.tpl&quot;</span></code></td>
+		<td class="description"><div>
+			<a href="#$extension" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>string The extension for template files</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>string The extension for template files</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="directory" id="$directory">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Sleepy.Template.html#53-56" title="Go to source code"><var>$directory</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$directory" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>string The template directory</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>string The template directory</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="_file" id="$_file">
+		<td class="attributes"><code>
+			protected  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Sleepy.Template.html#58-62" title="Go to source code"><var>$_file</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$_file" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>string The template file</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>string The template file</p>
+
+
+					<h4>Protected</h4>
+					<div class="list">
+					</div>
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="_data" id="$_data">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Sleepy.Template.html#64-68" title="Go to source code"><var>$_data</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>()</code></td>
+		<td class="description"><div>
+			<a href="#$_data" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>array The data bound to the template</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>array The data bound to the template</p>
+
+
+					<h4>Protected</h4>
+					<div class="list">
+					</div>
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

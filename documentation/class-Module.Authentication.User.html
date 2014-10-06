@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Module\Authentication\User</title>
+
+	<script type="text/javascript" src="resources/combined.js?2585304289"></script>
+	<script type="text/javascript" src="elementlist.js?2403706640"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Module.html">Module<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Module.Authentication.html">Authentication</a>
+						</li>
+				<li><a href="namespace-Module.CSV.html">CSV</a>
+						</li>
+				<li><a href="namespace-Module.DB.html">DB</a>
+						</li>
+				<li><a href="namespace-Module.FormBuilder.html">FormBuilder</a>
+						</li>
+				<li><a href="namespace-Module.FSDB.html">FSDB</a>
+						</li>
+				<li><a href="namespace-Module.IP2Country.html">IP2Country</a>
+						</li>
+				<li><a href="namespace-Module.Mailer.html">Mailer</a>
+						</li>
+				<li><a href="namespace-Module.MobiDetect.html">MobiDetect</a>
+						</li>
+				<li><a href="namespace-Module.Mobile.html">Mobile</a>
+						</li>
+				<li><a href="namespace-Module.Navigation.html">Navigation</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Sleepy.html">Sleepy</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Module.Authentication.Permission.html">Permission</a></li>
+				<li><a href="class-Module.Authentication.Role.html">Role</a></li>
+				<li class="active"><a href="class-Module.Authentication.User.html">User</a></li>
+				<li><a href="class-Module.Authentication.UserMeta.html">UserMeta</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Module.Authentication.html" title="Summary of Module\Authentication"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class User</h1>
+
+
+	<div class="description">
+	
+<p>Example of using the User module</p>
+
+<pre>
+<span class="php-keyword1">if</span> (<span
+class="php-keyword2">class_exists</span>(<span
+class="php-quote">'User'</span>)) {
+        <span
+class="php-var">$u</span> = <span
+class="php-keyword1">new</span> \Module\Authentication\User();
+
+        <span
+class="php-comment">// check if a user is logged in</span>
+        <span
+class="php-keyword1">if</span> (!<span
+class="php-var">$u</span>-&gt;isLoggedIn()) {
+                <span
+class="php-keyword2">header</span>(<span
+class="php-quote">'location: /user/login/'</span>);
+        }
+
+        <span
+class="php-comment">// check if a user is an admin</span>
+        <span
+class="php-keyword1">if</span> (!<span
+class="php-var">$u</span>-&gt;isAdmin()) {
+                <span
+class="php-keyword1">echo</span> <span
+class="php-quote">&quot;You must be an Administrator to see this page.&quot;</span>;
+                <span
+class="php-keyword1">die</span>();
+        }
+}
+</pre>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-Module.DB.Record.html"><span>Module\DB\Record</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by" />
+<b><span>Module\Authentication\User</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Module.html">Module</a>\<a href="namespace-Module.Authentication.html">Authentication</a><br />
+		
+
+		<b>Located at</b> <a href="source-class-Module.Authentication.User.html#6-218" title="Go to source code">disabled/users/class.user.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="authenticate" id="_authenticate">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_authenticate">#</a>
+		<code><a href="source-class-Module.Authentication.User.html#52-74" title="Go to source code">authenticate</a>( <span>string <var>$email</var></span>, <span>string <var>$pass</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Authenticates a user</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Authenticates a user</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$email</var></dt>
+					<dd><code>string</code><br>$email The username</dd>
+					<dt><var>$pass</var></dt>
+					<dd><code>string</code><br>$pass The password</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>The user_id<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getPermission" id="_getPermission">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getPermission">#</a>
+		<code><a href="source-class-Module.Authentication.User.html#76-83" title="Go to source code">getPermission</a>( <span>string <var>$key</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Gets the permission for their role</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets the permission for their role</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd><code>string</code><br>$key What role do you want to query?</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>the value associated with the permission e.g. True, False, etc.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getUserData" id="_getUserData">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getUserData">#</a>
+		<code><a href="source-class-Module.Authentication.User.html#85-98" title="Go to source code">getUserData</a>( <span>string <var>$key</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Gets the data associated with the user</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets the data associated with the user</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd><code>string</code><br>$key The data you want to lookup</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>The data associated with the key<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="load" id="_load">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_load">#</a>
+		<code><a href="source-class-Module.Authentication.User.html#100-122" title="Go to source code">load</a>( <span>integer <var>$id</var> = <span class="php-num">0</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Loads the user</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Loads the user</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$id</var></dt>
+					<dd><code>integer</code><br>$id The user ID</dd>
+				</dl></div>
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Module.DB.Record.html#_load">Module\DB\Record::load()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setUserData" id="_setUserData">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setUserData">#</a>
+		<code><a href="source-class-Module.Authentication.User.html#124-142" title="Go to source code">setUserData</a>( <span>string <var>$key</var></span>, <span>mixed <var>$value</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Sets user data by a key</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets user data by a key</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$key</var></dt>
+					<dd><code>string</code><br>$key The key to store the data into</dd>
+					<dt><var>$value</var></dt>
+					<dd><code>mixed</code><br>$value The data to store at the key</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="saltPassword" id="_saltPassword">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_saltPassword">#</a>
+		<code><a href="source-class-Module.Authentication.User.html#144-151" title="Go to source code">saltPassword</a>( <span>string <var>$pass</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Salts the password</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Salts the password</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$pass</var></dt>
+					<dd><code>string</code><br>$pass The password</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>The encrypted password<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="save" id="_save">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_save">#</a>
+		<code><a href="source-class-Module.Authentication.User.html#153-167" title="Go to source code">save</a>( )</code>
+
+		<div class="description short">
+			
+<p>Saves the user</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Saves the user</p>
+
+
+
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Module.DB.Record.html#_save">Module\DB\Record::save()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isLoaded" id="_isLoaded">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isLoaded">#</a>
+		<code><a href="source-class-Module.Authentication.User.html#169-177" title="Go to source code">isLoaded</a>( )</code>
+
+		<div class="description short">
+			
+<p>Checks if a user is loaded</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Checks if a user is loaded</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>True, if loaded<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isLoggedIn" id="_isLoggedIn">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isLoggedIn">#</a>
+		<code><a href="source-class-Module.Authentication.User.html#179-189" title="Go to source code">isLoggedIn</a>( )</code>
+
+		<div class="description short">
+			
+<p>Checks if a user is logged in</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Checks if a user is logged in</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>True, if logged in<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isAdmin" id="_isAdmin">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isAdmin">#</a>
+		<code><a href="source-class-Module.Authentication.User.html#191-209" title="Go to source code">isAdmin</a>( )</code>
+
+		<div class="description short">
+			
+<p>Checks if a user is an admin (role_id == 1)</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Checks if a user is an admin (role_id == 1)</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>True, if role_id == 1<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRole" id="_getRole">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRole">#</a>
+		<code><a href="source-class-Module.Authentication.User.html#211-217" title="Go to source code">getRole</a>( )</code>
+
+		<div class="description short">
+			
+<p>Gets the name of the role of the user</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets the name of the role of the user</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>The role<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Module.DB.Record.html#methods">Module\DB\Record</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Module.DB.Record.html#___construct">__construct()</a>, 
+			<a href="class-Module.DB.Record.html#_delete">delete()</a>, 
+			<a href="class-Module.DB.Record.html#_form">form()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="table" id="$table">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.Authentication.User.html#27-31" title="Go to source code"><var>$table</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">'users'</span></code></td>
+		<td class="description"><div>
+			<a href="#$table" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The name of the users table</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The name of the users table</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="metadata" id="$metadata">
+		<td class="attributes"><code>
+			public  
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.Authentication.User.html#33-37" title="Go to source code"><var>$metadata</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$metadata" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The meta data for the table, e.g. fields and field data</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The meta data for the table, e.g. fields and field data</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-Module.DB.Record.html#properties">Module\DB\Record</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Module.DB.Record.html#$columns"><var>$columns</var></a>, 
+			<a href="class-Module.DB.Record.html#$db"><var>$db</var></a>, 
+			<a href="class-Module.DB.Record.html#$meta"><var>$meta</var></a>, 
+			<a href="class-Module.DB.Record.html#$primaryKey"><var>$primaryKey</var></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

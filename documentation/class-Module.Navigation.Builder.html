@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Module\Navigation\Builder</title>
+
+	<script type="text/javascript" src="resources/combined.js?2585304289"></script>
+	<script type="text/javascript" src="elementlist.js?2403706640"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Module.html">Module<span></span></a>
+						<ul>
+				<li><a href="namespace-Module.Authentication.html">Authentication</a>
+						</li>
+				<li><a href="namespace-Module.CSV.html">CSV</a>
+						</li>
+				<li><a href="namespace-Module.DB.html">DB</a>
+						</li>
+				<li><a href="namespace-Module.FormBuilder.html">FormBuilder</a>
+						</li>
+				<li><a href="namespace-Module.FSDB.html">FSDB</a>
+						</li>
+				<li><a href="namespace-Module.IP2Country.html">IP2Country</a>
+						</li>
+				<li><a href="namespace-Module.Mailer.html">Mailer</a>
+						</li>
+				<li><a href="namespace-Module.MobiDetect.html">MobiDetect</a>
+						</li>
+				<li><a href="namespace-Module.Mobile.html">Mobile</a>
+						</li>
+				<li class="active"><a href="namespace-Module.Navigation.html">Navigation</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Sleepy.html">Sleepy</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Module.Navigation.Builder.html">Builder</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Module.Navigation.html" title="Summary of Module\Navigation"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Builder</h1>
+
+
+	<div class="description">
+	
+<p>Creates a Navigation UL based on a JSON file</p>
+
+<p>Uses JSON to structure navigation pages and attributes. It can detect what
+page is active and assign classes to them for special treatment.</p>
+
+<h1>Usage</h1>
+
+<pre>
+<span class="php-var">$topNavData</span> = <span
+class="php-quote">'{
+  &quot;pages&quot;: [
+    {
+      &quot;title&quot;: &quot;Nav 1&quot;,
+      &quot;link&quot;: &quot;/nav1/&quot;
+    }, {
+      &quot;title&quot;: &quot;Nav 2&quot;,
+      &quot;link&quot;: &quot;/nav2/&quot;,
+      &quot;pages&quot;: [
+        {
+          &quot;title&quot;: &quot;Subnav 1&quot;,
+          &quot;link&quot;: &quot;/downloads/fpo.pdf&quot;,
+          &quot;target&quot;: &quot;_blank&quot;
+        }
+      ]
+    }
+  ]
+}'</span>;
+
+<span
+class="php-var">$topNav</span> = <span
+class="php-keyword1">new</span> \Module\Navigation\Builder(<span
+class="php-var">$topNavData</span>);
+<span
+class="php-var">$topNav</span>-&gt;setCurrent(<span
+class="php-var">$_SERVER</span>[<span
+class="php-quote">'SCRIPT_NAME'</span>]);
+
+<span
+class="php-comment">// In body somewhere...</span>
+&lt;nav <span
+class="php-keyword1">class</span>=<span
+class="php-quote">&quot;top&quot;</span>&gt;
+  <span
+class="xlang">&lt;?php</span> <span class="php-keyword1">echo</span> <span
+class="php-var">$topNav</span>-&gt;show(); <span
+class="xlang">?&gt;</span>
+&lt;/nav&gt;
+</pre>
+
+<h1>Changelog</h1>
+
+<h2>Version 1.2</h2>
+
+<ul>
+	<li>Added a track parameter</li>
+</ul>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Module.html">Module</a>\<a href="namespace-Module.Navigation.html">Navigation</a><br />
+		
+
+				<b>License:</b>
+				<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a><br />
+				<b>Author:</b>
+				Jaime A. Rodriguez &lt;<a
+href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>&gt;<br />
+				<b>Version:</b>
+				1.1<br />
+				<b>Date:</b>
+				June 16, 2014<br />
+		<b>Located at</b> <a href="source-class-Module.Navigation.Builder.html#4-179" title="Go to source code">enabled/navigation/class.navigation.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Module.Navigation.Builder.html#63-79" title="Go to source code">__construct</a>( <span>string <var>$json</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Constructor</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Constructor</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$json</var></dt>
+					<dd><code>string</code><br>$json json data containing the Navigation data</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="show" id="_show">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_show">#</a>
+		<code><a href="source-class-Module.Navigation.Builder.html#164-170" title="Go to source code">show</a>( <span>mixed <var>$class</var> = <span class="php-quote">&quot;&quot;</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Renders the Navigation</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Renders the Navigation</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>The rendered navigation<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setCurrent" id="_setCurrent">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setCurrent">#</a>
+		<code><a href="source-class-Module.Navigation.Builder.html#172-178" title="Go to source code">setCurrent</a>( <span>string <var>$string</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Sets the current page search string</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the current page search string</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$string</var></dt>
+					<dd><code>string</code><br>$string A string used to determine if a page is current</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

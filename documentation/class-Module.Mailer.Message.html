@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Module\Mailer\Message</title>
+
+	<script type="text/javascript" src="resources/combined.js?2585304289"></script>
+	<script type="text/javascript" src="elementlist.js?2403706640"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Module.html">Module<span></span></a>
+						<ul>
+				<li><a href="namespace-Module.Authentication.html">Authentication</a>
+						</li>
+				<li><a href="namespace-Module.CSV.html">CSV</a>
+						</li>
+				<li><a href="namespace-Module.DB.html">DB</a>
+						</li>
+				<li><a href="namespace-Module.FormBuilder.html">FormBuilder</a>
+						</li>
+				<li><a href="namespace-Module.FSDB.html">FSDB</a>
+						</li>
+				<li><a href="namespace-Module.IP2Country.html">IP2Country</a>
+						</li>
+				<li class="active"><a href="namespace-Module.Mailer.html">Mailer</a>
+						</li>
+				<li><a href="namespace-Module.MobiDetect.html">MobiDetect</a>
+						</li>
+				<li><a href="namespace-Module.Mobile.html">Mobile</a>
+						</li>
+				<li><a href="namespace-Module.Navigation.html">Navigation</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Sleepy.html">Sleepy</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Module.Mailer.Message.html">Message</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Module.Mailer.html" title="Summary of Module\Mailer"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Message</h1>
+
+
+	<div class="description">
+	
+<p>Simplifies sending emails.</p>
+
+<p>Simplifies sending emails by automatically verifying email addresses and
+fetching HTML.</p>
+
+<h1>Usage</h1>
+
+<pre>
+<span class="php-var">$m</span> = <span
+class="php-keyword1">new</span> \Module\Mailer\Message();
+<span
+class="php-var">$m</span>-&gt;addTo(<span
+class="php-quote">&quot;test@test.com&quot;</span>);
+<span
+class="php-var">$m</span>-&gt;addFrom(<span
+class="php-quote">&quot;from.me@test.com&quot;</span>);
+<span
+class="php-var">$m</span>-&gt;addSubject(<span
+class="php-quote">&quot;This is a test, don't panic.&quot;</span>);
+<span
+class="php-var">$m</span>-&gt;fetchHTML(<span
+class="php-quote">&quot;http://test.com/template.php&quot;</span>);
+<span
+class="php-var">$m</span>-&gt;send();
+</pre>
+
+<h1>Changelog</h1>
+
+<h2>Version 1.8</h2>
+
+<ul>
+	<li>Added namespacing</li>
+</ul>
+
+<h2>Version 1.6</h2>
+
+<ul>
+	<li>Fixed bug with BCC and CC</li>
+</ul>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Module.html">Module</a>\<a href="namespace-Module.Mailer.html">Mailer</a><br />
+		
+
+				<b>License:</b>
+				<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a><br />
+				<b>Author:</b>
+				Jaime Rodriguez, <a
+href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a><br />
+				<b>Version:</b>
+				1.8<br />
+				<b>Date:</b>
+				August 13, 2014<br />
+		<b>Located at</b> <a href="source-class-Module.Mailer.Message.html#4-232" title="Go to source code">disabled/mailer/class.mailer.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Module.Mailer.Message.html#43-50" title="Go to source code">__construct</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="send" id="_send">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_send">#</a>
+		<code><a href="source-class-Module.Mailer.Message.html#52-101" title="Go to source code">send</a>( )</code>
+
+		<div class="description short">
+			
+<p>Sends the email.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sends the email.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>Was the email successfully sent?<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addTo" id="_addTo">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addTo">#</a>
+		<code><a href="source-class-Module.Mailer.Message.html#103-121" title="Go to source code">addTo</a>( <span>string <var>$email</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Adds a primary recipient.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Adds a primary recipient.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$email</var></dt>
+					<dd><code>string</code><br>$email A valid email address.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addCc" id="_addCc">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addCc">#</a>
+		<code><a href="source-class-Module.Mailer.Message.html#123-140" title="Go to source code">addCc</a>( <span>string <var>$email</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Adds a Carbon Copy recipient.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Adds a Carbon Copy recipient.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$email</var></dt>
+					<dd><code>string</code><br>$email A valid email address.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addBcc" id="_addBcc">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addBcc">#</a>
+		<code><a href="source-class-Module.Mailer.Message.html#142-159" title="Go to source code">addBcc</a>( <span>string <var>$email</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Adds a Blind Carbon Copy recipient.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Adds a Blind Carbon Copy recipient.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$email</var></dt>
+					<dd><code>string</code><br>$email A valid email address</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addFrom" id="_addFrom">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addFrom">#</a>
+		<code><a href="source-class-Module.Mailer.Message.html#161-173" title="Go to source code">addFrom</a>( <span>string <var>$email</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Sets a senders email address.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets a senders email address.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$email</var></dt>
+					<dd><code>string</code><br>$email A valid email address.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="fetchHtml" id="_fetchHtml">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fetchHtml">#</a>
+		<code><a href="source-class-Module.Mailer.Message.html#175-189" title="Go to source code">fetchHtml</a>( <span>string <var>$url</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Gets HTML for a $url and repalces anything in the body of the email with the
+HTML that it fetched.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets HTML for a $url and repalces anything in the body of the email with the
+HTML that it fetched.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$url</var></dt>
+					<dd><code>string</code><br>$url the url of an html file for the email body.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="msgText" id="_msgText">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_msgText">#</a>
+		<code><a href="source-class-Module.Mailer.Message.html#191-199" title="Go to source code">msgText</a>( <span>string <var>$msg</var></span>, <span>boolean <var>$switch</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Sets the body of the email to text.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets the body of the email to text.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$msg</var></dt>
+					<dd><code>string</code><br>$msg a string for the body</dd>
+					<dt><var>$switch</var></dt>
+					<dd><code>boolean</code><br>$switch an optional parameter for overloading $this-&gt;html</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addSubject" id="_addSubject">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addSubject">#</a>
+		<code><a href="source-class-Module.Mailer.Message.html#201-216" title="Go to source code">addSubject</a>( <span>string <var>$subject</var> = <span class="php-quote">''</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Adds a subject to the email. If there is no subject the time will be
+used.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Adds a subject to the email. If there is no subject the time will be
+used.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$subject</var></dt>
+					<dd><code>string</code><br>$subject The subject of the email</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

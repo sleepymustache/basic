@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta name="robots" content="noindex" />
+
+	<title>File disabled/retina/class.retina.php</title>
+
+	<script type="text/javascript" src="resources/combined.js?2585304289"></script>
+	<script type="text/javascript" src="elementlist.js?2403706640"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Module.html">Module<span></span></a>
+						<ul>
+				<li><a href="namespace-Module.Authentication.html">Authentication</a>
+						</li>
+				<li><a href="namespace-Module.CSV.html">CSV</a>
+						</li>
+				<li><a href="namespace-Module.DB.html">DB</a>
+						</li>
+				<li><a href="namespace-Module.FormBuilder.html">FormBuilder</a>
+						</li>
+				<li><a href="namespace-Module.FSDB.html">FSDB</a>
+						</li>
+				<li><a href="namespace-Module.IP2Country.html">IP2Country</a>
+						</li>
+				<li><a href="namespace-Module.Mailer.html">Mailer</a>
+						</li>
+				<li><a href="namespace-Module.MobiDetect.html">MobiDetect</a>
+						</li>
+				<li class="active"><a href="namespace-Module.Mobile.html">Mobile</a>
+						</li>
+				<li><a href="namespace-Module.Navigation.html">Navigation</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Sleepy.html">Sleepy</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Module.Mobile.Retina.html">Retina</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Module.Mobile.html" title="Summary of Module\Mobile"><span>Namespace</span></a>
+			</li>
+			<li>
+				<a href="class-Module.Mobile.Retina.html" title="Summary of Module\Mobile\Retina"><span>Class</span></a>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<pre><code><span id="1" class="l"><a class="l" href="#1"> 1: </a><span class="xlang">&lt;?php</span>
+</span><span id="2" class="l"><a class="l" href="#2"> 2: </a><span class="php-keyword1">namespace</span> Module\Mobile;
+</span><span id="3" class="l"><a class="l" href="#3"> 3: </a>
+</span><span id="4" class="l"><a class="l" href="#4"> 4: </a><span class="php-keyword1">class</span> <a id="Retina" href="#Retina">Retina</a> {
+</span><span id="5" class="l"><a class="l" href="#5"> 5: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_processDownsize" href="#_processDownsize">processDownsize</a>(<span class="php-var">$folders</span>) {
+</span><span id="6" class="l"><a class="l" href="#6"> 6: </a>        <span class="php-var">$processable</span> = [];
+</span><span id="7" class="l"><a class="l" href="#7"> 7: </a>
+</span><span id="8" class="l"><a class="l" href="#8"> 8: </a>        <span class="php-keyword1">foreach</span> (<span class="php-var">$folders</span> <span class="php-keyword1">as</span> <span class="php-var">$folder</span>) {
+</span><span id="9" class="l"><a class="l" href="#9"> 9: </a>            <span class="php-var">$images</span> = <span class="php-keyword2">glob</span>(<span class="php-var">$folder</span> . <span class="php-quote">'/*@2x.*'</span>);
+</span><span id="10" class="l"><a class="l" href="#10">10: </a>
+</span><span id="11" class="l"><a class="l" href="#11">11: </a>            <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_array</span>(<span class="php-var">$images</span>)) {
+</span><span id="12" class="l"><a class="l" href="#12">12: </a>                <span class="php-var">$images</span> = [];
+</span><span id="13" class="l"><a class="l" href="#13">13: </a>            }
+</span><span id="14" class="l"><a class="l" href="#14">14: </a>
+</span><span id="15" class="l"><a class="l" href="#15">15: </a>            <span class="php-keyword1">foreach</span>(<span class="php-var">$images</span> <span class="php-keyword1">as</span> <span class="php-var">$image</span>) {
+</span><span id="16" class="l"><a class="l" href="#16">16: </a>                <span class="php-var">$smallImage</span> = <span class="php-keyword2">str_replace</span>(<span class="php-quote">'@2x'</span>, <span class="php-quote">''</span>, <span class="php-var">$image</span>);
+</span><span id="17" class="l"><a class="l" href="#17">17: </a>                <span class="php-keyword1">if</span> (!<span class="php-keyword2">file_exists</span>(<span class="php-var">$smallImage</span>)) {
+</span><span id="18" class="l"><a class="l" href="#18">18: </a>                    <span class="php-var">$this</span>-&gt;scaleDown(<span class="php-var">$image</span>);
+</span><span id="19" class="l"><a class="l" href="#19">19: </a>                }
+</span><span id="20" class="l"><a class="l" href="#20">20: </a>            }
+</span><span id="21" class="l"><a class="l" href="#21">21: </a>        }
+</span><span id="22" class="l"><a class="l" href="#22">22: </a>    }
+</span><span id="23" class="l"><a class="l" href="#23">23: </a>
+</span><span id="24" class="l"><a class="l" href="#24">24: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_scaleDown" href="#_scaleDown">scaleDown</a>(<span class="php-var">$filename</span>, <span class="php-var">$percent</span>=<span class="php-num">0.5</span>) {
+</span><span id="25" class="l"><a class="l" href="#25">25: </a>        <span class="php-var">$isJPEG</span> = (<span class="php-keyword2">substr</span>(<span class="php-var">$filename</span>, <span class="php-keyword2">strlen</span>(<span class="php-var">$filename</span>) - <span class="php-num">3</span>, <span class="php-num">3</span>) === <span class="php-quote">'jpg'</span>) ? <span class="php-keyword1">true</span> : <span class="php-keyword1">false</span>;
+</span><span id="26" class="l"><a class="l" href="#26">26: </a>
+</span><span id="27" class="l"><a class="l" href="#27">27: </a>        <span class="php-comment">// Get new sizes</span>
+</span><span id="28" class="l"><a class="l" href="#28">28: </a>        <span class="php-keyword1">list</span>(<span class="php-var">$width</span>, <span class="php-var">$height</span>) = <span class="php-keyword2">getimagesize</span>(<span class="php-var">$filename</span>);
+</span><span id="29" class="l"><a class="l" href="#29">29: </a>
+</span><span id="30" class="l"><a class="l" href="#30">30: </a>        <span class="php-var">$newwidth</span> = <span class="php-keyword2">round</span>(<span class="php-var">$width</span> * <span class="php-var">$percent</span>);
+</span><span id="31" class="l"><a class="l" href="#31">31: </a>        <span class="php-var">$newheight</span> = <span class="php-keyword2">round</span>(<span class="php-var">$height</span> * <span class="php-var">$percent</span>);
+</span><span id="32" class="l"><a class="l" href="#32">32: </a>        <span class="php-var">$newwidth</span> =  (<span class="php-var">$newwidth</span> &amp; <span class="php-num">1</span>) ? <span class="php-var">$newwidth</span> + <span class="php-num">1</span> : <span class="php-var">$newwidth</span>;
+</span><span id="33" class="l"><a class="l" href="#33">33: </a>        <span class="php-var">$newheight</span> = (<span class="php-var">$newheight</span> &amp; <span class="php-num">1</span>) ? <span class="php-var">$newheight</span> + <span class="php-num">1</span> : <span class="php-var">$newheight</span>;
+</span><span id="34" class="l"><a class="l" href="#34">34: </a>
+</span><span id="35" class="l"><a class="l" href="#35">35: </a>        <span class="php-comment">// Load</span>
+</span><span id="36" class="l"><a class="l" href="#36">36: </a>        <span class="php-var">$thumb</span> = <span class="php-keyword2">imagecreatetruecolor</span>(<span class="php-var">$newwidth</span>, <span class="php-var">$newheight</span>);
+</span><span id="37" class="l"><a class="l" href="#37">37: </a>
+</span><span id="38" class="l"><a class="l" href="#38">38: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$isJPEG</span>) {
+</span><span id="39" class="l"><a class="l" href="#39">39: </a>            <span class="php-var">$source</span> = <span class="php-keyword2">imagecreatefromjpeg</span>(<span class="php-var">$filename</span>);
+</span><span id="40" class="l"><a class="l" href="#40">40: </a>        } <span class="php-keyword1">else</span> {
+</span><span id="41" class="l"><a class="l" href="#41">41: </a>            <span class="php-var">$source</span> = <span class="php-keyword2">imagecreatefrompng</span>(<span class="php-var">$filename</span>);
+</span><span id="42" class="l"><a class="l" href="#42">42: </a>            <span class="php-keyword2">imagealphablending</span>(<span class="php-var">$thumb</span>, <span class="php-keyword1">false</span>);
+</span><span id="43" class="l"><a class="l" href="#43">43: </a>            <span class="php-keyword2">imagesavealpha</span>(<span class="php-var">$thumb</span>, <span class="php-keyword1">true</span>);
+</span><span id="44" class="l"><a class="l" href="#44">44: </a>        }
+</span><span id="45" class="l"><a class="l" href="#45">45: </a>
+</span><span id="46" class="l"><a class="l" href="#46">46: </a>        <span class="php-comment">// Resize</span>
+</span><span id="47" class="l"><a class="l" href="#47">47: </a>        <span class="php-keyword2">imagecopyresampled</span>(<span class="php-var">$thumb</span>, <span class="php-var">$source</span>, <span class="php-num">0</span>, <span class="php-num">0</span>, <span class="php-num">0</span>, <span class="php-num">0</span>, <span class="php-var">$newwidth</span>, <span class="php-var">$newheight</span>, <span class="php-var">$width</span>, <span class="php-var">$height</span>);
+</span><span id="48" class="l"><a class="l" href="#48">48: </a>
+</span><span id="49" class="l"><a class="l" href="#49">49: </a>        <span class="php-comment">// Output and free memory</span>
+</span><span id="50" class="l"><a class="l" href="#50">50: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$isJPEG</span>) {
+</span><span id="51" class="l"><a class="l" href="#51">51: </a>            <span class="php-keyword2">imagejpeg</span>(<span class="php-var">$thumb</span>, <span class="php-keyword2">str_replace</span>(<span class="php-quote">'@2x'</span>, <span class="php-quote">''</span>, <span class="php-var">$filename</span>), <span class="php-num">100</span>);
+</span><span id="52" class="l"><a class="l" href="#52">52: </a>        } <span class="php-keyword1">else</span> {
+</span><span id="53" class="l"><a class="l" href="#53">53: </a>            <span class="php-keyword2">imagepng</span>(<span class="php-var">$thumb</span>, <span class="php-keyword2">str_replace</span>(<span class="php-quote">'@2x'</span>, <span class="php-quote">''</span>, <span class="php-var">$filename</span>), <span class="php-num">9</span>);
+</span><span id="54" class="l"><a class="l" href="#54">54: </a>        }
+</span><span id="55" class="l"><a class="l" href="#55">55: </a>
+</span><span id="56" class="l"><a class="l" href="#56">56: </a>        <span class="php-keyword2">imagedestroy</span>(<span class="php-var">$thumb</span>);
+</span><span id="57" class="l"><a class="l" href="#57">57: </a>    }
+</span><span id="58" class="l"><a class="l" href="#58">58: </a></span>}</code></pre>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

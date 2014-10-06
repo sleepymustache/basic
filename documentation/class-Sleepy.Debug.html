@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Sleepy\Debug</title>
+
+	<script type="text/javascript" src="resources/combined.js?2585304289"></script>
+	<script type="text/javascript" src="elementlist.js?2403706640"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Module.html">Module<span></span></a>
+						<ul>
+				<li><a href="namespace-Module.Authentication.html">Authentication</a>
+						</li>
+				<li><a href="namespace-Module.CSV.html">CSV</a>
+						</li>
+				<li><a href="namespace-Module.DB.html">DB</a>
+						</li>
+				<li><a href="namespace-Module.FormBuilder.html">FormBuilder</a>
+						</li>
+				<li><a href="namespace-Module.FSDB.html">FSDB</a>
+						</li>
+				<li><a href="namespace-Module.IP2Country.html">IP2Country</a>
+						</li>
+				<li><a href="namespace-Module.Mailer.html">Mailer</a>
+						</li>
+				<li><a href="namespace-Module.MobiDetect.html">MobiDetect</a>
+						</li>
+				<li><a href="namespace-Module.Mobile.html">Mobile</a>
+						</li>
+				<li><a href="namespace-Module.Navigation.html">Navigation</a>
+						</li>
+							</ul></li>
+				<li class="active"><a href="namespace-Sleepy.html">Sleepy</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Sleepy.Debug.html">Debug</a></li>
+				<li><a href="class-Sleepy.Hook.html">Hook</a></li>
+				<li><a href="class-Sleepy.Router.html">Router</a></li>
+				<li><a href="class-Sleepy.SM.html">SM</a></li>
+				<li><a href="class-Sleepy.Template.html">Template</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Sleepy.html" title="Summary of Sleepy"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Debug</h1>
+
+
+	<div class="description">
+	
+<p>Provides custom debugging functions.</p>
+
+<p>This class can send emails, log to a database, or display on screen debug
+information. You can set the enabled flags to enable the debug functions or set
+them to false to quiet them down. This way you can leave them as a part of your
+code with little overhead. For email and database logging, don't forget to setup
+the public properties.</p>
+
+<h1>Usage</h1>
+
+<pre>
+<span
+class="php-comment">// Turn debugging to screen on</span>
+Debug::<span
+class="php-var">$enable_show</span> = <span
+class="php-keyword1">true</span>;
+Debug::out(<span
+class="php-quote">&quot;This will goto the screen because </span><span
+class="php-var">$enable_show</span><span
+class="php-quote"> == true&quot;</span>);
+
+<span
+class="php-comment">// Turn off debugging to screen</span>
+Debug::<span
+class="php-var">$enable_show</span> = <span
+class="php-keyword1">false</span>;
+</pre>
+
+<h1>Changelog</h1>
+
+<h2>Version 1.8</h2>
+
+<ul>
+	<li>Added namespacing</li>
+</ul>
+
+<h2>Version 1.7</h2>
+
+<ul>
+	<li>Added the date section to the documentation</li>
+</ul>
+
+<h2>Version 1.6</h2>
+
+<ul>
+	<li>Updated defaults to coinside with globals</li>
+</ul>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Sleepy.html">Sleepy</a><br />
+		
+
+				<b>License:</b>
+				<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a><br />
+				<b>Author:</b>
+				Jaime A. Rodriguez &lt;<a
+href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>&gt;<br />
+				<b>Version:</b>
+				1.8<br />
+				<b>Date:</b>
+				August 13, 2014<br />
+		<b>Located at</b> <a href="source-class-Sleepy.Debug.html#5-333" title="Go to source code">class.debug.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__destruct" id="___destruct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___destruct">#</a>
+		<code><a href="source-class-Sleepy.Debug.html#152-156" title="Go to source code">__destruct</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setHandler" id="_setHandler">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setHandler">#</a>
+		<code><a href="source-class-Sleepy.Debug.html#170-176" title="Go to source code">setHandler</a>( )</code>
+
+		<div class="description short">
+			
+<p>sets the Exception Handler</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>sets the Exception Handler</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="exceptionHandler" id="_exceptionHandler">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_exceptionHandler">#</a>
+		<code><a href="source-class-Sleepy.Debug.html#178-188" title="Go to source code">exceptionHandler</a>( <span>mixed <var>$e</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Exception Handler</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Exception Handler</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="out" id="_out">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_out">#</a>
+		<code><a href="source-class-Sleepy.Debug.html#270-298" title="Go to source code">out</a>( <span>mixed <var>$var</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Determines what output methods are enabled and passes $var to it.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Determines what output methods are enabled and passes $var to it.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$var</var></dt>
+					<dd><code>mixed</code><br>$var Anything you want to log</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="disable" id="_disable">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_disable">#</a>
+		<code><a href="source-class-Sleepy.Debug.html#300-309" title="Go to source code">disable</a>( )</code>
+
+		<div class="description short">
+			
+<p>Sets all the enabled flags to false</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets all the enabled flags to false</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="sendEmail" id="_sendEmail">
+
+		<td class="attributes"><code>
+			 public static
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_sendEmail">#</a>
+		<code><a href="source-class-Sleepy.Debug.html#311-332" title="Go to source code">sendEmail</a>( )</code>
+
+		<div class="description short">
+			
+<p>Sends the email.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sends the email.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>true if sent successfully<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="enable_show" id="$enable_show">
+		<td class="attributes"><code>
+			public static 
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Sleepy.Debug.html#48-51" title="Go to source code"><var>$enable_show</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">false</span></code></td>
+		<td class="description"><div>
+			<a href="#$enable_show" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>bool Enable output to screen</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>bool Enable output to screen</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="enable_log" id="$enable_log">
+		<td class="attributes"><code>
+			public static 
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Sleepy.Debug.html#53-56" title="Go to source code"><var>$enable_log</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">false</span></code></td>
+		<td class="description"><div>
+			<a href="#$enable_log" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>bool Enabled logging to a database</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>bool Enabled logging to a database</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="enable_send" id="$enable_send">
+		<td class="attributes"><code>
+			public static 
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Sleepy.Debug.html#58-61" title="Go to source code"><var>$enable_send</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">false</span></code></td>
+		<td class="description"><div>
+			<a href="#$enable_send" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>bool Enabled logging via email</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>bool Enabled logging via email</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="emailTo" id="$emailTo">
+		<td class="attributes"><code>
+			public static 
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Sleepy.Debug.html#63-66" title="Go to source code"><var>$emailTo</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$emailTo" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>string Email address to send email to.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>string Email address to send email to.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="emailCC" id="$emailCC">
+		<td class="attributes"><code>
+			public static 
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Sleepy.Debug.html#68-71" title="Go to source code"><var>$emailCC</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$emailCC" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>string Email address cc send email to.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>string Email address cc send email to.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="emailBCC" id="$emailBCC">
+		<td class="attributes"><code>
+			public static 
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Sleepy.Debug.html#73-76" title="Go to source code"><var>$emailBCC</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$emailBCC" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>string Email address bcc send email to.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>string Email address bcc send email to.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="emailFrom" id="$emailFrom">
+		<td class="attributes"><code>
+			public static 
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Sleepy.Debug.html#78-81" title="Go to source code"><var>$emailFrom</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$emailFrom" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>string Email address to send email from.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>string Email address to send email from.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="emailSubject" id="$emailSubject">
+		<td class="attributes"><code>
+			public static 
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Sleepy.Debug.html#83-86" title="Go to source code"><var>$emailSubject</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$emailSubject" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>string The subject of the email.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>string The subject of the email.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="emailBuffer" id="$emailBuffer">
+		<td class="attributes"><code>
+			public static 
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Sleepy.Debug.html#88-91" title="Go to source code"><var>$emailBuffer</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$emailBuffer" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>string[] The body of the email.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>string[] The body of the email.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="dbHost" id="$dbHost">
+		<td class="attributes"><code>
+			public static 
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Sleepy.Debug.html#93-96" title="Go to source code"><var>$dbHost</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$dbHost" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>string Database Host</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>string Database Host</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="dbName" id="$dbName">
+		<td class="attributes"><code>
+			public static 
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Sleepy.Debug.html#98-101" title="Go to source code"><var>$dbName</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$dbName" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>string Database Name</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>string Database Name</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="dbUser" id="$dbUser">
+		<td class="attributes"><code>
+			public static 
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Sleepy.Debug.html#103-106" title="Go to source code"><var>$dbUser</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$dbUser" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>string Database User Name</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>string Database User Name</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="dbPass" id="$dbPass">
+		<td class="attributes"><code>
+			public static 
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Sleepy.Debug.html#108-111" title="Go to source code"><var>$dbPass</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$dbPass" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>string Database Password</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>string Database Password</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="dbTable" id="$dbTable">
+		<td class="attributes"><code>
+			public static 
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Sleepy.Debug.html#113-116" title="Go to source code"><var>$dbTable</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$dbTable" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>string Database Table to use for logging</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>string Database Table to use for logging</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

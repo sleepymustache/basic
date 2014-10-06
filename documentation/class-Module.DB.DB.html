@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Module\DB\DB</title>
+
+	<script type="text/javascript" src="resources/combined.js?2585304289"></script>
+	<script type="text/javascript" src="elementlist.js?2403706640"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Module.html">Module<span></span></a>
+						<ul>
+				<li><a href="namespace-Module.Authentication.html">Authentication</a>
+						</li>
+				<li><a href="namespace-Module.CSV.html">CSV</a>
+						</li>
+				<li class="active"><a href="namespace-Module.DB.html">DB</a>
+						</li>
+				<li><a href="namespace-Module.FormBuilder.html">FormBuilder</a>
+						</li>
+				<li><a href="namespace-Module.FSDB.html">FSDB</a>
+						</li>
+				<li><a href="namespace-Module.IP2Country.html">IP2Country</a>
+						</li>
+				<li><a href="namespace-Module.Mailer.html">Mailer</a>
+						</li>
+				<li><a href="namespace-Module.MobiDetect.html">MobiDetect</a>
+						</li>
+				<li><a href="namespace-Module.Mobile.html">Mobile</a>
+						</li>
+				<li><a href="namespace-Module.Navigation.html">Navigation</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Sleepy.html">Sleepy</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Module.DB.DB.html">DB</a></li>
+				<li><a href="class-Module.DB.Grid.html">Grid</a></li>
+				<li><a href="class-Module.DB.Record.html">Record</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Module.DB.html" title="Summary of Module\DB"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class DB</h1>
+
+
+	<div class="description">
+	
+<p>Implements a singleton database class</p>
+
+<p>This abstract class is to ensure that only one PDO instance is used. You get
+a instance of the database with:</p>
+
+<h1>Usage</h1>
+
+<pre>
+\Module\DB\DB::<span class="php-var">$dbhost</span> = <span
+class="php-quote">'localhost'</span>;
+\Module\DB\DB::<span
+class="php-var">$dbname</span> = <span
+class="php-quote">'db'</span>;
+\Module\DB\DB::<span
+class="php-var">$dbuser</span> = <span
+class="php-quote">'username'</span>;
+\Module\DB\DB::<span
+class="php-var">$dbpass</span> = <span
+class="php-quote">'itsmeopenup'</span>;
+<span
+class="php-var">$db</span> = \Module\DB\DB::getInstance();
+</pre>
+
+<h1>Changelog</h1>
+
+<h2>Version 1.12</h2>
+
+<ul>
+	<li>Added the date section to the documentation</li>
+</ul>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		<b>Abstract</b><br />
+		
+		<b>Namespace:</b> <a href="namespace-Module.html">Module</a>\<a href="namespace-Module.DB.html">DB</a><br />
+		
+
+				<b>License:</b>
+				<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a><br />
+				<b>Author:</b>
+				Jaime A. Rodriguez &lt;<a
+href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>&gt;<br />
+				<b>Version:</b>
+				1.2<br />
+				<b>Date:</b>
+				August 13, 2014<br />
+		<b>Located at</b> <a href="source-class-Module.DB.DB.html#4-80" title="Go to source code">disabled/db/class.db.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="getInstance" id="_getInstance">
+
+		<td class="attributes"><code>
+			 public static
+			object
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getInstance">#</a>
+		<code><a href="source-class-Module.DB.DB.html#68-79" title="Go to source code">getInstance</a>( )</code>
+
+		<div class="description short">
+			
+<p>Gets the DB instance or creates an initial connection</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Gets the DB instance or creates an initial connection</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>object</code><br>(PDO)<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="dbhost" id="$dbhost">
+		<td class="attributes"><code>
+			public static 
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.DB.DB.html#38-41" title="Go to source code"><var>$dbhost</var></a>
+		</td>
+		<td class="value"><code>DBHOST</code></td>
+		<td class="description"><div>
+			<a href="#$dbhost" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>string The database host</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>string The database host</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="dbname" id="$dbname">
+		<td class="attributes"><code>
+			public static 
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.DB.DB.html#43-46" title="Go to source code"><var>$dbname</var></a>
+		</td>
+		<td class="value"><code>DBNAME</code></td>
+		<td class="description"><div>
+			<a href="#$dbname" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>string The database name</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>string The database name</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="dbuser" id="$dbuser">
+		<td class="attributes"><code>
+			public static 
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.DB.DB.html#48-51" title="Go to source code"><var>$dbuser</var></a>
+		</td>
+		<td class="value"><code>DBUSER</code></td>
+		<td class="description"><div>
+			<a href="#$dbuser" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>string The database user</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>string The database user</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="dbpass" id="$dbpass">
+		<td class="attributes"><code>
+			public static 
+			mixed
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.DB.DB.html#53-56" title="Go to source code"><var>$dbpass</var></a>
+		</td>
+		<td class="value"><code>DBPASS</code></td>
+		<td class="description"><div>
+			<a href="#$dbpass" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>string The database password</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>string The database password</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>
