@@ -1,7 +1,7 @@
 sleepyMUSTACHE
 ===============================================================================
 
-Detailed [Documentation] (http://www.sleepymustache.com/documentation/html/index.html) is available.
+Detailed [Documentation] (http://www.sleepymustache.com/documentation/index.html) is available.
 
 sleepyMUSTACHE is a PHP micro framework that has solutions for everyday PHP challenges. Most of the functionality is optional and tries to be as minimalist as possible.
 
