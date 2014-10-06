@@ -7,21 +7,24 @@ require_once(DIRBASE . '/modules/enabled/db/class.record.php');
  * Example of using the User module
  *
  * <code>
- *	if (class_exists('User')) {
- *		$u = new \Module\Authentication\User();
+ * 	if (class_exists('User')) {
+ * 		// Try to login
+ * 		try {
+ * 			$u = new \Module\Authentication\User();
  *
- *		// check if a user is logged in
- *		if (!$u->isLoggedIn()) {
- *			header('location: /user/login/');
- *		}
+ * 			// check if the admin user exists
+ * 			$uid = $u->authenticate('developer@envivent.com', 'test');
  *
- *		// check if a user is an admin
- *		if (!$u->isAdmin()) {
- *			echo "You must be an Administrator to see this page.";
- *			die();
- *		}
- *	}
- *	</code>
+ * 			echo "Authentication successful. User ID is ", $uid;
+ * 		} catch (\Exception $e) {
+ * 			// Admin uses doesn't exist. Let's create it.
+ * 			$u->columns['role_id'] = 1;
+ * 			$u->columns['email'] = 'developer@envivent.com';
+ * 			$u->columns['password'] = $u->saltPassword('test');
+ * 			$u->save();
+ * 		}
+ * 	}
+ * </code>
  */
 class User extends \Module\DB\Record {
 	/**
