@@ -3,7 +3,7 @@
 sleepyMUSTACHE
 ===============================================================================
 
-Doxygen [Documentation] (http://www.sleepymustache.com/documentation/html/index.html) is available.
+Detailed [Documentation] (http://www.sleepymustache.com/documentation/html/index.html) is available.
 
 sleepyMUSTACHE is a PHP micro framework that has solutions for everyday PHP
 challenges. Most of the functionality is optional and tries to be as 
@@ -20,17 +20,17 @@ Functionality
 
 The core is the basic functions that are used to build modules. They cannot be removed.
 
-* **Debugging** -
+* **[Debugging] (http://www.sleepymustache.com/documentation/class-Sleepy.Debug.html)** -
     Easily send debug information via the browser, email, or database.
 
-* **Hooks** -
+* **[Hooks] (http://www.sleepymustache.com/documentation/class-Sleepy.Hook.html)** -
     Hooks allow you to run a function at certain spots in your code. We call these spots *hook points*. Multiple functions may be executed at any *hook point*.
 
-* **Templating** -
+* **[Templating] (http://www.sleepymustache.com/documentation/class-Sleepy.Template.html)** -
     Basic templating functionality lets you separate business logic from the
     view. It replaces placeholders like "{{ title }}" with data.
 
-* **Routing** -
+* **[Routing](http://www.sleepymustache.com/documentation/class-Sleepy.Router.html)** -
     A very basic routing class that allows you to build database driven applications.
 
 ### The Module System
@@ -44,35 +44,35 @@ Modules use *hook points* to inject functionality into your application and modi
 * **CSS Compress** -
     Compressed the output CSS only if the application is in the "LIVE" environment.
 
-* **Navigation** -
+* **[Navigation](http://www.sleepymustache.com/documentation/namespace-Module.Navigation.html)** -
     Creates a UL based on a JSON object that can be used for navigation.
 
 * **URL Class** -
     Adds a class based on the current page. For example, if your application is currently on the */user/jaime/index.php* page, the class *user-jaime-index* will be added to the body. Additionally, if you are omitting *index.php* from your URLs, e.g. */user/admin*, the class would be *user-admin-index*.
 
-* **CSV** -
+* **[CSV](http://www.sleepymustache.com/documentation/namespace-Module.CSV.html)** -
     Create, Read, Update, Delete (CRUD) class for CSV files with very basic querying capabilities.
 
-* **DB** -
+* **[DB](http://www.sleepymustache.com/documentation/namespace-Module.DB.html)** -
     Create, Read, Update, Delete (CRUD) class using PDO and mySQL.
 
-* **DB Grid** -
+* **[DB Grid](http://www.sleepymustache.com/documentation/class-Module.DB.Grid.html)** -
     Turns a SQL Select statement into a table. The table information can be transformed using *hook filter*, making this a powerful module for visualizing and organizing data.
 
-* **File System Database** -
+* **[File System Database](http://www.sleepymustache.com/documentation/namespace-Module.FSDB.html)** -
     A basic database that uses flat files and JSON documents. Provides simple functionality when a full blown database is overkill.
 
-* **IP 2 Country** -
+* **[IP 2 Country](http://www.sleepymustache.com/documentation/namespace-Module.IP2Country.html)** -
     Uses the end-users IP address to detect the country of origin.
 
-* **Mailer** -
+* **[Mailer](http://www.sleepymustache.com/documentation/namespace-Module.Mailer.html)** -
     Provides basic email functionality with RFC email validation. Combining the templating engine with the Mailer class allows for a elegant solution to HTML email templates.
 
 * **Memcache** -
     Improves performance by implementing caching of pages (10 second cache expiration by default)
 
-* **Mobile detection** -
-    Can detect mobile and tablet devices on the server-side.
+* **[Mobile detection](http://www.sleepymustache.com/documentation/namespace-Module.MobiDetect.html)** -
+    Can detect mobile and tablet devices on the server-side. This is now deprecated and will be removed for the v.1.0 release.
 
 * **HTML Compress** -
     Compresses the output HTML if we are in the *live* environment.
@@ -83,7 +83,7 @@ Modules use *hook points* to inject functionality into your application and modi
 * **Robots Dev Hide - Joey Bomber** -
     Instructs search engines *NOT* to index a site while it is in the Staging environment. It does not affect live/production sites.
 
-* **Users** -
+* **[Authentication](http://www.sleepymustache.com/documentation/namespace-Module.Authentication.html)** -
     Basic user and roles functionality includes a sample schema, authentication, roles, and permissions.
 
 ### Sample Modules
