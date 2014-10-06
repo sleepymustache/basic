@@ -8,7 +8,7 @@ require_once(DIRBASE . '/modules/enabled/db/class.record.php');
  *
  * <code>
  *	if (class_exists('User')) {
- *		$u = new User();
+ *		$u = new \Module\Authentication\User();
  *
  *		// check if a user is logged in
  *		if (!$u->isLoggedIn()) {
