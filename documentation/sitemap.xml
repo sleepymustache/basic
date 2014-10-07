@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+	<loc>http://www.sleepymustache.com/documentation/index.html</loc>
+</url>
+<url>
+	<loc>http://www.sleepymustache.com/documentation/namespace-Sleepy.html</loc>
+</url>
+<url>
+	<loc>http://www.sleepymustache.com/documentation/namespace-Module.html</loc>
+</url>
+<url>
+	<loc>http://www.sleepymustache.com/documentation/namespace-Module.Authentication.html</loc>
+</url>
+<url>
+	<loc>http://www.sleepymustache.com/documentation/namespace-Module.CSV.html</loc>
+</url>
+<url>
+	<loc>http://www.sleepymustache.com/documentation/namespace-Module.DB.html</loc>
+</url>
+<url>
+	<loc>http://www.sleepymustache.com/documentation/namespace-Module.FormBuilder.html</loc>
+</url>
+<url>
+	<loc>http://www.sleepymustache.com/documentation/namespace-Module.FSDB.html</loc>
+</url>
+<url>
+	<loc>http://www.sleepymustache.com/documentation/namespace-Module.IP2Country.html</loc>
+</url>
+<url>
+	<loc>http://www.sleepymustache.com/documentation/namespace-Module.Mailer.html</loc>
+</url>
+<url>
+	<loc>http://www.sleepymustache.com/documentation/namespace-Module.MobiDetect.html</loc>
+</url>
+<url>
+	<loc>http://www.sleepymustache.com/documentation/namespace-Module.Mobile.html</loc>
+</url>
+<url>
+	<loc>http://www.sleepymustache.com/documentation/namespace-Module.Navigation.html</loc>
+</url>
+
+
+<url>
+	<loc>http://www.sleepymustache.com/documentation/class-Sleepy.Debug.html</loc>
+</url>
+<url>
+	<loc>http://www.sleepymustache.com/documentation/class-Sleepy.Hook.html</loc>
+</url>
+<url>
+	<loc>http://www.sleepymustache.com/documentation/class-Sleepy.Router.html</loc>
+</url>
+<url>
+	<loc>http://www.sleepymustache.com/documentation/class-Sleepy.SM.html</loc>
+</url>
+<url>
+	<loc>http://www.sleepymustache.com/documentation/class-Sleepy.Template.html</loc>
+</url>
+</urlset>

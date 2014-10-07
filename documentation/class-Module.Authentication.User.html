@@ -4,10 +4,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="generator" content="ApiGen 2.8.0" />
 
-	<title>Class Module\Authentication\User</title>
+	<title>Class Module\Authentication\User | sleepyMUSTACHE v.0.8</title>
 
 	<script type="text/javascript" src="resources/combined.js?2585304289"></script>
-	<script type="text/javascript" src="elementlist.js?2403706640"></script>
+	<script type="text/javascript" src="elementlist.js?3462114702"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -21,6 +21,8 @@
 		<div id="groups">
 			<h3>Namespaces</h3>
 			<ul>
+				<li class="main"><a href="namespace-Sleepy.html">Sleepy</a>
+						</li>
 				<li class="active"><a href="namespace-Module.html">Module<span></span></a>
 						<ul>
 				<li class="active"><a href="namespace-Module.Authentication.html">Authentication</a>
@@ -44,8 +46,6 @@
 				<li><a href="namespace-Module.Navigation.html">Navigation</a>
 						</li>
 							</ul></li>
-				<li><a href="namespace-Sleepy.html">Sleepy</a>
-						</li>
 			</ul>
 		</div>
 
@@ -95,6 +95,12 @@
 			<li>
 				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
 			</li>
+			<li>
+				<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
+			</li>
+			<li>
+				<a href="todo.html" title="Todo list"><span>Todo</span></a>
+			</li>
 		</ul>
 		<ul>
 		</ul>
@@ -113,29 +119,45 @@
 class="php-keyword2">class_exists</span>(<span
 class="php-quote">'User'</span>)) {
         <span
+class="php-comment">// Try to login</span>
+        <span
+class="php-keyword1">try</span> {
+                <span
 class="php-var">$u</span> = <span
 class="php-keyword1">new</span> \Module\Authentication\User();
 
-        <span
-class="php-comment">// check if a user is logged in</span>
-        <span
-class="php-keyword1">if</span> (!<span
-class="php-var">$u</span>-&gt;isLoggedIn()) {
                 <span
-class="php-keyword2">header</span>(<span
-class="php-quote">'location: /user/login/'</span>);
-        }
+class="php-comment">// check if the admin user exists</span>
+                <span
+class="php-var">$uid</span> = <span
+class="php-var">$u</span>-&gt;authenticate(<span
+class="php-quote">'developer@envivent.com'</span>, <span
+class="php-quote">'test'</span>);
 
-        <span
-class="php-comment">// check if a user is an admin</span>
-        <span
-class="php-keyword1">if</span> (!<span
-class="php-var">$u</span>-&gt;isAdmin()) {
                 <span
 class="php-keyword1">echo</span> <span
-class="php-quote">&quot;You must be an Administrator to see this page.&quot;</span>;
+class="php-quote">&quot;Authentication successful. User ID is &quot;</span>, <span
+class="php-var">$uid</span>;
+        } <span
+class="php-keyword1">catch</span> (\Exception <span
+class="php-var">$e</span>) {
                 <span
-class="php-keyword1">die</span>();
+class="php-comment">// Admin uses doesn't exist. Let's create it.</span>
+                <span
+class="php-var">$u</span>-&gt;columns[<span
+class="php-quote">'role_id'</span>] = <span
+class="php-num">1</span>;
+                <span
+class="php-var">$u</span>-&gt;columns[<span
+class="php-quote">'email'</span>] = <span
+class="php-quote">'developer@envivent.com'</span>;
+                <span
+class="php-var">$u</span>-&gt;columns[<span
+class="php-quote">'password'</span>] = <span
+class="php-var">$u</span>-&gt;saltPassword(<span
+class="php-quote">'test'</span>);
+                <span
+class="php-var">$u</span>-&gt;save();
         }
 }
 </pre>
@@ -170,7 +192,7 @@ class="php-keyword1">die</span>();
 		<b>Namespace:</b> <a href="namespace-Module.html">Module</a>\<a href="namespace-Module.Authentication.html">Authentication</a><br />
 		
 
-		<b>Located at</b> <a href="source-class-Module.Authentication.User.html#6-218" title="Go to source code">disabled/users/class.user.php</a><br />
+		<b>Located at</b> <a href="source-class-Module.Authentication.User.html#6-221" title="Go to source code">disabled/users/class.user.php</a><br />
 	</div>
 
 
@@ -188,7 +210,7 @@ class="php-keyword1">die</span>();
 
 		<td class="name"><div>
 		<a class="anchor" href="#_authenticate">#</a>
-		<code><a href="source-class-Module.Authentication.User.html#52-74" title="Go to source code">authenticate</a>( <span>string <var>$email</var></span>, <span>string <var>$pass</var></span> )</code>
+		<code><a href="source-class-Module.Authentication.User.html#55-77" title="Go to source code">authenticate</a>( <span>string <var>$email</var></span>, <span>string <var>$pass</var></span> )</code>
 
 		<div class="description short">
 			
@@ -232,7 +254,7 @@ class="php-keyword1">die</span>();
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getPermission">#</a>
-		<code><a href="source-class-Module.Authentication.User.html#76-83" title="Go to source code">getPermission</a>( <span>string <var>$key</var></span> )</code>
+		<code><a href="source-class-Module.Authentication.User.html#79-86" title="Go to source code">getPermission</a>( <span>string <var>$key</var></span> )</code>
 
 		<div class="description short">
 			
@@ -274,7 +296,7 @@ class="php-keyword1">die</span>();
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getUserData">#</a>
-		<code><a href="source-class-Module.Authentication.User.html#85-98" title="Go to source code">getUserData</a>( <span>string <var>$key</var></span> )</code>
+		<code><a href="source-class-Module.Authentication.User.html#88-101" title="Go to source code">getUserData</a>( <span>string <var>$key</var></span> )</code>
 
 		<div class="description short">
 			
@@ -316,7 +338,7 @@ class="php-keyword1">die</span>();
 
 		<td class="name"><div>
 		<a class="anchor" href="#_load">#</a>
-		<code><a href="source-class-Module.Authentication.User.html#100-122" title="Go to source code">load</a>( <span>integer <var>$id</var> = <span class="php-num">0</span></span> )</code>
+		<code><a href="source-class-Module.Authentication.User.html#103-125" title="Go to source code">load</a>( <span>integer <var>$id</var> = <span class="php-num">0</span></span> )</code>
 
 		<div class="description short">
 			
@@ -356,7 +378,7 @@ class="php-keyword1">die</span>();
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setUserData">#</a>
-		<code><a href="source-class-Module.Authentication.User.html#124-142" title="Go to source code">setUserData</a>( <span>string <var>$key</var></span>, <span>mixed <var>$value</var></span> )</code>
+		<code><a href="source-class-Module.Authentication.User.html#127-145" title="Go to source code">setUserData</a>( <span>string <var>$key</var></span>, <span>mixed <var>$value</var></span> )</code>
 
 		<div class="description short">
 			
@@ -396,7 +418,7 @@ class="php-keyword1">die</span>();
 
 		<td class="name"><div>
 		<a class="anchor" href="#_saltPassword">#</a>
-		<code><a href="source-class-Module.Authentication.User.html#144-151" title="Go to source code">saltPassword</a>( <span>string <var>$pass</var></span> )</code>
+		<code><a href="source-class-Module.Authentication.User.html#147-154" title="Go to source code">saltPassword</a>( <span>string <var>$pass</var></span> )</code>
 
 		<div class="description short">
 			
@@ -438,7 +460,7 @@ class="php-keyword1">die</span>();
 
 		<td class="name"><div>
 		<a class="anchor" href="#_save">#</a>
-		<code><a href="source-class-Module.Authentication.User.html#153-167" title="Go to source code">save</a>( )</code>
+		<code><a href="source-class-Module.Authentication.User.html#156-170" title="Go to source code">save</a>( )</code>
 
 		<div class="description short">
 			
@@ -473,7 +495,7 @@ class="php-keyword1">die</span>();
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isLoaded">#</a>
-		<code><a href="source-class-Module.Authentication.User.html#169-177" title="Go to source code">isLoaded</a>( )</code>
+		<code><a href="source-class-Module.Authentication.User.html#172-180" title="Go to source code">isLoaded</a>( )</code>
 
 		<div class="description short">
 			
@@ -510,7 +532,7 @@ class="php-keyword1">die</span>();
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isLoggedIn">#</a>
-		<code><a href="source-class-Module.Authentication.User.html#179-189" title="Go to source code">isLoggedIn</a>( )</code>
+		<code><a href="source-class-Module.Authentication.User.html#182-192" title="Go to source code">isLoggedIn</a>( )</code>
 
 		<div class="description short">
 			
@@ -547,7 +569,7 @@ class="php-keyword1">die</span>();
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isAdmin">#</a>
-		<code><a href="source-class-Module.Authentication.User.html#191-209" title="Go to source code">isAdmin</a>( )</code>
+		<code><a href="source-class-Module.Authentication.User.html#194-212" title="Go to source code">isAdmin</a>( )</code>
 
 		<div class="description short">
 			
@@ -584,7 +606,7 @@ class="php-keyword1">die</span>();
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getRole">#</a>
-		<code><a href="source-class-Module.Authentication.User.html#211-217" title="Go to source code">getRole</a>( )</code>
+		<code><a href="source-class-Module.Authentication.User.html#214-220" title="Go to source code">getRole</a>( )</code>
 
 		<div class="description short">
 			
@@ -642,7 +664,7 @@ class="php-keyword1">die</span>();
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Module.Authentication.User.html#27-31" title="Go to source code"><var>$table</var></a>
+				<a href="source-class-Module.Authentication.User.html#30-34" title="Go to source code"><var>$table</var></a>
 		</td>
 		<td class="value"><code><span class="php-quote">'users'</span></code></td>
 		<td class="description"><div>
@@ -669,7 +691,7 @@ class="php-keyword1">die</span>();
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Module.Authentication.User.html#33-37" title="Go to source code"><var>$metadata</var></a>
+				<a href="source-class-Module.Authentication.User.html#36-40" title="Go to source code"><var>$metadata</var></a>
 		</td>
 		<td class="value"><code></code></td>
 		<td class="description"><div>
@@ -710,7 +732,7 @@ class="php-keyword1">die</span>();
 </div>
 
 	<div id="footer">
-		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		sleepyMUSTACHE v.0.8 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
 </div>
 </div>
