@@ -24,6 +24,7 @@ namespace Module\MobiDetect;
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @version 1.1
  * @license  http://opensource.org/licenses/MIT
+ * @deprecated v.1.0
  */
 class Detector {
 	private $iphone = false;
