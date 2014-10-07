@@ -230,7 +230,8 @@ class Template {
 				$this->_assignArrayByPath($data, $key)
 			);
 
-			$arguments = array_merge($arguments, explode(" ", $matches[2][$index]));
+			# We trim so that there are no extra blank arguments
+			$arguments = array_merge($arguments, explode(" ", trim($matches[2][$index])));
 
 			$boundData = $arguments;
 
