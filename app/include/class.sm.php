@@ -45,6 +45,7 @@ class SM {
 
 		require_once('class.hooks.php');
 		require_once('class.template.php');
+		require_once('class.router.php');
 
 		\Sleepy\Hook::addAction('sleepy_preprocess');
 
