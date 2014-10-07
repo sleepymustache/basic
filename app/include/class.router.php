@@ -275,7 +275,18 @@ class _Route {
 						}
 
 						$key = $this->_cleanPlaceholder($value);
-						$this->params[$key] = $this->_runFilters($key, Router::$parameters[$idx]);
+
+						$varValue = $this->_runFilters($key, Router::$parameters[$idx]);
+
+						// Check for multiple variables, they should match.
+						if (isset($this->params[$key])) {
+							if ($varValue != $this->params[$key]) {
+								$noMatch = true;
+								break;
+							}
+						}
+
+						$this->params[$key] = $varValue;
 						continue;
 					}
 
