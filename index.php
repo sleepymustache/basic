@@ -17,7 +17,7 @@
 			"author" => "Jaime A. Rodriguez",
 			"date" => date('m/d/Y', time()),
 			"description" => "
-				Congratulations on successfully installing sleepyMUSTACHE! You can visit the <a href=\"http://www.sleepymustache.com/documentation/html/index.html\">documentation page</a> to learn more or hit the ground running by viewing the <a href=\"http://www.sleepymustache.com/#getting-started\">getting started</a> section.",
+				Congratulations on successfully installing sleepyMUSTACHE! You can visit the <a href=\"http://www.sleepymustache.com/documentation/index.html\">documentation page</a> to learn more or hit the ground running by viewing the <a href=\"http://www.sleepymustache.com/#getting-started\">getting started</a> section.",
 			"tags" => array(
 				array(
 					'name' => "Configuration",
