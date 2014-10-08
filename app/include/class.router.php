@@ -61,14 +61,6 @@ class Router {
 	public static $parameters = array();
 
 	/**
-	 * Have we matched a route?
-	 * @return boolean True, if we matched a route
-	 */
-	public static function hasRouted() {
-		return self::$routeFound;
-	}
-
-	/**
 	 * Gets an array from a string based on Router::$delimeter
 	 * @param  string $string a string to explode()
 	 * @return array          an exploded string
@@ -76,6 +68,10 @@ class Router {
 	public static function getArray($string) {
 		if (substr($string, strlen($string) - 1, 1) == self::$delimiter) {
 			$string = substr($string, 0, strlen($string) - 1);
+		}
+
+		if (substr($string, 0, 1) != self::$delimiter) {
+			$string = self::$delimiter . $string;
 		}
 
 		return explode(self::$delimiter, $string);;
@@ -88,7 +84,12 @@ class Router {
 	 * @return object            \Sleepy\Route()
 	 */
 	public static function route($pattern, $func) {
-		$route = new _Route(md5($pattern));
+		if (is_array($pattern)) {
+			$route = new _Route(md5($pattern[0]));
+		} else {
+			$route = new _Route(md5($pattern));
+		}
+
 		array_push(self::$_routes, $route);
 		$route->add($pattern, $func);
 		return $route;
@@ -98,8 +99,10 @@ class Router {
 	 * Starts parsing the Router::routes
 	 * @return boolean true if a route was matched
 	 */
-	public static function start($match='') {
-		if ($match == '') {
+	public static function start($currentPath='') {
+		self::$routeFound = false;
+
+		if ($currentPath == '') {
 			$currentPath = $_SERVER['REQUEST_URI'];
 		}
 
@@ -116,6 +119,10 @@ class Router {
 		}
 
 		return self::$routeFound;
+	}
+
+	public static function reset() {
+		self::$_routes = array();
 	}
 }
 
@@ -198,11 +205,14 @@ class _Route {
 	 * @return string         The parsed string
 	 */
 	private function _runFilters($key, $string) {
-		$filtered = \Sleepy\Hook::addFilter("route_parameters", $string);
-		$filtered = \Sleepy\Hook::addFilter("route_parameter_" . $key, $filtered);
-		$filtered = \Sleepy\Hook::addFilter("route_" . $this->name . "_parameters", $filtered);
-		$filtered = \Sleepy\Hook::addFilter("route_" . $this->name . "_parameter_" . $key, $filtered);
-		return $filtered;
+		if (class_exists("\Sleepy\Hook")) {
+			$string = \Sleepy\Hook::addFilter("route_parameters", $string);
+			$string = \Sleepy\Hook::addFilter("route_parameter_" . $key, $string);
+			$string = \Sleepy\Hook::addFilter("route_" . $this->name . "_parameters", $string);
+			$string = \Sleepy\Hook::addFilter("route_" . $this->name . "_parameter_" . $key, $string);
+		}
+
+		return $string;
 	}
 
 	/**
@@ -283,7 +293,7 @@ class _Route {
 		$rawPattern = $r[0];
 		$func = $r[1];
 
-		if (Router::hasRouted()) {
+		if (Router::$routeFound) {
 			$noMatch = true;
 		} else {
 			// Get array from string
@@ -321,20 +331,26 @@ class _Route {
 		}
 
 		if ($noMatch) {
-			\Sleepy\Hook::addAction("route_failed");
-			\Sleepy\Hook::addAction("route_failed_" . $this->name);
+			if (class_exists("\Sleepy\Hook")) {
+				\Sleepy\Hook::addAction("route_failed");
+				\Sleepy\Hook::addAction("route_failed_" . $this->name);
+			}
 		} else {
 			// Call route_start actions
-			\Sleepy\Hook::addAction("route_start");
-			\Sleepy\Hook::addAction("route_start_" . $this->name);
+			if (class_exists("\Sleepy\Hook")) {
+				\Sleepy\Hook::addAction("route_start");
+				\Sleepy\Hook::addAction("route_start_" . $this->name);
+			}
 
 			$this->pattern = $rawPattern;
 			Router::$routeFound = true;
 			$func($this);
 
 			// Call route_end actions
-			\Sleepy\Hook::addAction("route_end");
-			\Sleepy\Hook::addAction("route_end_" . $this->name);
+			if (class_exists("\Sleepy\Hook")) {
+				\Sleepy\Hook::addAction("route_end");
+				\Sleepy\Hook::addAction("route_end_" . $this->name);
+			}
 		}
 
 		$this->execute();
