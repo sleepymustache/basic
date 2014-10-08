@@ -6,8 +6,8 @@
 
 	<title>Class Sleepy\Router | sleepyMUSTACHE v.0.8</title>
 
-	<script type="text/javascript" src="resources/combined.js?2585304289"></script>
-	<script type="text/javascript" src="elementlist.js?3462114702"></script>
+	<script type="text/javascript" src="resources/combined.js?2475353264"></script>
+	<script type="text/javascript" src="elementlist.js?250903305"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 	<script type="text/javascript">
@@ -157,6 +157,12 @@ class="php-quote">&quot;&lt;/br&gt;&quot;</span>;
 
 <h1>Changelog</h1>
 
+<h2>Version 1.0</h2>
+
+<ul>
+	<li>With unit tests in place, we're ready to call this 1.0</li>
+</ul>
+
 <h2>Version 0.4</h2>
 
 <ul>
@@ -185,57 +191,18 @@ class="php-quote">&quot;&lt;/br&gt;&quot;</span>;
 				Jaime A. Rodriguez &lt;<a
 href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>&gt;<br />
 				<b>Version:</b>
-				0.4<br />
+				1.0<br />
 				<b>Todo:</b>
 				Document the class and add it to homepage<br />
-				<b>Todo:</b>
-				Write tests for the class if it's going to make it into core<br />
 				<b>Date:</b>
-				September 31, 2014<br />
-		<b>Located at</b> <a href="source-class-Sleepy.Router.html#4-118" title="Go to source code">class.router.php</a><br />
+				October 07, 2014<br />
+		<b>Located at</b> <a href="source-class-Sleepy.Router.html#4-129" title="Go to source code">class.router.php</a><br />
 	</div>
 
 
 
 	<table class="summary" id="methods">
 	<caption>Methods summary</caption>
-	<tr data-order="hasRouted" id="_hasRouted">
-
-		<td class="attributes"><code>
-			 public static
-			boolean
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_hasRouted">#</a>
-		<code><a href="source-class-Sleepy.Router.html#63-69" title="Go to source code">hasRouted</a>( )</code>
-
-		<div class="description short">
-			
-<p>Have we matched a route?</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Have we matched a route?</p>
-
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code>boolean</code><br>True, if we matched a route<br />
-				</div>
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
 	<tr data-order="getArray" id="_getArray">
 
 		<td class="attributes"><code>
@@ -247,7 +214,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getArray">#</a>
-		<code><a href="source-class-Sleepy.Router.html#71-82" title="Go to source code">getArray</a>( <span>string <var>$string</var></span> )</code>
+		<code><a href="source-class-Sleepy.Router.html#65-80" title="Go to source code">getArray</a>( <span>string <var>$string</var></span> )</code>
 
 		<div class="description short">
 			
@@ -289,7 +256,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_route">#</a>
-		<code><a href="source-class-Sleepy.Router.html#84-95" title="Go to source code">route</a>( <span>string <var>$pattern</var></span>, <span>function <var>$func</var></span> )</code>
+		<code><a href="source-class-Sleepy.Router.html#82-98" title="Go to source code">route</a>( <span>string <var>$pattern</var></span>, <span>function <var>$func</var></span> )</code>
 
 		<div class="description short">
 			
@@ -333,7 +300,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_start">#</a>
-		<code><a href="source-class-Sleepy.Router.html#97-117" title="Go to source code">start</a>( )</code>
+		<code><a href="source-class-Sleepy.Router.html#100-124" title="Go to source code">start</a>( <span>mixed <var>$currentPath</var> = <span class="php-quote">''</span></span> )</code>
 
 		<div class="description short">
 			
@@ -352,6 +319,35 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 				<div class="list">
 					<code>boolean</code><br>true if a route was matched<br />
 				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="reset" id="_reset">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_reset">#</a>
+		<code><a href="source-class-Sleepy.Router.html#126-128" title="Go to source code">reset</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
 
 
 
@@ -381,7 +377,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Sleepy.Router.html#39-43" title="Go to source code"><var>$routeFound</var></a>
+				<a href="source-class-Sleepy.Router.html#41-45" title="Go to source code"><var>$routeFound</var></a>
 		</td>
 		<td class="value"><code><span class="php-keyword1">false</span></code></td>
 		<td class="description"><div>
@@ -408,7 +404,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Sleepy.Router.html#45-49" title="Go to source code"><var>$delimiter</var></a>
+				<a href="source-class-Sleepy.Router.html#47-51" title="Go to source code"><var>$delimiter</var></a>
 		</td>
 		<td class="value"><code><span class="php-quote">&quot;/&quot;</span></code></td>
 		<td class="description"><div>
@@ -435,7 +431,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Sleepy.Router.html#51-55" title="Go to source code"><var>$querystring</var></a>
+				<a href="source-class-Sleepy.Router.html#53-57" title="Go to source code"><var>$querystring</var></a>
 		</td>
 		<td class="value"><code><span class="php-keyword1">false</span></code></td>
 		<td class="description"><div>
@@ -462,7 +458,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Sleepy.Router.html#57-61" title="Go to source code"><var>$parameters</var></a>
+				<a href="source-class-Sleepy.Router.html#59-63" title="Go to source code"><var>$parameters</var></a>
 		</td>
 		<td class="value"><code><span class="php-keyword1">array</span>()</code></td>
 		<td class="description"><div>
