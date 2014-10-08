@@ -98,8 +98,10 @@ class Router {
 	 * Starts parsing the Router::routes
 	 * @return boolean true if a route was matched
 	 */
-	public static function start() {
-		$currentPath = $_SERVER['REQUEST_URI'];
+	public static function start($match='') {
+		if ($match == '') {
+			$currentPath = $_SERVER['REQUEST_URI'];
+		}
 
 		if (self::$querystring) {
 			$currentPath = str_replace("/?q=", "", $currentPath);
@@ -215,6 +217,31 @@ class _Route {
 		}
 	}
 
+	/**
+	 * Store the variables found in the route
+	 * @param  string $key   The placeholder
+	 * @param  string $value The value
+	 * @return boolean       True, if we succeeded
+	 */
+	private function _storeVariable($key, $value) {
+		if ($value == "") {
+			return false;
+		}
+
+		$key = $this->_cleanPlaceholder($key);
+		$value = $this->_runFilters($key, $value);
+
+		// Check for multiple variables, they should match.
+		if (isset($this->params[$key])) {
+			if ($value != $this->params[$key]) {
+				return false;
+			}
+		}
+
+		$this->params[$key] = $value;
+		return true;
+	}
+
 		/**
 	 * Creates a new route
 	 * @param string $name Optional.
@@ -244,7 +271,7 @@ class _Route {
 	/**
 	 * Executes the call back functions
 	 */
-	public function execute($depth=0) {
+	public function execute() {
 		$noMatch = false;
 
 		if (count($this->_functions) < 1) {
@@ -253,40 +280,26 @@ class _Route {
 
 		// Shift a function off the queue
 		$r = array_shift($this->_functions);
-		$pattern = $r[0];
+		$rawPattern = $r[0];
 		$func = $r[1];
 
-		// If we have already routed, then set the flag
 		if (Router::hasRouted()) {
 			$noMatch = true;
 		} else {
 			// Get array from string
-			$pattern = Router::getArray($pattern);
+			$pattern = Router::getArray($rawPattern);
 
 			// If they are obviously different then stop the route
-			if (count(Router::$parameters) == count($pattern) || $this->_hasWildcard($r[0])) {
+			if (count(Router::$parameters) == count($pattern) || $this->_hasWildcard($rawPattern)) {
 				// Check for matches, stop if we have a problem
 				foreach ($pattern as $idx => $value) {
+					// Store the variable
 					if ($this->_isPlaceholder($value)) {
-						// If there is a placeholder, but no value. Wrong route.
-						if (!array_key_exists($idx, Router::$parameters)) {
+						if (!$this->_storeVariable($value, Router::$parameters[$idx])) {
 							$noMatch = true;
 							break;
 						}
 
-						$key = $this->_cleanPlaceholder($value);
-
-						$varValue = $this->_runFilters($key, Router::$parameters[$idx]);
-
-						// Check for multiple variables, they should match.
-						if (isset($this->params[$key])) {
-							if ($varValue != $this->params[$key]) {
-								$noMatch = true;
-								break;
-							}
-						}
-
-						$this->params[$key] = $varValue;
 						continue;
 					}
 
@@ -296,14 +309,8 @@ class _Route {
 						break;
 					}
 
-					// Make sure there are enough parameters when there is a wildcard.
-					if (!array_key_exists($idx, Router::$parameters)) {
-						$noMatch = true;
-						break;
-					}
-
 					// If something doesn't match then stop the route.
-					if ($value != Router::$parameters[$idx]) {
+					if (!isset(Router::$parameters[$idx]) || $value != Router::$parameters[$idx]) {
 						$noMatch = true;
 						break;
 					}
@@ -321,8 +328,9 @@ class _Route {
 			\Sleepy\Hook::addAction("route_start");
 			\Sleepy\Hook::addAction("route_start_" . $this->name);
 
-			$func($this);
+			$this->pattern = $rawPattern;
 			Router::$routeFound = true;
+			$func($this);
 
 			// Call route_end actions
 			\Sleepy\Hook::addAction("route_end");
