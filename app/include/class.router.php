@@ -17,15 +17,17 @@ namespace Sleepy;
  *
  * ### Changelog
  *
+ * ## Version 1.0
+ * * With unit tests in place, we're ready to call this 1.0
+ *
  * ## Version 0.4
  * * Simplified interface, thanks @cameff
  *
  * @todo  Document the class and add it to homepage
- * @todo  Write tests for the class if it's going to make it into core
  *
- * @date September 31, 2014
+ * @date October 07, 2014
  * @author Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
- * @version 0.4
+ * @version 1.0
  * @license  http://opensource.org/licenses/MIT
  */
 class Router {
