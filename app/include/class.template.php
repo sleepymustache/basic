@@ -288,13 +288,15 @@ class Template {
 	 * @param  mixed  $value         The value that replaced the placeholder
 	 */
 	public function bind($placeholder, $value) {
+		$placeholder = strtolower($placeholder);
+
 		if (!is_array($value)) {
 			if (class_exists("\Sleepy\Hook")) {
 				$value = \Sleepy\Hook::addFilter('bind_placeholder_' . $placeholder, $value);
 			}
 		}
 
-		$this->_data[trim(strtolower($placeholder))] = $value;
+		$this->_data[trim($placeholder)] = $value;
 	}
 
 	/**
