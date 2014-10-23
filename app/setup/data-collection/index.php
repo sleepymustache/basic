@@ -49,7 +49,7 @@
 						"name": "txtURL",
 						"label": "Base URL*",
 						"type": "text",
-						"value": "\\",
+						"value": "/",
 						"rules": {
 							"required": true
 						}
@@ -57,7 +57,7 @@
 						"name": "txtPath",
 						"label": "Base Directory*",
 						"type": "text",
-						"value": "' . $_SERVER['DOCUMENT_ROOT'] . '\\app\\",
+						"value": "' . str_replace("\\", "/", $_SERVER['DOCUMENT_ROOT']) . '/app/",
 						"rules": {
 							"required": true
 						}
