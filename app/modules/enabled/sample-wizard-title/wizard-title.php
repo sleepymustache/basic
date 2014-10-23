@@ -11,4 +11,7 @@ function change($title) {
 	return '<|:{) - ' . $title;
 }
 
-\Sleepy\Hook::applyFilter('render_placeholder_title', '\Module\SampleWizardTitle\change');
+\Sleepy\Hook::applyFilter(
+	'render_placeholder_title',
+	'\Module\SampleWizardTitle\change'
+);

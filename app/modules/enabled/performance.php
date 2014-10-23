@@ -17,8 +17,10 @@ function start_timer() {
  */
 function stop_timer() {
 	$stop_timer = microtime(true) - STARTTIME;
-	echo "\n<!-- Generated in $stop_timer seconds using " . (memory_get_peak_usage() / 1024) . " kb memory, by sleepyMUSTACHE -->";
+	echo "\n<!-- Generated in $stop_timer seconds using " .
+		(memory_get_peak_usage() / 1024) .
+		" kb memory, by sleepyMUSTACHE -->";
 }
 
-\Sleepy\Hook::doAction('sleepy_preprocess',  '\Module\Performance\start_timer' );
+\Sleepy\Hook::doAction('sleepy_preprocess',  '\Module\Performance\start_timer');
 \Sleepy\Hook::doAction('sleepy_postprocess', '\Module\Performance\stop_timer');

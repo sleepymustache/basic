@@ -46,7 +46,7 @@ function render() {
 	}
 
 	if (empty($url)) {
-		$url = 'index';
+		$url = "index";
 	}
 
 	return $url;
