@@ -28,6 +28,7 @@ class TestOfNavigation extends UnitTestCase {
 							}
 						]
 				}, {
+					"id": "second",
 					"title": "2",
 					"link": "2.html",
 					"class": "second"
@@ -37,32 +38,24 @@ class TestOfNavigation extends UnitTestCase {
 	}
 
 	function testNav() {
-		ob_start();
-		echo $this->nav->show();
-		$nav = ob_get_clean();
-		$this->assertEqual($nav,"<ul><li><a href='1.html' target='_blank'>1</a><ul><li><a href='1.1.html'>1.1</a></li><li><a href='1.2.html'>1.2</a></li></ul></li><li class='second'><a href='2.html'>2</a></li></ul>");
+		$nav = $this->nav->show();
+		$this->assertEqual($nav,'<ul><li><a target="_blank" href="1.html">1</a><ul><li><a href="1.1.html">1.1</a></li><li><a href="1.2.html">1.2</a></li></ul></li><li class="second"><a id="second" href="2.html">2</a></li></ul>');
 	}
 
 	function testTarget() {
-		ob_start();
-		echo $this->nav->show();
-		$nav = ob_get_clean();
-		$this->assertEqual($nav,"<ul><li><a href='1.html' target='_blank'>1</a><ul><li><a href='1.1.html'>1.1</a></li><li><a href='1.2.html'>1.2</a></li></ul></li><li class='second'><a href='2.html'>2</a></li></ul>");
+		$nav = $this->nav->show();
+		$this->assertEqual($nav,'<ul><li><a target="_blank" href="1.html">1</a><ul><li><a href="1.1.html">1.1</a></li><li><a href="1.2.html">1.2</a></li></ul></li><li class="second"><a id="second" href="2.html">2</a></li></ul>');
 	}
 
 	function testActive() {
 		$this->nav->setCurrent('1.html');
-		ob_start();
-		echo $this->nav->show();
-		$nav = ob_get_clean();
-		$this->assertEqual($nav,"<ul><li class='active'><a href='1.html' target='_blank'>1</a><ul><li><a href='1.1.html'>1.1</a></li><li><a href='1.2.html'>1.2</a></li></ul></li><li class='second'><a href='2.html'>2</a></li></ul>");
+		$nav = $this->nav->show();
+		$this->assertEqual($nav,'<ul><li class="active"><a target="_blank" href="1.html">1</a><ul><li><a href="1.1.html">1.1</a></li><li><a href="1.2.html">1.2</a></li></ul></li><li class="second"><a id="second" href="2.html">2</a></li></ul>');
 	}
 
 	function testSubActive() {
 		$this->nav->setCurrent('1.1.html');
-		ob_start();
-		echo $this->nav->show();
-		$nav = ob_get_clean();
-		$this->assertEqual($nav,"<ul><li class='active'><a href='1.html' target='_blank'>1</a><ul><li class='active'><a href='1.1.html'>1.1</a></li><li><a href='1.2.html'>1.2</a></li></ul></li><li class='second'><a href='2.html'>2</a></li></ul>");
+		$nav = $this->nav->show();
+		$this->assertEqual($nav,'<ul><li class="active"><a target="_blank" href="1.html">1</a><ul><li class="active"><a href="1.1.html">1.1</a></li><li><a href="1.2.html">1.2</a></li></ul></li><li class="second"><a id="second" href="2.html">2</a></li></ul>');
 	}
 }

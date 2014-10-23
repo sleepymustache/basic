@@ -30,15 +30,17 @@ namespace Module\Navigation;
  *  }';
  *
  *  $topNav = new \Module\Navigation\Builder($topNavData);
- *  $topNav->setCurrent($_SERVER['SCRIPT_NAME']);
  *
  *  // In body somewhere...
  *  <nav class="top">
- *    <?php echo $topNav->show(); ?>
+ *    <?= $topNav->show(); ?>
  *  </nav>
  * </code>
  *
  * ### Changelog
+ * # Version 1.4
+ * * Now automatically sets $_SERVER['SCRIPT_NAME'] as current page
+ * * Added multiple hook points for manipulating navigations
  *
  * ## Version 1.2
  * * Added a track parameter
@@ -76,6 +78,7 @@ class Builder {
 		}
 
 		$this->data = $json;
+		$this->setCurrent($_SERVER['SCRIPT_NAME']);
 	}
 
 	/**
@@ -104,6 +107,10 @@ class Builder {
 		}
 
 		// no match...
+		if (class_exists('\Sleepy\Hook')) {
+			\Sleepy\Hook::addAction('navigation_no_active');
+		}
+
 		return false;
 	}
 
@@ -123,14 +130,26 @@ class Builder {
 		}
 
 		foreach ($pages as $page) {
-			$active = ($this->hasActive($page)) ? true : false;
-			$classy = (!empty($page->class)) ? true : false;
-			$track = (!empty($page->track) ? "data-track=\"{$page->track}\" " : "");
+			if (class_exists('\Sleepy\Hook')) {
+				$page = \Sleepy\Hook::addFilter('navigation_page', $page);
+
+				if (!empty($page->id)) {
+					$page = \Sleepy\Hook::addFilter('navigation_page_' . $page->id, $page);
+				}
+			}
+
+			$active		= ($this->hasActive($page))	? true								: false;
+			$classy		= (!empty($page->class))	? true								: false;
+			$track		= (!empty($page->track))	? "data-track=\"{$page->track}\" "	: "";
+			$id			= (!empty($page->id))		? "id=\"{$page->id}\" "				: "";
+			$target		= (!empty($page->target))	? "target=\"{$page->target}\" "		: "";
+			$href		= (!empty($page->link))		? "href=\"{$page->link}\" "			: "";
+			$attributes	= trim($id . $track . $target . $href);
 
 			$buffer[] = "<li";
 
 			if ($active || $classy) {
-				$buffer[] = " class='";
+				$buffer[] = " class=\"";
 
 				if ($active) {
 					$page->class = "active ";
@@ -138,17 +157,12 @@ class Builder {
 
 				$buffer[] = trim($page->class);
 
-				$buffer[] = "'";
+				$buffer[] = "\"";
 			}
 
 			$buffer[] = ">";
 
-			if (isset($page->target)) {
-				$page->target = trim($page->target);
-				$buffer[] = "<a " . $track . "href='{$page->link}' target='{$page->target}'>{$page->title}</a>";
-			} else {
-				$buffer[] = "<a " . $track . "href='{$page->link}'>{$page->title}</a>";
-			}
+			$buffer[] = "<a {$attributes}>{$page->title}</a>";
 
 			if (isset($page->pages)) {
 				$buffer[] = $this->renderNav($page->pages);
@@ -166,7 +180,13 @@ class Builder {
 	 * @return string The rendered navigation
 	 */
 	public function show($class="") {
-		return $this->renderNav($this->data->pages, $class);
+		$rendered = $this->renderNav($this->data->pages, $class);
+
+		if (class_exists('\Sleepy\Hook')) {
+			$rendered = \Sleepy\Hook::addFilter('navigation_rendered', $rendered);
+		}
+
+		return $rendered;
 	}
 
 	/**
@@ -175,5 +195,9 @@ class Builder {
 	 */
 	public function setCurrent($string) {
 		$this->current = str_replace(@URLBASE, "/", str_replace("index.php", "", $string));
+
+		if (class_exists('\Sleepy\Hook')) {
+			$this->current = \Sleepy\Hook::addFilter('navigation_current_page', $this->current);
+		}
 	}
 }

@@ -18,7 +18,6 @@ namespace Module\Navigation;
  * @return string The rendered navigation
  * @internal
  */
-
 function render() {
 	$topNavData = '{
 		"pages": [
@@ -60,7 +59,6 @@ function render() {
 	}';
 
 	$topNav = new Builder($topNavData);
-	$topNav->setCurrent($_SERVER['SCRIPT_NAME']);
 
 	return $topNav->show();
 }
