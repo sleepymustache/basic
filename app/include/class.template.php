@@ -124,14 +124,18 @@ class Template {
 	 * @param  string $path A path representing the dimensions of the array
 	 * @return mixed        A sub-array or string
 	 */
-	private function _assignArrayByPath(&$arr, $path) {
+	private function _assignArrayByPath($arr, $path) {
 		$keys = explode('.', $path);
 
-		while ($key = array_shift($keys)) {
-			$a = &$arr[$key];
+		foreach ($keys as $key) {
+			if (array_key_exists($key, $arr)) {
+				$arr = $arr[$key];
+			} else {
+				return false;
+			}
 		}
 
-		return $a;
+		return $arr;
 	}
 
 	/**
