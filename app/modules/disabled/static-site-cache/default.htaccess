@@ -1,0 +1,22 @@
+### Start StaticCache ###
+RewriteRule .* #- [E=boostpath:normal]
+
+# Caching for anonymous users
+# Skip boost IF not get request OR uri has wrong dir OR cookie is set OR request came from this server
+RewriteCond %{REQUEST_METHOD} !^(GET|HEAD)$ [OR]
+RewriteCond %{REQUEST_URI} (^/$) [OR]
+RewriteCond %{HTTP_COOKIE} uid [OR]
+RewriteCond %{ENV:REDIRECT_STATUS} 200
+RewriteRule .* - [S=7]
+
+# GZIP
+RewriteCond %{HTTP:Accept-encoding} !gzip
+RewriteRule .* - [S=3]
+RewriteCond %{DOCUMENT_ROOT}/cache/normal/%{SERVER_NAME}%{REQUEST_URI}_%{QUERY_STRING}\.html -s
+RewriteRule .* cache/normal/%{SERVER_NAME}%{REQUEST_URI}_%{QUERY_STRING}\.html [L,T=text/html,E=no-gzip:1]
+
+# NORMAL
+RewriteCond %{DOCUMENT_ROOT}/cache/normal/%{SERVER_NAME}%{REQUEST_URI}_%{QUERY_STRING}\.html -s
+RewriteRule .* cache/normal/%{SERVER_NAME}%{REQUEST_URI}_%{QUERY_STRING}\.html [L,T=text/html]
+
+### End StaticCache ###
