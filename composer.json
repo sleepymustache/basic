@@ -1,0 +1,19 @@
+{
+    "name": "sleepymustache/core",
+    "type": "library",
+    "description": "PHP Microframework",
+    "keywords": ["microframework","php", "router", "templating"],
+    "homepage": "http://www.sleepymustache.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jaime Rodriguez",
+            "email": "hi.i.am.jaime@gmail.com",
+            "homepage": "http://rodriguez-jr.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
