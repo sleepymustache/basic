@@ -1,6 +1,6 @@
 {
     "name": "sleepymustache/core",
-    "type": "library",
+    "type": "project",
     "description": "PHP Microframework",
     "keywords": ["microframework","php", "router", "templating"],
     "homepage": "http://www.sleepymustache.com",
