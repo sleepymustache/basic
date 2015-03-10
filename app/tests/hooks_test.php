@@ -1,5 +1,5 @@
 <?php
-	require_once('../include/class.hooks.php');
+	require_once('../core/class.hooks.php');
 
 	class TestOfHooks extends UnitTestCase {
 		function testHooksAction() {

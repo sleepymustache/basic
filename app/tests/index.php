@@ -6,10 +6,10 @@
 	 * testing suite.
 	 */
 
-	include_once('../include/class.debug.php');
-	include_once('../include/class.sm.php');
+	include_once('../core/class.debug.php');
+	include_once('../core/class.sm.php');
 
-	if (!include_once('../include/global.php')) {
+	if (!include_once('../core/global.php')) {
 		header('Location: ../setup/');
 		die();
 	}
@@ -20,9 +20,8 @@
 		function __construct() {
 			$directories = array(
 				'./',
-				'../include',
-				'../modules/disabled',
-				'../modules/enabled'
+				'../core',
+				'../modules'
 			);
 
 			$all = "";

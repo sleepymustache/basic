@@ -1,5 +1,5 @@
 <?php
-	require_once('../include/class.template.php');
+	require_once('../core/class.template.php');
 
 
 	class TestOfTemplate extends UnitTestCase {

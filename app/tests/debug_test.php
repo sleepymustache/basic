@@ -1,5 +1,5 @@
 <?php
-	require_once('../include/class.debug.php');
+	require_once('../core/class.debug.php');
 
 	class TestOfDebugging extends UnitTestCase {
 		/**

@@ -1,6 +1,6 @@
 <?php
 	//require_once('../include/class.hooks.php');
-	require_once('../include/class.router.php');
+	require_once('../core/class.router.php');
 
 	class TestOfRouter extends UnitTestCase {
 		function setUp() {
