@@ -1,5 +1,5 @@
 <?php
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/app/include/sleepy.php');
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/app/core/sleepy.php');
 
 	$page = new \Sleepy\Template('homepage');
 
