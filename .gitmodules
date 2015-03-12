@@ -1,6 +1,3 @@
-[submodule "app/modules/form-builder-module"]
-	path = app/modules/form-builder-module
-	url = https://github.com/sleepymustache/form-builder-module.git
 [submodule "app/modules/performance-module"]
 	path = app/modules/performance-module
 	url = https://github.com/sleepymustache/performance-module.git
