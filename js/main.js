@@ -1,18 +1,19 @@
-/*global Modernizr requirejs require console*/
-/*jshint node:false*/
+/*global define, requirejs */
 
 requirejs.config({
 	enforceDefine: true,
 	paths: {
 		jquery: [
-			'//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min',
-			'jquery-1.11.0.min'
+			'//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min',
+			'jquery-2.1.3.min'
 		]
 	}
 });
 
 define(['jquery', 'sleepy'], function ($, SM) {
-	$(function () {
+	'use strict';
 
+	$(function () {
+		$('body').addClass((SM.isTouchDevice()) ? 'touchable': '');
 	});
 });
