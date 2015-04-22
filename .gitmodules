@@ -1,6 +1,3 @@
-[submodule "app/core"]
-	path = app/core
-	url = https://github.com/sleepymustache/core.git
 [submodule "app/modules/module-navigation"]
 	path = app/modules/module-navigation
 	url = https://github.com/sleepymustache/module-navigation.git
@@ -10,3 +7,6 @@
 [submodule "app/modules/module-template-globals"]
 	path = app/modules/module-template-globals
 	url = https://github.com/sleepymustache/module-template-globals.git
+[submodule "app/core"]
+	path = app/core
+	url = https://github.com/sleepymustache/core.git
