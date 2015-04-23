@@ -9,7 +9,9 @@ sleepyMUSTACHE is ready to go out of the box. Configuration is done in the *app/
 
 Whats included?
 -------------------------------------------------------------------------------
-The basic setup includes the core and a couple of sample [modules](https://github.com/sleepymustache/modules).
+The basic setup includes the core and a tool for installing [modules](https://github.com/sleepymustache/modules).
+
+It also includes some third party libraries to help get you started including, jQuery, requirejs, normalize, html4shiv, and a small JS toolset (sleepy.js).
 
 ### Core functionality
 
@@ -19,11 +21,25 @@ The basic setup includes the core and a couple of sample [modules](https://githu
 * Templating
 
 
-### Included Modules
+### Installing Modules
 
-* Navigation - Builds navigations.
-* URLClass - Converts URL to a class for targeting specific pages in CSS.
-* Template Globals - Gives the ability to access globals from templates.
+We have included a python script (sleepy.py) to assist in installing modules. It does this by creating git submodules.
+
+You can get a list of available modules:
+
+	sleepy --list
+
+You can install modules:
+
+	sleepy --add Performance
+
+You can search for modules:
+
+	sleepy --search DB
+
+You can get more info about a module:
+
+	sleepyu --help Performance
 
 Learning More
 -------------------------------------------------------------------------------
