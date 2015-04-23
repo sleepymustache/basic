@@ -10,8 +10,4 @@ Disallow: /static/
 Disallow: /templatedata/
 Disallow: /local/
 Disallow: /meta/
-
-# Framework stuff
-Disallow: /css/
-Disallow: /js/
 Disallow: /app/
