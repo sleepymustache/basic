@@ -35,11 +35,7 @@
 			<h1>{{ header }}</h1>
 
 			<nav class="top">
-				<ul>
-					<li><a href="#">Link 1</a></li>
-					<li><a href="#">Link 2</a></li>
-					<li><a href="#">Link 3</a></li>
-				</ul>
+				<ul><li><a href="#">Link 1</a></li><li><a href="#">Link 2</a></li><li><a href="#">Link 3</a></li></ul>
 			</nav>
 		</header>
 		<section class="content clearfix">
