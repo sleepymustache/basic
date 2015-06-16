@@ -9,7 +9,7 @@
 	include_once('../core/class.debug.php');
 	include_once('../core/class.sm.php');
 
-	if (!include_once('../core/global.php')) {
+	if (!include_once('../core/settings.php')) {
 		header('Location: ../setup/');
 		die();
 	}
