@@ -43,7 +43,7 @@ class Sleepy(object):
         import os
 
         print("Installed Modules:")
-        dirs = os.listdir('app/modules')
+        dirs = os.listdir('src/app/modules')
         for directory in dirs:
             for key in self.modules.items():
                 if key[0].replace(' ', '-').lower() == directory:
@@ -111,7 +111,7 @@ class Module(object):
                 'submodule',
                 'add',
                 self.obj['url'],
-                'app/modules/' + self.name.replace(" ", "-").lower()
+                'src/app/modules/' + self.name.replace(" ", "-").lower()
             ],
             shell=True
         )
@@ -123,8 +123,8 @@ class Module(object):
         """
         print("Removing module must be done manually")
         #lines = [
-        #    '[submodule "app/modules/performance"]',
-        #    "\tpath = app/modules/performance",
+        #    '[submodule "src/app/modules/performance"]',
+        #    "\tpath = src/app/modules/performance",
         #    'url = ' + self.obj['url']
         #]
 

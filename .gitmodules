@@ -1,3 +1,0 @@
-[submodule "app/core"]
-	path = app/core
-	url = https://github.com/sleepymustache/core.git
