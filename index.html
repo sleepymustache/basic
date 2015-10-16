@@ -16,14 +16,14 @@
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
-          <a id="forkme_banner" href="https://github.com/jaimerod/sleepy-mustache">View on GitHub</a>
+          <a id="forkme_banner" href="https://github.com/sleepymustache/basic">View on GitHub</a>
 
           <h1 id="project_title">sleepyMUSTACHE</h1>
           <h2 id="project_tagline">A simple PHP Framework</h2>
 
             <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/jaimerod/sleepy-mustache/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/jaimerod/sleepy-mustache/tarball/master">Download this project as a tar.gz file</a>
+              <a class="zip_download_link" href="https://github.com/sleepymustache/basic/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/sleepymustache/basic/tarball/master">Download this project as a tar.gz file</a>
             </section>
         </header>
     </div>
@@ -32,390 +32,69 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h1>
-<a name="sleepymustache" class="anchor" href="#sleepymustache"><span class="octicon octicon-link"></span></a>sleepyMUSTACHE</h1>
+<a id="sleepymustache---basic-setup" class="anchor" href="#sleepymustache---basic-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>sleepyMUSTACHE - Basic Setup</h1>
 
-<p>Detailed <a href="http://www.sleepymustache.com/documentation/index.html">Documentation</a> is available.</p>
-
-<p>sleepyMUSTACHE is a PHP micro framework that has solutions for everyday PHP challenges. Most of the functionality is optional and tries to be as minimalist as possible.</p>
+<p>sleepyMUSTACHE is a modular PHP micro framework designed to provide solutions for everyday PHP challenges. This basic edition is aimed at providing a bare bones scaffolding for developers to learn the framework and as a starting point for projects</p>
 
 <h2>
-<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h2>
 
-<p>Setup will be performed automatically the first time the site is accessed. After installation is complete, it is good practice to delete the <em>/app/setup/</em> folder for security reasons.</p>
+<p>sleepyMUSTACHE is ready to go out of the box. Configuration is done in the <em>app/core/global.php</em> file. There you can define your dev/stage/live environments and debugging preferences.</p>
+
+<h2>
+<a id="whats-included" class="anchor" href="#whats-included" aria-hidden="true"><span class="octicon octicon-link"></span></a>Whats included?</h2>
+
+<p>The basic setup includes the core and a tool for installing <a href="https://github.com/sleepymustache/modules">modules</a>.</p>
+
+<p>It also includes some third party libraries to help get you started including, jQuery, requirejs, normalize, html4shiv, and a small JS toolset (sleepy.js).</p>
 
 <h3>
-<a name="core-functionality" class="anchor" href="#core-functionality"><span class="octicon octicon-link"></span></a>Core Functionality</h3>
-
-<p>The core is the basic functions that are used to build modules. They cannot be removed.</p>
+<a id="core-functionality" class="anchor" href="#core-functionality" aria-hidden="true"><span class="octicon octicon-link"></span></a>Core functionality</h3>
 
 <ul>
-<li><p><strong><a href="http://www.sleepymustache.com/documentation/class-Sleepy.Debug.html">Debugging</a></strong> -
-Easily send debug information via the browser, email, or database.</p></li>
-<li><p><strong><a href="http://www.sleepymustache.com/documentation/class-Sleepy.Hook.html">Hooks</a></strong> -
-Hooks allow you to run a function at certain spots in your code. We call these spots <em>hook points</em>. Multiple functions may be executed at any <em>hook point</em>.</p></li>
-<li><p><strong><a href="http://www.sleepymustache.com/documentation/class-Sleepy.Template.html">Templating</a></strong> -
-Basic templating functionality lets you separate business logic from the
-view. It replaces placeholders like "{{ title }}" with data.</p></li>
-<li><p><strong><a href="http://www.sleepymustache.com/documentation/class-Sleepy.Router.html">Routing</a></strong> -
-A very basic routing class that allows you to build database driven applications.</p></li>
-</ul><h3>
-<a name="understanding-the-module-system" class="anchor" href="#understanding-the-module-system"><span class="octicon octicon-link"></span></a>Understanding the Module System</h3>
-
-<p>Enabling and disabling modules is handled by the folder structure.</p>
-
-<p>There is a <em>/app/module/*</em> folder that contains 2 subdirectories named <em>/app/module/enabled</em> and <em>/app/module/disabled</em>. To enable a module move it to the <em>/app/module/enabled</em> folder. Conversely, you can disable a module by moving it to the <em>/app/module/disabled</em> folder.</p>
+<li>Debugging</li>
+<li>Hooks</li>
+<li>Routing</li>
+<li>Templating</li>
+</ul>
 
 <h3>
-<a name="available-modules" class="anchor" href="#available-modules"><span class="octicon octicon-link"></span></a>Available Modules</h3>
+<a id="installing-modules" class="anchor" href="#installing-modules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing Modules</h3>
 
-<p>Modules use <em>hook points</em> to inject functionality into your application and modify data.</p>
+<p>We have included a python script (sleepy.py) to assist in installing modules. It does this by creating git submodules.</p>
 
-<ul>
-<li><p><strong>CSS Compress</strong> -
-Compresses the output CSS only if the application is in the "LIVE" environment.</p></li>
-<li><p><strong><a href="http://www.sleepymustache.com/documentation/namespace-Module.Navigation.html">Navigation</a></strong> -
-Creates a UL based on a JSON object that can be used for navigation.</p></li>
-<li><p><strong>URL Class</strong> -
-Adds a class based on the current page. For example, if your application is currently on the <em>/user/jaime/index.php</em> page, the class <em>user-jaime-index</em> will be added to the body. Additionally, if you are omitting <em>index.php</em> from your URLs, e.g. <em>/user/admin</em>, the class would be <em>user-admin-index</em>.</p></li>
-<li><p><strong><a href="http://www.sleepymustache.com/documentation/namespace-Module.CSV.html">CSV</a></strong> -
-Create, Read, Update, Delete (CRUD) class for CSV files with very basic querying capabilities.</p></li>
-<li><p><strong><a href="http://www.sleepymustache.com/documentation/namespace-Module.DB.html">DB</a></strong> -
-Create, Read, Update, Delete (CRUD) class using PDO and mySQL.</p></li>
-<li><p><strong><a href="http://www.sleepymustache.com/documentation/class-Module.DB.Grid.html">DB Grid</a></strong> -
-Turns a SQL Select statement into a table. The table information can be transformed using <em>hook filter</em>, making this a powerful module for visualizing and organizing data.</p></li>
-<li><p><strong><a href="http://www.sleepymustache.com/documentation/namespace-Module.FSDB.html">File System Database</a></strong> -
-A basic database that uses flat files and JSON documents. Provides simple functionality when a full blown database is overkill.</p></li>
-<li><p><strong><a href="http://www.sleepymustache.com/documentation/namespace-Module.IP2Country.html">IP 2 Country</a></strong> -
-Uses the end-users IP address to detect the country of origin.</p></li>
-<li><p><strong><a href="http://www.sleepymustache.com/documentation/namespace-Module.Mailer.html">Mailer</a></strong> -
-Provides basic email functionality with RFC email validation. Combining the templating engine with the Mailer class allows for a elegant solution to HTML email templates.</p></li>
-<li><p><strong>Memcache</strong> -
-Improves performance by implementing caching of pages (10 second cache expiration by default)</p></li>
-<li><p><strong><a href="http://www.sleepymustache.com/documentation/namespace-Module.MobiDetect.html">Mobile detection</a></strong> -
-Can detect mobile and tablet devices on the server-side. This is now deprecated and will be removed for the v.1.0 release.</p></li>
-<li><p><strong>HTML Compress</strong> -
-Compresses the output HTML if we are in the <em>live</em> environment.</p></li>
-<li><p><strong>Head Inserter - Joey Bomber</strong> -
-Allows you to insert HTML at the end of the HEAD tag.</p></li>
-<li><p><strong>Robots Dev Hide - Joey Bomber</strong> -
-Instructs search engines <em>NOT</em> to index a site while it is in the Staging environment. It does not affect live/production sites.</p></li>
-<li><p><strong><a href="http://www.sleepymustache.com/documentation/namespace-Module.Authentication.html">Authentication</a></strong> -
-Basic user and roles functionality includes a sample schema, authentication, roles, and permissions.</p></li>
-</ul><h3>
-<a name="sample-modules" class="anchor" href="#sample-modules"><span class="octicon octicon-link"></span></a>Sample Modules</h3>
+<p>You can get a list of available modules:</p>
 
-<p>These module have little-to-no practical use, but help demonstrate how to build simple modules with <em>hook filters</em>.</p>
-
-<ul>
-<li><p><strong>Wizard Title</strong> -
-This module prepends an ASCII wizard to the title of the page.</p></li>
-<li><p><strong>Sample Navigation</strong> -
-Demonstrates how to use the navigation module to build dynamic menus.</p></li>
-</ul><h3>
-<a name="constants" class="anchor" href="#constants"><span class="octicon octicon-link"></span></a>Constants</h3>
-
-<ul>
-<li><p><strong>ENV</strong>
-What is the current environment. Values: DEV, STAGE, LIVE</p></li>
-<li><p><strong>URLBASE</strong>
-The base URL to the sleepyMUSTACHE base directory</p></li>
-<li><p><strong>DIRBASE</strong>
-The base directory to the sleepyMUSTACHE base directory</p></li>
-<li><p><strong>DBHOST</strong>
-The mySQL host URL</p></li>
-<li><p><strong>DBUSER</strong>
-the mySQL username</p></li>
-<li><p><strong>DBPASS</strong>
-the mySQL password</p></li>
-<li><p><strong>DBNAME</strong>
-the mySQL database name</p></li>
-<li><p><strong>EMAIL_FROM</strong>
-The email address to use for the "from" field</p></li>
-<li><p><strong>EMAIL_TO</strong>
-The email address to use for the "to" field</p></li>
-<li><p><strong>EMAIL_CC</strong>
-The email address to use for the "cc" field</p></li>
-<li><p><strong>EMAIL_BCC</strong>
-The email address to use for the "bcc" field</p></li>
-<li><p><strong>GA_ACCOUNT</strong>
-The Google Analytics GA Account ID</p></li>
-</ul><h2>
-<a name="sample-code" class="anchor" href="#sample-code"><span class="octicon octicon-link"></span></a>Sample Code</h2>
-
-<h3>
-<a name="hooks" class="anchor" href="#hooks"><span class="octicon octicon-link"></span></a>Hooks</h3>
-
-<p>The <em>Hooks</em> system is made up of <em>hook filters</em> and <em>hook actions</em>. <em>Hook actions</em> are points in the code where you can assign functions to run. For example, we can put a <em>hook action</em> after a record is saved to the database, then assign a function to the <em>hook action</em> that will send an email after the DB update. The <em>modules/enabled</em> directory provides a convenient location to put code that utilizes the hooks system. Code inside of the <em>modules/enabled</em> directory are automatically added to the program at runtime.</p>
-
-<pre><code>namespace Module\Example;
-
-// Save to the database
-$db-&gt;save();
-
-// add a hook action
-\Sleepy\Hook::addAction('record_saved');
-
-// In the module file, add a function to the hook action
-function send_email() {
-    // send an email saying a record was updated
-}
-
-\Sleepy\Hook::doAction(
-    'record_saved',
-    '\Module\Example\send_email'
-);
+<pre><code>sleepy --list
 </code></pre>
 
-<p><em>Hook filters</em> are similar to <em>hook actions</em> but pass data as parameters to the functions that get assigned to the hook. After manipulating this data you must return the edited data back to the program.</p>
+<p>You can install modules:</p>
 
-<pre><code>namespace Module\Example;
-
-// add a hook filter
-$content = \Sleepy\Hook::addFilter('update_content', $_POST['content']);
-
-// Add a function to the hook filter
-function clean_html ($html) {
-    $c = htmlentities(trim($html), ENT_NOQUOTES, "UTF-8", false);
-    return $c;
-}
-
-\Sleepy\Hook::applyFilter(
-    'update_content',
-    '\Module\Example\clean_html'
-);
+<pre><code>sleepy --add Performance
 </code></pre>
 
-<h3>
-<a name="templating" class="anchor" href="#templating"><span class="octicon octicon-link"></span></a>Templating</h3>
+<p>You can search for modules:</p>
 
-<p>Templates reside inside the <em>/app/templates/</em> folder and should end in a .tpl extension. The templating system works by using placeholders that later get replaced with text. The placeholders must have the following syntax:</p>
-
-<pre><code>{{ placeholder }}
+<pre><code>sleepy --search DB
 </code></pre>
 
-<p>To use a template you instantiate the template class passing in the template name. You then bind data to the placeholders and call the <em>Template::show()</em> method.</p>
+<p>You can get more info about a module:</p>
 
-<pre><code>require_once('include/sleepy.php');
-$page = new \Sleepy\Template('default');
-$page-&gt;bind('title', 'sleepyMUSTACHE');
-$page-&gt;bind('header', 'Hello world!');
-$page-&gt;show();
+<pre><code>sleepyu --help Performance
 </code></pre>
 
-<p>Here is the sample template file (templates/default.tpl):</p>
+<h2>
+<a id="learning-more" class="anchor" href="#learning-more" aria-hidden="true"><span class="octicon octicon-link"></span></a>Learning More</h2>
 
-<pre><code>&lt;html&gt;
-    &lt;head&gt;
-        &lt;title&gt;{{ title }}&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;h1&gt;{{ header }}&lt;/h1&gt;
-        &lt;p&gt;This page has been viewed {{ hits }} times.&lt;/p&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-
-<p>We added a <em>{{ hits }}</em> placeholder in the template above. For this example, we want to replace the placeholder with the number of times this page was viewed. We can add that functionality using <em>Hooks</em>.</p>
-
-<pre><code>// filename: /modules/enabled/hit-counter/hits.php
-namespace Hits;
-
-/**
- * Adds the number of hits to the page.
- * @return string The total amount of hits
- */
-function get() {
-    $hits = new FakeClass();
-    return $hits-&gt;getTotal();
-}
-
-// Next we attach the function to the hook point
-\Sleepy\Hook::applyFilter(
-    'render_placeholder_hits',
-    '\Hits\get'
-);
-</code></pre>
-
-<p>The first parameter of <em>\Sleepy\Hook::applyFilter()</em>, the <em>hook filter</em>, ends in 'hits' which correlates to the name of the placeholder. This <em>hook filter</em> is defined in <em>class.template.php</em>. The second parameter is the name of the function to run when we render the placeholder.</p>
-
-<p>The templating engine allows you to iterate through multidimensional array data using #each placeholders.</p>
-
-<pre><code>// Bind the data like this
-$page-&gt;bind('fruits', array(
-    array(
-        "name" =&gt; "apple",
-        "color" =&gt; "red"
-    ), array(
-        "name" =&gt; "banana",
-        "color" =&gt; "yellow"
-    )
-));
-
-// in the .tpl file
-{{ #each f in fruits }}
-    &lt;p&gt;I like {{ f.color }}, because my {{ f.name }} is {{ f.color }}.&lt;/p&gt;
-{{ /each }}
-</code></pre>
-
-<h3>
-<a name="databases" class="anchor" href="#databases"><span class="octicon octicon-link"></span></a>Databases</h3>
-
-<p>The database connection settings are defined in the <em>/app/include/global.php</em> file. After the <em>LIVE_URL</em> is set in the file the framework will detect which DB to use based on the current URL.</p>
-
-<p>To get a database instance, use:</p>
-
-<pre><code>$db = \Module\DB\DB::getInstance();
-</code></pre>
-
-<p>The DB class is static and will automatically handle suppressing multiple
-database connections.</p>
-
-<h3>
-<a name="sending-emails" class="anchor" href="#sending-emails"><span class="octicon octicon-link"></span></a>Sending emails</h3>
-
-<p>The Mailer class simplifies sending emails by generating headers for you and using an easy to use object to clearly define your email. The Mailer can send emails using an HTML template or text.</p>
-
-<pre><code>$m = new \Module\Mailer\Message();
-$m-&gt;addTo("test@test.com");
-$m-&gt;addFrom("from.me@test.com");
-$m-&gt;addSubject("This is a test, don't panic.");
-$m-&gt;fetchHTML("http://test.com/template.php");
-
-// OR
-
-$m-&gt;msgText("This is my message.")
-$m-&gt;send();
-</code></pre>
-
-<h3>
-<a name="csv" class="anchor" href="#csv"><span class="octicon octicon-link"></span></a>CSV</h3>
-
-<p>The CSV class ensures that all records are properly escaped and allows you to easily manipulate data inside of a CSV file.</p>
-
-<pre><code>$c = new \Module\CSV\Document();
-$data = array(
-    'George',
-    'Washington'
-);
-$c-&gt;add($data);
-
-// Saves to the file system
-$c-&gt;save('presidents.csv');
-
-// OR
-
-// Sends the file to the browser, does not save to the file system
-$c-&gt;show();
-</code></pre>
-
-<h3>
-<a name="debugging" class="anchor" href="#debugging"><span class="octicon octicon-link"></span></a>Debugging</h3>
-
-<p>The <em>Debug</em> static class allows you to debug on-screen, via email, or by logging to a database.</p>
-
-<pre><code>$db = \Module\DB\DB::getInstance();
-\Sleepy\Debug::out($db);
-</code></pre>
-
-<h3>
-<a name="file-system-database-classfsdbphp" class="anchor" href="#file-system-database-classfsdbphp"><span class="octicon octicon-link"></span></a>File System Database (class.fsdb.php)</h3>
-
-<p>Sometimes using a database is overkill.  A simple solution is to use the <em>FSDB</em>. It is very simple and does not allow complex queries, however it is fast, easy to use, and requires no setup, except checking that proper permissions are set.</p>
-
-<pre><code>$fruit = new stdClass();
-
-$fruit-&gt;name = "Apple";
-$fruit-&gt;color = "Red";
-$fruit-&gt;texture = "Crispy";
-$fruit-&gt;price = 0.50;
-
-$db = new \Module\FSDB\Connection();
-
-$db-&gt;insert('fruit', $fruit);
-$data = $db-&gt;select('fruit', 'name', 'Apple');
-</code></pre>
-
-<h3>
-<a name="country-detection" class="anchor" href="#country-detection"><span class="octicon octicon-link"></span></a>Country detection</h3>
-
-<p><em>Country detection</em> uses the <em>FSDB</em> to do a quick lookup of the current country.</p>
-
-<pre><code>$i = new \Module\IP2Country\Converter();
-$countryCode = $i-&gt;getCountryCode($_SERVER['REMOTE_ADDR']);
-
-if ($countryCode != false) {
-    echo $countryCode;
-} else {
-    echo $_SERVER['REMOTE_ADDR'] . "(" . ip2long($_SERVER['REMOTE_ADDR']) . ") Not found in " . $i-&gt;getTable($_SERVER['REMOTE_ADDR']) . ".";
-}
-</code></pre>
-
-<h3>
-<a name="mobile-detection" class="anchor" href="#mobile-detection"><span class="octicon octicon-link"></span></a>Mobile detection</h3>
-
-<p>Mobile detection is done by comparing the UA (user-agent) to a list of currently available mobile and tablet UA. This module is <strong>deprecated</strong> and will be phased out in v1.0.</p>
-
-<pre><code>$md = new \Mobile\MobiDetect\Detector();
-
-if ($md-&gt;isMobile()) {
-    // Do something for mobile only
-}
-</code></pre>
-
-<h3>
-<a name="navigation" class="anchor" href="#navigation"><span class="octicon octicon-link"></span></a>Navigation</h3>
-
-<p>The navigation is generated from JSON. It renders the JSON into a unordered list with some classes added for the current active page.</p>
-
-<pre><code>// Add a placeholder in your template
-{{ TopNav }}
-
-// Create a php file in */modules/enabled/*
-namespace Module\Example;
-
-require_once('include/class.navigation.php');
-
-// create a function to add to the *hook filter*
-function showNav() {
-    // Page data is passed via JSON
-    $topNavData = '{
-        "pages": [
-            {
-                "title": "Nav 1",
-                "link": "/nav1/"
-            }, {
-                "title": "Nav 2",
-                "link": "/nav2/",
-                "pages": [
-                    {
-                        "title": "Subnav 1",
-                        "link": "/downloads/fpo.pdf",
-                        "target": "_blank"
-                    }
-                ]
-            }
-        ]
-    }';
-
-    $topNav = new \Module\Navigation\Builder($topNavData);
-    $topNav-&gt;setCurrent($_SERVER['SCRIPT_NAME']);
-
-    return $topNav-&gt;show();
-}
-
-\Sleepy\Hook::applyFilter(
-    'render_placeholder_TopNav',
-    '\Module\Example\showNav'
-);
-</code></pre>
+<p>Documentation about the core functionality is available in the <a href="https://github.com/sleepymustache/core">core repo</a>. A list of existing modules can be found in the <a href="https://github.com/sleepymustache/modules">modules repo</a>.</p>
       </section>
     </div>
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">sleepyMUSTACHE maintained by <a href="https://github.com/jaimerod">jaimerod</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+        <p class="copyright">sleepyMUSTACHE maintained by <a href="https://github.com/sleepymustache">sleepymustache</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
 
