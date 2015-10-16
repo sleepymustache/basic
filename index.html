@@ -39,7 +39,7 @@
 <h2>
 <a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h2>
 
-<p>sleepyMUSTACHE is ready to go out of the box. Configuration is done in the <em>app/core/global.php</em> file. There you can define your dev/stage/live environments and debugging preferences.</p>
+<p>sleepyMUSTACHE is ready to go out of the box. Configuration is done in the <em>src/settings.php</em> file. There you can define your dev/stage/live environments and debugging preferences.</p>
 
 <h2>
 <a id="whats-included" class="anchor" href="#whats-included" aria-hidden="true"><span class="octicon octicon-link"></span></a>Whats included?</h2>
@@ -61,26 +61,26 @@
 <h3>
 <a id="installing-modules" class="anchor" href="#installing-modules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing Modules</h3>
 
-<p>We have included a python script (sleepy.py) to assist in installing modules. It does this by creating git submodules.</p>
+<p>We have included a Python 3.4 script (sleepy.py) to assist in installing modules. It does this by creating git submodules.</p>
 
 <p>You can get a list of available modules:</p>
 
-<pre><code>sleepy --list
+<pre><code>sleepy.py --list
 </code></pre>
 
 <p>You can install modules:</p>
 
-<pre><code>sleepy --add Performance
+<pre><code>sleepy.py --add Performance
 </code></pre>
 
 <p>You can search for modules:</p>
 
-<pre><code>sleepy --search DB
+<pre><code>sleepy.py --search DB
 </code></pre>
 
 <p>You can get more info about a module:</p>
 
-<pre><code>sleepyu --help Performance
+<pre><code>sleepy.py --help Performance
 </code></pre>
 
 <h2>
