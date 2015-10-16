@@ -3,11 +3,11 @@ Create a python module to add submodules to sleepyMUSTACHE
 
 Usage:
 
-    sleepy [--list <all|installed>]
-    sleepy [--search <module>]
-    sleepy [--add <module>]
-    sleepy [--remove <module>]
-    sleepy [--help [<module>]}
+    sleepy.py [--list <all|installed>]
+    sleepy.py [--search <module>]
+    sleepy.py [--add <module>]
+    sleepy.py [--remove <module>]
+    sleepy.py [--help [<module>]}
 '''
 
 import json
@@ -177,11 +177,11 @@ def help_me():
     sleepy.py helps manage sleepyMUSTACHE modules in a git repository.
 
     Usage:
-        sleepy [--list <all|installed>]
-        sleepy [--search <module>]
-        sleepy [--add <module>]
-        sleepy [--remove <module>]
-        sleepy [--help [<module>]}
+        sleepy.py [--list <all|installed>]
+        sleepy.py [--search <module>]
+        sleepy.py [--add <module>]
+        sleepy.py [--remove <module>]
+        sleepy.py [--help [<module>]}
     """
 
     print(help_data)
