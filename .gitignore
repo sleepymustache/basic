@@ -218,3 +218,5 @@ aspnet_client
 app/include/global.php
 sleepy.sublime-project
 sleepy.sublime-workspace
+src/node_modules/
+src/.sass-cache/

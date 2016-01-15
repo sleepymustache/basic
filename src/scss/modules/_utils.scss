@@ -102,3 +102,20 @@
 		-webkit-tap-highlight-color: $background;
 	}
 }
+@mixin colored-bullets($color) {
+	list-style: none;
+
+	li {
+		position: relative;
+
+		&:before {
+			content: '\2022';
+			display: block;
+			position: absolute;
+			left: -10px;			
+			top: 50%;
+		  	transform: translateY(-50%);	  			  	
+		  	color: $color;
+		}
+	}
+}
