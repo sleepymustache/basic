@@ -1,0 +1,121 @@
+/* Responsive Helpers */
+.desktop-only { display: none }
+
+@media (min-width: 767px) {
+	.desktop-only { display: initial }
+	li.desktop-only { display: list-item }
+	.mobile-only { display: none }
+}
+
+@mixin background-image($image) {
+	$width: image-width($image);
+	$height: image-height($image);
+	background-image: image-url($image);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: $width $height;
+	display: block;
+	height: $height;
+	text-indent: -9999px;
+	width: $width;
+}
+
+@mixin background-inline($image) {
+	@include background-image($image);
+	background-image: inline-image($image);
+}
+
+@mixin retina-background($image) {
+	$width: image-width($image);
+	$height: image-height($image);
+	background-image: image-url($image);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: $width/2 $height/2;
+	display: block;
+	height: $height/2;
+	width: $width/2;
+}
+
+@mixin retina-inline($image) {
+	@include retina-background($image);
+	background-image: inline-image($image);
+}
+@mixin background-sprite($image, $columns, $rows) {
+	$height: image-height($image)/$rows;
+	$width: image-width($image)/$columns;
+	background-image: image-url($image);
+	background-repeat: no-repeat;
+	display: block;
+	text-indent: -9999px;
+	width: $width;
+	height: $height;
+}
+@mixin retina-background-sprite($image, $columns, $rows) {
+	$height: image-height($image)/$rows;
+	$width: image-width($image)/$columns;
+	$bg-size-width: image-width($image)/2;
+	$bg-size-height: image-height($image)/2;
+	background-image: image-url($image);
+	background-repeat: no-repeat;
+	display: block;
+	text-indent: -9999px;
+	width: $width/2;
+	height: $height/2;
+	background-size: $bg-size-width $bg-size-height;
+
+}
+@mixin full-width() {
+	$max-width: 2000px;
+	padding-left: $max-width;
+	margin-left: $max-width * -1;
+	padding-right: $max-width;
+	margin-right: $max-width * -1;
+}
+
+@mixin selection($foreground, $background) {
+	::-moz-selection {
+		background: $background;
+		color: $forground;
+		text-shadow: none;
+	}
+
+	::selection {
+		background: $background;
+		color: $forground;
+		text-shadow: none;
+	}
+
+	ins {
+		background-color: $background;
+		color: $forground;
+	}
+
+	mark {
+		background-color: $background;
+		color: $forground;
+		font-style: italic;
+		font-weight: bold;
+	}
+
+	a:link {
+		-webkit-tap-highlight-color: $background;
+	}
+}
+@mixin colored-bullets($color) {
+	list-style: none;
+
+	li {
+		position: relative;
+
+		&:before {
+			content: '\2022';
+			display: block;
+			position: absolute;
+			left: -10px;			
+			top: 50%;
+		  	transform: translateY(-50%);	  			  	
+		  	color: $color;
+		}
+	}
+}
