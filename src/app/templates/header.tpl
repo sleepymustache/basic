@@ -11,7 +11,11 @@
 	<title>{{ title }}</title>
 
 	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<?php if (ENV === 'LIVE'): ?>
+		<link rel="stylesheet" type="text/css" href="/css/main.min.css">
+	<?php else: ?>
+		<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<?php endif ?>
 
 	<!-- JAVASCRIPT -->
 	<script async data-main="<?= URLBASE ?>js/main" src="<?= URLBASE ?>js/require.js" ></script>
