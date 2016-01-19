@@ -7,6 +7,23 @@ Getting Started
 -------------------------------------------------------------------------------
 sleepyMUSTACHE is ready to go out of the box. Configuration is done in the *src/settings.php* file. There you can define your dev/stage/live environments and debugging preferences.
 
+To start run:
+
+    npm install
+
+After NPM has installed in required modules, the build process can be started by running:
+
+    gulp
+
+Gulp Modules
+-------------------------------------------------------------------------------
+sleepyMUSTACHE Basic included the following gulp modules in the build system:
+
+* gulp-imagemin - Minifies images
+* gulp- livereload - monitors file changes and updates the browser
+* gulp-ruby-sass - compiles and minifies SASS
+* gulp-uglify - minifies js files
+
 Whats included?
 -------------------------------------------------------------------------------
 The basic setup includes the core and a tool for installing [modules](https://github.com/sleepymustache/modules).
