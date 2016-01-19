@@ -220,3 +220,4 @@ sleepy.sublime-project
 sleepy.sublime-workspace
 src/node_modules/
 src/.sass-cache/
+src/build

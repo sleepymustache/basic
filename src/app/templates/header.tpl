@@ -11,14 +11,10 @@
 	<title>{{ title }}</title>
 
 	<!-- CSS -->
-	<?php if (ENV === 'LIVE'): ?>
-		<link rel="stylesheet" type="text/css" href="/css/main.min.css">
-	<?php else: ?>
-		<link rel="stylesheet" type="text/css" href="/css/main.css">
-	<?php endif ?>
+	<link rel="stylesheet" type="text/css" href="/build/css/main.css">
 
 	<!-- JAVASCRIPT -->
-	<script async data-main="<?= URLBASE ?>js/main" src="<?= URLBASE ?>js/require.js" ></script>
+	<script async data-main="<?= URLBASE ?>build/js/main" src="<?= URLBASE ?>build/js/require.js" ></script>
 
 	<!-- FAVICON -->
 	<link rel="apple-touch-icon" href="<?= URLBASE ?>favicon.png">
@@ -29,7 +25,7 @@
 
 	<!-- SHIV -->
 	<!--[if lt IE 9]>
-		<script src="<?= URLBASE ?>js/html5shiv.js"></script>
+		<script src="<?= URLBASE ?>build/js/html5shiv.js"></script>
 	<![endif]-->
 </head>
 <body>

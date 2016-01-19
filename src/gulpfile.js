@@ -1,28 +1,68 @@
-var gulp = require('gulp'),
-    sass = require('gulp-ruby-sass'),
-    minifycss = require('gulp-minify-css'),
-    addsrc = require('gulp-add-src'),
-    concat = require('gulp-concat'),
-    sourcemaps = require('gulp-sourcemaps');
+// Gulp plugins
+var gulp = require('gulp');
+var imagemin = require('gulp-imagemin');
+var livereload = require('gulp-livereload');
+var sass = require('gulp-ruby-sass');
+var uglify = require('gulp-uglify');
 
-var sassFolder = 'scss',
-    mainSassFile = sassFolder + '/main.scss',
-    cssFolder = 'css';
+// Source Folders
+var imageFolder = 'images';
+var jsFolder = 'js';
+var mainSassFile = 'main.scss';
+var sassFolder = 'scss'
 
+// Build Folders
+var buildCssFolder = 'build/css';
+var buildImageFolder = 'build/img';
+var buildJsFolder = 'build/js';
+
+/**
+ * Compiles SCSS to CSS and minifies CSS
+ */
 gulp.task('styles', function () {
-  return gulp.src(mainSassFile)
-      .pipe(sass({sourcemap: true, sourcemapPath: '../' + sassFolder}).
-        on('error', function (err) {
-          console.error("Error", err.message);
-        }))
-      .pipe(gulp.dest(cssFolder))
-      .pipe(concat('main.min.css'))
-      .pipe(minifycss())
-      .pipe(gulp.dest(cssFolder));
+  var sassOptions = {
+    'sourcemapPath': '../' + sassFolder,
+    'style': 'compressed'
+  };
+
+  return gulp.src(sassFolder + '/' + mainSassFile)
+    .pipe(sass(sassOptions).
+      on('error', function (err) {
+        console.error("Error", err.message);
+      }))
+    .pipe(gulp.dest(buildCssFolder))
+    .pipe(livereload());
 });
 
+/**
+ * Watches for changes in files and does stuff
+ */
 gulp.task('watch', function () {
+  var server = livereload.listen();
+  gulp.watch([jsFolder + '/**/*.js'], ['scripts']);
   gulp.watch([sassFolder + '/**/*.scss'], ['styles']);
+  gulp.watch([imageFolder + '/**/*'], ['images']);
 });
 
-gulp.task('default', ['watch'], function () {});
+/**
+ * Minifies JS files for production
+ */
+gulp.task('scripts', function () {
+  gulp.src(jsFolder + '/*.js')
+    .pipe(uglify())
+    .pipe(gulp.dest(buildJsFolder));
+});
+
+/**
+ * Compresses image files for production
+ */
+gulp.task('images', function () {
+  gulp.src(imageFolder + '/*')
+    .pipe(imagemin())
+    .pipe(gulp.dest(buildImageFolder));
+})
+
+/**
+ * Runs by default
+ */
+gulp.task('default', ['images', 'scripts', 'styles', 'watch'], function () {});
