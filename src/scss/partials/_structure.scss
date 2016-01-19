@@ -1,0 +1,12 @@
+/**
+ * This file contains the structure of the site. These styles build the basic
+ * wire-frame of the site. Specific components such as slide-shows, accordions,
+ * etc. should have their own partial.
+ */
+.wrapper {
+  margin: 0 auto;
+  max-width: 960px;
+  min-width: 320px;
+  padding: 12px;
+  position: relative;
+}

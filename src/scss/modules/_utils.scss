@@ -1,3 +1,7 @@
+/**
+ * This is where you put in your helper mixins and classes.
+ */
+
 /* Responsive Helpers */
 .desktop-only { display: none }
 
@@ -41,6 +45,7 @@
 	@include retina-background($image);
 	background-image: inline-image($image);
 }
+
 @mixin background-sprite($image, $columns, $rows) {
 	$height: image-height($image)/$rows;
 	$width: image-width($image)/$columns;
@@ -51,6 +56,7 @@
 	width: $width;
 	height: $height;
 }
+
 @mixin retina-background-sprite($image, $columns, $rows) {
 	$height: image-height($image)/$rows;
 	$width: image-width($image)/$columns;
@@ -63,8 +69,8 @@
 	width: $width/2;
 	height: $height/2;
 	background-size: $bg-size-width $bg-size-height;
-
 }
+
 @mixin full-width() {
 	$max-width: 2000px;
 	padding-left: $max-width;
@@ -73,35 +79,6 @@
 	margin-right: $max-width * -1;
 }
 
-@mixin selection($foreground, $background) {
-	::-moz-selection {
-		background: $background;
-		color: $forground;
-		text-shadow: none;
-	}
-
-	::selection {
-		background: $background;
-		color: $forground;
-		text-shadow: none;
-	}
-
-	ins {
-		background-color: $background;
-		color: $forground;
-	}
-
-	mark {
-		background-color: $background;
-		color: $forground;
-		font-style: italic;
-		font-weight: bold;
-	}
-
-	a:link {
-		-webkit-tap-highlight-color: $background;
-	}
-}
 @mixin colored-bullets($color) {
 	list-style: none;
 
@@ -112,9 +89,9 @@
 			content: '\2022';
 			display: block;
 			position: absolute;
-			left: -10px;			
+			left: -10px;
 			top: 50%;
-		  	transform: translateY(-50%);	  			  	
+		  	transform: translateY(-50%);
 		  	color: $color;
 		}
 	}

@@ -1,0 +1,75 @@
+/**
+ * This page contains the default form styling for the site
+ */
+fieldset {
+  border: 0;
+  padding: 0;
+
+  legend {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    padding: 0;
+    text-transform: capitalize;
+  }
+
+  ul {
+    padding-left: 0;
+  }
+
+  li {
+    clear: both;
+    list-style: none;
+    margin-left: 0;
+
+    input {
+      float: left;
+      margin: 0 0 12px;
+    }
+
+    label {
+      display: block;
+      float: left;
+      font-weight: bold;
+      width: 150px;
+
+      &.error {
+        color: red;
+        font-size: 10px;
+        font-weight: normal;
+        line-height: 26px;
+        margin-left: 10px;
+        width: auto;
+      }
+    }
+
+    select {
+      float: left;
+      margin: 0 0 12px;
+      width: 150px;
+    }
+
+    ul {
+      clear: both;
+      padding-left: 0;
+      position: relative;
+      top: -15px;
+
+      input {
+        clear: right;
+        float: left;
+        margin: 0 12px 12px 150px;
+      }
+
+      label {
+        float: left;
+      }
+    }
+  }
+
+  &.submit {
+    border: 0;
+    margin-left: 150px;
+    margin-top: -30px;
+  }
+}
