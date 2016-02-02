@@ -1,50 +1,52 @@
 /**
  * This page contains the default navigation menu styling
  */
-nav ul {
-	padding: 0;
-	list-style: none;
-	border-left: 1px solid #000;
+nav {
+  ul {
+    border-left: 1px solid $black;
+    list-style: none;
+    padding: 0;
 
-	li {
-		display: inline-block;
+    li {
+      display: inline-block;
 
-		a {
-			display: block;
-			color: #000;
-			background: #fff;
-			text-align: center;
-			width: 150px;
-			padding: 8px 24px;
-			border: 1px solid #000;
-			border-left: none;
-			text-decoration: none;
-		}
-	}
+      a {
+        background: $white;
+        border: 1px solid $black;
+        border-left: 0;
+        color: $black;
+        display: block;
+        padding: 8px 24px;
+        text-align: center;
+        text-decoration: none;
+        width: 150px;
+      }
+    }
 
-	> ul li:hover > ul {
-		display: block;
-	}
+    > ul li:hover > ul {
+      display: block;
+    }
 
-	ul {
-		display: none;
-		position: absolute;
-		margin: 0 0 0 -1px;
+    ul {
+      display: none;
+      margin: 0 0 0 -1px;
+      position: absolute;
 
-		li {
-			float: left;
-			clear: both;
+      li {
+        clear: both;
+        float: left;
 
-			a {
-				min-width: 304px;
-				margin-top: -1px;
-				text-align: left;
-			}
-		}
+        a {
+          margin-top: -1px;
+          min-width: 304px;
+          text-align: left;
+        }
+      }
 
-		ul {
-			left: 100%;
-			top: -1px;
-		}
-	}
+      ul {
+        left: 100%;
+        top: -1px;
+      }
+    }
+  }
 }

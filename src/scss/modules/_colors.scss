@@ -3,7 +3,9 @@
  */
 $black: #000;
 $white: #fff;
+$red: #f00;
+$blue: #00f;
 
 // Changes the text highlighting color
-$selection-foreground: blue;
+$selection-foreground: $blue;
 $selection-background: $white;

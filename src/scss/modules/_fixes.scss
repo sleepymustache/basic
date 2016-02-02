@@ -5,9 +5,9 @@
 
 // Fix box model
 %box-sizing {
+  box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
 }
 
 * {
@@ -24,15 +24,15 @@
 
 // Persistant scrollbar and mobile text sizing fix
 html {
+  overflow-y: scroll;
   -moz-text-size-adjust: none;
   -ms-text-size-adjust: none;
   -webkit-text-size-adjust: none;
-  overflow-y: scroll;
 }
 
 // Clearfix
 .cf {
-  *zoom: 1;
+  zoom: 1;
 
   &:before {
     content: '';
