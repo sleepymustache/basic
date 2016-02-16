@@ -221,3 +221,5 @@ sleepy.sublime-workspace
 src/node_modules/
 src/.sass-cache/
 src/build
+basic.submlime-project.sublime-workspace
+*.sublime-workspace
