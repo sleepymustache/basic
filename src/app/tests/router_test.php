@@ -51,8 +51,9 @@
 			$this->assertEqual(ob_get_clean(), "4");
 		}
 
-		function testRouterMisatch4() {
+		function testRouterMismatch4() {
 			ob_start();
+			$this->expectException(new \Sleepy\RouteNotFound("Router: Route not found."));
 			\Sleepy\Router::start('/user/test/user/test1');
 			$this->assertNotEqual(ob_get_clean(), "4");
 
