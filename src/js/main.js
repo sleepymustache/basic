@@ -14,6 +14,6 @@ define(['jquery', 'sleepy'], function ($, SM) {
 	'use strict';
 
 	$(function () {
-		$('body').addClass((SM.isTouchDevice()) ? 'touchable': '');
+		$('body').addClass(SM.isTouchDevice() ? 'touchable': '');
 	});
 });
