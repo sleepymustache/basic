@@ -20,7 +20,7 @@ Gulp Modules
 sleepyMUSTACHE Basic included the following gulp modules in the build system:
 
 * gulp-imagemin - Minifies images
-* gulp- livereload - monitors file changes and updates the browser
+* gulp-livereload - monitors file changes and updates the browser
 * gulp-ruby-sass - compiles and minifies SASS
 * gulp-uglify - minifies js files
 
