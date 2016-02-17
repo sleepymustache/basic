@@ -1,4 +1,8 @@
 <?php
+	if (@!include_once($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'settings.php')) {
+		include_once('../core/settings.php');
+	}
+
 	require_once('../core/class.debug.php');
 
 	class TestOfDebugging extends UnitTestCase {
