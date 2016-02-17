@@ -1,6 +1,12 @@
-
-# default setting: allow all robots/spiders to scan everything:
+# Default setting: allow all robots/spiders to scan everything:
 User-agent: *
+
+# Sleepy stuff
+Disallow: /build/css/
+Disallow: /build/js/
+Disallow: /images/
+Disallow: /js/
+Disallow: /scss/
 
 # Teamsite stuff
 Disallow: /config/
