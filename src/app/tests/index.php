@@ -9,11 +9,6 @@
 	include_once('../core/class.debug.php');
 	include_once('../core/class.sm.php');
 
-	if (!include_once('../core/settings.php')) {
-		header('Location: ../setup/');
-		die();
-	}
-
 	require_once(dirname(__FILE__) . '/simpletest/autorun.php');
 
 	class AllTests extends TestSuite {
@@ -24,7 +19,7 @@
 				'../modules'
 			);
 
-			$all = "";
+			$all = '';
 
 			// get all subdirectories
 			foreach ($directories as $directory) {
