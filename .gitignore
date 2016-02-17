@@ -215,11 +215,8 @@ pip-log.txt
 .mr.developer.cfg
 
 aspnet_client
-app/include/global.php
 sleepy.sublime-project
-sleepy.sublime-workspace
 src/node_modules/
 src/.sass-cache/
 src/build
-basic.submlime-project.sublime-workspace
 *.sublime-workspace
