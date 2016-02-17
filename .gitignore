@@ -216,7 +216,8 @@ pip-log.txt
 
 aspnet_client
 sleepy.sublime-project
-src/node_modules/
-src/.sass-cache/
+node_modules
+src/.sass-cache
 src/build
 *.sublime-workspace
+node_modules/
