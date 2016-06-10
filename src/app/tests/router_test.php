@@ -52,8 +52,8 @@
 		}
 
 		function testRouterMismatch4() {
-			ob_start();
 			$this->expectException(new \Sleepy\RouteNotFound("Router: Route not found."));
+			ob_start();
 			\Sleepy\Router::start('/user/test/user/test1');
 			$this->assertNotEqual(ob_get_clean(), "4");
 
@@ -67,29 +67,26 @@
 				$this->assertEqual($route->params['color'], 'yellow');
 				$this->assertEqual($route->method, 'GET');
 				$this->assertEqual($route->splat, 'banana');
-
+				ob_start();
 				echo "fruit";
 			});
 
 			// Test that route matched
-			ob_start();
 			\Sleepy\Router::start('/fruit/yellow/banana');
-			$this->assertEqual(ob_get_clean(), "fruit");
+			$fruit = ob_get_clean();
+			$this->assertEqual($fruit, "fruit");
 		}
 
 		function testRouterDelimeter() {
 			\Sleepy\Router::$delimiter = '-';
-
 			\Sleepy\Router::route('fruit-{{ color}}', function ($route) {
 				$this->assertEqual($route->params['color'], 'yellow');
-
+				ob_start();
 				echo "fruit";
 			});
 
-			ob_start();
 			\Sleepy\Router::start('fruit-yellow');
 			$this->assertEqual(ob_get_clean(), "fruit");
-
 			\Sleepy\Router::$delimiter = '/';
 		}
 
@@ -98,11 +95,10 @@
 
 			\Sleepy\Router::route('/fruit/{{color}}', function ($route) {
 				$this->assertEqual($route->params['color'], 'yellow');
-
+				ob_start();
 				echo "fruit";
 			});
 
-			ob_start();
 			\Sleepy\Router::start('/?q=/fruit/yellow');
 			$this->assertEqual(ob_get_clean(), "fruit");
 
