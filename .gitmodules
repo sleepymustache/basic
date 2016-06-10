@@ -1,3 +1,6 @@
 [submodule "src/app/core"]
 	path = src/app/core
 	url = https://github.com/sleepymustache/core.git
+[submodule "src/app/tests/simpletest"]
+	path = src/app/tests/simpletest
+	url = https://github.com/simpletest/simpletest.git
