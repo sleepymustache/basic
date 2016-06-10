@@ -3,7 +3,7 @@
   "description": "",
   "devDependencies": {
     "gulp": "~3.9.0",
-    "gulp-imagemin": "^2.4.0",
+    "gulp-imagemin": "^3.x",
     "gulp-livereload": "^3.8.1",
     "gulp-notify": "^2.2.0",
     "gulp-sass": "^2.2.0",
