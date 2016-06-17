@@ -3,7 +3,70 @@ var https = require('https');
 var fs = require('fs');
 var subprocess = require('child_process');
 
-var module = function () {
+var sleepy,
+	module;
+
+function helpMe() {
+	'use strict';
+
+	var helpData = 'sleepy.js helps manage sleepyMUSTACHE modules in a git repository.\n\n';
+
+	helpData += 'Usage:\n';
+	helpData += '\tsleepy.js [--list <all|installed>]\n';
+	helpData += '\tsleepy.js [--search <module>]\n';
+	helpData += '\tsleepy.js [--add <module>]\n';
+	helpData += '\tsleepy.js [--remove <module>]\n';
+	helpData += '\tsleepy.js [--help [<module>]]\n';
+	helpData += '\tsleepy.js [--clean]';
+	console.log(helpData);
+}
+function main() {
+	'use strict';
+
+	var args = process.argv,
+		command = '';
+
+	if (args.length === 2) {
+		helpMe();
+		return;
+	}
+
+	command = args[2].toLowerCase();
+
+
+	if (args.length > 2) {
+		if (command === '--search') {
+			sleepy.search(args[3]);
+			return;
+		}
+		if (command === '--add') {
+			sleepy.add(args[3]);
+			return;
+		}
+		if (command === '--remove') {
+			sleepy.remove(args[3]);
+			return;
+		}
+		if (command === '--help') {
+			sleepy.help(args[3]);
+			return;
+		}
+		if (command === '--clean') {
+			sleepy.clean();
+			return;
+		}
+		if (command === '--list') {
+			if (args.length > 3 && args[3].toLowerCase() === 'installed') {
+				sleepy.showInstalled();
+			} else {
+				sleepy.showAll();
+			}
+			return;
+		}
+	}
+	helpMe()
+}
+module = function () {
 	'use strict';
 
 	var obj = {},
@@ -49,7 +112,7 @@ var module = function () {
 		}
 	};
 };
-var sleepy = (function () {
+sleepy = (function () {
 	'use strict';
 
 	var modules = {},
@@ -113,7 +176,6 @@ var sleepy = (function () {
 			console.log(folderPath, 'must be a directory');
 		}
 	}
-
 	request = https.get({
 		hostname: 'raw.githubusercontent.com',
 		path: '/sleepymustache/modules/master/modules.json'
@@ -171,20 +233,48 @@ var sleepy = (function () {
 			});
 		},
 		'help': function (modName) {
-			modules[modName.toLowerCase()].getInfo();
+			if (!modName) {
+				helpMe();
+				return;
+			}
+			if (modules.hasOwnProperty(modName.toLowerCase())) {
+				modules[modName.toLowerCase()].getInfo();
+			} else {
+				console.log('Could not find module');
+			}
 		},
 		'add': function (modName) {
-			modules[modName.toLowerCase()].add();
+			if (!modName) {
+				console.log('Missing module name');
+				return;
+			}
+			if (modules.hasOwnProperty(modName.toLowerCase())) {
+				modules[modName.toLowerCase()].add();
+			} else {
+				console.log('Could not find module');
+			}
 		},
 		'remove': function (modName) {
-			modules[modName.toLowerCase()].remove();
+			if (!modName) {
+				console.log('Missing module name');
+				return;
+			}
+			if (modules.hasOwnProperty(modName.toLowerCase())) {
+				modules[modName.toLowerCase()].remove();
+			} else {
+				console.log('Could not find installed module');
+			}
 		},
 		'search': function (searchString) {
 			var m;
 
+			if (!searchString) {
+				console.log('Missing a search string');
+				return;
+			}
 			console.log('Search Results:')
 			for (m in modules) {
-				if (searchString.toLowerCase() === m) {
+				if (m.toLowerCase().includes(searchString.toLowerCase())) {
 					console.log(' ', m);
 				}
 			}
@@ -192,7 +282,11 @@ var sleepy = (function () {
 		'clean': function () {
 			var scss = 'src/scss',
 				tests = 'src/app/tests',
-				app = 'src/app';
+				app = 'src/app',
+				js = 'src/js',
+				build = 'src/build',
+				errors = [],
+				i;
 
 			function checkDir(path, cb) {
 				var dir;
@@ -204,76 +298,24 @@ var sleepy = (function () {
 						cb(path);
 					}
 				} catch (e) {
-					console.log(e);
+					errors.push(e);
 				}
 			}
 
-			console.log('Files removed:');
-			checkDir(scss, removeDir);
-			checkDir(tests, removeDir);
-			checkDir(app, removeTestFiles);
+			checkDir(build, function () {
+				console.log('Files removed:');
+				checkDir(scss, removeDir);
+				checkDir(tests, removeDir);
+				checkDir(js, removeDir);
+				checkDir(app, removeTestFiles);
+			});
+			// log errors
+			if (errors.length) {
+				for (i = 0; i < errors.length; i++) {
+					console.log(errors[i]);
+				}
+			}
 		}
 	};
 }());
 
-
-function helpMe() {
-	'use strict';
-
-	var helpData = 'sleepy.js helps manage sleepyMUSTACHE modules in a git repository.\n\n';
-
-	helpData += 'Usage:\n';
-	helpData += '\tsleepy.js [--list <all|installed>]\n';
-	helpData += '\tsleepy.js [--search <module>]\n';
-	helpData += '\tsleepy.js [--add <module>]\n';
-	helpData += '\tsleepy.js [--remove <module>]\n';
-	helpData += '\tsleepy.js [--help [<module>]\n';
-	helpData += '\tsleepy.js [--clean]';
-	console.log(helpData);
-}
-function main() {
-	'use strict';
-
-	var args = process.argv,
-		command = '';
-
-	if (args.length === 2) {
-		helpMe();
-		return;
-	}
-
-	command = args[2].toLowerCase();
-
-
-	if (args.length > 2) {
-		if (command === '--search') {
-			sleepy.search(args[3]);
-			return;
-		}
-		if (command === '--add') {
-			sleepy.add(args[3]);
-			return;
-		}
-		if (command === '--remove') {
-			sleepy.remove(args[3]);
-			return;
-		}
-		if (command === '--help') {
-			sleepy.help(args[3]);
-			return;
-		}
-		if (command === '--clean') {
-			sleepy.clean();
-			return;
-		}
-		if (command === '--list') {
-			if (args.length > 3 && args[3].toLowerCase() === 'installed') {
-				sleepy.showInstalled();
-			} else {
-				sleepy.showAll();
-			}
-			return;
-		}
-	}
-	helpMe()
-}
