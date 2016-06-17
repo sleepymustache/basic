@@ -5,7 +5,10 @@ var subprocess = require('child_process');
 
 var sleepy,
 	module;
-
+/**
+ * Displays a list of commands
+ * @return void [description]
+ */
 function helpMe() {
 	'use strict';
 
@@ -33,39 +36,39 @@ function main() {
 
 	command = args[2].toLowerCase();
 
-
 	if (args.length > 2) {
-		if (command === '--search') {
-			sleepy.search(args[3]);
-			return;
-		}
-		if (command === '--add') {
-			sleepy.add(args[3]);
-			return;
-		}
-		if (command === '--remove') {
-			sleepy.remove(args[3]);
-			return;
-		}
-		if (command === '--help') {
-			sleepy.help(args[3]);
-			return;
-		}
-		if (command === '--clean') {
-			sleepy.clean();
-			return;
-		}
-		if (command === '--list') {
-			if (args.length > 3 && args[3].toLowerCase() === 'installed') {
-				sleepy.showInstalled();
-			} else {
-				sleepy.showAll();
-			}
-			return;
+		switch (command) {
+			case '--search':
+				sleepy.search(args[3]);
+				break;
+			case '--add':
+				sleepy.add(args[3]);
+				break;
+			case '--remove':
+				sleepy.remove(args[3]);
+				break;
+			case '--help':
+				sleepy.help(args[3]);
+				break;
+			case '--clean':
+				sleepy.clean();
+				break;
+			case '--list':
+				if (args.length > 3 && args[3].toLowerCase() === 'installed') {
+					sleepy.showInstalled();
+				} else {
+					sleepy.showAll();
+				}
+				break;
+			default:
+				helpMe();
 		}
 	}
-	helpMe()
 }
+/**
+ * Represents a sleepy module
+ * @return object returns a module object
+ */
 module = function () {
 	'use strict';
 
@@ -74,10 +77,20 @@ module = function () {
 		readme = '';
 
 	return {
+		/**
+		 * Sets the name and data of the module
+		 * @param  string modName A string of the module name
+		 * @param  object modObj  The module data
+		 * @return void [description]
+		 */
 		'init': function (modName, modObj) {
 			name = modName;
 			obj = modObj;
 		},
+		/**
+		 * Gets the readme data and displays it
+		 * @return void [description]
+		 */
 		'getInfo': function () {
 			var request = https.get(obj.readme, function (response) {
 				var body = '';
@@ -94,8 +107,11 @@ module = function () {
 			request.on('error', function (e) {
 				console.error(e);
 			});
-
 		},
+		/**
+		 * Adds a sleepy module from git
+		 * @return void [description]
+		 */
 		'add': function () {
 			subprocess.spawn('git',
 				[
@@ -107,18 +123,30 @@ module = function () {
 				{shell: true}
 			);
 		},
+		/**
+		 * Removes a sleepy module from your project
+		 * @return void [description]
+		 */
 		'remove': function () {
 			console.log('Removing a module must be done manually');
 		}
 	};
 };
+/**
+ * Initializes a Sleepy instance, invokes immediately
+ * @return void [description]
+ */
 sleepy = (function () {
 	'use strict';
 
 	var modules = {},
 		data = {},
 		request;
-
+	/**
+	 * Removes directory recursively
+	 * @param  string path The path of the directory
+	 * @return void [description]
+	 */
 	function removeDir(path) {
 		var dir,
 			item,
@@ -149,6 +177,11 @@ sleepy = (function () {
 			console.log(path, 'must be a folder');
 		}
 	}
+	/**
+	 * Removes files that end with "_test.php" from the given folder and subfolders
+	 * @param  string folderPath The path of the folder
+	 * @return void [description]
+	 */
 	function removeTestFiles(folderPath) {
 		var item,
 			currentPath,
@@ -205,6 +238,10 @@ sleepy = (function () {
 	});
 
 	return {
+		/**
+		 * Display a list of all modules
+		 * @return void [description]
+		 */
 		'showAll': function () {
 			var key;
 
@@ -214,6 +251,10 @@ sleepy = (function () {
 				}
 			}
 		},
+		/**
+		 * Displays a list of the modules currently installed in the project
+		 * @return void [description]
+		 */
 		'showInstalled': function () {
 			var directory,
 				m;
@@ -232,6 +273,11 @@ sleepy = (function () {
 				}
 			});
 		},
+		/**
+		 * Checks command input and runs getInfo method of Module
+		 * @param  string modName The module name
+		 * @return void [description]
+		 */
 		'help': function (modName) {
 			if (!modName) {
 				helpMe();
@@ -243,6 +289,11 @@ sleepy = (function () {
 				console.log('Could not find module');
 			}
 		},
+		/**
+		 * Checks command input and runs Module add method
+		 * @param  string modName The module name
+		 * @return void [description]
+		 */
 		'add': function (modName) {
 			if (!modName) {
 				console.log('Missing module name');
@@ -254,6 +305,11 @@ sleepy = (function () {
 				console.log('Could not find module');
 			}
 		},
+		/**
+		 * Checks command input and runs Module remove method
+		 * @param  string modName The module name
+		 * @return void [description]
+		 */
 		'remove': function (modName) {
 			if (!modName) {
 				console.log('Missing module name');
@@ -265,6 +321,11 @@ sleepy = (function () {
 				console.log('Could not find installed module');
 			}
 		},
+		/**
+		 * Searches for modules
+		 * @param  string searchString A string to search
+		 * @return void [description]
+		 */
 		'search': function (searchString) {
 			var m;
 
@@ -279,6 +340,10 @@ sleepy = (function () {
 				}
 			}
 		},
+		/**
+		 * Removes files for production deployment
+		 * @return void [description]
+		 */
 		'clean': function () {
 			var scss = 'src/scss',
 				tests = 'src/app/tests',
@@ -287,7 +352,12 @@ sleepy = (function () {
 				build = 'src/build',
 				errors = [],
 				i;
-
+			/**
+			 * Checks if the directory exists
+			 * @param  string path The path to the folder
+			 * @param  function cb A callback function
+			 * @return void [description]
+			 */
 			function checkDir(path, cb) {
 				var dir;
 
@@ -309,7 +379,7 @@ sleepy = (function () {
 				checkDir(js, removeDir);
 				checkDir(app, removeTestFiles);
 			});
-			// log errors
+			// errors
 			if (errors.length) {
 				for (i = 0; i < errors.length; i++) {
 					console.log(errors[i]);
