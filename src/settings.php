@@ -7,70 +7,70 @@
 define('LIVE_URL',  '');
 define('STAGE_URL', '');
 
-// Server dependant variables (Dev/Stage/Live)
+// Server dependant variables (Stage/Dev/Live)
 if (\Sleepy\SM::isENV(STAGE_URL)) {
-	define("ENV", "STAGE");
+	define('ENV', 'STAGE');
 
 	// Base Directory/URL
-	define("URLBASE", "/");
-	define("DIRBASE", $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR .'app');
+	define('URLBASE', '/');
+	define('DIRBASE', $_SERVER['DOCUMENT_ROOT'] . '/app');
 
 	// DB Credentials
-	define ("DBHOST", "");
-	define ("DBUSER", "");
-	define ("DBPASS", "");
-	define ("DBNAME", "");
+	define ("DBHOST", $WHG_DB_HOST);
+	define ("DBUSER", $WHG_DB_USER);
+	define ("DBPASS", $WHG_DB_PASSWD);
+	define ("DBNAME", $WHG_DB_REPLDB);
 
 	// Email information
-	define('EMAIL_FROM', "");
-	define('EMAIL_TO',   "");
-	define('EMAIL_CC',   "");
-	define('EMAIL_BCC',  "");
+	define('EMAIL_FROM', '');
+	define('EMAIL_TO',   '');
+	define('EMAIL_CC',   '');
+	define('EMAIL_BCC',  '');
 
 	// Analytics
-	define('GA_ACCOUNT', "");
+	define('GA_ACCOUNT', '');
 } elseif (\Sleepy\SM::isENV(LIVE_URL)) {
-	define("ENV", "LIVE");
+	define('ENV', 'LIVE');
 
 	// Base Directory/URL
-	define("URLBASE", "/");
-	define("DIRBASE", $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR .'app');
+	define('URLBASE', '/');
+	define('DIRBASE', $_SERVER['DOCUMENT_ROOT'] . '/app');
 
 	// DB Credentials
-	define ("DBHOST", "");
-	define ("DBUSER", "");
-	define ("DBPASS", "");
-	define ("DBNAME", "");
+	define ("DBHOST", $WHG_DB_HOST);
+	define ("DBUSER", $WHG_DB_USER);
+	define ("DBPASS", $WHG_DB_PASSWD);
+	define ("DBNAME", $WHG_DB_REPLDB);
 
 	// Email information
-	define('EMAIL_FROM', "");
-	define('EMAIL_TO',   "");
-	define('EMAIL_CC',   "");
-	define('EMAIL_BCC',  "");
+	define('EMAIL_FROM', '');
+	define('EMAIL_TO',   '');
+	define('EMAIL_CC',   '');
+	define('EMAIL_BCC',  '');
 
 	// Analytics
-	define('GA_ACCOUNT', "");
+	define('GA_ACCOUNT', '');
 } else {
-	define("ENV", "DEV");
+	define('ENV', 'DEV');
 
 	// Base Directory/URL
-	define("URLBASE", "/");
-	define("DIRBASE", $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR .'app');
+	define('URLBASE', '/');
+	define('DIRBASE', $_SERVER['DOCUMENT_ROOT'] . '/app');
 
 	// DB Credentials
-	define ("DBHOST", "");
-	define ("DBUSER", "");
-	define ("DBPASS", "");
-	define ("DBNAME", "");
+	define ("DBHOST", $WHG_DB_HOST);
+	define ("DBUSER", $WHG_DB_USER);
+	define ("DBPASS", $WHG_DB_PASSWD);
+	define ("DBNAME", $WHG_DB_REPLDB);
 
 	// Email information
-	define('EMAIL_FROM', "");
-	define('EMAIL_TO',   "");
-	define('EMAIL_CC',   "");
-	define('EMAIL_BCC',  "");
+	define('EMAIL_FROM', '');
+	define('EMAIL_TO',   '');
+	define('EMAIL_CC',   '');
+	define('EMAIL_BCC',  '');
 
 	// Analytics
-	define('GA_ACCOUNT', "");
+	define('GA_ACCOUNT', '');
 }
 
 // Set Debugging
