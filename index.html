@@ -1,55 +1,74 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="sleepyMUSTACHE : A simple PHP Framework">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-    <title>sleepyMUSTACHE</title>
+    <title>sleepyMUSTACHE by sleepymustache</title>
   </head>
 
   <body>
+    <header>
+      <div class="inner">
+        <h1>sleepyMUSTACHE</h1>
+        <h2>A simple PHP Framework</h2>
+        <a href="https://github.com/sleepymustache/basic" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/sleepymustache/basic">View on GitHub</a>
-
-          <h1 id="project_title">sleepyMUSTACHE</h1>
-          <h2 id="project_tagline">A simple PHP Framework</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/sleepymustache/basic/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/sleepymustache/basic/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>
-<a id="sleepymustache---basic-setup" class="anchor" href="#sleepymustache---basic-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>sleepyMUSTACHE - Basic Setup</h1>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="sleepymustache---basic-setup" class="anchor" href="#sleepymustache---basic-setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>sleepyMUSTACHE - Basic Setup</h1>
 
 <p>sleepyMUSTACHE is a modular PHP micro framework designed to provide solutions for everyday PHP challenges. This basic edition is aimed at providing a bare bones scaffolding for developers to learn the framework and as a starting point for projects</p>
 
 <h2>
-<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting Started</h2>
 
 <p>sleepyMUSTACHE is ready to go out of the box. Configuration is done in the <em>src/settings.php</em> file. There you can define your dev/stage/live environments and debugging preferences.</p>
 
+<p>To start run:</p>
+
+<pre><code>npm install
+</code></pre>
+
+<p>After NPM has installed in required modules, the build process can be started by running:</p>
+
+<pre><code>gulp
+</code></pre>
+
 <h2>
-<a id="whats-included" class="anchor" href="#whats-included" aria-hidden="true"><span class="octicon octicon-link"></span></a>Whats included?</h2>
+<a id="gulp-modules" class="anchor" href="#gulp-modules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Gulp Modules</h2>
+
+<p>sleepyMUSTACHE Basic included the following gulp modules in the build system:</p>
+
+<ul>
+<li>gulp-imagemin - Minifies images</li>
+<li>gulp-livereload - monitors file changes and updates the browser</li>
+<li>gulp-ruby-sass - compiles and minifies SASS</li>
+<li>gulp-uglify - minifies js files</li>
+</ul>
+
+<h2>
+<a id="whats-included" class="anchor" href="#whats-included" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Whats included?</h2>
 
 <p>The basic setup includes the core and a tool for installing <a href="https://github.com/sleepymustache/modules">modules</a>.</p>
 
 <p>It also includes some third party libraries to help get you started including, jQuery, requirejs, normalize, html4shiv, and a small JS toolset (sleepy.js).</p>
 
 <h3>
-<a id="core-functionality" class="anchor" href="#core-functionality" aria-hidden="true"><span class="octicon octicon-link"></span></a>Core functionality</h3>
+<a id="core-functionality" class="anchor" href="#core-functionality" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Core functionality</h3>
 
 <ul>
 <li>Debugging</li>
@@ -59,7 +78,7 @@
 </ul>
 
 <h3>
-<a id="installing-modules" class="anchor" href="#installing-modules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing Modules</h3>
+<a id="installing-modules" class="anchor" href="#installing-modules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installing Modules</h3>
 
 <p>We have included a Python 3.4 script (sleepy.py) to assist in installing modules. It does this by creating git submodules.</p>
 
@@ -84,21 +103,29 @@
 </code></pre>
 
 <h2>
-<a id="learning-more" class="anchor" href="#learning-more" aria-hidden="true"><span class="octicon octicon-link"></span></a>Learning More</h2>
+<a id="learning-more" class="anchor" href="#learning-more" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Learning More</h2>
 
 <p>Documentation about the core functionality is available in the <a href="https://github.com/sleepymustache/core">core repo</a>. A list of existing modules can be found in the <a href="https://github.com/sleepymustache/modules">modules repo</a>.</p>
-      </section>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/sleepymustache/basic/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/sleepymustache/basic/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/sleepymustache/basic"></a> is maintained by <a href="https://github.com/sleepymustache">sleepymustache</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
     </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">sleepyMUSTACHE maintained by <a href="https://github.com/sleepymustache">sleepymustache</a></p>
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-              <script type="text/javascript">
+            <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -108,7 +135,6 @@
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
 
   </body>
 </html>
