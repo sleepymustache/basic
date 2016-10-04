@@ -9,6 +9,10 @@
 	<meta name="description" content="{{ description }}">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{{ title }}</title>
+	
+	<!-- FRAME BUSTING -->
+	<style>html {display:none}</style> 
+	<script>(self == top) ?	document.documentElement.style.display = 'block' : top.location = self.location;</script>
 
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="/build/css/main.css">
