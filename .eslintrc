@@ -20,6 +20,7 @@
   },
 
   "env": {
+    "es6": true,
     "browser": true,      // browser global variables.
     "node": false,        // Node.js global variables and Node.js-specific rules.
     "amd": true,          // defines require() and define() as global variables as per the amd spec.
@@ -124,7 +125,7 @@
 
     "global-strict": 0,   // (deprecated) require or disallow the "use strict" pragma in the global scope (off by default in the node environment)
     "no-extra-strict": 0, // (deprecated) disallow unnecessary use of "use strict"; when already in strict mode
-    "strict": 1,          // controls location of Use Strict Directives
+    "strict": 0,          // controls location of Use Strict Directives
 
 
     ////////// Variables //////////

@@ -1,84 +1,141 @@
 // Gulp plugins
-var gulp = require('gulp');
-var imagemin = require('gulp-imagemin');
-var livereload = require('gulp-livereload');
-var notify = require('gulp-notify');
-var sass = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps');
-var uglify = require('gulp-uglify');
+const babel = require('gulp-babel');
+const gulp = require('gulp');
+const imagemin = require('gulp-imagemin');
+const notify = require('gulp-notify');
+const sass = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
+const eslint = require('gulp-eslint');
+const plumber = require('gulp-plumber');
+const uglify = require('gulp-uglify');
 
 // Source Folders
-var imageFolder = 'src/images';
-var jsFolder = 'src/js';
-var sassFolder = 'src/scss';
+const baseDir    = 'src';
+const imageFiles = baseDir + '/images/**/*.{png,gif,jpg}';
+const jsFiles    = baseDir + '/js/**/*.js';
+const sassFiles  = baseDir + '/scss/**/*.scss';
 
 // Build Folders
-var buildCssFolder = 'src/build/css';
-var buildImageFolder = 'src/build/img';
-var buildJsFolder = 'src/build/js';
+const buildCssFolder   = 'build/css';
+const buildImageFolder = 'build/images';
+const buildJsFolder    = 'build/js';
 
-function handleErrors() {
-  var args = Array.prototype.slice.call(arguments);
+// Flags
+const flags = {
+  shouldMinify: true
+}
+
+const handleErrors = function () {
+  const args = Array.prototype.slice.call(arguments);
 
   notify.onError({
-    title: 'Compile Error',
+    title: '<%= error.name %>',
     message: '<%= error.message %>'
   }).apply(this, args);
-
-  this.emit('end');
 }
+
+/**
+ * Lints the source
+ */
+gulp.task('eslint', function () {
+  flags.shouldMinify = true;
+
+  return gulp.src([jsFiles])
+    .pipe(eslint())
+    .pipe(plumber())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError())
+    .on('error', notify.onError((args) => {
+      flags.shouldMinify = false;
+      return handleErrors(args);
+    }));
+});
 
 /**
  * Runs by default
  */
-gulp.task('default', ['images', 'scripts', 'styles', 'watch'], function () {});
+gulp.task('default', [
+  'scripts',
+  'copy',
+  'images',
+  'styles'
+], () => {});
 
 /**
  * Compresses image files for production
  */
-gulp.task('images', function () {
-  gulp.src(imageFolder + '/*')
-    .on('error', handleErrors)
+gulp.task('images', () => {
+  gulp.src(imageFiles)
+    .pipe(plumber({errorHandler: handleErrors}))
     .pipe(imagemin())
-    .pipe(gulp.dest(buildImageFolder))
-    .pipe(livereload());
+    .pipe(gulp.dest(buildImageFolder));
 });
 
 /**
  * Minifies JS files for production
  */
-gulp.task('scripts', function () {
-  gulp.src(jsFolder + '/*.js')
-    .on('error', handleErrors)
+gulp.task('scripts', ['eslint'], () => {
+  if (!flags.shouldMinify) return gulp;
+
+  return gulp.src(jsFiles)
+    .pipe(plumber({errorHandler: handleErrors}))
+    .pipe(sourcemaps.init())
+    .pipe(babel({
+      compact: true,
+      presets: ['es2015']
+    }))
     .pipe(uglify())
-    .pipe(gulp.dest(buildJsFolder))
-    .pipe(livereload());
+    .pipe(sourcemaps.write('./', {
+      includeContent: true,
+      sourceRoot: './'
+    }))
+    .pipe(gulp.dest(buildJsFolder));
+
 });
 
 /**
  * Compiles SCSS to CSS and minifies CSS
  */
-gulp.task('styles', function () {
-  return gulp.src(sassFolder + '/**/*.scss')
+gulp.task('styles', () => {
+  gulp.src(sassFiles)
+    .pipe(plumber({errorHandler: handleErrors}))
     .pipe(sourcemaps.init())
     .pipe(sass({
       outputStyle: 'compressed'
-    })
-    .on('error', handleErrors))
+    }))
     .pipe(sourcemaps.write('./', {
       includeContent: true,
       sourceRoot: './'
     }))
-    .pipe(gulp.dest(buildCssFolder))
-    .pipe(livereload());
+    .pipe(gulp.dest(buildCssFolder));
+});
+
+
+/**
+ * Copy the html files to the build directory
+ */
+gulp.task('copy', function () {
+  return gulp.src([
+    baseDir + '/**',
+    '!' + sassFiles,
+    '!' + imageFiles,
+    '!' + jsFiles
+  ], {dot: true})
+  .pipe(plumber({errorHandler: handleErrors}))
+  .pipe(gulp.dest('build'));
 });
 
 /**
  * Watches for changes in files and does stuff
  */
-gulp.task('watch', function () {
-  var server = livereload.listen();
-  gulp.watch([jsFolder + '/**/*.js'], ['scripts']);
-  gulp.watch([sassFolder + '/**/*.scss'], ['styles']);
-  gulp.watch([imageFolder + '/**/*'], ['images']);
+gulp.task('watch', ['default'], () => {
+  gulp.watch([
+    baseDir + '/**',
+    '!' + sassFiles,
+    '!' + imageFiles,
+    '!' + jsFiles
+  ], {dot: true}, ['copy']);
+  gulp.watch([jsFiles], ['scripts']);
+  gulp.watch([sassFiles], ['styles']);
+  gulp.watch([imageFiles], ['images']);
 });
