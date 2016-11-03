@@ -10,10 +10,11 @@ requirejs.config({
 	}
 });
 
-define(['jquery', 'sleepy'], function ($, SM) {
-	'use strict';
-
-	$(function () {
+define(['jquery', 'sleepy'], ($, Sleepy) => {
+	var SM = new Sleepy();
+	window.SM = SM;
+	$(() => {
 		$('body').addClass(SM.isTouchDevice() ? 'touchable': '');
+		debugger;
 	});
 });
