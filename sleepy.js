@@ -31,6 +31,7 @@ class Module {
 		this.obj = obj;
 		this.name = name;
 		this.readme = "";
+		this.installed = false;
 	}
 
 	/**
@@ -61,7 +62,12 @@ class Module {
 	 * @return {void}
 	 */
 	add() {
-		subprocess.spawn('git', [
+		// ignore if dependencies already was installed
+		if (this.installed) {
+			return;
+		}
+
+		subprocess.spawnSync('git', [
 			'submodule',
 			'add',
 			this.obj.url,
@@ -69,6 +75,8 @@ class Module {
 		], {
 			shell: true
 		});
+
+		this.installed = true;
 	}
 
 	/**
@@ -170,7 +178,7 @@ class Sleepy {
 	}
 
 	/**
-	 * Checks command input and runs Module add method
+	 * Checks command input and runs Module add method recursively through dependencies
 	 * @param  {string} modName The module name
 	 * @return {void}
 	 */
@@ -181,6 +189,13 @@ class Sleepy {
 		}
 
 		if (this.modules.hasOwnProperty(modName.toLowerCase())) {
+			let dependencies = this.modules[modName.toLowerCase()].obj.dependencies;
+
+			// recursively add dependencies
+			for (var i = 0; i < dependencies.length; i++) {
+				this.add(dependencies[i]);
+			}
+
 			this.modules[modName.toLowerCase()].add();
 		} else {
 			console.log('Could not find module');
@@ -380,5 +395,3 @@ function main(sleepy) {
 const sleepy = new Sleepy(() => {
 	main(sleepy);
 });
-
-
