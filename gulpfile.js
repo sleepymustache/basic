@@ -1,18 +1,17 @@
 // Gulp plugins
-const babel = require('gulp-babel');
-const gulp = require('gulp');
-const imagemin = require('gulp-imagemin');
-const notify = require('gulp-notify');
-const sass = require('gulp-sass');
+const gulp       = require('gulp');
+const imagemin   = require('gulp-imagemin');
+const notify     = require('gulp-notify');
+const sass       = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
-const eslint = require('gulp-eslint');
-const plumber = require('gulp-plumber');
-const uglify = require('gulp-uglify');
+const eslint     = require('gulp-eslint');
+const plumber    = require('gulp-plumber');
+const webpack    = require('gulp-webpack');
 
 // Source Folders
 const baseDir    = 'src';
 const imageFiles = baseDir + '/images/**/*.{png,gif,jpg}';
-const jsFiles    = baseDir + '/js/**/*.js';
+const jsFiles    = baseDir + '/js/**/*.{js,jsx}';
 const sassFiles  = baseDir + '/scss/**/*.scss';
 
 // Build Folders
@@ -23,16 +22,16 @@ const buildJsFolder    = 'build/js';
 // Flags
 const flags = {
   shouldMinify: true
-}
+};
 
 const handleErrors = function () {
   const args = Array.prototype.slice.call(arguments);
 
   notify.onError({
-    title: '<%= error.name %>',
+    title:   '<%= error.name %>',
     message: '<%= error.message %>'
   }).apply(this, args);
-}
+};
 
 /**
  * Lints the source
@@ -77,20 +76,10 @@ gulp.task('images', () => {
 gulp.task('scripts', ['eslint'], () => {
   if (!flags.shouldMinify) return gulp;
 
-  return gulp.src(jsFiles)
+  return gulp.src(baseDir + '/js/app.jsx')
     .pipe(plumber({errorHandler: handleErrors}))
-    .pipe(sourcemaps.init())
-    .pipe(babel({
-      compact: true,
-      presets: ['es2015']
-    }))
-    .pipe(uglify())
-    .pipe(sourcemaps.write('./', {
-      includeContent: true,
-      sourceRoot: './'
-    }))
+    .pipe(webpack(require('./webpack.config.js')))
     .pipe(gulp.dest(buildJsFolder));
-
 });
 
 /**
@@ -110,7 +99,6 @@ gulp.task('styles', () => {
     .pipe(gulp.dest(buildCssFolder));
 });
 
-
 /**
  * Copy the html files to the build directory
  */
@@ -119,7 +107,8 @@ gulp.task('copy', function () {
     baseDir + '/**',
     '!' + sassFiles,
     '!' + imageFiles,
-    '!' + jsFiles
+    '!' + jsFiles,
+    '!src/app/tests/**'
   ], {dot: true})
   .pipe(plumber({errorHandler: handleErrors}))
   .pipe(gulp.dest('build'));
@@ -128,14 +117,14 @@ gulp.task('copy', function () {
 /**
  * Watches for changes in files and does stuff
  */
-gulp.task('watch', ['default'], () => {
+gulp.task('watch', ['copy', 'images', 'styles', 'scripts'], () => {
   gulp.watch([
     baseDir + '/**',
     '!' + sassFiles,
     '!' + imageFiles,
     '!' + jsFiles
   ], {dot: true}, ['copy']);
-  gulp.watch([jsFiles], ['scripts']);
-  gulp.watch([sassFiles], ['styles']);
+  gulp.watch([jsFiles],    ['scripts']);
+  gulp.watch([sassFiles],  ['styles']);
   gulp.watch([imageFiles], ['images']);
 });

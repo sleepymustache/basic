@@ -221,3 +221,4 @@ src/.sass-cache
 src/build
 *.sublime-workspace
 node_modules/
+.vscode/

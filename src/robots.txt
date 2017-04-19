@@ -2,10 +2,7 @@
 User-agent: *
 
 # Sleepy stuff
-Disallow: /build/css/
-Disallow: /build/js/
-Disallow: /images/
-Disallow: /js/
+Disallow: /app/
 Disallow: /scss/
 
 # Teamsite stuff

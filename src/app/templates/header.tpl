@@ -9,16 +9,16 @@
 	<meta name="description" content="{{ description }}">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{{ title }}</title>
-	
+
 	<!-- FRAME BUSTING -->
-	<style>html {display:none}</style> 
+	<style>html {display:none}</style>
 	<script>(self == top) ?	document.documentElement.style.display = 'block' : top.location = self.location;</script>
 
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
 
 	<!-- JAVASCRIPT -->
-	<script async data-main="<?= URLBASE ?>js/main" src="<?= URLBASE ?>js/require.js" ></script>
+	<script async src="<?= URLBASE ?>js/main.bundle.js"></script>
 
 	<!-- FAVICON -->
 	<link rel="apple-touch-icon" href="<?= URLBASE ?>favicon.png">
@@ -29,7 +29,7 @@
 
 	<!-- SHIV -->
 	<!--[if lt IE 9]>
-		<script src="<?= URLBASE ?>js/html5shiv.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
 	<![endif]-->
 </head>
 <body>
