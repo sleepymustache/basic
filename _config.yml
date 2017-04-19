@@ -1,0 +1,8 @@
+title: sleepyMUSTACHE
+description: A simple PHP Framework
+google_analytics: UA-55477508-1
+show_downloads: true
+theme: jekyll-theme-slate
+
+gems:
+  - jekyll-mentions
