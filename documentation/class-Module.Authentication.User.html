@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta charset="utf-8">
 
 	<title>Class Module\Authentication\User | sleepyMUSTACHE v.0.8</title>
 
-	<script type="text/javascript" src="resources/combined.js?2475353264"></script>
-	<script type="text/javascript" src="elementlist.js?250903305"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
-	<script type="text/javascript">
+	<script>
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', "UA-55477508-1"]);
 		_gaq.push(['_trackPageview']);
@@ -30,37 +27,79 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="main"><a href="namespace-Sleepy.html">Sleepy</a>
+				<li class="main">
+					<a href="namespace-Sleepy.html">
+						Sleepy					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Module.html">Module<span></span></a>
+				<li class="active">
+					<a href="namespace-Module.html">
+						Module<span></span>
+					</a>
+
 						<ul>
-				<li class="active"><a href="namespace-Module.Authentication.html">Authentication</a>
+				<li class="active">
+					<a href="namespace-Module.Authentication.html">
+						Authentication					</a>
+
 						</li>
-				<li><a href="namespace-Module.CSV.html">CSV</a>
+				<li>
+					<a href="namespace-Module.CSV.html">
+						CSV					</a>
+
 						</li>
-				<li><a href="namespace-Module.DB.html">DB</a>
+				<li>
+					<a href="namespace-Module.DB.html">
+						DB					</a>
+
 						</li>
-				<li><a href="namespace-Module.FormBuilder.html">FormBuilder</a>
+				<li>
+					<a href="namespace-Module.FormBuilder.html">
+						FormBuilder					</a>
+
 						</li>
-				<li><a href="namespace-Module.FSDB.html">FSDB</a>
+				<li>
+					<a href="namespace-Module.FSDB.html">
+						FSDB					</a>
+
 						</li>
-				<li><a href="namespace-Module.IP2Country.html">IP2Country</a>
+				<li>
+					<a href="namespace-Module.IP2Country.html">
+						IP2Country					</a>
+
 						</li>
-				<li><a href="namespace-Module.Mailer.html">Mailer</a>
+				<li>
+					<a href="namespace-Module.Mailer.html">
+						Mailer					</a>
+
 						</li>
-				<li><a href="namespace-Module.MobiDetect.html">MobiDetect</a>
+				<li>
+					<a href="namespace-Module.MobiDetect.html">
+						MobiDetect					</a>
+
 						</li>
-				<li><a href="namespace-Module.Mobile.html">Mobile</a>
+				<li>
+					<a href="namespace-Module.Navigation.html">
+						Navigation					</a>
+
 						</li>
-				<li><a href="namespace-Module.Navigation.html">Navigation</a>
+				<li>
+					<a href="namespace-Module.StaticCache.html">
+						StaticCache					</a>
+
 						</li>
 							</ul></li>
+				<li>
+					<a href="namespace-PHP.html">
+						PHP					</a>
+
+						</li>
 			</ul>
 		</div>
 
-		<hr />
+		<hr>
 
 
 		<div id="elements">
@@ -85,10 +124,9 @@
 <div id="right">
 <div id="rightInner">
 	<form id="search">
-		<input type="hidden" name="cx" value="" />
-		<input type="hidden" name="ie" value="UTF-8" />
-		<input type="text" name="q" class="text" />
-		<input type="submit" value="Search" />
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -106,12 +144,16 @@
 			<li>
 				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
 			</li>
-			<li>
-				<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
-			</li>
-			<li>
-				<a href="todo.html" title="Todo list"><span>Todo</span></a>
-			</li>
+				<li>
+					<a href="annotation-group-deprecated.html" title="List of elements with deprecated annotation">
+						<span>Deprecated</span>
+					</a>
+				</li>
+				<li>
+					<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+						<span>Todo</span>
+					</a>
+				</li>
 		</ul>
 		<ul>
 		</ul>
@@ -122,57 +164,25 @@
 
 
 	<div class="description">
-	
-<p>Example of using the User module</p>
+	<p>Example of using the User module</p>
 
-<pre>
-<span class="php-keyword1">if</span> (<span
-class="php-keyword2">class_exists</span>(<span
-class="php-quote">'User'</span>)) {
-        <span
-class="php-comment">// Try to login</span>
-        <span
-class="php-keyword1">try</span> {
-                <span
-class="php-var">$u</span> = <span
-class="php-keyword1">new</span> \Module\Authentication\User();
+<pre><span class="php-keyword1">if</span> (<span class="php-keyword2">class_exists</span>(<span class="php-quote">'User'</span>)) {
+        <span class="php-comment">// Try to login</span>
+        <span class="php-keyword1">try</span> {
+            <span class="php-var">$u</span> = <span class="php-keyword1">new</span> \Module\Authentication\User();
 
-                <span
-class="php-comment">// check if the admin user exists</span>
-                <span
-class="php-var">$uid</span> = <span
-class="php-var">$u</span>-&gt;authenticate(<span
-class="php-quote">'developer@envivent.com'</span>, <span
-class="php-quote">'test'</span>);
+            <span class="php-comment">// check if the admin user exists</span>
+            <span class="php-var">$uid</span> = <span class="php-var">$u</span>-&gt;authenticate(<span class="php-quote">'developer@envivent.com'</span>, <span class="php-quote">'test'</span>);
 
-                <span
-class="php-keyword1">echo</span> <span
-class="php-quote">&quot;Authentication successful. User ID is &quot;</span>, <span
-class="php-var">$uid</span>;
-        } <span
-class="php-keyword1">catch</span> (\Exception <span
-class="php-var">$e</span>) {
-                <span
-class="php-comment">// Admin uses doesn't exist. Let's create it.</span>
-                <span
-class="php-var">$u</span>-&gt;columns[<span
-class="php-quote">'role_id'</span>] = <span
-class="php-num">1</span>;
-                <span
-class="php-var">$u</span>-&gt;columns[<span
-class="php-quote">'email'</span>] = <span
-class="php-quote">'developer@envivent.com'</span>;
-                <span
-class="php-var">$u</span>-&gt;columns[<span
-class="php-quote">'password'</span>] = <span
-class="php-var">$u</span>-&gt;saltPassword(<span
-class="php-quote">'test'</span>);
-                <span
-class="php-var">$u</span>-&gt;save();
+            <span class="php-keyword1">echo</span> <span class="php-quote">&quot;Authentication successful. User ID is &quot;</span>, <span class="php-var">$uid</span>;
+        } <span class="php-keyword1">catch</span> (\Exception <span class="php-var">$e</span>) {
+            <span class="php-comment">// Admin uses doesn't exist. Let's create it.</span>
+            <span class="php-var">$u</span>-&gt;columns[<span class="php-quote">'role_id'</span>] = <span class="php-num">1</span>;
+            <span class="php-var">$u</span>-&gt;columns[<span class="php-quote">'email'</span>] = <span class="php-quote">'developer@envivent.com'</span>;
+            <span class="php-var">$u</span>-&gt;columns[<span class="php-quote">'password'</span>] = <span class="php-var">$u</span>-&gt;saltPassword(<span class="php-quote">'test'</span>);
+            <span class="php-var">$u</span>-&gt;save();
         }
-}
-</pre>
-
+    }</pre>
 	</div>
 
 	<dl class="tree">
@@ -183,7 +193,7 @@ class="php-var">$u</span>-&gt;save();
 			
 		</dd>
 		<dd style="padding-left:30px">
-			<img src="resources/inherit.png" alt="Extended by" />
+			<img src="resources/inherit.png" alt="Extended by">
 <b><span>Module\Authentication\User</span></b>			
 			
 			
@@ -200,20 +210,22 @@ class="php-var">$u</span>-&gt;save();
 	<div class="info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-Module.html">Module</a>\<a href="namespace-Module.Authentication.html">Authentication</a><br />
+		<b>Namespace:</b> <a href="namespace-Module.html">Module</a>\<a href="namespace-Module.Authentication.html">Authentication</a><br>
 		
 
-		<b>Located at</b> <a href="source-class-Module.Authentication.User.html#6-221" title="Go to source code">disabled/users/class.user.php</a><br />
+			<b>Located at</b> <a href="source-class-Module.Authentication.User.html#6-225" title="Go to source code">class.user.php</a>
+		<br>
 	</div>
 
 
 
-	<table class="summary" id="methods">
+	<table class="summary methods" id="methods">
 	<caption>Methods summary</caption>
 	<tr data-order="authenticate" id="_authenticate">
 
 		<td class="attributes"><code>
 			 public 
+
 			integer
 			
 			</code>
@@ -221,31 +233,27 @@ class="php-var">$u</span>-&gt;save();
 
 		<td class="name"><div>
 		<a class="anchor" href="#_authenticate">#</a>
-		<code><a href="source-class-Module.Authentication.User.html#55-77" title="Go to source code">authenticate</a>( <span>string <var>$email</var></span>, <span>string <var>$pass</var></span> )</code>
+		<code><a href="source-class-Module.Authentication.User.html#55-76" title="Go to source code">authenticate</a>( <span>string <var>$email</var></span>, <span>string <var>$pass</var></span> )</code>
 
 		<div class="description short">
-			
-<p>Authenticates a user</p>
-
+			<p>Authenticates a user</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Authenticates a user</p>
-
+			<p>Authenticates a user</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$email</var></dt>
-					<dd><code>string</code><br>$email The username</dd>
+					<dd>The username</dd>
 					<dt><var>$pass</var></dt>
-					<dd><code>string</code><br>$pass The password</dd>
+					<dd>The password</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>integer</code><br>The user_id<br />
+					integer<br>The user_id
 				</div>
 
 
@@ -254,40 +262,37 @@ class="php-var">$u</span>-&gt;save();
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="getPermission" id="_getPermission">
+	<tr data-order="hasPermission" id="_hasPermission">
 
 		<td class="attributes"><code>
 			 public 
+
 			string
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_getPermission">#</a>
-		<code><a href="source-class-Module.Authentication.User.html#79-86" title="Go to source code">getPermission</a>( <span>string <var>$key</var></span> )</code>
+		<a class="anchor" href="#_hasPermission">#</a>
+		<code><a href="source-class-Module.Authentication.User.html#78-89" title="Go to source code">hasPermission</a>( <span>string <var>$key</var></span> )</code>
 
 		<div class="description short">
-			
-<p>Gets the permission for their role</p>
-
+			<p>Gets the permission for their role</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Gets the permission for their role</p>
-
+			<p>Gets the permission for their role</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$key</var></dt>
-					<dd><code>string</code><br>$key What role do you want to query?</dd>
+					<dd>What role do you want to query?</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>the value associated with the permission e.g. True, False, etc.<br />
+					string<br>the value associated with the permission e.g. True, False, etc.
 				</div>
 
 
@@ -300,6 +305,7 @@ class="php-var">$u</span>-&gt;save();
 
 		<td class="attributes"><code>
 			 public 
+
 			mixed
 			
 			</code>
@@ -307,29 +313,25 @@ class="php-var">$u</span>-&gt;save();
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getUserData">#</a>
-		<code><a href="source-class-Module.Authentication.User.html#88-101" title="Go to source code">getUserData</a>( <span>string <var>$key</var></span> )</code>
+		<code><a href="source-class-Module.Authentication.User.html#91-104" title="Go to source code">getUserData</a>( <span>string <var>$key</var></span> )</code>
 
 		<div class="description short">
-			
-<p>Gets the data associated with the user</p>
-
+			<p>Gets the data associated with the user</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Gets the data associated with the user</p>
-
+			<p>Gets the data associated with the user</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$key</var></dt>
-					<dd><code>string</code><br>$key The data you want to lookup</dd>
+					<dd>The data you want to lookup</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>mixed</code><br>The data associated with the key<br />
+					mixed<br>The data associated with the key
 				</div>
 
 
@@ -342,6 +344,7 @@ class="php-var">$u</span>-&gt;save();
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -349,24 +352,20 @@ class="php-var">$u</span>-&gt;save();
 
 		<td class="name"><div>
 		<a class="anchor" href="#_load">#</a>
-		<code><a href="source-class-Module.Authentication.User.html#103-125" title="Go to source code">load</a>( <span>integer <var>$id</var> = <span class="php-num">0</span></span> )</code>
+		<code><a href="source-class-Module.Authentication.User.html#106-128" title="Go to source code">load</a>( <span>integer <var>$id</var> = <span class="php-num">0</span></span> )</code>
 
 		<div class="description short">
-			
-<p>Loads the user</p>
-
+			<p>Loads the user</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Loads the user</p>
-
+			<p>Loads the user</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$id</var></dt>
-					<dd><code>integer</code><br>$id The user ID</dd>
+					<dd>The user ID</dd>
 				</dl></div>
 
 
@@ -382,6 +381,7 @@ class="php-var">$u</span>-&gt;save();
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -389,26 +389,22 @@ class="php-var">$u</span>-&gt;save();
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setUserData">#</a>
-		<code><a href="source-class-Module.Authentication.User.html#127-145" title="Go to source code">setUserData</a>( <span>string <var>$key</var></span>, <span>mixed <var>$value</var></span> )</code>
+		<code><a href="source-class-Module.Authentication.User.html#130-148" title="Go to source code">setUserData</a>( <span>string <var>$key</var></span>, <span>mixed <var>$value</var></span> )</code>
 
 		<div class="description short">
-			
-<p>Sets user data by a key</p>
-
+			<p>Sets user data by a key</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Sets user data by a key</p>
-
+			<p>Sets user data by a key</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$key</var></dt>
-					<dd><code>string</code><br>$key The key to store the data into</dd>
+					<dd>The key to store the data into</dd>
 					<dt><var>$value</var></dt>
-					<dd><code>mixed</code><br>$value The data to store at the key</dd>
+					<dd>The data to store at the key</dd>
 				</dl></div>
 
 
@@ -422,6 +418,7 @@ class="php-var">$u</span>-&gt;save();
 
 		<td class="attributes"><code>
 			 public 
+
 			string
 			
 			</code>
@@ -429,29 +426,25 @@ class="php-var">$u</span>-&gt;save();
 
 		<td class="name"><div>
 		<a class="anchor" href="#_saltPassword">#</a>
-		<code><a href="source-class-Module.Authentication.User.html#147-154" title="Go to source code">saltPassword</a>( <span>string <var>$pass</var></span> )</code>
+		<code><a href="source-class-Module.Authentication.User.html#150-157" title="Go to source code">saltPassword</a>( <span>string <var>$pass</var></span> )</code>
 
 		<div class="description short">
-			
-<p>Salts the password</p>
-
+			<p>Salts the password</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Salts the password</p>
-
+			<p>Salts the password</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$pass</var></dt>
-					<dd><code>string</code><br>$pass The password</dd>
+					<dd>The password</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>The encrypted password<br />
+					string<br>The encrypted password
 				</div>
 
 
@@ -464,6 +457,7 @@ class="php-var">$u</span>-&gt;save();
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -471,18 +465,14 @@ class="php-var">$u</span>-&gt;save();
 
 		<td class="name"><div>
 		<a class="anchor" href="#_save">#</a>
-		<code><a href="source-class-Module.Authentication.User.html#156-170" title="Go to source code">save</a>( )</code>
+		<code><a href="source-class-Module.Authentication.User.html#159-174" title="Go to source code">save</a>( )</code>
 
 		<div class="description short">
-			
-<p>Saves the user</p>
-
+			<p>Saves the user</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Saves the user</p>
-
+			<p>Saves the user</p>
 
 
 
@@ -499,6 +489,7 @@ class="php-var">$u</span>-&gt;save();
 
 		<td class="attributes"><code>
 			 public 
+
 			boolean
 			
 			</code>
@@ -506,24 +497,20 @@ class="php-var">$u</span>-&gt;save();
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isLoaded">#</a>
-		<code><a href="source-class-Module.Authentication.User.html#172-180" title="Go to source code">isLoaded</a>( )</code>
+		<code><a href="source-class-Module.Authentication.User.html#176-184" title="Go to source code">isLoaded</a>( )</code>
 
 		<div class="description short">
-			
-<p>Checks if a user is loaded</p>
-
+			<p>Checks if a user is loaded</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Checks if a user is loaded</p>
-
+			<p>Checks if a user is loaded</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br>True, if loaded<br />
+					boolean<br>True, if loaded
 				</div>
 
 
@@ -536,6 +523,7 @@ class="php-var">$u</span>-&gt;save();
 
 		<td class="attributes"><code>
 			 public 
+
 			boolean
 			
 			</code>
@@ -543,24 +531,20 @@ class="php-var">$u</span>-&gt;save();
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isLoggedIn">#</a>
-		<code><a href="source-class-Module.Authentication.User.html#182-192" title="Go to source code">isLoggedIn</a>( )</code>
+		<code><a href="source-class-Module.Authentication.User.html#186-196" title="Go to source code">isLoggedIn</a>( )</code>
 
 		<div class="description short">
-			
-<p>Checks if a user is logged in</p>
-
+			<p>Checks if a user is logged in</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Checks if a user is logged in</p>
-
+			<p>Checks if a user is logged in</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br>True, if logged in<br />
+					boolean<br>True, if logged in
 				</div>
 
 
@@ -573,6 +557,7 @@ class="php-var">$u</span>-&gt;save();
 
 		<td class="attributes"><code>
 			 public 
+
 			boolean
 			
 			</code>
@@ -580,24 +565,20 @@ class="php-var">$u</span>-&gt;save();
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isAdmin">#</a>
-		<code><a href="source-class-Module.Authentication.User.html#194-212" title="Go to source code">isAdmin</a>( )</code>
+		<code><a href="source-class-Module.Authentication.User.html#198-216" title="Go to source code">isAdmin</a>( )</code>
 
 		<div class="description short">
-			
-<p>Checks if a user is an admin (role_id == 1)</p>
-
+			<p>Checks if a user is an admin (role_id == 1)</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Checks if a user is an admin (role_id == 1)</p>
-
+			<p>Checks if a user is an admin (role_id == 1)</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br>True, if role_id == 1<br />
+					boolean<br>True, if role_id ==  1
 				</div>
 
 
@@ -610,6 +591,7 @@ class="php-var">$u</span>-&gt;save();
 
 		<td class="attributes"><code>
 			 public 
+
 			string
 			
 			</code>
@@ -617,24 +599,20 @@ class="php-var">$u</span>-&gt;save();
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getRole">#</a>
-		<code><a href="source-class-Module.Authentication.User.html#214-220" title="Go to source code">getRole</a>( )</code>
+		<code><a href="source-class-Module.Authentication.User.html#218-224" title="Go to source code">getRole</a>( )</code>
 
 		<div class="description short">
-			
-<p>Gets the name of the role of the user</p>
-
+			<p>Gets the name of the role of the user</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Gets the name of the role of the user</p>
-
+			<p>Gets the name of the role of the user</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>The role<br />
+					string<br>The role
 				</div>
 
 
@@ -666,7 +644,7 @@ class="php-var">$u</span>-&gt;save();
 
 
 
-	<table class="summary" id="properties">
+	<table class="summary properties" id="properties">
 	<caption>Properties summary</caption>
 	<tr data-order="table" id="$table">
 		<td class="attributes"><code>
@@ -676,24 +654,22 @@ class="php-var">$u</span>-&gt;save();
 
 		<td class="name">
 				<a href="source-class-Module.Authentication.User.html#30-34" title="Go to source code"><var>$table</var></a>
-		</td>
-		<td class="value"><code><span class="php-quote">'users'</span></code></td>
-		<td class="description"><div>
-			<a href="#$table" class="anchor">#</a>
 
 			<div class="description short">
-				
-<p>The name of the users table</p>
-
+				<p>The name of the users table</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
-<p>The name of the users table</p>
-
+				<p>The name of the users table</p>
 
 			</div>
-		</div></td>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$table" class="anchor">#</a>
+				<code><span class="php-quote">'users'</span></code>
+			</div>
+		</td>
 	</tr>
 	<tr data-order="metadata" id="$metadata">
 		<td class="attributes"><code>
@@ -703,24 +679,72 @@ class="php-var">$u</span>-&gt;save();
 
 		<td class="name">
 				<a href="source-class-Module.Authentication.User.html#36-40" title="Go to source code"><var>$metadata</var></a>
-		</td>
-		<td class="value"><code></code></td>
-		<td class="description"><div>
-			<a href="#$metadata" class="anchor">#</a>
 
 			<div class="description short">
-				
-<p>The meta data for the table, e.g. fields and field data</p>
-
+				<p>The meta data for the table, e.g. fields and field data</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
-<p>The meta data for the table, e.g. fields and field data</p>
-
+				<p>The meta data for the table, e.g. fields and field data</p>
 
 			</div>
-		</div></td>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$metadata" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="role" id="$role">
+		<td class="attributes"><code>
+			private  
+			<code><a href="class-Module.Authentication.Role.html">Module\Authentication\Role</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.Authentication.User.html#42-46" title="Go to source code"><var>$role</var></a>
+
+			<div class="description short">
+				<p>The users Role</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>The users Role</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$role" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="salt" id="$salt">
+		<td class="attributes"><code>
+			private  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.Authentication.User.html#49-53" title="Go to source code"><var>$salt</var></a>
+
+			<div class="description short">
+				<p>The salt for password encryption</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>The salt for password encryption</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$salt" class="anchor">#</a>
+				<code><span class="php-quote">'o_PXO=1-BCTkq&gt;|&gt;*}KmkM8CA-!x|J6Y/UyDJC#ph(*A6me&gt;CJ1Uu8E7gye|Vek['</span></code>
+			</div>
+		</td>
 	</tr>
 	</table>
 
@@ -743,9 +767,11 @@ class="php-var">$u</span>-&gt;save();
 </div>
 
 	<div id="footer">
-		sleepyMUSTACHE v.0.8 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		sleepyMUSTACHE v.0.8 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>

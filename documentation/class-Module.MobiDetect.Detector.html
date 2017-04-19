@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta charset="utf-8">
 
 	<title>Deprecated Class Module\MobiDetect\Detector | sleepyMUSTACHE v.0.8</title>
 
-	<script type="text/javascript" src="resources/combined.js?2475353264"></script>
-	<script type="text/javascript" src="elementlist.js?250903305"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
-	<script type="text/javascript">
+	<script>
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', "UA-55477508-1"]);
 		_gaq.push(['_trackPageview']);
@@ -30,37 +27,79 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="main"><a href="namespace-Sleepy.html">Sleepy</a>
+				<li class="main">
+					<a href="namespace-Sleepy.html">
+						Sleepy					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Module.html">Module<span></span></a>
+				<li class="active">
+					<a href="namespace-Module.html">
+						Module<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Module.Authentication.html">Authentication</a>
+				<li>
+					<a href="namespace-Module.Authentication.html">
+						Authentication					</a>
+
 						</li>
-				<li><a href="namespace-Module.CSV.html">CSV</a>
+				<li>
+					<a href="namespace-Module.CSV.html">
+						CSV					</a>
+
 						</li>
-				<li><a href="namespace-Module.DB.html">DB</a>
+				<li>
+					<a href="namespace-Module.DB.html">
+						DB					</a>
+
 						</li>
-				<li><a href="namespace-Module.FormBuilder.html">FormBuilder</a>
+				<li>
+					<a href="namespace-Module.FormBuilder.html">
+						FormBuilder					</a>
+
 						</li>
-				<li><a href="namespace-Module.FSDB.html">FSDB</a>
+				<li>
+					<a href="namespace-Module.FSDB.html">
+						FSDB					</a>
+
 						</li>
-				<li><a href="namespace-Module.IP2Country.html">IP2Country</a>
+				<li>
+					<a href="namespace-Module.IP2Country.html">
+						IP2Country					</a>
+
 						</li>
-				<li><a href="namespace-Module.Mailer.html">Mailer</a>
+				<li>
+					<a href="namespace-Module.Mailer.html">
+						Mailer					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Module.MobiDetect.html">MobiDetect</a>
+				<li class="active">
+					<a href="namespace-Module.MobiDetect.html">
+						MobiDetect					</a>
+
 						</li>
-				<li><a href="namespace-Module.Mobile.html">Mobile</a>
+				<li>
+					<a href="namespace-Module.Navigation.html">
+						Navigation					</a>
+
 						</li>
-				<li><a href="namespace-Module.Navigation.html">Navigation</a>
+				<li>
+					<a href="namespace-Module.StaticCache.html">
+						StaticCache					</a>
+
 						</li>
 							</ul></li>
+				<li>
+					<a href="namespace-PHP.html">
+						PHP					</a>
+
+						</li>
 			</ul>
 		</div>
 
-		<hr />
+		<hr>
 
 
 		<div id="elements">
@@ -82,10 +121,9 @@
 <div id="right">
 <div id="rightInner">
 	<form id="search">
-		<input type="hidden" name="cx" value="" />
-		<input type="hidden" name="ie" value="UTF-8" />
-		<input type="text" name="q" class="text" />
-		<input type="submit" value="Search" />
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -103,12 +141,16 @@
 			<li>
 				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
 			</li>
-			<li>
-				<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
-			</li>
-			<li>
-				<a href="todo.html" title="Todo list"><span>Todo</span></a>
-			</li>
+				<li>
+					<a href="annotation-group-deprecated.html" title="List of elements with deprecated annotation">
+						<span>Deprecated</span>
+					</a>
+				</li>
+				<li>
+					<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+						<span>Todo</span>
+					</a>
+				</li>
 		</ul>
 		<ul>
 		</ul>
@@ -119,34 +161,25 @@
 
 
 	<div class="description">
-	
-<p>Detects if a device is a mobile device and which kind.</p>
+	<p>Detects if a device is a mobile device and which kind.</p>
 
 <p>Attribution: Regex taken from unknown source</p>
 
-<h1>Usage</h1>
+<h3>Usage</h3>
 
-<pre>
-<span class="php-var">$m</span> = <span
-class="php-keyword1">new</span> \Module\MobiDetect\Detector();
+<pre><span class="php-var">$m</span> = <span class="php-keyword1">new</span> \Module\MobiDetect\Detector();
 
-<span
-class="php-keyword1">if</span> (<span
-class="php-var">$m</span>-&gt;isMobile()) {
-  <span
-class="php-keyword1">echo</span> <span
-class="php-quote">&quot;This is a mobile device&quot;</span>;
-}
-</pre>
+  <span class="php-keyword1">if</span> (<span class="php-var">$m</span>-&gt;isMobile()) {
+    <span class="php-keyword1">echo</span> <span class="php-quote">&quot;This is a mobile device&quot;</span>;
+  }</pre>
 
-<h1>Changelog</h1>
+<h3>Changelog</h3>
 
 <h2>Version 1.6</h2>
 
 <ul>
-	<li>Fixed bug with BCC and CC</li>
+<li>Fixed bug with BCC and CC</li>
 </ul>
-
 	</div>
 
 
@@ -160,31 +193,32 @@ class="php-quote">&quot;This is a mobile device&quot;</span>;
 	<div class="info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-Module.html">Module</a>\<a href="namespace-Module.MobiDetect.html">MobiDetect</a><br />
+		<b>Namespace:</b> <a href="namespace-Module.html">Module</a>\<a href="namespace-Module.MobiDetect.html">MobiDetect</a><br>
 		
 
 				<b>Deprecated:</b>
-				v.1.0<br />
+				v.1.0<br>
 				<b>License:</b>
-				<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a><br />
+				<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a><br>
 				<b>Author:</b>
-				Jaime A. Rodriguez &lt;<a
-href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>&gt;<br />
+				Jaime A. Rodriguez <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x68;&#x69;&#x2e;&#x69;&#x2e;&#x61;&#x6d;&#x2e;&#x6a;&#x61;&#x69;&#x6d;&#x65;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#x68;&#x69;&#x2e;&#x69;&#x2e;&#x61;&#x6d;&#x2e;&#x6a;&#x61;&#x69;&#x6d;&#x65;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a><br>
 				<b>Version:</b>
-				1.1<br />
+				1.1<br>
 				<b>Date:</b>
-				June 16, 2014<br />
-		<b>Located at</b> <a href="source-class-Module.MobiDetect.Detector.html#4-177" title="Go to source code">disabled/mobile-detection/class.mobidetect.php</a><br />
+				June 16, 2014<br>
+			<b>Located at</b> <a href="source-class-Module.MobiDetect.Detector.html#4-177" title="Go to source code">class.mobidetect.php</a>
+		<br>
 	</div>
 
 
 
-	<table class="summary" id="methods">
+	<table class="summary methods" id="methods">
 	<caption>Methods summary</caption>
-	<tr data-order="__construct" id="___construct">
+	<tr data-order="__construct" id="___construct" class="deprecated">
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -210,10 +244,44 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="isMobile" id="_isMobile">
+	<tr data-order="detect" id="_detect" class="deprecated">
+
+		<td class="attributes"><code>
+			 private 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_detect">#</a>
+		<code><a href="source-class-Module.MobiDetect.Detector.html#43-88" title="Go to source code">detect</a>( )</code>
+
+		<div class="description short">
+			<p>Detects the device. Called in constructor.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Detects the device. Called in constructor.</p>
+
+
+
+
+
+				<h4>Private</h4>
+				<div class="list">
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isMobile" id="_isMobile" class="deprecated">
 
 		<td class="attributes"><code>
 			 public 
+
 			boolean
 			
 			</code>
@@ -224,21 +292,17 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		<code><a href="source-class-Module.MobiDetect.Detector.html#90-99" title="Go to source code">isMobile</a>( )</code>
 
 		<div class="description short">
-			
-<p>Checks if it is a mobile device.</p>
-
+			<p>Checks if it is a mobile device.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Checks if it is a mobile device.</p>
-
+			<p>Checks if it is a mobile device.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br>True if device is mobile.<br />
+					boolean<br>True if device is mobile.
 				</div>
 
 
@@ -250,10 +314,11 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="isIphone" id="_isIphone">
+	<tr data-order="isIphone" id="_isIphone" class="deprecated">
 
 		<td class="attributes"><code>
 			 public 
+
 			boolean
 			
 			</code>
@@ -264,21 +329,17 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		<code><a href="source-class-Module.MobiDetect.Detector.html#101-110" title="Go to source code">isIphone</a>( )</code>
 
 		<div class="description short">
-			
-<p>Checks if it is an iPhone</p>
-
+			<p>Checks if it is an iPhone</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Checks if it is an iPhone</p>
-
+			<p>Checks if it is an iPhone</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br>True if device is an iPhone.<br />
+					boolean<br>True if device is an iPhone.
 				</div>
 
 
@@ -290,10 +351,11 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="isIpad" id="_isIpad">
+	<tr data-order="isIpad" id="_isIpad" class="deprecated">
 
 		<td class="attributes"><code>
 			 public 
+
 			boolean
 			
 			</code>
@@ -304,21 +366,17 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		<code><a href="source-class-Module.MobiDetect.Detector.html#112-121" title="Go to source code">isIpad</a>( )</code>
 
 		<div class="description short">
-			
-<p>Checks if it is an iPad</p>
-
+			<p>Checks if it is an iPad</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Checks if it is an iPad</p>
-
+			<p>Checks if it is an iPad</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br>True if device is an iPad.<br />
+					boolean<br>True if device is an iPad.
 				</div>
 
 
@@ -330,10 +388,11 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="isAndroid" id="_isAndroid">
+	<tr data-order="isAndroid" id="_isAndroid" class="deprecated">
 
 		<td class="attributes"><code>
 			 public 
+
 			boolean
 			
 			</code>
@@ -344,21 +403,17 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		<code><a href="source-class-Module.MobiDetect.Detector.html#123-132" title="Go to source code">isAndroid</a>( )</code>
 
 		<div class="description short">
-			
-<p>Checks if it is an Android</p>
-
+			<p>Checks if it is an Android</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Checks if it is an Android</p>
-
+			<p>Checks if it is an Android</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br>True if device is an Android.<br />
+					boolean<br>True if device is an Android.
 				</div>
 
 
@@ -370,10 +425,11 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="isOpera" id="_isOpera">
+	<tr data-order="isOpera" id="_isOpera" class="deprecated">
 
 		<td class="attributes"><code>
 			 public 
+
 			boolean
 			
 			</code>
@@ -384,21 +440,17 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		<code><a href="source-class-Module.MobiDetect.Detector.html#134-143" title="Go to source code">isOpera</a>( )</code>
 
 		<div class="description short">
-			
-<p>Checks if the browser is Opera Mini</p>
-
+			<p>Checks if the browser is Opera Mini</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Checks if the browser is Opera Mini</p>
-
+			<p>Checks if the browser is Opera Mini</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br>True if browser is Opera Mini<br />
+					boolean<br>True if browser is Opera Mini
 				</div>
 
 
@@ -410,10 +462,11 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="isBlackberry" id="_isBlackberry">
+	<tr data-order="isBlackberry" id="_isBlackberry" class="deprecated">
 
 		<td class="attributes"><code>
 			 public 
+
 			boolean
 			
 			</code>
@@ -424,21 +477,17 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		<code><a href="source-class-Module.MobiDetect.Detector.html#145-154" title="Go to source code">isBlackberry</a>( )</code>
 
 		<div class="description short">
-			
-<p>Checks if it is a Blackberry</p>
-
+			<p>Checks if it is a Blackberry</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Checks if it is a Blackberry</p>
-
+			<p>Checks if it is a Blackberry</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br>True if device is a Blackberry.<br />
+					boolean<br>True if device is a Blackberry.
 				</div>
 
 
@@ -450,10 +499,11 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="isPalm" id="_isPalm">
+	<tr data-order="isPalm" id="_isPalm" class="deprecated">
 
 		<td class="attributes"><code>
 			 public 
+
 			boolean
 			
 			</code>
@@ -464,21 +514,17 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		<code><a href="source-class-Module.MobiDetect.Detector.html#156-165" title="Go to source code">isPalm</a>( )</code>
 
 		<div class="description short">
-			
-<p>Checks if it is a Palm device</p>
-
+			<p>Checks if it is a Palm device</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Checks if it is a Palm device</p>
-
+			<p>Checks if it is a Palm device</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br>True if device is a Palm device.<br />
+					boolean<br>True if device is a Palm device.
 				</div>
 
 
@@ -490,10 +536,11 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="isWindowsPhone" id="_isWindowsPhone">
+	<tr data-order="isWindowsPhone" id="_isWindowsPhone" class="deprecated">
 
 		<td class="attributes"><code>
 			 public 
+
 			boolean
 			
 			</code>
@@ -504,21 +551,17 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		<code><a href="source-class-Module.MobiDetect.Detector.html#167-176" title="Go to source code">isWindowsPhone</a>( )</code>
 
 		<div class="description short">
-			
-<p>Checks if it is a Windows Phone</p>
-
+			<p>Checks if it is a Windows Phone</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Checks if it is a Windows Phone</p>
-
+			<p>Checks if it is a Windows Phone</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br>True if device is a Windows Phone.<br />
+					boolean<br>True if device is a Windows Phone.
 				</div>
 
 
@@ -543,6 +586,209 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 
 
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="iphone" id="$iphone">
+		<td class="attributes"><code>
+			private  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.MobiDetect.Detector.html#30" title="Go to source code"><var>$iphone</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$iphone" class="anchor">#</a>
+				<code><span class="php-keyword1">false</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="ipad" id="$ipad">
+		<td class="attributes"><code>
+			private  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.MobiDetect.Detector.html#31" title="Go to source code"><var>$ipad</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$ipad" class="anchor">#</a>
+				<code><span class="php-keyword1">false</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="android" id="$android">
+		<td class="attributes"><code>
+			private  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.MobiDetect.Detector.html#32" title="Go to source code"><var>$android</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$android" class="anchor">#</a>
+				<code><span class="php-keyword1">false</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="opera" id="$opera">
+		<td class="attributes"><code>
+			private  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.MobiDetect.Detector.html#33" title="Go to source code"><var>$opera</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$opera" class="anchor">#</a>
+				<code><span class="php-keyword1">false</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="blackberry" id="$blackberry">
+		<td class="attributes"><code>
+			private  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.MobiDetect.Detector.html#34" title="Go to source code"><var>$blackberry</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$blackberry" class="anchor">#</a>
+				<code><span class="php-keyword1">false</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="palm" id="$palm">
+		<td class="attributes"><code>
+			private  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.MobiDetect.Detector.html#35" title="Go to source code"><var>$palm</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$palm" class="anchor">#</a>
+				<code><span class="php-keyword1">false</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="windowsPhone" id="$windowsPhone">
+		<td class="attributes"><code>
+			private  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.MobiDetect.Detector.html#36" title="Go to source code"><var>$windowsPhone</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$windowsPhone" class="anchor">#</a>
+				<code><span class="php-keyword1">false</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="mobileBrowser" id="$mobileBrowser">
+		<td class="attributes"><code>
+			private  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.MobiDetect.Detector.html#37" title="Go to source code"><var>$mobileBrowser</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$mobileBrowser" class="anchor">#</a>
+				<code><span class="php-keyword1">false</span></code>
+			</div>
+		</td>
+	</tr>
+	</table>
 
 
 
@@ -552,9 +798,11 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 </div>
 
 	<div id="footer">
-		sleepyMUSTACHE v.0.8 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		sleepyMUSTACHE v.0.8 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>

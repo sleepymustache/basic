@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta charset="utf-8">
 
 	<title>Class Module\Mailer\Message | sleepyMUSTACHE v.0.8</title>
 
-	<script type="text/javascript" src="resources/combined.js?2475353264"></script>
-	<script type="text/javascript" src="elementlist.js?250903305"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
-	<script type="text/javascript">
+	<script>
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', "UA-55477508-1"]);
 		_gaq.push(['_trackPageview']);
@@ -30,37 +27,79 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="main"><a href="namespace-Sleepy.html">Sleepy</a>
+				<li class="main">
+					<a href="namespace-Sleepy.html">
+						Sleepy					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Module.html">Module<span></span></a>
+				<li class="active">
+					<a href="namespace-Module.html">
+						Module<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Module.Authentication.html">Authentication</a>
+				<li>
+					<a href="namespace-Module.Authentication.html">
+						Authentication					</a>
+
 						</li>
-				<li><a href="namespace-Module.CSV.html">CSV</a>
+				<li>
+					<a href="namespace-Module.CSV.html">
+						CSV					</a>
+
 						</li>
-				<li><a href="namespace-Module.DB.html">DB</a>
+				<li>
+					<a href="namespace-Module.DB.html">
+						DB					</a>
+
 						</li>
-				<li><a href="namespace-Module.FormBuilder.html">FormBuilder</a>
+				<li>
+					<a href="namespace-Module.FormBuilder.html">
+						FormBuilder					</a>
+
 						</li>
-				<li><a href="namespace-Module.FSDB.html">FSDB</a>
+				<li>
+					<a href="namespace-Module.FSDB.html">
+						FSDB					</a>
+
 						</li>
-				<li><a href="namespace-Module.IP2Country.html">IP2Country</a>
+				<li>
+					<a href="namespace-Module.IP2Country.html">
+						IP2Country					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Module.Mailer.html">Mailer</a>
+				<li class="active">
+					<a href="namespace-Module.Mailer.html">
+						Mailer					</a>
+
 						</li>
-				<li><a href="namespace-Module.MobiDetect.html">MobiDetect</a>
+				<li>
+					<a href="namespace-Module.MobiDetect.html">
+						MobiDetect					</a>
+
 						</li>
-				<li><a href="namespace-Module.Mobile.html">Mobile</a>
+				<li>
+					<a href="namespace-Module.Navigation.html">
+						Navigation					</a>
+
 						</li>
-				<li><a href="namespace-Module.Navigation.html">Navigation</a>
+				<li>
+					<a href="namespace-Module.StaticCache.html">
+						StaticCache					</a>
+
 						</li>
 							</ul></li>
+				<li>
+					<a href="namespace-PHP.html">
+						PHP					</a>
+
+						</li>
 			</ul>
 		</div>
 
-		<hr />
+		<hr>
 
 
 		<div id="elements">
@@ -82,10 +121,9 @@
 <div id="right">
 <div id="rightInner">
 	<form id="search">
-		<input type="hidden" name="cx" value="" />
-		<input type="hidden" name="ie" value="UTF-8" />
-		<input type="text" name="q" class="text" />
-		<input type="submit" value="Search" />
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -103,12 +141,16 @@
 			<li>
 				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
 			</li>
-			<li>
-				<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
-			</li>
-			<li>
-				<a href="todo.html" title="Todo list"><span>Todo</span></a>
-			</li>
+				<li>
+					<a href="annotation-group-deprecated.html" title="List of elements with deprecated annotation">
+						<span>Deprecated</span>
+					</a>
+				</li>
+				<li>
+					<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+						<span>Todo</span>
+					</a>
+				</li>
 		</ul>
 		<ul>
 		</ul>
@@ -119,47 +161,33 @@
 
 
 	<div class="description">
-	
-<p>Simplifies sending emails.</p>
+	<p>Simplifies sending emails.</p>
 
 <p>Simplifies sending emails by automatically verifying email addresses and
 fetching HTML.</p>
 
-<h1>Usage</h1>
+<h3>Usage</h3>
 
-<pre>
-<span class="php-var">$m</span> = <span
-class="php-keyword1">new</span> \Module\Mailer\Message();
-<span
-class="php-var">$m</span>-&gt;addTo(<span
-class="php-quote">&quot;test@test.com&quot;</span>);
-<span
-class="php-var">$m</span>-&gt;addFrom(<span
-class="php-quote">&quot;from.me@test.com&quot;</span>);
-<span
-class="php-var">$m</span>-&gt;addSubject(<span
-class="php-quote">&quot;This is a test, don't panic.&quot;</span>);
-<span
-class="php-var">$m</span>-&gt;fetchHTML(<span
-class="php-quote">&quot;http://test.com/template.php&quot;</span>);
-<span
-class="php-var">$m</span>-&gt;send();
-</pre>
+<pre><span class="php-var">$m</span> = <span class="php-keyword1">new</span> \Module\Mailer\Message();
+  <span class="php-var">$m</span>-&gt;addTo(<span class="php-quote">&quot;test@test.com&quot;</span>);
+  <span class="php-var">$m</span>-&gt;addFrom(<span class="php-quote">&quot;from.me@test.com&quot;</span>);
+  <span class="php-var">$m</span>-&gt;addSubject(<span class="php-quote">&quot;This is a test, don't panic.&quot;</span>);
+  <span class="php-var">$m</span>-&gt;fetchHTML(<span class="php-quote">&quot;http://test.com/template.php&quot;</span>);
+  <span class="php-var">$m</span>-&gt;send();</pre>
 
-<h1>Changelog</h1>
+<h3>Changelog</h3>
 
 <h2>Version 1.8</h2>
 
 <ul>
-	<li>Added namespacing</li>
+<li>Added namespacing</li>
 </ul>
 
 <h2>Version 1.6</h2>
 
 <ul>
-	<li>Fixed bug with BCC and CC</li>
+<li>Fixed bug with BCC and CC</li>
 </ul>
-
 	</div>
 
 
@@ -173,29 +201,30 @@ class="php-var">$m</span>-&gt;send();
 	<div class="info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-Module.html">Module</a>\<a href="namespace-Module.Mailer.html">Mailer</a><br />
+		<b>Namespace:</b> <a href="namespace-Module.html">Module</a>\<a href="namespace-Module.Mailer.html">Mailer</a><br>
 		
 
 				<b>License:</b>
-				<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a><br />
+				<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a><br>
 				<b>Author:</b>
-				Jaime Rodriguez, <a
-href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a><br />
+				Jaime Rodriguez, hi.i.am.jaime@gmail.com<br>
 				<b>Version:</b>
-				1.8<br />
+				1.8<br>
 				<b>Date:</b>
-				August 13, 2014<br />
-		<b>Located at</b> <a href="source-class-Module.Mailer.Message.html#4-232" title="Go to source code">disabled/mailer/class.mailer.php</a><br />
+				August 13, 2014<br>
+			<b>Located at</b> <a href="source-class-Module.Mailer.Message.html#4-232" title="Go to source code">class.mailer.php</a>
+		<br>
 	</div>
 
 
 
-	<table class="summary" id="methods">
+	<table class="summary methods" id="methods">
 	<caption>Methods summary</caption>
 	<tr data-order="__construct" id="___construct">
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -225,6 +254,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="attributes"><code>
 			 public 
+
 			boolean
 			
 			</code>
@@ -235,21 +265,17 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		<code><a href="source-class-Module.Mailer.Message.html#52-101" title="Go to source code">send</a>( )</code>
 
 		<div class="description short">
-			
-<p>Sends the email.</p>
-
+			<p>Sends the email.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Sends the email.</p>
-
+			<p>Sends the email.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br>Was the email successfully sent?<br />
+					boolean<br>Was the email successfully sent?
 				</div>
 
 
@@ -262,6 +288,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -272,21 +299,17 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		<code><a href="source-class-Module.Mailer.Message.html#103-121" title="Go to source code">addTo</a>( <span>string <var>$email</var></span> )</code>
 
 		<div class="description short">
-			
-<p>Adds a primary recipient.</p>
-
+			<p>Adds a primary recipient.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Adds a primary recipient.</p>
-
+			<p>Adds a primary recipient.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$email</var></dt>
-					<dd><code>string</code><br>$email A valid email address.</dd>
+					<dd>A valid email address.</dd>
 				</dl></div>
 
 
@@ -300,6 +323,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -310,21 +334,17 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		<code><a href="source-class-Module.Mailer.Message.html#123-140" title="Go to source code">addCc</a>( <span>string <var>$email</var></span> )</code>
 
 		<div class="description short">
-			
-<p>Adds a Carbon Copy recipient.</p>
-
+			<p>Adds a Carbon Copy recipient.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Adds a Carbon Copy recipient.</p>
-
+			<p>Adds a Carbon Copy recipient.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$email</var></dt>
-					<dd><code>string</code><br>$email A valid email address.</dd>
+					<dd>A valid email address.</dd>
 				</dl></div>
 
 
@@ -338,6 +358,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -348,21 +369,17 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		<code><a href="source-class-Module.Mailer.Message.html#142-159" title="Go to source code">addBcc</a>( <span>string <var>$email</var></span> )</code>
 
 		<div class="description short">
-			
-<p>Adds a Blind Carbon Copy recipient.</p>
-
+			<p>Adds a Blind Carbon Copy recipient.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Adds a Blind Carbon Copy recipient.</p>
-
+			<p>Adds a Blind Carbon Copy recipient.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$email</var></dt>
-					<dd><code>string</code><br>$email A valid email address</dd>
+					<dd>A valid email address</dd>
 				</dl></div>
 
 
@@ -376,6 +393,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -386,21 +404,17 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		<code><a href="source-class-Module.Mailer.Message.html#161-173" title="Go to source code">addFrom</a>( <span>string <var>$email</var></span> )</code>
 
 		<div class="description short">
-			
-<p>Sets a senders email address.</p>
-
+			<p>Sets a senders email address.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Sets a senders email address.</p>
-
+			<p>Sets a senders email address.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$email</var></dt>
-					<dd><code>string</code><br>$email A valid email address.</dd>
+					<dd>A valid email address.</dd>
 				</dl></div>
 
 
@@ -414,6 +428,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -424,23 +439,19 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		<code><a href="source-class-Module.Mailer.Message.html#175-189" title="Go to source code">fetchHtml</a>( <span>string <var>$url</var></span> )</code>
 
 		<div class="description short">
-			
-<p>Gets HTML for a $url and repalces anything in the body of the email with the
-HTML that it fetched.</p>
-
+			<p>Gets HTML for a $url and repalces anything in the body of the email with
+the HTML that it fetched.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Gets HTML for a $url and repalces anything in the body of the email with the
-HTML that it fetched.</p>
-
+			<p>Gets HTML for a $url and repalces anything in the body of the email with
+the HTML that it fetched.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$url</var></dt>
-					<dd><code>string</code><br>$url the url of an html file for the email body.</dd>
+					<dd>the url of an html file for the email body.</dd>
 				</dl></div>
 
 
@@ -454,6 +465,7 @@ HTML that it fetched.</p>
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -464,23 +476,19 @@ HTML that it fetched.</p>
 		<code><a href="source-class-Module.Mailer.Message.html#191-199" title="Go to source code">msgText</a>( <span>string <var>$msg</var></span>, <span>boolean <var>$switch</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
-			
-<p>Sets the body of the email to text.</p>
-
+			<p>Sets the body of the email to text.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Sets the body of the email to text.</p>
-
+			<p>Sets the body of the email to text.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$msg</var></dt>
-					<dd><code>string</code><br>$msg a string for the body</dd>
+					<dd>a string for the body</dd>
 					<dt><var>$switch</var></dt>
-					<dd><code>boolean</code><br>$switch an optional parameter for overloading $this-&gt;html</dd>
+					<dd>an optional parameter for overloading $this->html</dd>
 				</dl></div>
 
 
@@ -494,6 +502,7 @@ HTML that it fetched.</p>
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -504,25 +513,58 @@ HTML that it fetched.</p>
 		<code><a href="source-class-Module.Mailer.Message.html#201-216" title="Go to source code">addSubject</a>( <span>string <var>$subject</var> = <span class="php-quote">''</span></span> )</code>
 
 		<div class="description short">
-			
-<p>Adds a subject to the email. If there is no subject the time will be
-used.</p>
-
+			<p>Adds a subject to the email. If there is no subject the time will be used.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Adds a subject to the email. If there is no subject the time will be
-used.</p>
-
+			<p>Adds a subject to the email. If there is no subject the time will be used.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$subject</var></dt>
-					<dd><code>string</code><br>$subject The subject of the email</dd>
+					<dd>The subject of the email</dd>
 				</dl></div>
 
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="rfcCheck" id="_rfcCheck">
+
+		<td class="attributes"><code>
+			 private 
+
+			string[]
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_rfcCheck">#</a>
+		<code><a href="source-class-Module.Mailer.Message.html#218-231" title="Go to source code">rfcCheck</a>( <span>string <var>$string</var></span> )</code>
+
+		<div class="description short">
+			<p>Extracts the email address from a RFC 2822 compliant string</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Extracts the email address from a RFC 2822 compliant string</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$string</var></dt>
+					<dd>RFC 2822 compliant string</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string[]<br>an array of email addresses
+				</div>
 
 
 
@@ -543,6 +585,184 @@ used.</p>
 
 
 
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="to" id="$to">
+		<td class="attributes"><code>
+			private  
+			
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.Mailer.Message.html#35" title="Go to source code"><var>$to</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$to" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="cc" id="$cc">
+		<td class="attributes"><code>
+			private  
+			
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.Mailer.Message.html#36" title="Go to source code"><var>$cc</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$cc" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="bcc" id="$bcc">
+		<td class="attributes"><code>
+			private  
+			
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.Mailer.Message.html#37" title="Go to source code"><var>$bcc</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$bcc" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="from" id="$from">
+		<td class="attributes"><code>
+			private  
+			
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.Mailer.Message.html#38" title="Go to source code"><var>$from</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$from" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="subject" id="$subject">
+		<td class="attributes"><code>
+			private  
+			
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.Mailer.Message.html#39" title="Go to source code"><var>$subject</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$subject" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="body" id="$body">
+		<td class="attributes"><code>
+			private  
+			
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.Mailer.Message.html#40" title="Go to source code"><var>$body</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$body" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="html" id="$html">
+		<td class="attributes"><code>
+			private  
+			
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.Mailer.Message.html#41" title="Go to source code"><var>$html</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$html" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	</table>
 
 
 
@@ -552,9 +772,11 @@ used.</p>
 </div>
 
 	<div id="footer">
-		sleepyMUSTACHE v.0.8 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		sleepyMUSTACHE v.0.8 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>

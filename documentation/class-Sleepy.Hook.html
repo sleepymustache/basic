@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta charset="utf-8">
 
 	<title>Class Sleepy\Hook | sleepyMUSTACHE v.0.8</title>
 
-	<script type="text/javascript" src="resources/combined.js?2475353264"></script>
-	<script type="text/javascript" src="elementlist.js?250903305"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
-	<script type="text/javascript">
+	<script>
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', "UA-55477508-1"]);
 		_gaq.push(['_trackPageview']);
@@ -30,37 +27,79 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="active main"><a href="namespace-Sleepy.html">Sleepy</a>
+				<li class="active main">
+					<a href="namespace-Sleepy.html">
+						Sleepy					</a>
+
 						</li>
-				<li><a href="namespace-Module.html">Module<span></span></a>
+				<li>
+					<a href="namespace-Module.html">
+						Module<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Module.Authentication.html">Authentication</a>
+				<li>
+					<a href="namespace-Module.Authentication.html">
+						Authentication					</a>
+
 						</li>
-				<li><a href="namespace-Module.CSV.html">CSV</a>
+				<li>
+					<a href="namespace-Module.CSV.html">
+						CSV					</a>
+
 						</li>
-				<li><a href="namespace-Module.DB.html">DB</a>
+				<li>
+					<a href="namespace-Module.DB.html">
+						DB					</a>
+
 						</li>
-				<li><a href="namespace-Module.FormBuilder.html">FormBuilder</a>
+				<li>
+					<a href="namespace-Module.FormBuilder.html">
+						FormBuilder					</a>
+
 						</li>
-				<li><a href="namespace-Module.FSDB.html">FSDB</a>
+				<li>
+					<a href="namespace-Module.FSDB.html">
+						FSDB					</a>
+
 						</li>
-				<li><a href="namespace-Module.IP2Country.html">IP2Country</a>
+				<li>
+					<a href="namespace-Module.IP2Country.html">
+						IP2Country					</a>
+
 						</li>
-				<li><a href="namespace-Module.Mailer.html">Mailer</a>
+				<li>
+					<a href="namespace-Module.Mailer.html">
+						Mailer					</a>
+
 						</li>
-				<li><a href="namespace-Module.MobiDetect.html">MobiDetect</a>
+				<li>
+					<a href="namespace-Module.MobiDetect.html">
+						MobiDetect					</a>
+
 						</li>
-				<li><a href="namespace-Module.Mobile.html">Mobile</a>
+				<li>
+					<a href="namespace-Module.Navigation.html">
+						Navigation					</a>
+
 						</li>
-				<li><a href="namespace-Module.Navigation.html">Navigation</a>
+				<li>
+					<a href="namespace-Module.StaticCache.html">
+						StaticCache					</a>
+
 						</li>
 							</ul></li>
+				<li>
+					<a href="namespace-PHP.html">
+						PHP					</a>
+
+						</li>
 			</ul>
 		</div>
 
-		<hr />
+		<hr>
 
 
 		<div id="elements">
@@ -75,6 +114,10 @@
 
 
 
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-Sleepy.RouteNotFound.html">RouteNotFound</a></li>
+			</ul>
 
 
 		</div>
@@ -86,10 +129,9 @@
 <div id="right">
 <div id="rightInner">
 	<form id="search">
-		<input type="hidden" name="cx" value="" />
-		<input type="hidden" name="ie" value="UTF-8" />
-		<input type="text" name="q" class="text" />
-		<input type="submit" value="Search" />
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -107,12 +149,16 @@
 			<li>
 				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
 			</li>
-			<li>
-				<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
-			</li>
-			<li>
-				<a href="todo.html" title="Todo list"><span>Todo</span></a>
-			</li>
+				<li>
+					<a href="annotation-group-deprecated.html" title="List of elements with deprecated annotation">
+						<span>Deprecated</span>
+					</a>
+				</li>
+				<li>
+					<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+						<span>Todo</span>
+					</a>
+				</li>
 		</ul>
 		<ul>
 		</ul>
@@ -123,60 +169,46 @@
 
 
 	<div class="description">
-	
-<p>Adds Hooks and Filters</p>
+	<p>Adds Hooks and Filters</p>
 
 <p>You can create modules to hooks by adding php files into the
 <em>\app\modules\enabled</em> directory.</p>
 
-<h1>Usage</h1>
+<h2>Usage</h2>
 
-<pre>
-<span class="php-comment">// add a hook point</span>
-<span
-class="php-var">$content</span> = Hook::addFilter(<span
-class="php-quote">'update_content'</span>, <span
-class="php-var">$_POST</span>[<span class="php-quote">'content'</span>]);
+<pre><span class="php-comment">// add a hook point</span>
+    <span class="php-var">$content</span> = Hook::addFilter(<span class="php-quote">'update_content'</span>, <span class="php-var">$_POST</span>[<span class="php-quote">'content'</span>]);
 
-<span
-class="php-comment">// Add a module to the hook point--in /modules/&lt;moduleName.php&gt;</span>
-<span
-class="php-keyword1">function</span> clean_html (<span
-class="php-var">$html</span>) {
-        <span class="php-var">$c</span> = <span
-class="php-keyword2">htmlentities</span>(<span
-class="php-keyword2">trim</span>(<span
-class="php-var">$html</span>), ENT_NOQUOTES, <span
-class="php-quote">&quot;UTF-8&quot;</span>, <span
-class="php-keyword1">false</span>);
-        <span
-class="php-keyword1">return</span> <span
-class="php-var">$c</span>;
-}
+    <span class="php-comment">// Add a module to the hook point--in /modules/&lt;moduleName.php&gt;</span>
+    <span class="php-keyword1">function</span> clean_html (<span class="php-var">$html</span>) {
+        <span class="php-var">$c</span> = <span class="php-keyword2">htmlentities</span>(<span class="php-keyword2">trim</span>(<span class="php-var">$html</span>), ENT_NOQUOTES, <span class="php-quote">&quot;UTF-8&quot;</span>, <span class="php-keyword1">false</span>);
+        <span class="php-keyword1">return</span> <span class="php-var">$c</span>;
+    }
 
-Hook::applyFilter(<span
-class="php-quote">&quot;update_content&quot;</span>, <span
-class="php-quote">&quot;clean_html&quot;</span>);
-</pre>
+    Hook::applyFilter(<span class="php-quote">&quot;update_content&quot;</span>, <span class="php-quote">&quot;clean_html&quot;</span>);</pre>
 
-<h1>Changelog</h1>
+<h2>Changelog</h2>
 
-<h2>Version 1.1</h2>
+<h3>Version 1.2</h3>
 
 <ul>
-	<li>Added the date section to the documentation</li>
+<li>Updated privacy prefix (_) for consistency</li>
+<li>Fixed Hook::_load method for teamsite bug</li>
 </ul>
 
-<h2>Version 1.0</h2>
+<h3>Version 1.1</h3>
 
 <ul>
-	<li>static class pattern fixes</li>
-
-	<li>multiple module directories</li>
-
-	<li>crawls subdirectories of module directories</li>
+<li>Added the date section to the documentation</li>
 </ul>
 
+<h3>Version 1.0</h3>
+
+<ul>
+<li>static class pattern fixes</li>
+<li>multiple module directories</li>
+<li>crawls subdirectories of module directories</li>
+</ul>
 	</div>
 
 
@@ -190,29 +222,169 @@ class="php-quote">&quot;clean_html&quot;</span>);
 	<div class="info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-Sleepy.html">Sleepy</a><br />
+		<b>Namespace:</b> <a href="namespace-Sleepy.html">Sleepy</a><br>
 		
 
 				<b>License:</b>
-				<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a><br />
+				<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a><br>
 				<b>Author:</b>
-				Jaime A. Rodriguez &lt;<a
-href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>&gt;<br />
+				Jaime A. Rodriguez <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x68;&#x69;&#x2e;&#x69;&#x2e;&#x61;&#x6d;&#x2e;&#x6a;&#x61;&#x69;&#x6d;&#x65;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#x68;&#x69;&#x2e;&#x69;&#x2e;&#x61;&#x6d;&#x2e;&#x6a;&#x61;&#x69;&#x6d;&#x65;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a><br>
 				<b>Version:</b>
-				1.1<br />
+				1.2<br>
+				<b>Todo:</b>
+				<p>devise a better way of passing multiple parameters to hooks, perhaps
+      use objects instead of arrays</p><br>
 				<b>Date:</b>
-				June 16, 2014<br />
-		<b>Located at</b> <a href="source-class-Sleepy.Hook.html#4-200" title="Go to source code">class.hooks.php</a><br />
+				July 18, 2016<br>
+			<b>Located at</b> <a href="source-class-Sleepy.Hook.html#4-215" title="Go to source code">class.hooks.php</a>
+		<br>
 	</div>
 
 
 
-	<table class="summary" id="methods">
+	<table class="summary methods" id="methods">
 	<caption>Methods summary</caption>
+	<tr data-order="__clone" id="___clone">
+
+		<td class="attributes"><code>
+			 private 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___clone">#</a>
+		<code><a href="source-class-Sleepy.Hook.html#71-76" title="Go to source code">__clone</a>( )</code>
+
+		<div class="description short">
+			<p>Prevent class from being cloned</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Prevent class from being cloned</p>
+
+
+
+
+
+				<h4>Private</h4>
+				<div class="list">
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 private 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Sleepy.Hook.html#78-83" title="Go to source code">__construct</a>( )</code>
+
+		<div class="description short">
+			<p>The constructor is private to ensure we only have one instance</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>The constructor is private to ensure we only have one instance</p>
+
+
+
+
+
+				<h4>Private</h4>
+				<div class="list">
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_initialize" id="__initialize">
+
+		<td class="attributes"><code>
+			 private static
+
+			object
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__initialize">#</a>
+		<code><a href="source-class-Sleepy.Hook.html#85-98" title="Go to source code">_initialize</a>( )</code>
+
+		<div class="description short">
+			<p>Return instance or create initial instance</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Return instance or create initial instance</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					object
+				</div>
+
+
+				<h4>Private</h4>
+				<div class="list">
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_load" id="__load">
+
+		<td class="attributes"><code>
+			 private static
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__load">#</a>
+		<code><a href="source-class-Sleepy.Hook.html#100-135" title="Go to source code">_load</a>( )</code>
+
+		<div class="description short">
+			<p>Loads all the modules</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Loads all the modules</p>
+
+
+
+
+
+				<h4>Private</h4>
+				<div class="list">
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="applyFilter" id="_applyFilter">
 
 		<td class="attributes"><code>
 			 public static
+
 			
 			
 			</code>
@@ -220,26 +392,24 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_applyFilter">#</a>
-		<code><a href="source-class-Sleepy.Hook.html#118-141" title="Go to source code">applyFilter</a>( <span>string <var>$name</var></span>, <span>string <var>$function</var></span> )</code>
+		<code><a href="source-class-Sleepy.Hook.html#137-160" title="Go to source code">applyFilter</a>( <span>string <var>$name</var></span>, <span>string <var>$function</var></span>, <span>integer <var>$args</var>,…</span> )</code>
 
 		<div class="description short">
-			
-<p>Adds a new filter to a filter-type hook point</p>
-
+			<p>Adds a new filter to a filter-type hook point</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Adds a new filter to a filter-type hook point</p>
-
+			<p>Adds a new filter to a filter-type hook point</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$name</var></dt>
-					<dd><code>string</code><br>$name [description]</dd>
+					<dd>[description]</dd>
 					<dt><var>$function</var></dt>
-					<dd><code>string</code><br>$function [description]</dd>
+					<dd>[description]</dd>
+					<dt><var>$args</var>,…</dt>
+					<dd>[description]</dd>
 				</dl></div>
 
 
@@ -253,6 +423,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="attributes"><code>
 			 public static
+
 			
 			
 			</code>
@@ -260,26 +431,22 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addFilter">#</a>
-		<code><a href="source-class-Sleepy.Hook.html#143-176" title="Go to source code">addFilter</a>( <span>mixed <var>$name</var></span>, <span>string <var>$value</var></span> )</code>
+		<code><a href="source-class-Sleepy.Hook.html#162-191" title="Go to source code">addFilter</a>( <span>mixed <var>$name</var></span>, <span>string <var>$value</var></span> )</code>
 
 		<div class="description short">
-			
-<p>Adds a new filter-type hook point</p>
-
+			<p>Adds a new filter-type hook point</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Adds a new filter-type hook point</p>
-
+			<p>Adds a new filter-type hook point</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$name</var></dt>
-					<dd><code>mixed</code><br>$name [description]</dd>
+					<dd>[description]</dd>
 					<dt><var>$value</var></dt>
-					<dd><code>string</code><br>$value [description]</dd>
+					<dd>[description]</dd>
 				</dl></div>
 
 
@@ -293,6 +460,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="attributes"><code>
 			 public static
+
 			
 			
 			</code>
@@ -300,26 +468,22 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_doAction">#</a>
-		<code><a href="source-class-Sleepy.Hook.html#178-188" title="Go to source code">doAction</a>( <span>string <var>$name</var></span>, <span>string <var>$function</var></span> )</code>
+		<code><a href="source-class-Sleepy.Hook.html#193-203" title="Go to source code">doAction</a>( <span>string <var>$name</var></span>, <span>string <var>$function</var></span> )</code>
 
 		<div class="description short">
-			
-<p>Adds a new function to a action-type hook point</p>
-
+			<p>Adds a new function to a action-type hook point</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Adds a new function to a action-type hook point</p>
-
+			<p>Adds a new function to a action-type hook point</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$name</var></dt>
-					<dd><code>string</code><br>$name Name of filter</dd>
+					<dd>Name of filter</dd>
 					<dt><var>$function</var></dt>
-					<dd><code>string</code><br>$function Function to call</dd>
+					<dd>Function to call</dd>
 				</dl></div>
 
 
@@ -333,6 +497,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="attributes"><code>
 			 public static
+
 			
 			
 			</code>
@@ -340,24 +505,20 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addAction">#</a>
-		<code><a href="source-class-Sleepy.Hook.html#190-199" title="Go to source code">addAction</a>( <span>string <var>$name</var></span> )</code>
+		<code><a href="source-class-Sleepy.Hook.html#205-214" title="Go to source code">addAction</a>( <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
-			
-<p>Adds a new action-type hook point</p>
-
+			<p>Adds a new action-type hook point</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Adds a new action-type hook point</p>
-
+			<p>Adds a new action-type hook point</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$name</var></dt>
-					<dd><code>string</code><br>$name [description]</dd>
+					<dd>[description]</dd>
 				</dl></div>
 
 
@@ -380,34 +541,88 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 
 
-	<table class="summary" id="properties">
+	<table class="summary properties" id="properties">
 	<caption>Properties summary</caption>
-	<tr data-order="directories" id="$directories">
+	<tr data-order="_initialized" id="$_initialized">
 		<td class="attributes"><code>
-			public static 
-			mixed
+			private static 
+			boolean
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Sleepy.Hook.html#53-56" title="Go to source code"><var>$directories</var></a>
-		</td>
-		<td class="value"><code></code></td>
-		<td class="description"><div>
-			<a href="#$directories" class="anchor">#</a>
+				<a href="source-class-Sleepy.Hook.html#48-54" title="Go to source code"><var>$_initialized</var></a>
 
 			<div class="description short">
-				
-<p>array string The directories where the modules are stored</p>
-
+				<p>Has this been initialized?</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
-<p>array string The directories where the modules are stored</p>
+				<p>Has this been initialized?</p>
 
+					<h4>Private</h4>
+					<div class="list">
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$_initialized" class="anchor">#</a>
+				<code><span class="php-keyword1">false</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="_filters" id="$_filters">
+		<td class="attributes"><code>
+			private static 
+			_Filter[]
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Sleepy.Hook.html#56-62" title="Go to source code"><var>$_filters</var></a>
+
+			<div class="description short">
+				<p>An array of filters</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>An array of filters</p>
+
+					<h4>Private</h4>
+					<div class="list">
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$_filters" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="directories" id="$directories">
+		<td class="attributes"><code>
+			public static 
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Sleepy.Hook.html#64-69" title="Go to source code"><var>$directories</var></a>
+
+			<div class="description short">
+				<p>The directories where the modules are stored</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>The directories where the modules are stored</p>
 
 			</div>
-		</div></td>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$directories" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
 	</tr>
 	</table>
 
@@ -419,9 +634,11 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 </div>
 
 	<div id="footer">
-		sleepyMUSTACHE v.0.8 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		sleepyMUSTACHE v.0.8 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>

@@ -2,9 +2,8 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="robots" content="noindex">
 
-	<title>Page not found | sleepyMUSTACHE v.0.8</title>
+	<title>Todo | sleepyMUSTACHE v.0.8</title>
 
 	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
@@ -154,10 +153,8 @@
 						<span>Deprecated</span>
 					</a>
 				</li>
-				<li>
-					<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+				<li class="active">
 						<span>Todo</span>
-					</a>
 				</li>
 		</ul>
 		<ul>
@@ -165,10 +162,63 @@
 	</div>
 
 <div id="content">
-	<h1>Page not found</h1>
-	<p>The requested page could not be found.</p>
-	<p>You have probably clicked on a link that is outdated and points to a page that does not exist any more or you have made an typing error in the address.</p>
-	<p>To continue please try to find requested page in the menu, take a look at <a href="tree.html">the tree view</a> of the whole project or use search field on the top.</p>
+	<h1>Todo</h1>
+
+		<table class="summary" id="classes">
+			<caption>Classes summary</caption>
+	<tr>
+		<td class="name"><a href="class-Sleepy.Hook.html">Sleepy\Hook</a></td>
+		<td>
+					<p>devise a better way of passing multiple parameters to hooks, perhaps
+      use objects instead of arrays</p><br>
+		</td>
+	</tr>
+	<tr>
+		<td class="name"><a href="class-Sleepy.Router.html">Sleepy\Router</a></td>
+		<td>
+					Document the class and add it to homepage<br>
+		</td>
+	</tr>
+	<tr>
+		<td class="name"><a href="class-Sleepy.Template.html">Sleepy\Template</a></td>
+		<td>
+					add #if<br>
+		</td>
+	</tr>
+		</table>
+
+
+
+
+		<table class="summary" id="methods">
+			<caption>Methods summary</caption>
+			<tr>
+				<td class="name"><a href="class-Sleepy.Debug.html">Sleepy\Debug</a></td>
+				<td class="name"><code><a href="class-Sleepy.Debug.html#_log">log()</a></code></td>
+				<td>
+								add a create for the log table<br>
+				</td>
+			</tr>
+			<tr>
+				<td class="name"><a href="class-Sleepy.Debug.html">Sleepy\Debug</a></td>
+				<td class="name"><code><a href="class-Sleepy.Debug.html#_show">show()</a></code></td>
+				<td>
+								<p>create a hook so the dev can create custom views when outputting
+       debug data.</p><br>
+				</td>
+			</tr>
+			<tr>
+				<td class="name"><a href="class-Sleepy.Debug.html">Sleepy\Debug</a></td>
+				<td class="name"><code><a href="class-Sleepy.Debug.html#_sendEmail">sendEmail()</a></code></td>
+				<td>
+								make this private, I cannot remember why this is public...<br>
+				</td>
+			</tr>
+		</table>
+
+
+
+
 </div>
 
 	<div id="footer">
@@ -176,7 +226,7 @@
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?4a2db220213a5a176e7396c09dd60c22037975db"></script>
+<script src="resources/combined.js"></script>
 <script src="elementlist.js"></script>
 </body>
 </html>

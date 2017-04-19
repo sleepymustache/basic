@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta charset="utf-8">
 
 	<title>Class Module\IP2Country\Converter | sleepyMUSTACHE v.0.8</title>
 
-	<script type="text/javascript" src="resources/combined.js?2475353264"></script>
-	<script type="text/javascript" src="elementlist.js?250903305"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
-	<script type="text/javascript">
+	<script>
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', "UA-55477508-1"]);
 		_gaq.push(['_trackPageview']);
@@ -30,37 +27,79 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="main"><a href="namespace-Sleepy.html">Sleepy</a>
+				<li class="main">
+					<a href="namespace-Sleepy.html">
+						Sleepy					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Module.html">Module<span></span></a>
+				<li class="active">
+					<a href="namespace-Module.html">
+						Module<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Module.Authentication.html">Authentication</a>
+				<li>
+					<a href="namespace-Module.Authentication.html">
+						Authentication					</a>
+
 						</li>
-				<li><a href="namespace-Module.CSV.html">CSV</a>
+				<li>
+					<a href="namespace-Module.CSV.html">
+						CSV					</a>
+
 						</li>
-				<li><a href="namespace-Module.DB.html">DB</a>
+				<li>
+					<a href="namespace-Module.DB.html">
+						DB					</a>
+
 						</li>
-				<li><a href="namespace-Module.FormBuilder.html">FormBuilder</a>
+				<li>
+					<a href="namespace-Module.FormBuilder.html">
+						FormBuilder					</a>
+
 						</li>
-				<li><a href="namespace-Module.FSDB.html">FSDB</a>
+				<li>
+					<a href="namespace-Module.FSDB.html">
+						FSDB					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Module.IP2Country.html">IP2Country</a>
+				<li class="active">
+					<a href="namespace-Module.IP2Country.html">
+						IP2Country					</a>
+
 						</li>
-				<li><a href="namespace-Module.Mailer.html">Mailer</a>
+				<li>
+					<a href="namespace-Module.Mailer.html">
+						Mailer					</a>
+
 						</li>
-				<li><a href="namespace-Module.MobiDetect.html">MobiDetect</a>
+				<li>
+					<a href="namespace-Module.MobiDetect.html">
+						MobiDetect					</a>
+
 						</li>
-				<li><a href="namespace-Module.Mobile.html">Mobile</a>
+				<li>
+					<a href="namespace-Module.Navigation.html">
+						Navigation					</a>
+
 						</li>
-				<li><a href="namespace-Module.Navigation.html">Navigation</a>
+				<li>
+					<a href="namespace-Module.StaticCache.html">
+						StaticCache					</a>
+
 						</li>
 							</ul></li>
+				<li>
+					<a href="namespace-PHP.html">
+						PHP					</a>
+
+						</li>
 			</ul>
 		</div>
 
-		<hr />
+		<hr>
 
 
 		<div id="elements">
@@ -82,10 +121,9 @@
 <div id="right">
 <div id="rightInner">
 	<form id="search">
-		<input type="hidden" name="cx" value="" />
-		<input type="hidden" name="ie" value="UTF-8" />
-		<input type="text" name="q" class="text" />
-		<input type="submit" value="Search" />
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -103,12 +141,16 @@
 			<li>
 				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
 			</li>
-			<li>
-				<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
-			</li>
-			<li>
-				<a href="todo.html" title="Todo list"><span>Todo</span></a>
-			</li>
+				<li>
+					<a href="annotation-group-deprecated.html" title="List of elements with deprecated annotation">
+						<span>Deprecated</span>
+					</a>
+				</li>
+				<li>
+					<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+						<span>Todo</span>
+					</a>
+				</li>
 		</ul>
 		<ul>
 		</ul>
@@ -119,65 +161,40 @@
 
 
 	<div class="description">
-	
-<p>Cross-references countries with IP addresses using a flat-file-database.</p>
+	<p>Cross-references countries with IP addresses using a flat-file-database.</p>
 
-<h1>Usage</h1>
+<h3>Usage</h3>
 
-<pre>
-<span class="php-var">$i</span> = <span
-class="php-keyword1">new</span> \Module\IP2Country\Converter();
-<span
-class="php-var">$countryCode</span> = <span
-class="php-var">$i</span>-&gt;getCountryCode(<span
-class="php-var">$_SERVER</span>[<span
-class="php-quote">'REMOTE_ADDR'</span>]);
+<pre><span class="php-var">$i</span> = <span class="php-keyword1">new</span> \Module\IP2Country\Converter();
+  <span class="php-var">$countryCode</span> = <span class="php-var">$i</span>-&gt;getCountryCode(<span class="php-var">$_SERVER</span>[<span class="php-quote">'REMOTE_ADDR'</span>]);
 
-<span
-class="php-keyword1">if</span> (<span
-class="php-var">$countryCode</span> != <span
-class="php-keyword1">false</span>) {
-  <span
-class="php-keyword1">echo</span> <span
-class="php-var">$countryCode</span>;
-} <span
-class="php-keyword1">else</span> {
-  <span
-class="php-keyword1">echo</span> <span class="php-var">$_SERVER</span>[<span
-class="php-quote">'REMOTE_ADDR'</span>] .
-    <span
-class="php-quote">&quot;(&quot;</span> . <span
-class="php-keyword2">ip2long</span>(<span class="php-var">$_SERVER</span>[<span
-class="php-quote">'REMOTE_ADDR'</span>]) .
-    <span
-class="php-quote">&quot;) Not found in &quot;</span> . <span
-class="php-var">$i</span>-&gt;getTable(<span
-class="php-var">$_SERVER</span>[<span
-class="php-quote">'REMOTE_ADDR'</span>]) . <span
-class="php-quote">&quot;.&quot;</span>;
-}
-</pre>
+  <span class="php-keyword1">if</span> (<span class="php-var">$countryCode</span> != <span class="php-keyword1">false</span>) {
+    <span class="php-keyword1">echo</span> <span class="php-var">$countryCode</span>;
+  } <span class="php-keyword1">else</span> {
+    <span class="php-keyword1">echo</span> <span class="php-var">$_SERVER</span>[<span class="php-quote">'REMOTE_ADDR'</span>] .
+      <span class="php-quote">&quot;(&quot;</span> . <span class="php-keyword2">ip2long</span>(<span class="php-var">$_SERVER</span>[<span class="php-quote">'REMOTE_ADDR'</span>]) .
+      <span class="php-quote">&quot;) Not found in &quot;</span> . <span class="php-var">$i</span>-&gt;getTable(<span class="php-var">$_SERVER</span>[<span class="php-quote">'REMOTE_ADDR'</span>]) . <span class="php-quote">&quot;.&quot;</span>;
+  }</pre>
 
-<h1>Changelog</h1>
+<h3>Changelog</h3>
 
 <h2>Version 1.2</h2>
 
 <ul>
-	<li>Added namespacing</li>
+<li>Added namespacing</li>
 </ul>
 
 <h2>Version 1.1</h2>
 
 <ul>
-	<li>Added the date section to documentation</li>
+<li>Added the date section to documentation</li>
 </ul>
 
-<h1>Dependencies</h1>
+<h3>Dependencies</h3>
 
 <ul>
-	<li>class.fsdb.php</li>
+<li>class.fsdb.php</li>
 </ul>
-
 	</div>
 
 
@@ -191,29 +208,30 @@ class="php-quote">&quot;.&quot;</span>;
 	<div class="info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-Module.html">Module</a>\<a href="namespace-Module.IP2Country.html">IP2Country</a><br />
+		<b>Namespace:</b> <a href="namespace-Module.html">Module</a>\<a href="namespace-Module.IP2Country.html">IP2Country</a><br>
 		
 
 				<b>License:</b>
-				<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a><br />
+				<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a><br>
 				<b>Author:</b>
-				Jaime A. Rodriguez &lt;<a
-href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>&gt;<br />
+				Jaime A. Rodriguez <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x68;&#x69;&#x2e;&#x69;&#x2e;&#x61;&#x6d;&#x2e;&#x6a;&#x61;&#x69;&#x6d;&#x65;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#x68;&#x69;&#x2e;&#x69;&#x2e;&#x61;&#x6d;&#x2e;&#x6a;&#x61;&#x69;&#x6d;&#x65;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a><br>
 				<b>Version:</b>
-				1.2<br />
+				1.2<br>
 				<b>Date:</b>
-				August 13, 2014<br />
-		<b>Located at</b> <a href="source-class-Module.IP2Country.Converter.html#6-87" title="Go to source code">disabled/ip-to-country/class.ip2country.php</a><br />
+				August 13, 2014<br>
+			<b>Located at</b> <a href="source-class-Module.IP2Country.Converter.html#6-87" title="Go to source code">class.ip2country.php</a>
+		<br>
 	</div>
 
 
 
-	<table class="summary" id="methods">
+	<table class="summary methods" id="methods">
 	<caption>Methods summary</caption>
 	<tr data-order="__construct" id="___construct">
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -243,6 +261,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -250,7 +269,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getCountryCode">#</a>
-		<code><a href="source-class-Module.IP2Country.Converter.html#64-74" title="Go to source code">getCountryCode</a>( <span>mixed <var>$ip</var></span> )</code>
+		<code><a href="source-class-Module.IP2Country.Converter.html#64-74" title="Go to source code">getCountryCode</a>( <span> <var>$ip</var></span> )</code>
 
 		<div class="description short">
 			
@@ -272,6 +291,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -279,7 +299,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getTable">#</a>
-		<code><a href="source-class-Module.IP2Country.Converter.html#76-86" title="Go to source code">getTable</a>( <span>mixed <var>$ip</var></span> )</code>
+		<code><a href="source-class-Module.IP2Country.Converter.html#76-86" title="Go to source code">getTable</a>( <span> <var>$ip</var></span> )</code>
 
 		<div class="description short">
 			
@@ -310,6 +330,74 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 
 
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="db" id="$db">
+		<td class="attributes"><code>
+			private  
+			
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.IP2Country.Converter.html#41" title="Go to source code"><var>$db</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$db" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="upperRange" id="$upperRange">
+		<td class="attributes"><code>
+			private  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Module.IP2Country.Converter.html#43-58" title="Go to source code"><var>$upperRange</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$upperRange" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>(
+    <span class="php-num">50000000</span>,    <span class="php-num">100000000</span>,  <span class="php-num">150000000</span>,  <span class="php-num">200000000</span>,  <span class="php-num">250000000</span>,  <span class="php-num">300000000</span>,
+    <span class="php-num">350000000</span>,   <span class="php-num">400000000</span>,  <span class="php-num">450000000</span>,  <span class="php-num">500000000</span>,  <span class="php-num">550000000</span>,  <span class="php-num">600000000</span>,
+    <span class="php-num">650000000</span>,   <span class="php-num">700000000</span>,  <span class="php-num">750000000</span>,  <span class="php-num">800000000</span>,  <span class="php-num">850000000</span>,  <span class="php-num">900000000</span>,
+    <span class="php-num">950000000</span>,  <span class="php-num">1000000000</span>, <span class="php-num">1050000000</span>, <span class="php-num">1100000000</span>, <span class="php-num">1150000000</span>, <span class="php-num">1200000000</span>,
+    <span class="php-num">1250000000</span>, <span class="php-num">1300000000</span>, <span class="php-num">1350000000</span>, <span class="php-num">1400000000</span>, <span class="php-num">1450000000</span>, <span class="php-num">1500000000</span>,
+    <span class="php-num">1550000000</span>, <span class="php-num">1600000000</span>, <span class="php-num">1650000000</span>, <span class="php-num">1700000000</span>, <span class="php-num">1750000000</span>, <span class="php-num">1800000000</span>,
+    <span class="php-num">1850000000</span>, <span class="php-num">1900000000</span>, <span class="php-num">1950000000</span>, <span class="php-num">2000000000</span>, <span class="php-num">2050000000</span>, <span class="php-num">2100000000</span>,
+    <span class="php-num">2150000000</span>, <span class="php-num">2200000000</span>, <span class="php-num">2250000000</span>, <span class="php-num">2300000000</span>, <span class="php-num">2350000000</span>, <span class="php-num">2400000000</span>,
+    <span class="php-num">2450000000</span>, <span class="php-num">2500000000</span>, <span class="php-num">2550000000</span>, <span class="php-num">2600000000</span>, <span class="php-num">2650000000</span>, <span class="php-num">2700000000</span>,
+    <span class="php-num">2750000000</span>, <span class="php-num">2800000000</span>, <span class="php-num">2850000000</span>, <span class="php-num">2900000000</span>, <span class="php-num">2950000000</span>, <span class="php-num">3000000000</span>,
+    <span class="php-num">3050000000</span>, <span class="php-num">3100000000</span>, <span class="php-num">3150000000</span>, <span class="php-num">3200000000</span>, <span class="php-num">3250000000</span>, <span class="php-num">3300000000</span>,
+    <span class="php-num">3350000000</span>, <span class="php-num">3400000000</span>, <span class="php-num">3450000000</span>, <span class="php-num">3500000000</span>, <span class="php-num">3550000000</span>, <span class="php-num">3600000000</span>,
+    <span class="php-num">3650000000</span>, <span class="php-num">3700000000</span>, <span class="php-num">3750000000</span>, <span class="php-num">3800000000</span>, <span class="php-num">3850000000</span>, <span class="php-num">3900000000</span>,
+    <span class="php-num">3950000000</span>, <span class="php-num">4000000000</span>
+)</code>
+			</div>
+		</td>
+	</tr>
+	</table>
 
 
 
@@ -319,9 +407,11 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 </div>
 
 	<div id="footer">
-		sleepyMUSTACHE v.0.8 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		sleepyMUSTACHE v.0.8 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>

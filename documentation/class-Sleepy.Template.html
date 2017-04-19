@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta charset="utf-8">
 
 	<title>Class Sleepy\Template | sleepyMUSTACHE v.0.8</title>
 
-	<script type="text/javascript" src="resources/combined.js?2475353264"></script>
-	<script type="text/javascript" src="elementlist.js?250903305"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
-	<script type="text/javascript">
+	<script>
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', "UA-55477508-1"]);
 		_gaq.push(['_trackPageview']);
@@ -30,37 +27,79 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="active main"><a href="namespace-Sleepy.html">Sleepy</a>
+				<li class="active main">
+					<a href="namespace-Sleepy.html">
+						Sleepy					</a>
+
 						</li>
-				<li><a href="namespace-Module.html">Module<span></span></a>
+				<li>
+					<a href="namespace-Module.html">
+						Module<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Module.Authentication.html">Authentication</a>
+				<li>
+					<a href="namespace-Module.Authentication.html">
+						Authentication					</a>
+
 						</li>
-				<li><a href="namespace-Module.CSV.html">CSV</a>
+				<li>
+					<a href="namespace-Module.CSV.html">
+						CSV					</a>
+
 						</li>
-				<li><a href="namespace-Module.DB.html">DB</a>
+				<li>
+					<a href="namespace-Module.DB.html">
+						DB					</a>
+
 						</li>
-				<li><a href="namespace-Module.FormBuilder.html">FormBuilder</a>
+				<li>
+					<a href="namespace-Module.FormBuilder.html">
+						FormBuilder					</a>
+
 						</li>
-				<li><a href="namespace-Module.FSDB.html">FSDB</a>
+				<li>
+					<a href="namespace-Module.FSDB.html">
+						FSDB					</a>
+
 						</li>
-				<li><a href="namespace-Module.IP2Country.html">IP2Country</a>
+				<li>
+					<a href="namespace-Module.IP2Country.html">
+						IP2Country					</a>
+
 						</li>
-				<li><a href="namespace-Module.Mailer.html">Mailer</a>
+				<li>
+					<a href="namespace-Module.Mailer.html">
+						Mailer					</a>
+
 						</li>
-				<li><a href="namespace-Module.MobiDetect.html">MobiDetect</a>
+				<li>
+					<a href="namespace-Module.MobiDetect.html">
+						MobiDetect					</a>
+
 						</li>
-				<li><a href="namespace-Module.Mobile.html">Mobile</a>
+				<li>
+					<a href="namespace-Module.Navigation.html">
+						Navigation					</a>
+
 						</li>
-				<li><a href="namespace-Module.Navigation.html">Navigation</a>
+				<li>
+					<a href="namespace-Module.StaticCache.html">
+						StaticCache					</a>
+
 						</li>
 							</ul></li>
+				<li>
+					<a href="namespace-PHP.html">
+						PHP					</a>
+
+						</li>
 			</ul>
 		</div>
 
-		<hr />
+		<hr>
 
 
 		<div id="elements">
@@ -75,6 +114,10 @@
 
 
 
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-Sleepy.RouteNotFound.html">RouteNotFound</a></li>
+			</ul>
 
 
 		</div>
@@ -86,10 +129,9 @@
 <div id="right">
 <div id="rightInner">
 	<form id="search">
-		<input type="hidden" name="cx" value="" />
-		<input type="hidden" name="ie" value="UTF-8" />
-		<input type="text" name="q" class="text" />
-		<input type="submit" value="Search" />
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -107,12 +149,16 @@
 			<li>
 				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
 			</li>
-			<li>
-				<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
-			</li>
-			<li>
-				<a href="todo.html" title="Todo list"><span>Todo</span></a>
-			</li>
+				<li>
+					<a href="annotation-group-deprecated.html" title="List of elements with deprecated annotation">
+						<span>Deprecated</span>
+					</a>
+				</li>
+				<li>
+					<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+						<span>Todo</span>
+					</a>
+				</li>
 		</ul>
 		<ul>
 		</ul>
@@ -123,56 +169,45 @@
 
 
 	<div class="description">
-	
-<p>Provides templating functionality</p>
+	<p>Provides templating functionality</p>
 
-<h1>Usage</h1>
+<h2>Usage</h2>
 
-<h2>PHP file: <em>index.php</em></h2>
+<h3>PHP file: <em>index.php</em></h3>
 
-<pre>
-<span class="php-keyword1">require_once</span>(<span
-class="php-quote">'include/sleepy.php'</span>);
+<pre><span class="php-keyword1">require_once</span>(<span class="php-quote">'include/sleepy.php'</span>);
 
-<span
-class="php-var">$page</span> = <span
-class="php-keyword1">new</span> Template(<span
-class="php-quote">'templates/default.tpl'</span>);
-<span
-class="php-var">$page</span>-&gt;bind(<span
-class="php-quote">'title'</span>, <span
-class="php-quote">'Sleepy Mustache'</span>);
-<span
-class="php-var">$page</span>-&gt;bind(<span
-class="php-quote">'header'</span>, <span
-class="php-quote">'Hello world!'</span>);
-<span
-class="php-var">$page</span>-&gt;show();
-</pre>
+    <span class="php-var">$page</span> = <span class="php-keyword1">new</span> Template(<span class="php-quote">'templates/default.tpl'</span>);
+    <span class="php-var">$page</span>-&gt;bind(<span class="php-quote">'title'</span>, <span class="php-quote">'Sleepy Mustache'</span>);
+    <span class="php-var">$page</span>-&gt;bind(<span class="php-quote">'header'</span>, <span class="php-quote">'Hello world!'</span>);
+    <span class="php-var">$page</span>-&gt;show();</pre>
 
-<h2>Template file: <em>\app\modules\templates\default.tpl</em></h2>
+<h3>Template file: <em>\app\templates\default.tpl</em></h3>
 
-<pre>
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;title&gt;{{ title }}&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;h1&gt;{{ <span
-class="php-keyword2">header</span> }}&lt;/h1&gt;
-        &lt;p&gt;This page has been viewed {{ hits }} times.&lt;/p&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
-</pre>
+<pre>&lt;html&gt;
+        &lt;head&gt;
+            &lt;title&gt;{{ title }}&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;h1&gt;{{ <span class="php-keyword2">header</span> }}&lt;/h1&gt;
+            &lt;p&gt;This page has been viewed {{ hits }} times.&lt;/p&gt;
+        &lt;/body&gt;
+    &lt;/html&gt;</pre>
 
-<h1>Changelog</h1>
+<h2>Changelog</h2>
 
-<h2>Version 1.6</h2>
+<h3>Version 1.7</h3>
 
 <ul>
-	<li>No longer dependant on Hooks Module</li>
+<li>Updated private prefix (_) for consistency</li>
+<li>Updated documentation</li>
 </ul>
 
+<h3>Version 1.6</h3>
+
+<ul>
+<li>No longer dependant on Hooks Module</li>
+</ul>
 	</div>
 
 
@@ -186,31 +221,32 @@ class="php-keyword2">header</span> }}&lt;/h1&gt;
 	<div class="info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-Sleepy.html">Sleepy</a><br />
+		<b>Namespace:</b> <a href="namespace-Sleepy.html">Sleepy</a><br>
 		
 
 				<b>License:</b>
-				<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a><br />
+				<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a><br>
 				<b>Author:</b>
-				Jaime A. Rodriguez &lt;<a
-href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>&gt;<br />
+				Jaime A. Rodriguez <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x68;&#x69;&#x2e;&#x69;&#x2e;&#x61;&#x6d;&#x2e;&#x6a;&#x61;&#x69;&#x6d;&#x65;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#x68;&#x69;&#x2e;&#x69;&#x2e;&#x61;&#x6d;&#x2e;&#x6a;&#x61;&#x69;&#x6d;&#x65;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a><br>
 				<b>Version:</b>
-				1.6<br />
+				1.7<br>
 				<b>Todo:</b>
-				add #if<br />
+				add #if<br>
 				<b>Date:</b>
-				June 16, 2014<br />
-		<b>Located at</b> <a href="source-class-Sleepy.Template.html#5-351" title="Go to source code">class.template.php</a><br />
+				June 18, 2016<br>
+			<b>Located at</b> <a href="source-class-Sleepy.Template.html#5-378" title="Go to source code">class.template.php</a>
+		<br>
 	</div>
 
 
 
-	<table class="summary" id="methods">
+	<table class="summary methods" id="methods">
 	<caption>Methods summary</caption>
 	<tr data-order="__construct" id="___construct">
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -218,26 +254,22 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Sleepy.Template.html#70-94" title="Go to source code">__construct</a>( <span>string <var>$template</var> = <span class="php-quote">''</span></span>, <span>string <var>$basedir</var> = <span class="php-quote">&quot;&quot;</span></span> )</code>
+		<code><a href="source-class-Sleepy.Template.html#82-107" title="Go to source code">__construct</a>( <span>string <var>$template</var> = <span class="php-quote">''</span></span>, <span>string <var>$basedir</var> = <span class="php-quote">''</span></span> )</code>
 
 		<div class="description short">
-			
-<p>The constructor</p>
-
+			<p>The constructor</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>The constructor</p>
-
+			<p>The constructor</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$template</var></dt>
-					<dd><code>string</code><br>$template The name of the template</dd>
+					<dd>The name of the template</dd>
 					<dt><var>$basedir</var></dt>
-					<dd><code>string</code><br>$basedir The base directory for template files</dd>
+					<dd>The base directory for template files</dd>
 				</dl></div>
 
 
@@ -247,10 +279,180 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="_checkTemplate" id="__checkTemplate">
+
+		<td class="attributes"><code>
+			 private 
+
+			Bool
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__checkTemplate">#</a>
+		<code><a href="source-class-Sleepy.Template.html#109-132" title="Go to source code">_checkTemplate</a>( <span>string <var>$file</var></span> )</code>
+
+		<div class="description short">
+			<p>Does the template exist?</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Does the template exist?</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$file</var></dt>
+					<dd>Name of template</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					Bool<br>True if template exists
+				</div>
+
+
+				<h4>Private</h4>
+				<div class="list">
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_assignArrayByPath" id="__assignArrayByPath">
+
+		<td class="attributes"><code>
+			 private 
+
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__assignArrayByPath">#</a>
+		<code><a href="source-class-Sleepy.Template.html#134-158" title="Go to source code">_assignArrayByPath</a>( <span>array <var>$arr</var></span>, <span>string <var>$path</var></span> )</code>
+
+		<div class="description short">
+			<p>Given a path, the function returns a piece of $arr. For example
+'name.first' will return $arr['name']['first']</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Given a path, the function returns a piece of $arr. For example
+'name.first' will return $arr['name']['first']</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$arr</var></dt>
+					<dd>An array to search using the $path</dd>
+					<dt><var>$path</var></dt>
+					<dd>A path representing the dimensions of the array</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					mixed<br>A sub-array or string
+				</div>
+
+
+				<h4>Private</h4>
+				<div class="list">
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_render" id="__render">
+
+		<td class="attributes"><code>
+			 private 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__render">#</a>
+		<code><a href="source-class-Sleepy.Template.html#160-273" title="Go to source code">_render</a>( <span>string <var>$template</var></span>, <span>array <var>$data</var></span> )</code>
+
+		<div class="description short">
+			<p>Renders the template</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Renders the template</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$template</var></dt>
+					<dd>The template to render</dd>
+					<dt><var>$data</var></dt>
+					<dd>The data bound to the template</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>The rendered template
+				</div>
+
+
+				<h4>Private</h4>
+				<div class="list">
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="_parseTemplate" id="__parseTemplate">
+
+		<td class="attributes"><code>
+			 private 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#__parseTemplate">#</a>
+		<code><a href="source-class-Sleepy.Template.html#275-295" title="Go to source code">_parseTemplate</a>( )</code>
+
+		<div class="description short">
+			<p>Parses the template after it's been setup</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Parses the template after it's been setup</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>The rendered template
+				</div>
+
+
+				<h4>Private</h4>
+				<div class="list">
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="setTemplate" id="_setTemplate">
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -258,24 +460,20 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setTemplate">#</a>
-		<code><a href="source-class-Sleepy.Template.html#275-283" title="Go to source code">setTemplate</a>( <span>[type] <var>$file</var></span> )</code>
+		<code><a href="source-class-Sleepy.Template.html#297-306" title="Go to source code">setTemplate</a>( <span>[type] <var>$file</var></span> )</code>
 
 		<div class="description short">
-			
-<p>Sets the template to use.</p>
-
+			<p>Sets the template to use.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Sets the template to use.</p>
-
+			<p>Sets the template to use.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$file</var></dt>
-					<dd><code>[type]</code><br>$file [description]</dd>
+					<dd>[description]</dd>
 				</dl></div>
 
 
@@ -289,6 +487,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -296,26 +495,22 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_bind">#</a>
-		<code><a href="source-class-Sleepy.Template.html#285-298" title="Go to source code">bind</a>( <span>string <var>$placeholder</var></span>, <span>mixed <var>$value</var></span> )</code>
+		<code><a href="source-class-Sleepy.Template.html#308-324" title="Go to source code">bind</a>( <span>string <var>$placeholder</var></span>, <span>mixed <var>$value</var></span> )</code>
 
 		<div class="description short">
-			
-<p>Binds data to the template placeholders</p>
-
+			<p>Binds data to the template placeholders</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Binds data to the template placeholders</p>
-
+			<p>Binds data to the template placeholders</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$placeholder</var></dt>
-					<dd><code>string</code><br>$placeholder The template placeholder</dd>
+					<dd>The template placeholder</dd>
 					<dt><var>$value</var></dt>
-					<dd><code>mixed</code><br>$value The value that replaced the placeholder</dd>
+					<dd>The value that replaced the placeholder</dd>
 				</dl></div>
 
 
@@ -329,6 +524,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -336,20 +532,16 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_bindStart">#</a>
-		<code><a href="source-class-Sleepy.Template.html#300-306" title="Go to source code">bindStart</a>( )</code>
+		<code><a href="source-class-Sleepy.Template.html#326-332" title="Go to source code">bindStart</a>( )</code>
 
 		<div class="description short">
-			
-<p>Starts a buffer that will bind data to the template placeholders. The buffer
-will capture anything you output until $this-&gt;bindStop()</p>
-
+			<p>Starts a buffer that will bind data to the template placeholders. The
+buffer will capture anything you output until $this->bindStop()</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Starts a buffer that will bind data to the template placeholders. The buffer
-will capture anything you output until $this-&gt;bindStop()</p>
-
+			<p>Starts a buffer that will bind data to the template placeholders. The
+buffer will capture anything you output until $this->bindStop()</p>
 
 
 
@@ -364,6 +556,7 @@ will capture anything you output until $this-&gt;bindStop()</p>
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -371,24 +564,20 @@ will capture anything you output until $this-&gt;bindStop()</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_bindStop">#</a>
-		<code><a href="source-class-Sleepy.Template.html#308-321" title="Go to source code">bindStop</a>( <span>string <var>$placeholder</var></span> )</code>
+		<code><a href="source-class-Sleepy.Template.html#334-347" title="Go to source code">bindStop</a>( <span>string <var>$placeholder</var></span> )</code>
 
 		<div class="description short">
-			
-<p>Stops the buffer that binds data to the template placeholders</p>
-
+			<p>Stops the buffer that binds data to the template placeholders</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Stops the buffer that binds data to the template placeholders</p>
-
+			<p>Stops the buffer that binds data to the template placeholders</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$placeholder</var></dt>
-					<dd><code>string</code><br>$placeholder The template placeholder</dd>
+					<dd>The template placeholder</dd>
 				</dl></div>
 
 
@@ -402,6 +591,7 @@ will capture anything you output until $this-&gt;bindStop()</p>
 
 		<td class="attributes"><code>
 			 public 
+
 			mixed
 			
 			</code>
@@ -409,29 +599,25 @@ will capture anything you output until $this-&gt;bindStop()</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_get">#</a>
-		<code><a href="source-class-Sleepy.Template.html#323-336" title="Go to source code">get</a>( <span>string <var>$key</var></span> )</code>
+		<code><a href="source-class-Sleepy.Template.html#349-363" title="Go to source code">get</a>( <span>string <var>$key</var></span> )</code>
 
 		<div class="description short">
-			
-<p>Gets the data for a placeholder</p>
-
+			<p>Gets the data for a placeholder</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Gets the data for a placeholder</p>
-
+			<p>Gets the data for a placeholder</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$key</var></dt>
-					<dd><code>string</code><br>$placeholder The placeholder</dd>
+					<dd>$placeholder The placeholder</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>mixed</code><br>The data stored in the placeholder<br />
+					mixed<br>The data stored in the placeholder
 				</div>
 
 
@@ -444,6 +630,7 @@ will capture anything you output until $this-&gt;bindStop()</p>
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -451,18 +638,14 @@ will capture anything you output until $this-&gt;bindStop()</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_show">#</a>
-		<code><a href="source-class-Sleepy.Template.html#338-343" title="Go to source code">show</a>( )</code>
+		<code><a href="source-class-Sleepy.Template.html#365-370" title="Go to source code">show</a>( )</code>
 
 		<div class="description short">
-			
-<p>Shows the rendered template</p>
-
+			<p>Shows the rendered template</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Shows the rendered template</p>
-
+			<p>Shows the rendered template</p>
 
 
 
@@ -477,6 +660,7 @@ will capture anything you output until $this-&gt;bindStop()</p>
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -484,18 +668,14 @@ will capture anything you output until $this-&gt;bindStop()</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_retrieve">#</a>
-		<code><a href="source-class-Sleepy.Template.html#345-350" title="Go to source code">retrieve</a>( )</code>
+		<code><a href="source-class-Sleepy.Template.html#372-377" title="Go to source code">retrieve</a>( )</code>
 
 		<div class="description short">
-			
-<p>Retrieves the rendered template</p>
-
+			<p>Retrieves the rendered template</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Retrieves the rendered template</p>
-
+			<p>Retrieves the rendered template</p>
 
 
 
@@ -519,7 +699,7 @@ will capture anything you output until $this-&gt;bindStop()</p>
 
 
 
-	<table class="summary" id="properties">
+	<table class="summary properties" id="properties">
 	<caption>Properties summary</caption>
 	<tr data-order="extension" id="$extension">
 		<td class="attributes"><code>
@@ -528,112 +708,104 @@ will capture anything you output until $this-&gt;bindStop()</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Sleepy.Template.html#48-51" title="Go to source code"><var>$extension</var></a>
-		</td>
-		<td class="value"><code><span class="php-quote">&quot;.tpl&quot;</span></code></td>
-		<td class="description"><div>
-			<a href="#$extension" class="anchor">#</a>
+				<a href="source-class-Sleepy.Template.html#52-57" title="Go to source code"><var>$extension</var></a>
 
 			<div class="description short">
-				
-<p>string The extension for template files</p>
-
+				<p>The extension for template files</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
-<p>string The extension for template files</p>
-
+				<p>The extension for template files</p>
 
 			</div>
-		</div></td>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$extension" class="anchor">#</a>
+				<code><span class="php-quote">'.tpl'</span></code>
+			</div>
+		</td>
 	</tr>
 	<tr data-order="directory" id="$directory">
 		<td class="attributes"><code>
 			public  
-			mixed
+			string
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Sleepy.Template.html#53-56" title="Go to source code"><var>$directory</var></a>
-		</td>
-		<td class="value"><code></code></td>
-		<td class="description"><div>
-			<a href="#$directory" class="anchor">#</a>
+				<a href="source-class-Sleepy.Template.html#59-64" title="Go to source code"><var>$directory</var></a>
 
 			<div class="description short">
-				
-<p>string The template directory</p>
-
+				<p>The template directory</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
-<p>string The template directory</p>
-
+				<p>The template directory</p>
 
 			</div>
-		</div></td>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$directory" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
 	</tr>
 	<tr data-order="_file" id="$_file">
 		<td class="attributes"><code>
 			protected  
-			mixed
+			string
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Sleepy.Template.html#58-62" title="Go to source code"><var>$_file</var></a>
-		</td>
-		<td class="value"><code></code></td>
-		<td class="description"><div>
-			<a href="#$_file" class="anchor">#</a>
+				<a href="source-class-Sleepy.Template.html#66-72" title="Go to source code"><var>$_file</var></a>
 
 			<div class="description short">
-				
-<p>string The template file</p>
-
+				<p>The template file</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
-<p>string The template file</p>
-
+				<p>The template file</p>
 
 					<h4>Protected</h4>
 					<div class="list">
 					</div>
 			</div>
-		</div></td>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$_file" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
 	</tr>
 	<tr data-order="_data" id="$_data">
 		<td class="attributes"><code>
 			protected  
-			array
+			mixed[]
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Sleepy.Template.html#64-68" title="Go to source code"><var>$_data</var></a>
-		</td>
-		<td class="value"><code><span class="php-keyword1">array</span>()</code></td>
-		<td class="description"><div>
-			<a href="#$_data" class="anchor">#</a>
+				<a href="source-class-Sleepy.Template.html#74-80" title="Go to source code"><var>$_data</var></a>
 
 			<div class="description short">
-				
-<p>array The data bound to the template</p>
-
+				<p>The data bound to the template</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
-<p>array The data bound to the template</p>
-
+				<p>The data bound to the template</p>
 
 					<h4>Protected</h4>
 					<div class="list">
 					</div>
 			</div>
-		</div></td>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$_data" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>()</code>
+			</div>
+		</td>
 	</tr>
 	</table>
 
@@ -645,9 +817,11 @@ will capture anything you output until $this-&gt;bindStop()</p>
 </div>
 
 	<div id="footer">
-		sleepyMUSTACHE v.0.8 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		sleepyMUSTACHE v.0.8 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>

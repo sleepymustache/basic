@@ -1,34 +1,44 @@
 sleepyMUSTACHE - Basic Setup
 ===============================================================================
 
-sleepyMUSTACHE is a modular PHP micro framework designed to provide solutions for everyday PHP challenges. This basic edition is aimed at providing a bare bones scaffolding for developers to learn the framework and as a starting point for projects
+sleepyMUSTACHE is a modular PHP micro framework designed to provide solutions
+for everyday PHP challenges. This basic edition is aimed at providing a bare
+bones scaffolding for developers to learn the framework and as a starting point
+for projects
 
 Getting Started
 -------------------------------------------------------------------------------
-sleepyMUSTACHE is ready to go out of the box. Configuration is done in the *src/settings.php* file. There you can define your dev/stage/live environments and debugging preferences.
+sleepyMUSTACHE is ready to go out of the box. Configuration is done in the
+*src/settings.php* file. There you can define your dev/stage/live environments
+and debugging preferences.
 
-To start run:
+To start setup:
 
     npm install
 
-After NPM has installed in required modules, the build process can be started by running:
+After NPM has installed required modules, the build process can be started by
+running:
 
-    gulp
+    npm start
 
 Gulp Modules
 -------------------------------------------------------------------------------
 sleepyMUSTACHE Basic included the following gulp modules in the build system:
 
+* gulp-eslint - Processes files with ESLint
 * gulp-imagemin - Minifies images
-* gulp-livereload - monitors file changes and updates the browser
-* gulp-ruby-sass - compiles and minifies SASS
-* gulp-uglify - minifies js files
+* gulp-notify - Adds notifications on errors
+* gulp-sass - Compiles and minifies SASS
+* gulp-sourcemaps - Adds sourcemaps for SASS
+* gulp-webpack - Minify and use ES2015
 
 Whats included?
 -------------------------------------------------------------------------------
-The basic setup includes the core and a tool for installing [modules](https://github.com/sleepymustache/modules).
+The basic setup includes the core and a tool for installing
+[modules](https://github.com/sleepymustache/modules).
 
-It also includes some third party libraries to help get you started including, jQuery, requirejs, normalize, html4shiv, and a small JS toolset (sleepy.js).
+It also includes some third party libraries to help get you started including,
+SimpleTest and a small JS toolset (sleepy.class.js).
 
 ### Core functionality
 
@@ -40,24 +50,27 @@ It also includes some third party libraries to help get you started including, j
 
 ### Installing Modules
 
-We have included a Python 3.4 script (sleepy.py) to assist in installing modules. It does this by creating git submodules.
+We have included a helper script (sleepy.js) to assist in installing modules.
+It does this by creating git submodules.
 
 You can get a list of available modules:
 
-	sleepy.py --list
+	node sleepy --list
 
 You can install modules:
 
-	sleepy.py --add Performance
+	node sleepy --add Performance
 
 You can search for modules:
 
-	sleepy.py --search DB
+	node sleepy --search DB
 
 You can get more info about a module:
 
-	sleepy.py --help Performance
+	node sleepy --help Performance
 
 Learning More
 -------------------------------------------------------------------------------
-Documentation about the core functionality is available in the [core repo](https://github.com/sleepymustache/core). A list of existing modules can be found in the [modules repo](https://github.com/sleepymustache/modules).
+Documentation about the core functionality is available in the
+[core repo](https://github.com/sleepymustache/core). A list of existing modules
+can be found in the [modules repo](https://github.com/sleepymustache/modules).

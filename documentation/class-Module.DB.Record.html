@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta charset="utf-8">
 
 	<title>Class Module\DB\Record | sleepyMUSTACHE v.0.8</title>
 
-	<script type="text/javascript" src="resources/combined.js?2475353264"></script>
-	<script type="text/javascript" src="elementlist.js?250903305"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
-	<script type="text/javascript">
+	<script>
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', "UA-55477508-1"]);
 		_gaq.push(['_trackPageview']);
@@ -30,37 +27,79 @@
 
 
 		<div id="groups">
-			<h3>Namespaces</h3>
+				<h3>Namespaces</h3>
 			<ul>
-				<li class="main"><a href="namespace-Sleepy.html">Sleepy</a>
+				<li class="main">
+					<a href="namespace-Sleepy.html">
+						Sleepy					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Module.html">Module<span></span></a>
+				<li class="active">
+					<a href="namespace-Module.html">
+						Module<span></span>
+					</a>
+
 						<ul>
-				<li><a href="namespace-Module.Authentication.html">Authentication</a>
+				<li>
+					<a href="namespace-Module.Authentication.html">
+						Authentication					</a>
+
 						</li>
-				<li><a href="namespace-Module.CSV.html">CSV</a>
+				<li>
+					<a href="namespace-Module.CSV.html">
+						CSV					</a>
+
 						</li>
-				<li class="active"><a href="namespace-Module.DB.html">DB</a>
+				<li class="active">
+					<a href="namespace-Module.DB.html">
+						DB					</a>
+
 						</li>
-				<li><a href="namespace-Module.FormBuilder.html">FormBuilder</a>
+				<li>
+					<a href="namespace-Module.FormBuilder.html">
+						FormBuilder					</a>
+
 						</li>
-				<li><a href="namespace-Module.FSDB.html">FSDB</a>
+				<li>
+					<a href="namespace-Module.FSDB.html">
+						FSDB					</a>
+
 						</li>
-				<li><a href="namespace-Module.IP2Country.html">IP2Country</a>
+				<li>
+					<a href="namespace-Module.IP2Country.html">
+						IP2Country					</a>
+
 						</li>
-				<li><a href="namespace-Module.Mailer.html">Mailer</a>
+				<li>
+					<a href="namespace-Module.Mailer.html">
+						Mailer					</a>
+
 						</li>
-				<li><a href="namespace-Module.MobiDetect.html">MobiDetect</a>
+				<li>
+					<a href="namespace-Module.MobiDetect.html">
+						MobiDetect					</a>
+
 						</li>
-				<li><a href="namespace-Module.Mobile.html">Mobile</a>
+				<li>
+					<a href="namespace-Module.Navigation.html">
+						Navigation					</a>
+
 						</li>
-				<li><a href="namespace-Module.Navigation.html">Navigation</a>
+				<li>
+					<a href="namespace-Module.StaticCache.html">
+						StaticCache					</a>
+
 						</li>
 							</ul></li>
+				<li>
+					<a href="namespace-PHP.html">
+						PHP					</a>
+
+						</li>
 			</ul>
 		</div>
 
-		<hr />
+		<hr>
 
 
 		<div id="elements">
@@ -84,10 +123,9 @@
 <div id="right">
 <div id="rightInner">
 	<form id="search">
-		<input type="hidden" name="cx" value="" />
-		<input type="hidden" name="ie" value="UTF-8" />
-		<input type="text" name="q" class="text" />
-		<input type="submit" value="Search" />
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
 	</form>
 
 	<div id="navigation">
@@ -105,12 +143,16 @@
 			<li>
 				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
 			</li>
-			<li>
-				<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
-			</li>
-			<li>
-				<a href="todo.html" title="Todo list"><span>Todo</span></a>
-			</li>
+				<li>
+					<a href="annotation-group-deprecated.html" title="List of elements with deprecated annotation">
+						<span>Deprecated</span>
+					</a>
+				</li>
+				<li>
+					<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+						<span>Todo</span>
+					</a>
+				</li>
 		</ul>
 		<ul>
 		</ul>
@@ -121,74 +163,49 @@
 
 
 	<div class="description">
-	
-<p>Base class that represents a record in a table.</p>
+	<p>Base class that represents a record in a table.</p>
 
 <p>Extend this class and add a property $table that is equal to the table name
 in your database. The columns will be loaded automatically and basic load(),
 save(), and delete() methods are immediately available. Update the data by
 changing the value of the columns like this:</p>
 
-<h1>Usage</h1>
+<h3>Usage</h3>
 
-<pre>
-<span
-class="php-comment">// load a record with id= 5 from a table called 'user'</span>
-<span
-class="php-keyword1">class</span> user <span
-class="php-keyword1">extends</span> \Module\DB\Record {
-  <span
-class="php-keyword1">public</span> <span class="php-var">$table</span> = <span
-class="php-quote">'user'</span>;
-}
+<pre><span class="php-comment">// load a record with id= 5 from a table called 'user'</span>
+  <span class="php-keyword1">class</span> user <span class="php-keyword1">extends</span> \Module\DB\Record {
+    <span class="php-keyword1">public</span> <span class="php-var">$table</span> = <span class="php-quote">'user'</span>;
+  }
 
-<span class="php-var">$u</span> = <span
-class="php-keyword1">new</span> user();
-<span
-class="php-var">$u</span>-&gt;load(<span class="php-num">5</span>);
-<span
-class="php-var">$u</span>-&gt;columns[<span
-class="php-quote">'first_name'</span>] = <span
-class="php-quote">'Joe'</span>;
-</pre>
+  <span class="php-var">$u</span> = <span class="php-keyword1">new</span> user();
+  <span class="php-var">$u</span>-&gt;load(<span class="php-num">5</span>);
+  <span class="php-var">$u</span>-&gt;columns[<span class="php-quote">'first_name'</span>] = <span class="php-quote">'Joe'</span>;</pre>
 
 <p>You can then save the new information by calling the save method:</p>
 
-<pre>
-<span class="php-var">$u</span>-&gt;save();
-</pre>
+<pre><span class="php-var">$u</span>-&gt;save();</pre>
 
 <p>You can also show a nice form to edit or add new records like this</p>
 
-<pre>
-<span class="php-var">$u</span>-&gt;form(<span
-class="php-keyword1">array</span>(
-  <span
-class="php-quote">'first_name'</span> =&gt; <span
-class="php-quote">'First Name: '</span>,
-  <span
-class="php-quote">'last_name'</span> =&gt; <span
-class="php-quote">'Last Name: '</span>,
-  <span
-class="php-quote">'phone'</span> =&gt; <span
-class="php-quote">'(800) 555-5555'</span>
-));
-</pre>
+<pre><span class="php-var">$u</span>-&gt;form(<span class="php-keyword1">array</span>(
+    <span class="php-quote">'first_name'</span> =&gt; <span class="php-quote">'First Name: '</span>,
+    <span class="php-quote">'last_name'</span> =&gt; <span class="php-quote">'Last Name: '</span>,
+    <span class="php-quote">'phone'</span> =&gt; <span class="php-quote">'(800) 555-5555'</span>
+  ));</pre>
 
-<h1>Changelog</h1>
+<h3>Changelog</h3>
 
 <h2>Version 1.2</h2>
 
 <ul>
-	<li>Added namespacing</li>
+<li>Added namespacing</li>
 </ul>
 
 <h2>Version 1.1</h2>
 
 <ul>
-	<li>Added the date section to the documentation</li>
+<li>Added the date section to the documentation</li>
 </ul>
-
 	</div>
 
 
@@ -209,31 +226,34 @@ class="php-quote">'(800) 555-5555'</span>
 	<div class="info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-Module.html">Module</a>\<a href="namespace-Module.DB.html">DB</a><br />
+		<b>Namespace:</b> <a href="namespace-Module.html">Module</a>\<a href="namespace-Module.DB.html">DB</a><br>
 		
 
 				<b>License:</b>
-				<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a><br />
+				<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a><br>
 				<b>Author:</b>
-				Jaime A. Rodriguez &lt;<a
-href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>&gt;<br />
+				Jaime A. Rodriguez <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x68;&#x69;&#x2e;&#x69;&#x2e;&#x61;&#x6d;&#x2e;&#x6a;&#x61;&#x69;&#x6d;&#x65;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#x68;&#x69;&#x2e;&#x69;&#x2e;&#x61;&#x6d;&#x2e;&#x6a;&#x61;&#x69;&#x6d;&#x65;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a><br>
 				<b>Version:</b>
-				1.1<br />
+				1.1<br>
 				<b>Date:</b>
-				June 16, 2014<br />
+				June 16, 2014<br>
 				<b>Section:</b>
-				dependencies Dependencies * class.hooks.php * class.db.php<br />
-		<b>Located at</b> <a href="source-class-Module.DB.Record.html#7-371" title="Go to source code">disabled/db/class.record.php</a><br />
+				<p>dependencies Dependencies
+* class.hooks.php
+* class.db.php</p><br>
+			<b>Located at</b> <a href="source-class-Module.DB.Record.html#8-372" title="Go to source code">class.record.php</a>
+		<br>
 	</div>
 
 
 
-	<table class="summary" id="methods">
+	<table class="summary methods" id="methods">
 	<caption>Methods summary</caption>
 	<tr data-order="__construct" id="___construct">
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -241,24 +261,20 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Module.DB.Record.html#87-107" title="Go to source code">__construct</a>( <span>string <var>$id</var> = <span class="php-num">0</span></span> )</code>
+		<code><a href="source-class-Module.DB.Record.html#88-108" title="Go to source code">__construct</a>( <span>string <var>$id</var> = <span class="php-num">0</span></span> )</code>
 
 		<div class="description short">
-			
-<p>Initializes db and gets column information.</p>
-
+			<p>Initializes db and gets column information.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Initializes db and gets column information.</p>
-
+			<p>Initializes db and gets column information.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$id</var></dt>
-					<dd><code>string</code><br>$id The id to load automatically</dd>
+					<dd>The id to load automatically</dd>
 				</dl></div>
 
 
@@ -272,6 +288,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="attributes"><code>
 			 public 
+
 			boolean
 			
 			</code>
@@ -279,29 +296,25 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_load">#</a>
-		<code><a href="source-class-Module.DB.Record.html#109-129" title="Go to source code">load</a>( <span>integer <var>$id</var> = <span class="php-num">0</span></span> )</code>
+		<code><a href="source-class-Module.DB.Record.html#110-130" title="Go to source code">load</a>( <span>integer <var>$id</var> = <span class="php-num">0</span></span> )</code>
 
 		<div class="description short">
-			
-<p>Loads a record as an object.</p>
-
+			<p>Loads a record as an object.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Loads a record as an object.</p>
-
+			<p>Loads a record as an object.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$id</var></dt>
-					<dd><code>integer</code><br>$id id of a record to load</dd>
+					<dd>id of a record to load</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br>True if loaded correctly<br />
+					boolean<br>True if loaded correctly
 				</div>
 
 
@@ -314,6 +327,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="attributes"><code>
 			 public 
+
 			mixed
 			
 			</code>
@@ -321,24 +335,20 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_save">#</a>
-		<code><a href="source-class-Module.DB.Record.html#131-181" title="Go to source code">save</a>( )</code>
+		<code><a href="source-class-Module.DB.Record.html#132-182" title="Go to source code">save</a>( )</code>
 
 		<div class="description short">
-			
-<p>Saves the record to the database.</p>
-
+			<p>Saves the record to the database.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Saves the record to the database.</p>
-
+			<p>Saves the record to the database.</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>mixed</code><br>Returns the Primary Key<br />
+					mixed<br>Returns the Primary Key
 				</div>
 
 
@@ -351,6 +361,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="attributes"><code>
 			 public 
+
 			boolean
 			
 			</code>
@@ -358,24 +369,20 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_delete">#</a>
-		<code><a href="source-class-Module.DB.Record.html#183-199" title="Go to source code">delete</a>( )</code>
+		<code><a href="source-class-Module.DB.Record.html#184-200" title="Go to source code">delete</a>( )</code>
 
 		<div class="description short">
-			
-<p>Deletes this record from the database</p>
-
+			<p>Deletes this record from the database</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Deletes this record from the database</p>
-
+			<p>Deletes this record from the database</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br>True if delete is successful<br />
+					boolean<br>True if delete is successful
 				</div>
 
 
@@ -388,6 +395,7 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="attributes"><code>
 			 public 
+
 			
 			
 			</code>
@@ -395,33 +403,29 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_form">#</a>
-		<code><a href="source-class-Module.DB.Record.html#201-370" title="Go to source code">form</a>( <span>array <var>$fields</var></span>, <span>string <var>$legend</var> = <span class="php-quote">'table_name'</span></span>, <span>boolean <var>$submit</var> = <span class="php-keyword1">true</span></span> )</code>
+		<code><a href="source-class-Module.DB.Record.html#202-371" title="Go to source code">form</a>( <span>array <var>$fields</var></span>, <span>string <var>$legend</var> = <span class="php-quote">'table_name'</span></span>, <span>boolean <var>$submit</var> = <span class="php-keyword1">true</span></span> )</code>
 
 		<div class="description short">
-			
-<p>Shows an editable form</p>
-
+			<p>Shows an editable form</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-<p>Shows an editable form</p>
-
+			<p>Shows an editable form</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$fields</var></dt>
-					<dd><code>Array</code><br>$fields An array of columns =&gt; labels</dd>
+					<dd>An array of columns => labels</dd>
 					<dt><var>$legend</var></dt>
-					<dd><code>string</code><br>$legend Customize the fieldset legend</dd>
+					<dd>Customize the fieldset legend</dd>
 					<dt><var>$submit</var></dt>
-					<dd><code>boolean</code><br>$submit Show the submit button?</dd>
+					<dd>Show the submit button?</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code></code><br>returns nothing<br />
+					<br>returns nothing
 				</div>
 
 
@@ -443,61 +447,57 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 
 
 
-	<table class="summary" id="properties">
+	<table class="summary properties" id="properties">
 	<caption>Properties summary</caption>
 	<tr data-order="db" id="$db">
 		<td class="attributes"><code>
 			protected  
-			mixed
+			
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Module.DB.Record.html#62-65" title="Go to source code"><var>$db</var></a>
-		</td>
-		<td class="value"><code></code></td>
-		<td class="description"><div>
-			<a href="#$db" class="anchor">#</a>
+				<a href="source-class-Module.DB.Record.html#63-66" title="Go to source code"><var>$db</var></a>
 
 			<div class="description short">
-				
-<p>PDO The PDO object</p>
-
+				<p>PDO The PDO object</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
-<p>PDO The PDO object</p>
-
+				<p>PDO The PDO object</p>
 
 			</div>
-		</div></td>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$db" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
 	</tr>
 	<tr data-order="table" id="$table">
 		<td class="attributes"><code>
 			protected  
-			mixed
+			
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Module.DB.Record.html#67-70" title="Go to source code"><var>$table</var></a>
-		</td>
-		<td class="value"><code></code></td>
-		<td class="description"><div>
-			<a href="#$table" class="anchor">#</a>
+				<a href="source-class-Module.DB.Record.html#68-71" title="Go to source code"><var>$table</var></a>
 
 			<div class="description short">
-				
-<p>string The name of the table</p>
-
+				<p>string The name of the table</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
-<p>string The name of the table</p>
-
+				<p>string The name of the table</p>
 
 			</div>
-		</div></td>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$table" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
 	</tr>
 	<tr data-order="primaryKey" id="$primaryKey">
 		<td class="attributes"><code>
@@ -506,79 +506,73 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Module.DB.Record.html#72-75" title="Go to source code"><var>$primaryKey</var></a>
-		</td>
-		<td class="value"><code><span class="php-quote">'id'</span></code></td>
-		<td class="description"><div>
-			<a href="#$primaryKey" class="anchor">#</a>
+				<a href="source-class-Module.DB.Record.html#73-76" title="Go to source code"><var>$primaryKey</var></a>
 
 			<div class="description short">
-				
-<p>string The primary key of the table</p>
-
+				<p>string The primary key of the table</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
-<p>string The primary key of the table</p>
-
+				<p>string The primary key of the table</p>
 
 			</div>
-		</div></td>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$primaryKey" class="anchor">#</a>
+				<code><span class="php-quote">'id'</span></code>
+			</div>
+		</td>
 	</tr>
 	<tr data-order="columns" id="$columns">
 		<td class="attributes"><code>
 			public  
-			mixed
+			
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Module.DB.Record.html#77-80" title="Go to source code"><var>$columns</var></a>
-		</td>
-		<td class="value"><code></code></td>
-		<td class="description"><div>
-			<a href="#$columns" class="anchor">#</a>
+				<a href="source-class-Module.DB.Record.html#78-81" title="Go to source code"><var>$columns</var></a>
 
 			<div class="description short">
-				
-<p>array The data of the record get loaded here</p>
-
+				<p>array The data of the record get loaded here</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
-<p>array The data of the record get loaded here</p>
-
+				<p>array The data of the record get loaded here</p>
 
 			</div>
-		</div></td>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$columns" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
 	</tr>
 	<tr data-order="meta" id="$meta">
 		<td class="attributes"><code>
 			public  
-			mixed
+			
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Module.DB.Record.html#82-85" title="Go to source code"><var>$meta</var></a>
-		</td>
-		<td class="value"><code></code></td>
-		<td class="description"><div>
-			<a href="#$meta" class="anchor">#</a>
+				<a href="source-class-Module.DB.Record.html#83-86" title="Go to source code"><var>$meta</var></a>
 
 			<div class="description short">
-				
-<p>stdObject The record meta data gets loaded here</p>
-
+				<p>stdObject The record meta data gets loaded here</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
-<p>stdObject The record meta data gets loaded here</p>
-
+				<p>stdObject The record meta data gets loaded here</p>
 
 			</div>
-		</div></td>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$meta" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
 	</tr>
 	</table>
 
@@ -590,9 +584,11 @@ href="mailto:hi.i.am.jaime&#64;gmail.com">hi.i.am.jaime&#64;<!---->gmail.com</a>
 </div>
 
 	<div id="footer">
-		sleepyMUSTACHE v.0.8 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+		sleepyMUSTACHE v.0.8 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
 </body>
 </html>
