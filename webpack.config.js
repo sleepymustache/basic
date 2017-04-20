@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 
 module.exports = {
-  watch: true,
+  watch: false,
   entry: __dirname + '/src/js/main.js',
   output: {
     filename: 'main.bundle.js'
