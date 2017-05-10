@@ -90,9 +90,18 @@ class Sleepy {
    * @return {void}
    */
   ready(cb) {
-    document.addEventListener('DOMContentLoaded', function (event) {
+    const completed = (event) => {
       cb(event);
-    });
+      document.removeEventListener( 'DOMContentLoaded', completed );
+      window.removeEventListener( 'load', completed );
+    };
+
+    if (document.readyState === 'complete' || (document.readyState !== 'loading' && !document.documentElement.doScroll)) {
+      completed(event);
+    } else {
+      document.addEventListener('DOMContentLoaded', completed(event));
+      window.addEventListener('load', completed(event));
+    }
   }
 
   /**
