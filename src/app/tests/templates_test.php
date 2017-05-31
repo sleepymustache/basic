@@ -125,8 +125,9 @@
 			ob_start();
 			$t->show();
 			$name = ob_get_clean();
+
 			// The double !! is because the hook above...
-			$this->assertEqual($name, 'Sleepy Mustache!!');
+			$this->assertEqual($name, "<h1>Header</h1>\r\nSleepy Mustache!!");
 		}
 
 		// Test inline placeholders
