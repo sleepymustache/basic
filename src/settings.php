@@ -13,7 +13,7 @@ if (\Sleepy\SM::isENV(STAGE_URL)) {
 
 	// Base Directory/URL
 	define('URLBASE', '/');
-	define('DIRBASE', $_SERVER['DOCUMENT_ROOT'] . '/app');
+	define('DIRBASE', realpath(dirname(__FILE__)) . '/app/');
 
 	// DB Credentials
 	define ("DBHOST", $WHG_DB_HOST);
@@ -34,7 +34,7 @@ if (\Sleepy\SM::isENV(STAGE_URL)) {
 
 	// Base Directory/URL
 	define('URLBASE', '/');
-	define('DIRBASE', $_SERVER['DOCUMENT_ROOT'] . '/app');
+	define('DIRBASE', realpath(dirname(__FILE__)) . '/app/');
 
 	// DB Credentials
 	define ("DBHOST", $WHG_DB_HOST);
@@ -55,7 +55,7 @@ if (\Sleepy\SM::isENV(STAGE_URL)) {
 
 	// Base Directory/URL
 	define('URLBASE', '/');
-	define('DIRBASE', $_SERVER['DOCUMENT_ROOT'] . '/app');
+	define('DIRBASE', realpath(dirname(__FILE__)) . '/app/');
 
 	// DB Credentials
 	define ("DBHOST", $WHG_DB_HOST);
