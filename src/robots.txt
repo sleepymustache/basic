@@ -4,6 +4,7 @@ User-agent: *
 # Sleepy stuff
 Disallow: /app/
 Disallow: /scss/
+Disallow: /js/
 
 # Teamsite stuff
 Disallow: /config/
