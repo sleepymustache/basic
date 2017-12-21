@@ -3,9 +3,9 @@
 class Sleepy {
   /**
    * Gets a querystring from the url
-   * @param  {String} key      The querystring key
-   * @param  {String} default_ The default if there is none setCookie
-   * @return {String}          The value of the querystring referenced by the key
+   * @param  {string} key      The querystring key
+   * @param  {string} default_ The default if there is none setCookie
+   * @return {string}          The value of the querystring referenced by the key
    */
   getQuerystring(key, default_) {
     if (default_ === null) default_ = '';
@@ -22,7 +22,7 @@ class Sleepy {
 
   /**
    * Checks if touch events are enabled
-   * @return {Boolean} Are touch events enabled?
+   * @return {boolean} Are touch events enabled?
    */
   isTouchDevice() {
     return 'ontouchstart' in window ? 1 : 0;
@@ -30,8 +30,8 @@ class Sleepy {
 
   /**
    * Loads an array of CSS files then runs a callback
-   * @param  {String[]} files    The URLS of the css files to load
-   * @param  {Function} callback The callback
+   * @param  {string[]} files    The URLS of the css files to load
+   * @param  {function()} callback The callback
    * @return {void}
    */
   loadCSS(files, callback) {
@@ -86,7 +86,7 @@ class Sleepy {
 
   /**
    * Waits for the DOM to be ready
-   * @param  {Function} cb The callback
+   * @param  {function(event)} cb The callback
    * @return {void}
    */
   ready(cb) {
@@ -106,9 +106,9 @@ class Sleepy {
 
   /**
    * Sets a cookie
-   * @param  {String} cookieName The name of the cookie
-   * @param  {String} value      The value of the cookie
-   * @param  {exdays} exdays     The numbers of days until the cookie expires
+   * @param  {string} cookieName The name of the cookie
+   * @param  {string} value      The value of the cookie
+   * @param  {number} exdays     The numbers of days until the cookie expires
    * @return {void}
    */
   setCookie(cookieName, value, exdays) {
@@ -120,8 +120,8 @@ class Sleepy {
 
   /**
    * Gets a cookie
-   * @param  {String} cookieName The name of the cookie
-   * @return {String}            The value of the cookie
+   * @param  {string} cookieName The name of the cookie
+   * @return {string}            The value of the cookie
    */
   getCookie(cookieName) {
     const ARRcookies = document.cookie.split(';');
