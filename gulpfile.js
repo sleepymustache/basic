@@ -76,7 +76,7 @@ gulp.task('images', () => {
 gulp.task('scripts', ['eslint'], () => {
   if (!flags.shouldMinify) return gulp;
 
-  return gulp.src(baseDir + '/js/app.jsx')
+  return gulp.src(baseDir + '/js/main.js')
     .pipe(plumber({errorHandler: handleErrors}))
     .pipe(webpack(require('./webpack.config.js')))
     .pipe(gulp.dest(buildJsFolder));
