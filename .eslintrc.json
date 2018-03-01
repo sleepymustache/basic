@@ -13,7 +13,7 @@
         "sourceType": "module"
     },
     "plugins": [
-        //"es2015"
+        "es2015"
     ],
     "rules": {
         "indent": [
@@ -28,9 +28,6 @@
             "error",
             "always"
         ],
-        //"react/jsx-uses-vars": [2],
-
-        // disable rules
         "no-console": "off"
     }
 }
