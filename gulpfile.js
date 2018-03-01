@@ -6,10 +6,10 @@ const sass       = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const eslint     = require('gulp-eslint');
 const plumber    = require('gulp-plumber');
-const webpack    = require('gulp-webpack');
+const webpack    = require('webpack-stream');
 
 // Source Folders
-const baseDir    = 'src';
+const baseDir    = './src';
 const imageFiles = baseDir + '/images/**/*.{png,gif,jpg}';
 const jsFiles    = baseDir + '/js/**/*.{js,jsx}';
 const sassFiles  = baseDir + '/scss/**/*.scss';
