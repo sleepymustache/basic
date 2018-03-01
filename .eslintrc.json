@@ -13,7 +13,7 @@
         "sourceType": "module"
     },
     "plugins": [
-        "es2015"
+        //"es2015"
     ],
     "rules": {
         "indent": [

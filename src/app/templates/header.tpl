@@ -16,14 +16,14 @@
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
 
 	<!-- JAVASCRIPT -->
-	<script async src="<?= URLBASE ?>js/main.bundle.js"></script>
+	<script async src="/js/main.bundle.js"></script>
 
 	<!-- FAVICON -->
-	<link rel="apple-touch-icon" href="<?= URLBASE ?>favicon.png">
-	<link rel="icon" href="<?= URLBASE ?>favicon.png">
-	<!--[if IE]><link rel="shortcut icon" href="<?= URLBASE ?>favicon.ico"><![endif]-->
+	<link rel="apple-touch-icon" href="/favicon.png">
+	<link rel="icon" href="/favicon.png">
+	<!--[if IE]><link rel="shortcut icon" href="/favicon.ico"><![endif]-->
 	<meta name="msapplication-TileColor" content="#ffffff">
-	<meta name="msapplication-TileImage" content="<?= URLBASE ?>favicon.png">
+	<meta name="msapplication-TileImage" content="/favicon.png">
 </head>
 <body>
 	<div class="wrapper">
