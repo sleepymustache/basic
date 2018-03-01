@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9 ]>	  <html class="ie ie8 {{ urlClass }}" lang="en"> <![endif]-->
-<!--[if IE 9 ]>		  <html class="ie ie9 {{ urlClass }}" lang="en"> <![endif]-->
-<!--[if gt IE 9]><!--><html class="{{ urlClass }}" lang="en"><!--<![endif]-->
+<html class="{{ urlClass }}" lang="en">
 <head>
 	<!-- META DATA -->
 	<meta charset="utf-8">
@@ -26,11 +24,6 @@
 	<!--[if IE]><link rel="shortcut icon" href="<?= URLBASE ?>favicon.ico"><![endif]-->
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage" content="<?= URLBASE ?>favicon.png">
-
-	<!-- SHIV -->
-	<!--[if lt IE 9]>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-	<![endif]-->
 </head>
 <body>
 	<div class="wrapper">
