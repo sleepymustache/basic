@@ -10,7 +10,7 @@ class Sleepy {
   getQuerystring(key, default_) {
     if (default_ === null) default_ = '';
 
-    key = key.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    key = key.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
 
     const regex = new RegExp('[\\?&]' + key + '=([^&#]*)');
     const qs = regex.exec(window.location.href);
