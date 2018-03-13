@@ -1,18 +1,21 @@
 // Gulp plugins
-const gulp       = require('gulp');
-const imagemin   = require('gulp-imagemin');
-const notify     = require('gulp-notify');
-const sass       = require('gulp-sass');
-const sourcemaps = require('gulp-sourcemaps');
-const eslint     = require('gulp-eslint');
-const plumber    = require('gulp-plumber');
-const webpack    = require('webpack-stream');
+const browserSync = require('browser-sync').create();
+const eslint      = require('gulp-eslint');
+const gulp        = require('gulp');
+const imagemin    = require('gulp-imagemin');
+const notify      = require('gulp-notify');
+const plumber     = require('gulp-plumber');
+const sass        = require('gulp-sass');
+const sourcemaps  = require('gulp-sourcemaps');
+const webpack     = require('webpack-stream');
+
+const devUrl      = 'http://basic.local.com';
 
 // Source Folders
-const baseDir    = './src';
-const imageFiles = baseDir + '/images/**/*.{png,gif,jpg}';
-const jsFiles    = baseDir + '/js/**/*.{js,jsx}';
-const sassFiles  = baseDir + '/scss/**/*.scss';
+const baseDir     = './src';
+const imageFiles  = baseDir + '/images/**/*.{png,gif,jpg}';
+const jsFiles     = baseDir + '/js/**/*.{js,jsx}';
+const sassFiles   = baseDir + '/scss/**/*.scss';
 
 // Build Folders
 const buildCssFolder   = 'build/css';
@@ -58,7 +61,12 @@ gulp.task('default', [
   'copy',
   'images',
   'styles'
-], () => {});
+], () => {
+  browserSync.init({
+    proxy: devUrl,
+    notify: false
+  });
+});
 
 /**
  * Compresses image files for production
@@ -67,7 +75,8 @@ gulp.task('images', () => {
   gulp.src(imageFiles)
     .pipe(plumber({errorHandler: handleErrors}))
     .pipe(imagemin())
-    .pipe(gulp.dest(buildImageFolder));
+    .pipe(gulp.dest(buildImageFolder))
+    .pipe(browserSync.stream());
 });
 
 /**
@@ -79,7 +88,8 @@ gulp.task('scripts', ['eslint'], () => {
   return gulp.src(baseDir + '/js/main.js')
     .pipe(plumber({errorHandler: handleErrors}))
     .pipe(webpack(require('./webpack.config.js')))
-    .pipe(gulp.dest(buildJsFolder));
+    .pipe(gulp.dest(buildJsFolder))
+    .pipe(browserSync.stream());
 });
 
 /**
@@ -96,7 +106,8 @@ gulp.task('styles', () => {
       includeContent: true,
       sourceRoot: './'
     }))
-    .pipe(gulp.dest(buildCssFolder));
+    .pipe(gulp.dest(buildCssFolder))
+    .pipe(browserSync.stream());
 });
 
 /**
@@ -109,9 +120,10 @@ gulp.task('copy', function () {
     '!' + imageFiles,
     '!' + jsFiles,
     '!src/app/tests/**'
-  ], {dot: true})
-  .pipe(plumber({errorHandler: handleErrors}))
-  .pipe(gulp.dest('build'));
+  ], { dot: true })
+    .pipe(plumber({errorHandler: handleErrors}))
+    .pipe(gulp.dest('build'))
+    .pipe(browserSync.stream());
 });
 
 /**
@@ -127,4 +139,9 @@ gulp.task('watch', ['copy', 'images', 'styles', 'scripts'], () => {
   gulp.watch([jsFiles],    ['scripts']);
   gulp.watch([sassFiles],  ['styles']);
   gulp.watch([imageFiles], ['images']);
+
+  browserSync.init({
+    proxy: devUrl,
+    notify: false
+  });
 });
