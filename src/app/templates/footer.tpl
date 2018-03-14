@@ -1,7 +1,6 @@
-		</section>
-		<footer>
-			<p>&copy; <?= date('Y', time()) ?> Jaime Rodriguez.</p>
-		</footer>
-	</div>
+	</main>
+	<footer>
+		<p>Copyright &copy; <?= date('Y', time()) ?> SleepyMUSTACHE</p>
+	</footer>
 </body>
 </html>

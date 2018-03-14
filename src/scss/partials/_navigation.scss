@@ -19,7 +19,13 @@ nav {
         padding: 8px 24px;
         text-align: center;
         text-decoration: none;
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
         width: 150px;
+
+        &:hover {
+          background: $nav-hover-color;
+          color: $white;
+        }
       }
     }
 
@@ -46,6 +52,20 @@ nav {
       ul {
         left: 100%;
         top: -1px;
+      }
+    }
+  }
+}
+
+@media (max-width: $desktop-breakpoint) {
+  nav {
+    ul {
+      li {
+        width: 100%;
+
+        a {
+          width: 100%;
+        }
       }
     }
   }

@@ -1,11 +1,24 @@
 /**
  * This file contains all the color variables for the site
  */
-$black: #000;
-$white: #fff;
-$red: #f00;
-$blue: #00f;
+
+// Define the colors
+$black:     #212121;
+$white:     #E3F2FD;
+$red:       #E53935;
+$blue:      #0d47a1;
+$darkblue:  #002171;
+$lightblue: #5472d3;
+
+// Define how the colors are used
+$body-text-color: $black;
+$body-link-color: $blue;
+$header-background-color: $blue;
+$header-text-color: $white;
+$footer-background-color: $lightblue;
+$footer-text-color: $white;
+$nav-hover-color: $lightblue;
 
 // Changes the text highlighting color
-$selection-foreground: $blue;
-$selection-background: $white;
+$selection-foreground: $white;
+$selection-background: $blue;

@@ -9,21 +9,22 @@
 
 @media (min-width: 767px) {
   .desktop-only {
-    display: initial
+    display: initial;
   }
 
   li.desktop-only {
-    display: list-item
+    display: list-item;
   }
 
   .mobile-only {
-    display: none
+    display: none;
   }
 }
 
 @mixin background-image($image) {
   $width: image-width($image);
   $height: image-height($image);
+
   background-image: image-url($image);
   background-position: center center;
   background-repeat: no-repeat;
@@ -36,12 +37,14 @@
 
 @mixin background-inline($image) {
   @include background-image($image);
+
   background-image: inline-image($image);
 }
 
 @mixin retina-background($image) {
   $width: image-width($image);
   $height: image-height($image);
+
   background-image: image-url($image);
   background-position: center center;
   background-repeat: no-repeat;
@@ -53,12 +56,14 @@
 
 @mixin retina-inline($image) {
   @include retina-background($image);
+
   background-image: inline-image($image);
 }
 
 @mixin background-sprite($image, $columns, $rows) {
   $height: image-height($image) / $rows;
   $width: image-width($image) / $columns;
+
   background-image: image-url($image);
   background-repeat: no-repeat;
   display: block;
@@ -72,6 +77,7 @@
   $width: image-width($image) / $columns;
   $bg-size-width: image-width($image) / 2;
   $bg-size-height: image-height($image) / 2;
+
   background-image: image-url($image);
   background-repeat: no-repeat;
   display: block;
@@ -81,8 +87,9 @@
   background-size: $bg-size-width $bg-size-height;
 }
 
-@mixin full-width() {
+@mixin full-width {
   $max-width: 2000px;
+
   padding-left: $max-width;
   margin-left: $max-width * -1;
   padding-right: $max-width;
@@ -105,4 +112,8 @@
       transform: translateY(-50%);
     }
   }
+}
+
+@mixin stretched-footer($color) {
+  box-shadow: 0 50vh 0 50vh $color;
 }
