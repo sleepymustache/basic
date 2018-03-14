@@ -9,24 +9,30 @@ const sass        = require('gulp-sass');
 const sourcemaps  = require('gulp-sourcemaps');
 const webpack     = require('webpack-stream');
 
+// The dev URL for browserSync
 const devUrl      = 'http://basic.local.com';
 
 // Source Folders
-const baseDir     = './src';
+const baseDir     = 'src';
 const imageFiles  = baseDir + '/images/**/*.{png,gif,jpg}';
 const jsFiles     = baseDir + '/js/**/*.{js,jsx}';
 const sassFiles   = baseDir + '/scss/**/*.scss';
 
 // Build Folders
-const buildCssFolder   = 'build/css';
-const buildImageFolder = 'build/images';
-const buildJsFolder    = 'build/js';
+const buildFolder =      'build';
+const buildCssFolder   = buildFolder + '/css';
+const buildImageFolder = buildFolder + '/images';
+const buildJsFolder    = buildFolder + '/js';
 
-// Flags
-const flags = {
+// Application State
+const state = {
+  // Shouldn't try to minify JS if there are errors
   shouldMinify: true
 };
 
+/**
+ * Handles errors with notifications
+ */
 const handleErrors = function () {
   const args = Array.prototype.slice.call(arguments);
 
@@ -37,10 +43,25 @@ const handleErrors = function () {
 };
 
 /**
+ * Handles the deleting of watched files
+ * @param {object} event
+ */
+const fileDeleter = function (event) {
+  const del = require('del');
+  const path = require('path');
+
+  if (event.type === 'deleted') {
+    const filePathFromSrc = path.relative(path.resolve(baseDir), event.path);
+    const destFilePath = path.resolve(buildFolder, filePathFromSrc);
+    del.sync(destFilePath);
+  }
+};
+
+/**
  * Lints the source
  */
 gulp.task('eslint', function () {
-  flags.shouldMinify = true;
+  state.shouldMinify = true;
 
   return gulp.src([jsFiles])
     .pipe(eslint())
@@ -48,7 +69,7 @@ gulp.task('eslint', function () {
     .pipe(eslint.format())
     .pipe(eslint.failAfterError())
     .on('error', notify.onError((args) => {
-      flags.shouldMinify = false;
+      state.shouldMinify = false;
       return handleErrors(args);
     }));
 });
@@ -83,7 +104,7 @@ gulp.task('images', () => {
  * Minifies JS files for production
  */
 gulp.task('scripts', ['eslint'], () => {
-  if (!flags.shouldMinify) return gulp;
+  if (!state.shouldMinify) return gulp;
 
   return gulp.src(baseDir + '/js/main.js')
     .pipe(plumber({errorHandler: handleErrors}))
@@ -119,10 +140,10 @@ gulp.task('copy', function () {
     '!' + sassFiles,
     '!' + imageFiles,
     '!' + jsFiles,
-    '!src/app/tests/**'
-  ], { dot: true })
+    '!' + baseDir + '/app/tests/**'
+  ], { nodir: true, dot: true })
     .pipe(plumber({errorHandler: handleErrors}))
-    .pipe(gulp.dest('build'))
+    .pipe(gulp.dest(buildFolder))
     .pipe(browserSync.stream());
 });
 
@@ -130,15 +151,19 @@ gulp.task('copy', function () {
  * Watches for changes in files and does stuff
  */
 gulp.task('watch', ['copy', 'images', 'styles', 'scripts'], () => {
-  gulp.watch([
+  const imageWatcher = gulp.watch([imageFiles], ['images']);
+  const copyWatcher = gulp.watch([
     baseDir + '/**',
     '!' + sassFiles,
     '!' + imageFiles,
     '!' + jsFiles
-  ], {dot: true}, ['copy']);
-  gulp.watch([jsFiles],    ['scripts']);
+  ], { dot: true }, ['copy']);
+
+  gulp.watch([jsFiles], ['scripts']);
   gulp.watch([sassFiles],  ['styles']);
-  gulp.watch([imageFiles], ['images']);
+
+  copyWatcher.on('change', fileDeleter);
+  imageWatcher.on('change', fileDeleter);
 
   browserSync.init({
     proxy: devUrl,
