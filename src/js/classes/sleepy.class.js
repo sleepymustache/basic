@@ -2,6 +2,21 @@
 
 class Sleepy {
   /**
+   * Gets a cookie
+   * @param  {string} cookieName The name of the cookie
+   * @return {string}            The value of the cookie
+   */
+  getCookie(cookieName) {
+    const ARRcookies = document.cookie.split(';');
+    for (let i = 0; i < ARRcookies.length; i++) {
+      const y = ARRcookies[i].substr(ARRcookies[i].indexOf('=') + 1);
+      let x = ARRcookies[i].substr(0, ARRcookies[i].indexOf('='));
+      x = x.replace(/^\s+|\s+$/g, '');
+      if (x === cookieName) return decodeURI(y);
+    }
+  }
+
+  /**
    * Gets a querystring from the url
    * @param  {string} key      The querystring key
    * @param  {string} default_ The default if there is none setCookie
@@ -90,17 +105,10 @@ class Sleepy {
    * @return {void}
    */
   ready(cb) {
-    const completed = (event) => {
-      cb(event);
-      document.removeEventListener( 'DOMContentLoaded', completed );
-      window.removeEventListener( 'load', completed );
-    };
-
-    if (document.readyState === 'complete' || (document.readyState !== 'loading' && !document.documentElement.doScroll)) {
-      completed(event);
+    if (document.attachEvent ? document.readyState === 'complete' : document.readyState !== 'loading') {
+      cb();
     } else {
-      document.addEventListener('DOMContentLoaded', completed(event));
-      window.addEventListener('load', completed(event));
+      document.addEventListener('DOMContentLoaded', cb);
     }
   }
 
@@ -116,21 +124,6 @@ class Sleepy {
     exdate.setDate(exdate.getDate() + exdays);
     const CookieValue = encodeURI(value) + (exdays === null ? '' : '; expires=' + exdate.toUTCString());
     document.cookie = cookieName + '=' + CookieValue + '; path=/';
-  }
-
-  /**
-   * Gets a cookie
-   * @param  {string} cookieName The name of the cookie
-   * @return {string}            The value of the cookie
-   */
-  getCookie(cookieName) {
-    const ARRcookies = document.cookie.split(';');
-    for (let i = 0; i < ARRcookies.length; i++) {
-      const y = ARRcookies[i].substr(ARRcookies[i].indexOf('=') + 1);
-      let x = ARRcookies[i].substr(0, ARRcookies[i].indexOf('='));
-      x = x.replace(/^\s+|\s+$/g, '');
-      if (x === cookieName) return decodeURI(y);
-    }
   }
 }
 
