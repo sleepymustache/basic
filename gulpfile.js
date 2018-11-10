@@ -8,6 +8,7 @@ const plumber     = require('gulp-plumber');
 const sass        = require('gulp-sass');
 const sourcemaps  = require('gulp-sourcemaps');
 const webpack     = require('webpack-stream');
+const zip         = require('gulp-zip');
 
 // The dev URL for browserSync
 const devUrl      = 'http://basic.local.com';
@@ -19,7 +20,7 @@ const jsFiles     = baseDir + '/js/**/*.{js,jsx}';
 const sassFiles   = baseDir + '/scss/**/*.scss';
 
 // Build Folders
-const buildFolder =      'build';
+const buildFolder =      'dist';
 const buildCssFolder   = buildFolder + '/css';
 const buildImageFolder = buildFolder + '/images';
 const buildJsFolder    = buildFolder + '/js';
@@ -87,7 +88,17 @@ gulp.task('default', [
     proxy: devUrl,
     notify: false
   });
-});
+  });
+
+  /**
+ * Runs by default
+ */
+gulp.task('build', [
+  'scripts',
+  'copy',
+  'images',
+  'styles'
+]);
 
 /**
  * Compresses image files for production
@@ -169,4 +180,23 @@ gulp.task('watch', ['copy', 'images', 'styles', 'scripts'], () => {
     proxy: devUrl,
     notify: false
   });
+});
+
+gulp.task('cleanup', [], function () {
+
+});
+
+gulp.task('zip', ['copy', 'images', 'styles', 'scripts'], () => {
+  var today = new Date();
+
+  gulp.src('dist/**/*')
+    .pipe(zip(
+      today.getFullYear().toString() + "-" +
+      today.getMonth().toString() + "-" +
+      today.getDay().toString() + "_" +
+      today.getHours().toString() +
+      today.getMinutes().toString() +
+      '-dist.zip'
+    ))
+    .pipe(gulp.dest('./'));
 });
