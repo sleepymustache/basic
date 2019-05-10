@@ -18,6 +18,25 @@
 			$this->assertEqual($name, 'Sleepy Mustache!');
 		}
 
+		/**
+		 * bind multiple placeholders with an array
+		 *
+		 * @return void
+		 */
+		function testArrayBind() {
+			$t = new \Sleepy\Template();
+			$t->directory = './templates/';
+			$t->setTemplate('bind');
+			$t->bind(array(
+				'fake' => 'Framework: ',
+				'name' => 'Sleepy Mustache!'
+			));
+			ob_start();
+			$t->show();
+			$name = ob_get_clean();
+			$this->assertEqual($name, 'Framework: Sleepy Mustache!');
+		}
+
 		// bind large chunks w/ bindStart/bindEnd
 		function testBindChunk() {
 			$t = new \Sleepy\Template();
