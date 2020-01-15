@@ -214,11 +214,11 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 
+.vscode/
+*.sublime-workspace
 aspnet_client
-sleepy.sublime-project
 node_modules
+node_modules/
+sleepy.sublime-project
 src/.sass-cache
 src/build
-*.sublime-workspace
-node_modules/
-.vscode/
