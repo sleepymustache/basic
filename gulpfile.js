@@ -1,3 +1,8 @@
+
+// Configuration
+const devUrl = 'http://basic.local.com'; // The local development URL for BrowserSync
+const enableTests = false;               // Set to true to enable tests
+
 // Gulp plugins
 const browserSync = require('browser-sync').create();
 const eslint      = require('gulp-eslint');
@@ -9,9 +14,6 @@ const sass        = require('gulp-sass');
 const sourcemaps  = require('gulp-sourcemaps');
 const webpack     = require('webpack-stream');
 const zip         = require('gulp-zip');
-
-// The dev URL for browserSync
-const devUrl      = 'http://basic.local.com';
 
 // Source Folders
 const baseDir     = 'src';
@@ -88,9 +90,9 @@ gulp.task('default', [
     proxy: devUrl,
     notify: false
   });
-  });
+});
 
-  /**
+/**
  * Runs by default
  */
 gulp.task('build', [
@@ -146,13 +148,18 @@ gulp.task('styles', () => {
  * Copy the html files to the build directory
  */
 gulp.task('copy', function () {
-  return gulp.src([
+  var files = [
     baseDir + '/**',
     '!' + sassFiles,
     '!' + imageFiles,
-    '!' + jsFiles,
-    '!' + baseDir + '/app/tests/**'
-  ], { nodir: true, dot: true })
+    '!' + jsFiles
+  ];
+
+  if (enableTests) {
+    files.push('!' + baseDir + '/app/tests/**');
+  }
+
+  return gulp.src(files, { nodir: true, dot: true })
     .pipe(plumber({errorHandler: handleErrors}))
     .pipe(gulp.dest(buildFolder))
     .pipe(browserSync.stream());
