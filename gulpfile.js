@@ -155,7 +155,7 @@ gulp.task('copy', function () {
     '!' + jsFiles
   ];
 
-  if (enableTests) {
+  if (!enableTests) {
     files.push('!' + baseDir + '/app/tests/**');
   }
 
