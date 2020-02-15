@@ -1,54 +1,66 @@
 sleepyMUSTACHE - Basic Setup
 ===============================================================================
 
-sleepyMUSTACHE is a modular PHP micro framework designed to provide solutions for everyday PHP
-challenges. There are two editions: basic and routed.This basic edition is aimed at providing a bare
-bones scaffolding for developers to learn the framework and as a starting point for projects
+sleepyMUSTACHE is a modular PHP micro-framework designed to provide solutions for everyday PHP
+challenges. There are two editions: basic and routed. The basic edition is aimed at providing a
+bare bones scaffolding for simple websites. While the routed version is focused on web application
+development by including conrollers, modules, and views.
 
 Getting Started
 -------------------------------------------------------------------------------
-sleepyMUSTACHE is simple to configure. Configuration is done in both *src/settings.php* and *gulpfile.js*.
-
-You define your dev/stage/live environments, debugging preferences, and set any globals you need for your application in *settings.php*. Build settings are managed in *gulpfile.js*
+Configuration is done in *src/settings.php* and *gulpfile.js*. You define your dev/stage/live
+environments, debugging preferences, and set any globals you need for your application in
+*settings.php*. Build settings are managed in *gulpfile.js*
 
 1. Initialize git and node modules:
 
+``` bash
     git submodule init
     git submodule update
     npm install
+```
 
 2. In *gulpfile.js*, modify the configuration setting as necessary:
 
-    const devUrl = 'http://basic.local.com';
-    const enableTests = false;
+``` javascript
+    const devUrl = 'http://basic.local.com';  // This should match the web server hostname
+    const enableTests = false;                // Set to true to enable simpletest
+```
 
-3. Start the develop process by running:
+3. Compile the code and start the develop/watch process by running:
 
+``` bash
     npm develop
+```
 
-4. Configure the web server so that *devUrl* points to the *dist* folder that *npm develop* created
+The compiled code will live in the *dist* folder. Development is done in the *src* folder and
+compiled by gulp to the *dist* folder.
+
+4. Configure the web server so that:
+
+  * The web server root should point to the *dist* folder inside the repo
+  * The web server hostname matches the *devUrl* in *gulpfile.js*
 
 
 Gulp Modules
 -------------------------------------------------------------------------------
-sleepyMUSTACHE Basic included the following gulp modules in the build system:
+sleepyMUSTACHE Basic includes the following gulp modules in the build system:
 
-* gulp-eslint - Processes files with ESLint
-* gulp-imagemin - Minifies images
-* gulp-notify - Adds system notifications for error handling
-* gulp-sass - Compiles and minifies SASS
+* gulp-eslint     - Processes files with ESLint
+* gulp-imagemin   - Minifies images
+* gulp-notify     - Adds system notifications for error handling
+* gulp-sass       - Compiles and minifies SASS
 * gulp-sourcemaps - Adds sourcemaps for SASS
-* gulp-webpack - Minify and transpiles JavaScript
+* gulp-webpack    - Minify and transpiles JavaScript
 
 Whats included?
 -------------------------------------------------------------------------------
-The basic setup includes the core and a tool for installing
-[modules](https://github.com/sleepymustache/modules).
-
-It also includes some third party libraries to help get you started including, SimpleTest and a
-small JS toolset (sleepy.class.js).
+The basic framework includes the core, SimpleTest, a tool for installing
+[modules](https://github.com/sleepymustache/modules), and the build scripts.
 
 ### Core functionality
+
+The core consistes of 4 modules. See below for documentation:
 
 * [Debugging](http://sleepymustache.com/documentation/class-Sleepy.Debug.html)
 * [Hooks](http://www.sleepymustache.com/documentation/class-Sleepy.Hook.html)
@@ -57,26 +69,34 @@ small JS toolset (sleepy.class.js).
 
 ### Installing Modules
 
-There is a helper script (sleepy.js) to assist in finding and installing modules.
+"sleepy.js" assists in finding and installing modules.
 
 You can get a list of available modules:
 
-	node sleepy --list
+``` bash
+    node sleepy --list
+```
 
 You can install modules:
 
-	node sleepy --add Performance
+``` bash
+    node sleepy --add Performance
+```
 
 You can search for modules:
 
-	node sleepy --search DB
+``` bash
+    node sleepy --search DB
+```
 
 You can get more info about a module:
 
-	node sleepy --help Performance
+``` bash
+    node sleepy --help Performance
+```
 
 Learning More
 -------------------------------------------------------------------------------
-Documentation about the core functionality is available in the
-[core repo](https://github.com/sleepymustache/core). A list of existing modules can be found in the
-[modules repo](https://github.com/sleepymustache/modules).
+*  Documentation about the core is available at [core repo](https://github.com/sleepymustache/core).
+*  A list of existing modules can be found in the [modules
+   repo](https://github.com/sleepymustache/modules).
