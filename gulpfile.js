@@ -1,3 +1,4 @@
+const { dest, parallel, series, src, watch } = require('gulp');
 
 // Configuration
 const devUrl = 'http://basic.local.com'; // The local development URL for BrowserSync
@@ -6,7 +7,6 @@ const enableTests = false;               // Set to true to enable tests
 // Gulp plugins
 const browserSync = require('browser-sync').create();
 const eslint      = require('gulp-eslint');
-const gulp        = require('gulp');
 const imagemin    = require('gulp-imagemin');
 const notify      = require('gulp-notify');
 const plumber     = require('gulp-plumber');
@@ -36,20 +36,18 @@ const state = {
 /**
  * Handles errors with notifications
  */
-const handleErrors = function () {
-  const args = Array.prototype.slice.call(arguments);
-
+const handleErrors = (err) => {
   notify.onError({
     title:   '<%= error.name %>',
     message: '<%= error.message %>'
-  }).apply(this, args);
+  })(err);
 };
 
 /**
  * Handles the deleting of watched files
  * @param {object} event
  */
-const fileDeleter = function (event) {
+const fileDeleter = (event) => {
   const del = require('del');
   const path = require('path');
 
@@ -63,75 +61,50 @@ const fileDeleter = function (event) {
 /**
  * Lints the source
  */
-gulp.task('eslint', function () {
+const lint = () => {
   state.shouldMinify = true;
 
-  return gulp.src([jsFiles])
+  return src([jsFiles])
     .pipe(eslint())
     .pipe(plumber())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError())
-    .on('error', notify.onError((args) => {
+    .on('error', notify.onError((err) => {
       state.shouldMinify = false;
-      return handleErrors(args);
+      return handleErrors(err);
     }));
-});
-
-/**
- * Runs by default
- */
-gulp.task('default', [
-  'scripts',
-  'copy',
-  'images',
-  'styles'
-], () => {
-  browserSync.init({
-    proxy: devUrl,
-    notify: false
-  });
-});
-
-/**
- * Runs by default
- */
-gulp.task('build', [
-  'scripts',
-  'copy',
-  'images',
-  'styles'
-]);
+};
 
 /**
  * Compresses image files for production
  */
-gulp.task('images', () => {
-  gulp.src(imageFiles)
-    .pipe(plumber({errorHandler: handleErrors}))
+const images = () => {
+  return src(imageFiles)
+    .pipe(plumber({ errorHandler: handleErrors }))
     .pipe(imagemin())
-    .pipe(gulp.dest(buildImageFolder))
+    .pipe(dest(buildImageFolder))
     .pipe(browserSync.stream());
-});
+};
 
 /**
  * Minifies JS files for production
  */
-gulp.task('scripts', ['eslint'], () => {
-  if (!state.shouldMinify) return gulp;
+const scripts = series(lint, (cb) => {
+  if (!state.shouldMinify) return cb;
 
-  return gulp.src(baseDir + '/js/main.js')
-    .pipe(plumber({errorHandler: handleErrors}))
+  return src(baseDir + '/js/main.js')
+    .pipe(plumber({ errorHandler: handleErrors }))
     .pipe(webpack(require('./webpack.config.js')))
-    .pipe(gulp.dest(buildJsFolder))
+    .pipe(dest(buildJsFolder))
     .pipe(browserSync.stream());
 });
 
 /**
  * Compiles SCSS to CSS and minifies CSS
  */
-gulp.task('styles', () => {
-  gulp.src(sassFiles)
-    .pipe(plumber({errorHandler: handleErrors}))
+const styles = () => {
+  return src(sassFiles)
+    .pipe(plumber({ errorHandler: handleErrors }))
     .pipe(sourcemaps.init())
     .pipe(sass({
       outputStyle: 'compressed'
@@ -140,14 +113,14 @@ gulp.task('styles', () => {
       includeContent: true,
       sourceRoot: './'
     }))
-    .pipe(gulp.dest(buildCssFolder))
-    .pipe(browserSync.stream());
-});
+    .pipe(dest(buildCssFolder))
+    .pipe(browserSync.stream({ watch: '**/*.css' }));
+};
 
 /**
  * Copy the html files to the build directory
  */
-gulp.task('copy', function () {
+const copy = () => {
   var files = [
     baseDir + '/**',
     '!' + sassFiles,
@@ -159,51 +132,59 @@ gulp.task('copy', function () {
     files.push('!' + baseDir + '/app/tests/**');
   }
 
-  return gulp.src(files, { nodir: true, dot: true })
+  return src(files, { nodir: true, dot: true })
     .pipe(plumber({errorHandler: handleErrors}))
-    .pipe(gulp.dest(buildFolder))
+    .pipe(dest(buildFolder))
     .pipe(browserSync.stream());
-});
+};
 
-/**
- * Watches for changes in files and does stuff
- */
-gulp.task('watch', ['copy', 'images', 'styles', 'scripts'], () => {
-  const imageWatcher = gulp.watch([imageFiles], ['images']);
-  const copyWatcher = gulp.watch([
-    baseDir + '/**',
-    '!' + sassFiles,
-    '!' + imageFiles,
-    '!' + jsFiles
-  ], { dot: true }, ['copy']);
-
-  gulp.watch([jsFiles], ['scripts']);
-  gulp.watch([sassFiles],  ['styles']);
-
-  copyWatcher.on('change', fileDeleter);
-  imageWatcher.on('change', fileDeleter);
-
+const build = series((cb) => {
   browserSync.init({
     proxy: devUrl,
     notify: false
   });
+
+  cb();
+}, parallel(copy, images, styles, scripts));
+
+const cleanup = (cb) => { cb(); };
+
+/**
+ * Watches for changes in files and does stuffF
+ */
+const develop = parallel(build, () => {
+  watch([jsFiles], scripts);
+  watch([sassFiles], styles);
+  const imageWatcher = watch([imageFiles], images);
+  const copyWatcher  = watch([
+    baseDir + '/**',
+    '!' + sassFiles,
+    '!' + imageFiles,
+    '!' + jsFiles
+  ], { dot: true }, copy);
+
+  copyWatcher.on('change',  fileDeleter);
+  imageWatcher.on('change', fileDeleter);
 });
 
-gulp.task('cleanup', [], function () {
-
-});
-
-gulp.task('zip', ['copy', 'images', 'styles', 'scripts'], () => {
+const packUp = series(build, () => {
   var today = new Date();
 
-  gulp.src('dist/**/*')
+  return src('dist/**/*')
     .pipe(zip(
-      today.getFullYear().toString() + "-" +
-      today.getMonth().toString() + "-" +
-      today.getDay().toString() + "_" +
+      today.getFullYear().toString() + '-' +
+      today.getMonth().toString() + '-' +
+      today.getDay().toString() + '_' +
       today.getHours().toString() +
       today.getMinutes().toString() +
       '-dist.zip'
     ))
-    .pipe(gulp.dest('./'));
+    .pipe(dest('./'));
 });
+
+//if (process.env.NODE_ENV === 'production') {
+exports.cleanup = cleanup;
+exports.zip     = packUp;
+exports.develop = develop;
+exports.build   = build;
+exports.default = develop;
