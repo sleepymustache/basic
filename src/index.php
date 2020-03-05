@@ -14,8 +14,6 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/app/sleepy/bootstrap.php';
 
 use \Sleepy\Core\Template;
-use \Sleepy\Core\Debug;
-use \Sleepy\Core\Hook;
 
 $page = new Template('homepage');
 
