@@ -73,7 +73,7 @@ class Module {
       'submodule',
       'add',
       this.obj.url,
-      'src/app/modules/' + this.name.replace(' ', '-').toLowerCase()
+      'src/app/module/' + this.name.replace(' ', '-').toLowerCase()
     ], {
       shell: true
     });
