@@ -1,14 +1,15 @@
 {
-  "name": "basic",
-  "version": "1.1.0",
+  "name": "sleepy-mustache-basic",
+  "version": "2.0.0",
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "build": "gulp build",
-    "develop": "gulp watch",
-    "zip": "gulp zip",
-    "cleanup": "gulp cleanup",
-    "start": "gulp",
+    "init": "git submodule init && git submodule update && npm install",
+    "build": "npm run init && gulp build",
+    "develop": "npm run init && gulp copy && docker-compose -f \"docker-compose.yml\" up -d --build && gulp develop",
+    "zip": "npm run build && gulp zip",
+    "cleanup": "npm run build && gulp cleanup",
+    "start": "npm run develop",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jaime Rodriguez <jaime@rodriguez-jr.com>",
@@ -38,5 +39,11 @@
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "del": "^5.0.0"
-  }
+  },
+  "browserslist": [
+    "defaults",
+    "last 2 versions",
+    "not dead",
+    "IE 11"
+  ]
 }

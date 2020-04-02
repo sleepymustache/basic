@@ -1,8 +1,8 @@
 const { dest, parallel, series, src, watch } = require('gulp');
 
 // Configuration
-const devUrl = 'http://basic.local.com'; // The local development URL for BrowserSync
-const enableTests = false;               // Set to true to enable tests
+const devUrl = 'http://localhost:8080'; // The local development URL for BrowserSync
+const enableTests = false;              // Set to true to enable tests
 
 // Gulp plugins
 const browserSync = require('browser-sync').create();
@@ -188,3 +188,4 @@ exports.zip     = packUp;
 exports.develop = develop;
 exports.build   = build;
 exports.default = develop;
+exports.copy    = copy;

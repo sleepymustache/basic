@@ -1,0 +1,8 @@
+{
+    "files.exclude": {
+        "dist": true,
+        "src\\app\\tests\\simpletest\\test\\test_with_parse_error.php": true,
+        "node_modules": true
+    },
+    "php.validate.run": "onType"
+}
