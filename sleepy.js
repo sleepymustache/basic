@@ -72,6 +72,7 @@ class Module {
     subprocess.spawnSync('git', [
       'submodule',
       'add',
+      '-b 2.x',
       this.obj.url,
       'src/app/modules/' + this.name.replace(' ', '-').toLowerCase()
     ], {

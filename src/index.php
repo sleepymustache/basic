@@ -15,8 +15,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/app/sleepy/bootstrap.php';
 
 use \Sleepy\Core\Template;
 
-$x = 1 / 0;
-
 $page = new Template('homepage');
 
 // SEO
