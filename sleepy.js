@@ -73,7 +73,7 @@ class Module {
       'submodule',
       'add',
       this.obj.url,
-      'src/app/module/' + this.name.replace(' ', '-').toLowerCase()
+      'src/app/modules/' + this.name.replace(' ', '-').toLowerCase()
     ], {
       shell: true
     });
@@ -101,7 +101,7 @@ class Sleepy {
 
     let request = https.get({
       hostname: 'raw.githubusercontent.com',
-      path: '/sleepymustache/modules/master/modules.json'
+      path: '/sleepymustache/modules/master/modules2.json'
     }, response => {
       let body = '';
 

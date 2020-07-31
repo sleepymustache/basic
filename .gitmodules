@@ -1,15 +1,3 @@
 [submodule "src/app/core"]
 	path = src/app/sleepy
 	url = https://github.com/sleepymustache/core.git
-[submodule "src/app/tests/simpletest"]
-	path = src/app/tests/simpletest
-	url = https://github.com/simpletest/simpletest.git
-[submodule "src/app/modules/performance"]
-	path = src/app/module/performance
-	url = https://github.com/sleepymustache/module-performance
-[submodule "src/app/modules/url-class"]
-	path = src/app/module/urlclass
-	url = https://github.com/sleepymustache/module-urlclass
-[submodule "src/app/modules/whoops"]
-	path = src/app/module/whoops
-	url = https://github.com/sleepymustache/module-whoops.git
