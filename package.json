@@ -10,7 +10,7 @@
     "zip": "npm run build && gulp zip",
     "cleanup": "npm run build && gulp cleanup",
     "start": "npm run develop",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "php phpunit.phar ./src/app"
   },
   "author": "Jaime Rodriguez <jaime@rodriguez-jr.com>",
   "license": "MIT",

@@ -262,7 +262,7 @@ class TemplateTest extends TestCase
      *
      * @return void
      */
-    function testTempl1ateMissing()
+    function testTemplateMissing()
     {
         $this->expectExceptionMessageMatches(
             "/Template(.*)missing.tpl' does not exist./"
