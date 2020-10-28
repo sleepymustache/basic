@@ -7,7 +7,7 @@
   display: none;
 }
 
-@media (min-width: $desktop-breakpoint) {
+@media (min-width: 767px) {
   .desktop-only {
     display: initial;
   }
@@ -18,6 +18,14 @@
 
   .mobile-only {
     display: none;
+  }
+}
+
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
   }
 }
 
@@ -88,12 +96,12 @@
 }
 
 @mixin full-width {
-  $max-width: 2000px;
-
-  padding-left: $max-width;
-  margin-left: $max-width * -1;
-  padding-right: $max-width;
-  margin-right: $max-width * -1;
+  @include breakpoint('medium') {
+    margin-left:   calc(((100vw - 1000px) / 2 * -1) + #{$desktop-padding * 0});
+    margin-right:  calc(((100vw - 1000px) / 2 * -1) + #{$desktop-padding * 0});
+    padding-left:  calc(((100vw - 1000px) / 2 *  1) + #{$desktop-padding * 1});
+    padding-right: calc(((100vw - 1000px) / 2 *  1) + #{$desktop-padding * 1});
+  }
 }
 
 @mixin colored-bullets($color) {
@@ -103,7 +111,7 @@
     position: relative;
 
     &:before {
-      color: $color;
+      color: $color; 
       content: '\2022';
       display: block;
       left: -10px;

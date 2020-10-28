@@ -1,37 +1,36 @@
-sleepyMUSTACHE - Basic Setup
-===============================================================================
+# sleepyMUSTACHE 2.0 - Basic Setup
 
-sleepyMUSTACHE is a modular PHP micro-framework designed to provide solutions for
-everyday PHP challenges. There are two editions: basic and routed. The basic edition
-is aimed at providing a bare bones scaffolding for simple websites. While the routed
-version is focused on web application development and includes conrollers, modules,
-and views.
+sleepyMUSTACHE is a PHP micro-framework designed to provide solutions for rapidly building websites which are fast and
+secure. Our main goal is to create a framework that is enjoyable for developers to use, while giving them fine grained
+control. 
 
-Getting Started
--------------------------------------------------------------------------------
+There are two editions: basic and routed. 
+
+The basic edition is aimed at providing a bare bones scaffolding for simple websites. While the routed version is 
+focused on web application and services development and includes controllers, modules, and views. Both versions consists
+of the core and various modules which are easy to understand and create.
+
+## Getting Started
 
 1. sleepyMUSTACHE settings
 
-Configuration is done in *src/settings.php*. You define your dev/stage/live
-environments, debugging preferences, and set any globals you need for your
-application in *settings.php*.
+Configuration is done in *src/settings.php*. You define your dev/stage/live environments, debugging preferences, and set 
+any globals you need for your application in *settings.php*.
 
 2. Development and tooling
 
-NPM (node v.11.15.0), Gulp 4, and Docker are required and used to setup the
-environment and automate the build process. The initial compile takes a few mins as
-docker will download, compile, and setup the development environment.
+NPM (node v.11.15.0), Gulp 4, and Docker are required and used to setup the environment and automate the build process. 
+The initial compile takes a few mins as Docker will download, compile, and setup the development environment.
 
 ``` bash
     npm run develop
 ```
 
-The compiled code will live in the *dist* folder. Development is done in the *src*
-folder and compiled by gulp to the *dist* folder. The dist folder is automatically
-synced with the docker instance.
+Development is done in the *src* folder and compiled by gulp to the *dist* folder. The dist folder is automatically 
+synced with the docker instance. Visual Studio Code will be preconfigured to hide the dist folder to prevent confusion.
 
-Gulp Modules
--------------------------------------------------------------------------------
+## Gulp Modules
+
 sleepyMUSTACHE Basic includes the following gulp modules in the build system:
 
 * gulp-eslint     - Processes files with ESLint
@@ -41,25 +40,27 @@ sleepyMUSTACHE Basic includes the following gulp modules in the build system:
 * gulp-sourcemaps - Adds sourcemaps for SASS
 * gulp-webpack    - Minify and transpiles JavaScript
 
-Whats included?
--------------------------------------------------------------------------------
-The basic framework includes the core, phpunit, a tool for installing
-[modules](https://github.com/sleepymustache/modules), and the build scripts.
+## Whats included?
+
+The basic framework includes the core, phpunit, a tool for installing 
+[modules](https://github.com/sleepymustache/modules) (sleepy.js), and the build scripts.
 
 ### Core functionality
 
-The core consistes of 4 modules. See below for documentation:
+The core consists of a few classes. See below for documentation:
 
 * [Debugging](http://sleepymustache.com/documentation/class-Sleepy.Debug.html)
 * [Hooks](http://www.sleepymustache.com/documentation/class-Sleepy.Hook.html)
-* [Routing](http://sleepymustache.com/documentation/class-Sleepy.Router.html)
+* AutoLoader
+* Modules
 * [Templating](http://www.sleepymustache.com/documentation/class-Sleepy.Template.html)
 
 ### Installing Modules
 
-"sleepy.js" assists in finding and installing modules.
+"sleepy.js" assists in finding and installing modules. The list of Modules is located on Github. We encourage you to 
+submit your modules as pull requests to have them added to the [repository](https://github.com/sleepymustache/modules).
 
-You can get a list of available modules:
+Using the sleepy.js script, you can get a list of available modules:
 
 ``` bash
     node sleepy --list

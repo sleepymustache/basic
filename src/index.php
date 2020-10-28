@@ -4,7 +4,7 @@
  *
  * PHP version 7.0.0
  *
- * @category Page
+ * @category Page 
  * @package  Sleepy
  * @author   Jaime A. Rodriguez <hi.i.am.jaime@gmail.com>
  * @license  http://opensource.org/licenses/MIT; MIT
@@ -33,6 +33,7 @@ $page->bind(
     [
         [
             "title"   => "Getting Started",
+            "image"   => "https://unsplash.com/photos/cUJc1mb3KVg/download?w=320",
             "link"    => 'http://www.sleepymustache.com/',
             "author"  => "Jaime A. Rodriguez",
             "date"    => date('m/d/Y', time()),
@@ -52,6 +53,7 @@ $page->bind(
             ]
         ], [
             "title"   => "Sample Modules",
+            "image"   => "https://unsplash.com/photos/MixbiPC3AEE/download?w=320",
             "link"    => "#",
             "author"  => "Jaime A. Rodriguez",
             "date"    => date('m/d/Y', time() - 30 * 24 * 60 * 60),

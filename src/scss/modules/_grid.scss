@@ -1,0 +1,312 @@
+$grid-breakpoint-xsmall: 0px !default;
+$grid-breakpoint-small:  576px !default;
+$grid-breakpoint-medium: 769px !default;
+$grid-breakpoint-large:  992px !default;
+$grid-breakpoint-xlarge: 1200px !default;
+
+$grid-gutters-xsmall: 30px !default;
+$grid-gutters-small:  30px !default;
+$grid-gutters-medium: 30px !default;
+$grid-gutters-large:  30px !default;
+$grid-gutters-xlarge: 30px !default;
+
+$grid-columns-xsmall: 12 !default;
+$grid-columns-small:  12 !default;
+$grid-columns-medium: 12 !default;
+$grid-columns-large:  12 !default;
+$grid-columns-xlarge: 12 !default;
+
+
+// Break points
+@mixin breakpoint($size) {
+  $breakpoint: $grid-breakpoint-xsmall;
+
+  @if ($size == 'small') {
+    $breakpoint: $grid-breakpoint-small;
+  }
+
+  @if ($size == 'medium') {
+    $breakpoint: $grid-breakpoint-medium;
+  }
+
+  @if ($size == 'large') {
+    $breakpoint: $grid-breakpoint-large;
+  }
+
+  @if ($size == 'xlarge') {
+    $breakpoint: $grid-breakpoint-xlarge;
+  }
+
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin breakpoint-only($size) {
+  $min: 0px;
+  $max: $grid-breakpoint-small;
+
+  @if ($size == 'small') {
+    $min: $grid-breakpoint-small;
+    $max: $grid-breakpoint-medium;
+  }
+
+  @if ($size == 'medium') {
+    $min: $grid-breakpoint-medium;
+    $max: $grid-breakpoint-large;
+  }
+
+  @if ($size == 'large') {
+    $min: $grid-breakpoint-large;
+    $max: $grid-breakpoint-xlarge;
+  }
+
+  @if ($size == 'xlarge') {
+    $min: $grid-breakpoint-xlarge;
+    $max: 99999px;
+  }
+
+  @media (min-width: $min - 1) AND (max-width: $max) {
+    @content;
+  }
+}
+
+// Container
+@mixin make-container() {
+  @include breakpoint('xsmall') { $gutter: $grid-gutters-xsmall / 2;padding-right: $gutter; padding-left: $gutter; }
+  @include breakpoint('small')  { $gutter: $grid-gutters-small / 2;padding-right: $gutter; padding-left: $gutter; }
+  @include breakpoint('medium') { $gutter: $grid-gutters-medium / 2;padding-right: $gutter; padding-left: $gutter; }
+  @include breakpoint('large')  { $gutter: $grid-gutters-large / 2;padding-right: $gutter; padding-left: $gutter; }
+  @include breakpoint('xlarge') { $gutter: $grid-gutters-xlarge / 2;padding-right: $gutter; padding-left: $gutter; }
+
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+// Rows
+@mixin make-row() {
+  @include clearfix();
+
+  display: flex;
+  flex-wrap: wrap;
+
+  @include breakpoint($grid-breakpoint-xsmall) {
+    margin-left: $grid-gutters-xsmall * -0.5;
+    margin-right: $grid-gutters-xsmall * -0.5;
+  }
+
+  @include breakpoint($grid-breakpoint-small) {
+    margin-left: $grid-gutters-small * -0.5;
+    margin-right: $grid-gutters-small * -0.5;
+  }
+
+  @include breakpoint($grid-breakpoint-medium) {
+    margin-left: $grid-gutters-medium * -0.5;
+    margin-right: $grid-gutters-medium * -0.5;
+  }
+
+  @include breakpoint($grid-breakpoint-large) {
+    margin-left: $grid-gutters-large * -0.5;
+    margin-right: $grid-gutters-large * -0.5;
+  }
+
+  @include breakpoint($grid-breakpoint-xlarge) {
+    margin-left: $grid-gutters-xlarge * -0.5;
+    margin-right: $grid-gutters-xlarge * -0.5;
+  }
+}
+
+// Columns
+@mixin make-col-helper($cols, $breakpoint, $column-width, $gutters) {
+  $gutter-width:  ($cols - 1) * ($gutters * 2);
+  $total-gutters: ($column-width) * ($gutters * 2);
+
+  @include breakpoint($breakpoint) {
+    padding-left: $gutters / 2;
+    padding-right: $gutters / 2;
+    flex: 0 0 calc(100% * (#{$cols} / #{$column-width}));
+    max-width: calc(100% * (#{$cols} / #{$column-width}));
+  }
+}
+
+@mixin make-col($cols)    {@include make-col-helper($cols, 'xsmall', $grid-columns-xsmall, $grid-gutters-xsmall);}
+@mixin make-sm-col($cols) {@include make-col-helper($cols, 'small',  $grid-columns-small,  $grid-gutters-small);}
+@mixin make-md-col($cols) {@include make-col-helper($cols, 'medium', $grid-columns-medium, $grid-gutters-medium);}
+@mixin make-lg-col($cols) {@include make-col-helper($cols, 'large',  $grid-columns-large,  $grid-gutters-large);}
+@mixin make-xl-col($cols) {@include make-col-helper($cols, 'xlarge', $grid-columns-xlarge, $grid-gutters-xlarge);}
+
+// Offsets
+@mixin make-offset-helper($cols, $breakpoint, $column-width, $gutters) {
+  $gutter-width:  ($cols) * ($gutters * 2) + $gutters;
+  $total-gutters: ($column-width) * ($gutters * 2);
+
+  @include breakpoint($breakpoint) {
+    float: left;
+    margin-right: $gutters;
+    margin-left: calc(((((100% - #{$total-gutters}) / #{$column-width})) * #{$cols}) + #{$gutter-width}) !important;
+  }
+}
+
+@mixin make-offset($cols)    {@include make-offset-helper($cols, 'xsmall', $grid-columns-xsmall, $grid-gutters-xsmall);}
+@mixin make-sm-offset($cols) {@include make-offset-helper($cols, 'small',  $grid-columns-small,  $grid-gutters-small);}
+@mixin make-md-offset($cols) {@include make-offset-helper($cols, 'medium', $grid-columns-medium, $grid-gutters-medium);}
+@mixin make-lg-offset($cols) {@include make-offset-helper($cols, 'large',  $grid-columns-large,  $grid-gutters-large);}
+@mixin make-xl-offset($cols) {@include make-offset-helper($cols, 'xlarge', $grid-columns-xlarge, $grid-gutters-xlarge);}
+
+
+// Pulls
+@mixin pull-col($cols) {
+  $gutter-width-mobile:  ($cols) * ($grid-gutters-mobile * 2) + $grid-gutters-mobile;
+  $total-gutters-mobile: ($grid-columns-mobile) * ($grid-gutters-mobile * 2);
+
+  $gutter-width-tablet:  ($cols) * ($grid-gutters-tablet * 2) + $grid-gutters-tablet;
+  $total-gutters-tablet: ($grid-columns-tablet) * ($grid-gutters-tablet * 2);
+
+  $gutter-width-desktop:  ($cols) * ($grid-gutters-desktop * 2) + $grid-gutters-desktop;
+  $total-gutters-desktop: ($grid-columns-desktop) * ($grid-gutters-desktop * 2);
+
+  transform: translateX(calc(-1 * ((((100vw - #{$total-gutters-mobile}) / #{$grid-columns-mobile})) * #{$cols}) - #{$gutter-width-mobile / 2}));
+
+  @include breakpoint($tablet) {
+    transform: translateX(calc(-1 * ((((100vw - #{$total-gutters-tablet}) / #{$grid-columns-tablet})) * #{$cols}) - #{$gutter-width-tablet / 2}));
+  }
+
+  @media (min-width: $desktop-max-width) {
+    transform: translateX(calc(-1 * (1440px / #{$grid-columns-mobile}) * #{$cols}) );
+  }
+}
+
+// Helper Classes
+.container { @include make-container(); }
+.row { @include make-row(); }
+
+// xsmall
+.col-1  {@include make-col(1);}
+.col-2  {@include make-col(2);}
+.col-3  {@include make-col(3);}
+.col-4  {@include make-col(4);}
+.col-5  {@include make-col(5);}
+.col-6  {@include make-col(6);}
+.col-7  {@include make-col(7);}
+.col-8  {@include make-col(8);}
+.col-9  {@include make-col(9);}
+.col-10 {@include make-col(10);}
+.col-11 {@include make-col(11);}
+.col-12 {@include make-col(12);}
+.offset-0  {@include make-offset(0);}
+.offset-1  {@include make-offset(1);}
+.offset-2  {@include make-offset(2);}
+.offset-3  {@include make-offset(3);}
+.offset-4  {@include make-offset(4);}
+.offset-5  {@include make-offset(5);}
+.offset-6  {@include make-offset(6);}
+.offset-7  {@include make-offset(7);}
+.offset-8  {@include make-offset(8);}
+.offset-9  {@include make-offset(9);}
+.offset-10 {@include make-offset(10);}
+.offset-11 {@include make-offset(11);}
+
+// small
+.col-sm-1  {@include make-sm-col(1);}
+.col-sm-2  {@include make-sm-col(2);}
+.col-sm-3  {@include make-sm-col(3);}
+.col-sm-4  {@include make-sm-col(4);}
+.col-sm-5  {@include make-sm-col(5);}
+.col-sm-6  {@include make-sm-col(6);}
+.col-sm-7  {@include make-sm-col(7);}
+.col-sm-8  {@include make-sm-col(8);}
+.col-sm-9  {@include make-sm-col(9);}
+.col-sm-10 {@include make-sm-col(10);}
+.col-sm-11 {@include make-sm-col(11);}
+.col-sm-12 {@include make-sm-col(12);}
+.offset-sm-0  {@include make-sm-offset(0);}
+.offset-sm-1  {@include make-sm-offset(1);}
+.offset-sm-2  {@include make-sm-offset(2);}
+.offset-sm-3  {@include make-sm-offset(3);}
+.offset-sm-4  {@include make-sm-offset(4);}
+.offset-sm-5  {@include make-sm-offset(5);}
+.offset-sm-6  {@include make-sm-offset(6);}
+.offset-sm-7  {@include make-sm-offset(7);}
+.offset-sm-8  {@include make-sm-offset(8);}
+.offset-sm-9  {@include make-sm-offset(9);}
+.offset-sm-10 {@include make-sm-offset(10);}
+.offset-sm-11 {@include make-sm-offset(11);}
+
+// medium
+.col-md-1  {@include make-md-col(1);}
+.col-md-2  {@include make-md-col(2);}
+.col-md-3  {@include make-md-col(3);}
+.col-md-4  {@include make-md-col(4);}
+.col-md-5  {@include make-md-col(5);}
+.col-md-6  {@include make-md-col(6);}
+.col-md-7  {@include make-md-col(7);}
+.col-md-8  {@include make-md-col(8);}
+.col-md-9  {@include make-md-col(9);}
+.col-md-10 {@include make-md-col(10);}
+.col-md-11 {@include make-md-col(11);}
+.col-md-12 {@include make-md-col(12);}
+.offset-md-0  {@include make-md-offset(0);}
+.offset-md-1  {@include make-md-offset(1);}
+.offset-md-2  {@include make-md-offset(2);}
+.offset-md-3  {@include make-md-offset(3);}
+.offset-md-4  {@include make-md-offset(4);}
+.offset-md-5  {@include make-md-offset(5);}
+.offset-md-6  {@include make-md-offset(6);}
+.offset-md-7  {@include make-md-offset(7);}
+.offset-md-8  {@include make-md-offset(8);}
+.offset-md-9  {@include make-md-offset(9);}
+.offset-md-10 {@include make-md-offset(10);}
+.offset-md-11 {@include make-md-offset(11);}
+
+// large
+.col-lg-1  {@include make-lg-col(1);}
+.col-lg-2  {@include make-lg-col(2);}
+.col-lg-3  {@include make-lg-col(3);}
+.col-lg-4  {@include make-lg-col(4);}
+.col-lg-5  {@include make-lg-col(5);}
+.col-lg-6  {@include make-lg-col(6);}
+.col-lg-7  {@include make-lg-col(7);}
+.col-lg-8  {@include make-lg-col(8);}
+.col-lg-9  {@include make-lg-col(9);}
+.col-lg-10 {@include make-lg-col(10);}
+.col-lg-11 {@include make-lg-col(11);}
+.col-lg-12 {@include make-lg-col(12);}
+.offset-lg-0  {@include make-lg-offset(0);}
+.offset-lg-1  {@include make-lg-offset(1);}
+.offset-lg-2  {@include make-lg-offset(2);}
+.offset-lg-3  {@include make-lg-offset(3);}
+.offset-lg-4  {@include make-lg-offset(4);}
+.offset-lg-5  {@include make-lg-offset(5);}
+.offset-lg-6  {@include make-lg-offset(6);}
+.offset-lg-7  {@include make-lg-offset(7);}
+.offset-lg-8  {@include make-lg-offset(8);}
+.offset-lg-9  {@include make-lg-offset(9);}
+.offset-lg-10 {@include make-lg-offset(10);}
+.offset-lg-11 {@include make-lg-offset(11);}
+
+// xlarge
+.col-xl-1  {@include make-xl-col(1);}
+.col-xl-2  {@include make-xl-col(2);}
+.col-xl-3  {@include make-xl-col(3);}
+.col-xl-4  {@include make-xl-col(4);}
+.col-xl-5  {@include make-xl-col(5);}
+.col-xl-6  {@include make-xl-col(6);}
+.col-xl-7  {@include make-xl-col(7);}
+.col-xl-8  {@include make-xl-col(8);}
+.col-xl-9  {@include make-xl-col(9);}
+.col-xl-10 {@include make-xl-col(10);}
+.col-xl-11 {@include make-xl-col(11);}
+.col-xl-12 {@include make-xl-col(12);}
+.offset-xl-0  {@include make-xl-offset(0);}
+.offset-xl-1  {@include make-xl-offset(1);}
+.offset-xl-2  {@include make-xl-offset(2);}
+.offset-xl-3  {@include make-xl-offset(3);}
+.offset-xl-4  {@include make-xl-offset(4);}
+.offset-xl-5  {@include make-xl-offset(5);}
+.offset-xl-6  {@include make-xl-offset(6);}
+.offset-xl-7  {@include make-xl-offset(7);}
+.offset-xl-8  {@include make-xl-offset(8);}
+.offset-xl-9  {@include make-xl-offset(9);}
+.offset-xl-10 {@include make-xl-offset(10);}
+.offset-xl-11 {@include make-xl-offset(11);}
