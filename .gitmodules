@@ -13,3 +13,7 @@
 	path = src/app/modules/whoops
 	url = https://github.com/sleepymustache/module-whoops.git
 	branch = 2.x
+[submodule "src/app/modules/navigation"]
+	path = src/app/modules/navigation
+	url = https://github.com/sleepymustache/module-navigation.git
+	branch = 2.x

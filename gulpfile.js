@@ -34,16 +34,6 @@ const state = {
 };
 
 /**
- * Handles errors with notifications
- */
-const handleErrors = (err) => {
-  notify.onError({
-    title:   '<%= error.name %>',
-    message: '<%= error.message %>'
-  })(err);
-};
-
-/**
  * Handles the deleting of watched files
  * @param {object} event
  */
@@ -66,7 +56,9 @@ const lint = () => {
 
   return src([jsFiles])
     .pipe(eslint())
-    .pipe(plumber())
+    .pipe(plumber({
+      errorHandler: notify.onError('Error: <%= error.message %>')
+    }))
     .pipe(eslint.format())
     .pipe(eslint.failAfterError())
     .on('error', notify.onError((err) => {
@@ -80,7 +72,9 @@ const lint = () => {
  */
 const images = () => {
   return src(imageFiles)
-    .pipe(plumber({ errorHandler: handleErrors }))
+    .pipe(plumber({
+      errorHandler: notify.onError('Error: <%= error.message %>')
+    }))
     .pipe(imagemin())
     .pipe(dest(buildImageFolder))
     .pipe(browserSync.stream());
@@ -93,7 +87,9 @@ const scripts = series(lint, (cb) => {
   if (!state.shouldMinify) return cb;
 
   return src(baseDir + '/js/main.js')
-    .pipe(plumber({ errorHandler: handleErrors }))
+    .pipe(plumber({
+      errorHandler: notify.onError('Error: <%= error.message %>')
+    }))
     .pipe(webpack(require('./webpack.config.js')))
     .pipe(dest(buildJsFolder))
     .pipe(browserSync.stream());
@@ -104,7 +100,9 @@ const scripts = series(lint, (cb) => {
  */
 const styles = () => {
   return src(sassFiles)
-    .pipe(plumber({ errorHandler: handleErrors }))
+    .pipe(plumber({
+      errorHandler: notify.onError('Error: <%= error.message %>')
+    }))
     .pipe(sourcemaps.init())
     .pipe(sass({
       outputStyle: 'compressed'
@@ -133,7 +131,9 @@ const copy = () => {
   }
 
   return src(files, { nodir: true, dot: true })
-    .pipe(plumber({errorHandler: handleErrors}))
+    .pipe(plumber({
+      errorHandler: notify.onError('Error: <%= error.message %>')
+    }))
     .pipe(dest(buildFolder))
     .pipe(browserSync.stream());
 };
