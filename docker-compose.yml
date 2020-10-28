@@ -9,10 +9,9 @@ services:
       MYSQL_USER: sleepy
       MYSQL_PASSWORD: sleepy
     ports:
-      - "9906:3306"
+      - "3336:3306"
   web:
     build: .
-    #container_name: php_web
     depends_on:
       - db
     volumes:
