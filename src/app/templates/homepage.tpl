@@ -2,7 +2,7 @@
   {{ #each entry in teasers }}
     <article class="row">
       <header class="col-12">
-        <h1><a href="{{entry.link}}">{{ entry.title }}</a></h1>
+        <h2><a href="{{entry.link}}">{{ entry.title }}</a></h2>
         <p class="metadata">{{ entry.date }} - {{ entry.author }}</p>
       </header>
       <img class="col-12 col-md-4" alt="misc" src="{{ entry.image }}" />
