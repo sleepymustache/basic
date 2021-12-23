@@ -6,7 +6,7 @@
   "scripts": {
     "init": "git submodule init && git submodule update && npm install",
     "build": "npm run init && gulp build",
-    "develop": "npm run init && gulp copy && docker-compose -f \"docker-compose.yml\" up -d --build && gulp develop",
+    "develop": "npm run init && gulp copy && docker-compose -f \"docker/docker-compose.yml\" up -d --build && gulp develop",
     "zip": "npm run build && gulp zip",
     "cleanup": "npm run build && gulp cleanup",
     "start": "npm run develop",
