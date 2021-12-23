@@ -1,14 +1,13 @@
 const { dest, parallel, series, src, watch } = require('gulp');
 
 // Configuration
-const devUrl = 'http://localhost:8080'; // The local development URL for BrowserSync
+const devUrl = 'http://localhost:8888'; // The local development URL for BrowserSync
 const enableTests = false;              // Set to true to enable tests
 
 // Gulp plugins
 const browserSync = require('browser-sync').create();
 const eslint      = require('gulp-eslint');
 const imagemin    = require('gulp-imagemin');
-const notify      = require('gulp-notify');
 const plumber     = require('gulp-plumber');
 const sass        = require('gulp-sass');
 const sourcemaps  = require('gulp-sourcemaps');
@@ -33,6 +32,10 @@ const state = {
   shouldMinify: true
 };
 
+const handleErrors = (err) => {
+  console.dir(err.message);
+}
+
 /**
  * Handles the deleting of watched files
  * @param {object} event
@@ -52,19 +55,16 @@ const fileDeleter = (event) => {
  * Lints the source
  */
 const lint = () => {
-  state.shouldMinify = true;
+  state.shouldMinify = false;
 
   return src([jsFiles])
     .pipe(eslint())
-    .pipe(plumber({
-      errorHandler: notify.onError('Error: <%= error.message %>')
-    }))
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError())
-    .on('error', notify.onError((err) => {
+    .on('error', (err) => {
       state.shouldMinify = false;
       return handleErrors(err);
-    }));
+    })
+    .pipe(eslint.format());
+    //.pipe(eslint.failAfterError());
 };
 
 /**
@@ -73,7 +73,7 @@ const lint = () => {
 const images = () => {
   return src(imageFiles)
     .pipe(plumber({
-      errorHandler: notify.onError('Error: <%= error.message %>')
+      errorHandler: handleErrors
     }))
     .pipe(imagemin())
     .pipe(dest(buildImageFolder))
@@ -84,11 +84,12 @@ const images = () => {
  * Minifies JS files for production
  */
 const scripts = series(lint, (cb) => {
+  console.log(state);
   if (!state.shouldMinify) return cb;
 
   return src(baseDir + '/js/main.js')
     .pipe(plumber({
-      errorHandler: notify.onError('Error: <%= error.message %>')
+      errorHandler: handleErrors
     }))
     .pipe(webpack(require('./webpack.config.js')))
     .pipe(dest(buildJsFolder))
@@ -101,7 +102,7 @@ const scripts = series(lint, (cb) => {
 const styles = () => {
   return src(sassFiles)
     .pipe(plumber({
-      errorHandler: notify.onError('Error: <%= error.message %>')
+      errorHandler: handleErrors
     }))
     .pipe(sourcemaps.init())
     .pipe(sass({
@@ -132,7 +133,7 @@ const copy = () => {
 
   return src(files, { nodir: true, dot: true })
     .pipe(plumber({
-      errorHandler: notify.onError('Error: <%= error.message %>')
+      errorHandler: handleErrors
     }))
     .pipe(dest(buildFolder))
     .pipe(browserSync.stream());
