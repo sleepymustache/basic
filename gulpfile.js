@@ -33,6 +33,8 @@ const state = {
 };
 
 const handleErrors = (err) => {
+  state.shouldMinify = false;
+  console.log(state);
   console.dir(err.message);
 }
 
@@ -55,16 +57,19 @@ const fileDeleter = (event) => {
  * Lints the source
  */
 const lint = () => {
-  state.shouldMinify = false;
+  state.shouldMinify = true;
 
   return src([jsFiles])
     .pipe(eslint())
+    .pipe(plumber({
+      errorHandler: handleErrors
+    }))
     .on('error', (err) => {
       state.shouldMinify = false;
+      console.log(state);
       return handleErrors(err);
     })
     .pipe(eslint.format());
-    //.pipe(eslint.failAfterError());
 };
 
 /**
@@ -85,7 +90,7 @@ const images = () => {
  */
 const scripts = series(lint, (cb) => {
   console.log(state);
-  if (!state.shouldMinify) return cb;
+  if (!state.shouldMinify) return cb();
 
   return src(baseDir + '/js/main.js')
     .pipe(plumber({
@@ -139,14 +144,7 @@ const copy = () => {
     .pipe(browserSync.stream());
 };
 
-const build = series((cb) => {
-  browserSync.init({
-    proxy: devUrl,
-    notify: false
-  });
-
-  cb();
-}, parallel(copy, images, styles, scripts));
+const build = parallel(copy, images, styles, scripts);
 
 const cleanup = (cb) => { cb(); };
 
@@ -154,6 +152,11 @@ const cleanup = (cb) => { cb(); };
  * Watches for changes in files and does stuffF
  */
 const develop = parallel(build, () => {
+  browserSync.init({
+    proxy: devUrl,
+    notify: false
+  });
+
   watch([jsFiles], scripts);
   watch([sassFiles], styles);
   const imageWatcher = watch([imageFiles], images);
@@ -184,9 +187,10 @@ const packUp = series(build, () => {
 });
 
 //if (process.env.NODE_ENV === 'production') {
-exports.cleanup = cleanup;
-exports.zip     = packUp;
-exports.develop = develop;
+// exports.cleanup = cleanup;
 exports.build   = build;
-exports.default = develop;
 exports.copy    = copy;
+exports.default = develop;
+exports.develop = develop;
+exports.zip     = packUp;
+

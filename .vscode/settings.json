@@ -4,5 +4,12 @@
         "src\\app\\tests\\simpletest\\test\\test_with_parse_error.php": true,
         "node_modules": true
     },
-    "php.validate.run": "onType"
+    "php.validate.run": "onType",
+    "files.associations": {
+        "*.tpl": "php"
+    },
+    "files.trimTrailingWhitespace": true,
+    "editor.rulers": [
+        100
+    ],
 }
