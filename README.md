@@ -32,6 +32,19 @@ Development is done in the *src* folder and compiled by gulp to the *dist* folde
 is automatically synced with the docker instance. Visual Studio Code will be preconfigured to hide
 the dist folder to prevent confusion.
 
+3. Running tests
+
+The core and modules are git submodules, so a fresh clone won't have any of their code checked out
+until you run `git submodule update --init` (this happens automatically as part of `npm run build`/
+`npm run develop` via the `init` script). Tests use PHPUnit, installed via Composer:
+
+``` bash
+    npm test
+```
+
+which runs `composer install` followed by PHPUnit against *src/app/tests*. You can also run it
+directly with `composer install && vendor/bin/phpunit src/app/tests`.
+
 ## Gulp Modules
 
 sleepyMUSTACHE Basic includes the following gulp modules in the build system:

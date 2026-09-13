@@ -10,7 +10,8 @@
     "zip": "npm run build && gulp zip",
     "cleanup": "npm run build && gulp cleanup",
     "start": "npm run develop",
-    "test": "php phpunit.phar ./src/app"
+    "pretest": "composer install",
+    "test": "vendor/bin/phpunit src/app/tests"
   },
   "author": "Jaime Rodriguez <jaime@rodriguez-jr.com>",
   "license": "MIT",

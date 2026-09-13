@@ -94,6 +94,22 @@ class DebugTest extends TestCase
      */
     function testDebugEmail()
     {
+        // mail() needs a configured MTA (sendmail on *nix, SMTP on Windows)
+        // to succeed. Skip on environments--like most CI/dev boxes--that
+        // don't have one, rather than failing on something outside the
+        // framework's control.
+        $sendmailPath = ini_get('sendmail_path');
+        $hasSendmail = $sendmailPath && is_executable(strtok($sendmailPath, ' '));
+        // The SMTP ini setting is only actually used by mail() on Windows;
+        // on *nix it always reports a meaningless default ('localhost').
+        $hasSmtp = PHP_OS_FAMILY === 'Windows' && (bool) ini_get('SMTP');
+
+        if (!$hasSendmail && !$hasSmtp) {
+            $this->markTestSkipped(
+                'No MTA (sendmail/SMTP) is configured in this environment.'
+            );
+        }
+
         Debug::$enableShow = false;
         Debug::$enableSend = true;
         Debug::out('Testing, testing, 123');

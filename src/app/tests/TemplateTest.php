@@ -115,7 +115,7 @@ class TemplateTest extends TestCase
         $t->show();
         $name = ob_get_clean();
 
-        $this->assertEquals($name, "<h1>Header</h1>\r\nSleepy Mustache!");
+        $this->assertEquals($name, "<h1>Header</h1>\nSleepy Mustache!");
     }
 
     /**
@@ -181,7 +181,7 @@ class TemplateTest extends TestCase
                 }
             }
 
-            return implode($colors, ' ');
+            return implode(' ', $colors);
         }
 
         Hook::applyFilter(
