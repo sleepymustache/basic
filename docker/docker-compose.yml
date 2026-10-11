@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: p@ssw0rd
+      MYSQL_DATABASE: sleepy
+      MYSQL_USER: sleepy
+      MYSQL_PASSWORD: sleepy
+    ports:
+      - "3336:3306"
+  web:
+    build: .
+    depends_on:
+      - db
+    volumes:
+      - ../dist/:/var/www/html/
+    ports:
+      - "8888:80"
+    stdin_open: true
+    tty: true

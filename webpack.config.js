@@ -17,7 +17,7 @@ module.exports = {
    * Prod: none
    * Dev:  source-map
    */
-  devtool: 'none',
+  devtool: 'source-map',
 
   /**
    * The name of the bundle

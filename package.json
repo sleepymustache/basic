@@ -1,15 +1,17 @@
 {
-  "name": "basic",
-  "version": "1.1.0",
+  "name": "sleepy-mustache-basic",
+  "version": "2.0.0",
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "build": "gulp build",
-    "develop": "gulp watch",
-    "zip": "gulp zip",
-    "cleanup": "gulp cleanup",
-    "start": "gulp",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "init": "git submodule init && git submodule update && npm install",
+    "build": "npm run init && gulp build",
+    "develop": "npm run init && gulp copy && docker-compose -f \"docker/docker-compose.yml\" up -d --build && gulp develop",
+    "zip": "npm run build && gulp zip",
+    "cleanup": "npm run build && gulp cleanup",
+    "start": "npm run develop",
+    "pretest": "composer install",
+    "test": "vendor/bin/phpunit src/app/tests"
   },
   "author": "Jaime Rodriguez <jaime@rodriguez-jr.com>",
   "license": "MIT",
@@ -24,19 +26,28 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-standard": "^3.0.1",
-    "gulp": "~3.9.1",
+    "gulp": "~4.0.0",
     "gulp-eslint": "^4.0.2",
     "gulp-imagemin": "^4.1.0",
     "gulp-notify": "^3.2.0",
     "gulp-plumber": "^1.1.0",
-    "gulp-sass": "^3.1.0",
+    "gulp-sass": "^4.1.1",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-zip": "^4.2.0",
     "webpack": "^3.11.0",
     "webpack-stream": "^4.0.2"
   },
   "dependencies": {
+    "axios": "^0.21.4",
+    "axios-oauth-client": "^1.4.3",
+    "axios-token-interceptor": "^0.2.0",
     "babel-runtime": "^6.26.0",
     "del": "^5.0.0"
-  }
+  },
+  "browserslist": [
+    "defaults",
+    "last 2 versions",
+    "not dead",
+    "IE 11"
+  ]
 }

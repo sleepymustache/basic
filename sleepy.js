@@ -72,6 +72,7 @@ class Module {
     subprocess.spawnSync('git', [
       'submodule',
       'add',
+      '-b 2.x',
       this.obj.url,
       'src/app/modules/' + this.name.replace(' ', '-').toLowerCase()
     ], {
@@ -101,7 +102,7 @@ class Sleepy {
 
     let request = https.get({
       hostname: 'raw.githubusercontent.com',
-      path: '/sleepymustache/modules/master/modules.json'
+      path: '/sleepymustache/modules/master/modules2.json'
     }, response => {
       let body = '';
 

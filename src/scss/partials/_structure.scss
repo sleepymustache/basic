@@ -9,48 +9,53 @@
   font-family: 'Fira Sans', sans-serif;
 }
 
-%full-width {
-  padding-left: calc((100% - 960px) / 2);
-  padding-right: calc((100% - 960px) / 2);
-}
-
 a {
   color: $body-link-color;
 }
 
 body {
-  > header {
-    @extend %full-width;
+  .wrapper {
+    @include make-row();
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    overflow: hidden;
+  }
 
+  > header {
+    @include make-container();
     background-color: $header-background-color;
-    padding-bottom: $desktop-padding;
+    padding-top: $desktop-padding;
 
     h1 {
       color: $header-text-color;
-      font-size: $desktop-base-font-size * 4;
-      margin: 0 0 $desktop-padding;
+      font-size: $desktop-base-font-size * 3;
+      margin: ($desktop-padding * 2) 0 ($desktop-padding * 2);
 
-      span {
-        color: $header-text-color;
+      @include breakpoint('medium') {
+        font-size: $desktop-base-font-size * 4;
       }
     }
   }
 
   > main {
-    @extend %full-width;
+    @include make-container();
 
-    display: block;
-    padding-bottom: $desktop-padding;
-    padding-top: $desktop-padding;
+    h1 {
+      font-size: $desktop-base-font-size * 2;
+    }
 
     p {
       line-height: $desktop-base-font-size * 2;
     }
+
+    article {
+      margin: $desktop-padding * 2 0; 
+    }
   }
 
   > footer {
-    @extend %full-width;
-
+    @include make-container();
     @include stretched-footer($footer-background-color);
 
     background-color: $footer-background-color;

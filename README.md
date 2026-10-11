@@ -1,49 +1,52 @@
-sleepyMUSTACHE - Basic Setup
-===============================================================================
+# sleepyMUSTACHE 2.0 - Basic Setup
 
-sleepyMUSTACHE is a modular PHP micro-framework designed to provide solutions for everyday PHP
-challenges. There are two editions: basic and routed. The basic edition is aimed at providing a
-bare bones scaffolding for simple websites. While the routed version is focused on web application
-development by including conrollers, modules, and views.
+sleepyMUSTACHE is a PHP micro-framework designed to provide solutions for rapidly building websites
+which are fast and secure. Our main goal is to create a framework that is enjoyable for developers
+to use, while giving them fine grained control.
 
-Getting Started
--------------------------------------------------------------------------------
-Configuration is done in *src/settings.php* and *gulpfile.js*. You define your dev/stage/live
-environments, debugging preferences, and set any globals you need for your application in
-*settings.php*. Build settings are managed in *gulpfile.js*
+There are two editions: basic and routed.
 
-1. Initialize git and node modules:
+The basic edition is aimed at providing a bare bones scaffolding for simple websites. While the
+routed version is focused on web application and services development and includes controllers,
+modules, and views. Both versions consists of the core and various modules which are easy to
+understand and create.
 
-``` bash
-    git submodule init
-    git submodule update
-    npm install
-```
+## Getting Started
 
-2. In *gulpfile.js*, modify the configuration setting as necessary:
+1. sleepyMUSTACHE settings
 
-``` javascript
-    const devUrl = 'http://basic.local.com';  // This should match the web server hostname
-    const enableTests = false;                // Set to true to enable simpletest
-```
+Configuration is done in *src/settings.php*. You define your dev/stage/live environments, debugging
+preferences, and set any globals you need for your application in *settings.php*.
 
-3. Compile the code and start the develop/watch process by running:
+2. Development and tooling
+
+NPM (node v.14), Gulp 4, and Docker are required and used to setup the environment and automate the
+build process. The initial compile takes a few mins as Docker will download, compile, and setup the
+development environment.
 
 ``` bash
-    npm develop
+    npm run develop
 ```
 
-The compiled code will live in the *dist* folder. Development is done in the *src* folder and
-compiled by gulp to the *dist* folder.
+Development is done in the *src* folder and compiled by gulp to the *dist* folder. The dist folder
+is automatically synced with the docker instance. Visual Studio Code will be preconfigured to hide
+the dist folder to prevent confusion.
 
-4. Configure the web server so that:
+3. Running tests
 
-  * The web server root should point to the *dist* folder inside the repo
-  * The web server hostname matches the *devUrl* in *gulpfile.js*
+The core and modules are git submodules, so a fresh clone won't have any of their code checked out
+until you run `git submodule update --init` (this happens automatically as part of `npm run build`/
+`npm run develop` via the `init` script). Tests use PHPUnit, installed via Composer:
 
+``` bash
+    npm test
+```
 
-Gulp Modules
--------------------------------------------------------------------------------
+which runs `composer install` followed by PHPUnit against *src/app/tests*. You can also run it
+directly with `composer install && vendor/bin/phpunit src/app/tests`.
+
+## Gulp Modules
+
 sleepyMUSTACHE Basic includes the following gulp modules in the build system:
 
 * gulp-eslint     - Processes files with ESLint
@@ -53,25 +56,28 @@ sleepyMUSTACHE Basic includes the following gulp modules in the build system:
 * gulp-sourcemaps - Adds sourcemaps for SASS
 * gulp-webpack    - Minify and transpiles JavaScript
 
-Whats included?
--------------------------------------------------------------------------------
-The basic framework includes the core, SimpleTest, a tool for installing
-[modules](https://github.com/sleepymustache/modules), and the build scripts.
+## Whats included?
+
+The basic framework includes the core, phpunit, a tool for installing
+[modules](https://github.com/sleepymustache/modules) (sleepy.js), and the build scripts.
 
 ### Core functionality
 
-The core consistes of 4 modules. See below for documentation:
+The core consists of a few classes. See below for documentation:
 
 * [Debugging](http://sleepymustache.com/documentation/class-Sleepy.Debug.html)
 * [Hooks](http://www.sleepymustache.com/documentation/class-Sleepy.Hook.html)
-* [Routing](http://sleepymustache.com/documentation/class-Sleepy.Router.html)
+* AutoLoader
+* Modules
 * [Templating](http://www.sleepymustache.com/documentation/class-Sleepy.Template.html)
 
 ### Installing Modules
 
-"sleepy.js" assists in finding and installing modules.
+"sleepy.js" assists in finding and installing modules. The list of Modules is located on Github. We
+encourage you to submit your modules as pull requests to have them added to the
+[repository](https://github.com/sleepymustache/modules).
 
-You can get a list of available modules:
+Using the sleepy.js script, you can get a list of available modules:
 
 ``` bash
     node sleepy --list
@@ -97,6 +103,7 @@ You can get more info about a module:
 
 Learning More
 -------------------------------------------------------------------------------
-*  Documentation about the core is available at [core repo](https://github.com/sleepymustache/core).
+*  Documentation about the core is available at [core
+   repo](https://github.com/sleepymustache/core).
 *  A list of existing modules can be found in the [modules
    repo](https://github.com/sleepymustache/modules).

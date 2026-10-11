@@ -1,72 +1,267 @@
 /**
  * This page contains the default navigation menu styling
- */
-nav {
-  ul {
-    border-left: 1px solid $black;
+ */ 
+
+// Navigation Colors
+
+$nav-active-font-weight: 600;
+$nav-font-color: $black;
+$nav-justify-content: flex-end;
+$nav-padding: 16px;
+$nav-pipe-color: $black;
+$nav-subnav-padding: 32px;
+
+$nav-main-background-color: $gray;
+$nav-main-border-color: $black;
+$nav-main-border-style: solid;
+$nav-main-border-width: 1px;
+$nav-main-font-color: $black;
+$nav-main-justify-content: flex-start;
+
+$nav-main-active-background-color: $gray;
+$nav-main-active-font-color: $darkblue;
+$nav-main-active-font-weight: 600;
+$nav-main-hover-background-color: $gray;
+$nav-main-hover-font-color: $darkblue;
+$nav-main-hover-font-weight: 600;
+
+$nav-main-subnav-background-color: $lightblue;
+$nav-main-subnav-font-color: $black;
+$nav-main-subnav-font-weight: 400;
+
+$nav-main-subnav-hover-background-color: $darkblue;
+$nav-main-subnav-hover-font-color: $white;
+$nav-main-subnav-hover-font-weight: 400;
+
+$nav-main-subnav-active-background-color: $darkblue;
+$nav-main-subnav-active-font-color: $white;
+$nav-main-subnav-active-font-weight: 400;
+
+
+nav { 
+  ul.menu {
     list-style: none;
     padding: 0;
-
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    justify-content: $nav-justify-content;
+    
     li {
-      display: inline-block;
+      padding-right: $nav-padding;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+
+      &.active {
+        font-weight: $nav-active-font-weight;
+      }
+
+      &.has-children {
+         .submenu {
+          position: relative;
+         }
+      }
+
+      + li {
+        border-left: 1px solid $nav-pipe-color;
+        padding-left: $nav-padding; 
+      }
 
       a {
-        background: $white;
-        border: 1px solid $black;
-        border-left: 0;
-        color: $black;
-        display: block;
-        padding: 8px 24px;
-        text-align: center;
-        text-decoration: none;
-        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-        width: 150px;
-
-        &:hover {
-          background: $nav-hover-color;
-          color: $white;
-        }
-      }
-    }
-
-    > ul li:hover > ul {
-      display: block;
-    }
-
-    ul {
-      display: none;
-      margin: 0 0 0 -1px;
-      position: absolute;
-
-      li {
-        clear: both;
-        float: left;
-
-        a {
-          margin-top: -1px;
-          min-width: 304px;
-          text-align: left;
-        }
-      }
-
-      ul {
-        left: 100%;
-        top: -1px;
+        position: relative;
+        color: $nav-font-color;
       }
     }
   }
 }
 
-@media (max-width: $desktop-breakpoint) {
-  nav {
-    ul {
-      li {
-        width: 100%;
+nav.main {
+  background-color: $nav-main-background-color;
+  width: 100%;
 
-        a {
-          width: 100%;
-        }
-      }
+  &.opened {
+    .toggle {
+      background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' data-prefix='fas' data-icon='times' class='svg-inline--fa fa-times fa-w-11' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 352 512'%3E%3Cpath fill='currentColor' d='M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z'%3E%3C/path%3E%3C/svg%3E");
+    }
+
+    ul.menu {
+      max-height: 700px;
     }
   }
+
+  .toggle {
+    background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' data-prefix='fas' data-icon='bars' class='svg-inline--fa fa-bars fa-w-14' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='currentColor' d='M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z'%3E%3C/path%3E%3C/svg%3E");
+    position: absolute;
+    right: 15px;
+    top: 57px;
+    width: 42px;
+    height: 42px;
+    padding: 6px;
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+    color: $white;
+
+    @include breakpoint('medium') {
+      display: none;
+    }
+
+    &:active {
+      opacity: 0.5;
+    }
+  }
+
+  ul.menu {
+    display: block;
+    justify-content: $nav-main-justify-content;
+    max-height: 0;
+    overflow: hidden;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.25s ease-in-out;
+
+    @include breakpoint('medium') {
+      display: flex;
+      max-height: 100%;
+      overflow: visible;
+    }
+
+    li {
+      position: relative;
+      padding: 0;
+      
+      &.active, &.active-child {
+        a {
+          font-weight: $nav-main-active-font-weight;
+          color: $nav-main-active-font-color;
+          background-color: $nav-main-active-background-color;
+        }
+      }
+
+      &.has-children {
+        list-style: none;
+        
+        &:after {
+          content: "+";
+          font-size: 2em;
+          display: block;
+          position: absolute;
+          right: 16px;
+          top: 6px;
+          font-weight: 500;
+
+          @include breakpoint('medium') {
+            display: none;
+          }
+        }
+
+        &:hover {
+          .submenu {
+            @include breakpoint('medium') {
+              display: block;
+            }
+          }
+        }
+
+        &.opened {
+          &:after {
+            content: "-";
+          }
+
+          .submenu {
+            max-height: 700px;
+          }
+
+          a {
+            color: $nav-main-subnav-font-color;
+            font-weight: $nav-main-subnav-font-weight;
+            background-color: $nav-main-subnav-background-color;
+
+            &:hover {
+              font-weight: $nav-main-active-font-weight;
+            }
+
+            @include breakpoint('medium') {
+              padding-left: $nav-padding;
+            }
+          }
+        }
+
+        .submenu {
+          list-style: none;
+          padding: 0;
+          max-height: 0;
+          transition: all 0.25s ease-in-out;
+          overflow: hidden;
+          
+          @include breakpoint('medium') {
+            display: none;
+            max-height: 900px;
+            min-width: 200px;
+            position: absolute;
+          }
+
+          .active {
+            a {
+              background-color: $nav-main-subnav-active-background-color;
+              color: $nav-main-subnav-active-font-color;
+              font-weight: $nav-main-subnav-active-font-weight;
+            }
+          }
+
+          a {
+            padding-left: $nav-subnav-padding;
+            color: $nav-main-subnav-font-color;
+            font-weight: $nav-main-subnav-font-weight;
+            background-color: $nav-main-subnav-background-color;
+
+            &:hover {
+              background-color: $nav-main-subnav-hover-background-color;
+              color: $nav-main-subnav-hover-font-color;
+              font-weight: $nav-main-subnav-hover-font-weight;
+            }
+          }
+        }
+      }
+
+      + li {
+        border-left: 0; 
+        list-style: none;
+        padding: 0;
+
+        @include breakpoint('medium') {
+          border: 0;
+        }
+      }
+
+      a {
+        border-bottom: $nav-main-border-width $nav-main-border-style $nav-main-border-color;
+        color: $nav-main-font-color;
+        display: block;
+        padding: $nav-padding;
+        width: 100%;
+
+        @include breakpoint('medium') {
+          border-bottom: 0;
+
+          &:hover {
+            background-color: $nav-main-hover-background-color;
+            color: $nav-main-hover-font-color;
+            font-weight: $nav-main-hover-font-weight;
+          }
+        }
+      } 
+    }
+  }
+}
+
+nav.top {
+  @include make-container();
 }
